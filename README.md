@@ -27,4 +27,10 @@ chown -R dvzo:dvzo /home/dvzo/.ssh
 PermitRootLogin no
 PasswordAuthentication no
 systemctl restart sshd
+
+# install caddy
+https://caddyserver.com/docs/install
+
+# Apply Caddyfile
+caddy reload Caddyfile
 ```
