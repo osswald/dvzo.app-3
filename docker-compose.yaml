@@ -7,7 +7,7 @@ services:
     depends_on:
       - db
     ports:
-      - "8069:8069"
+      - "127.0.0.1:8069:8069"
     env_file:
       - ./docker-compose.env
     volumes:
