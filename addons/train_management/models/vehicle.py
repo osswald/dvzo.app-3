@@ -1,9 +1,24 @@
+from ..drehscheibe.api import Drehscheibe
+from datetime import datetime
 from odoo import models, fields
 
 
 class Vehicle(models.Model):
     _name = "train_management.vehicle"
     _description = "Vehicle"
+
+    props = [ "axleWeight", "brakePadType", "brakingWeight1", "brakingWeightHighG",
+"brakingWeightLowG", "brakingWeightLowP", "cargo", "clearanceProfile",
+"clutchType", "colorBody", "colorFrame", "constructionYear", "distanceWheelsets", "entityECM",
+"epoch", "frameWagon", "gauge", "handbrakeWeight", "hasBavLicense", "hasBbLicense",
+"hasChangeOver", "hasDynamoGenerator", "hasEboLicense", "hasEbvLicense", "hasRicRivTenLicense", "historicalDesignation",
+"isBavLimited", "isBbLimited", "isEboLimited", "isEbvLimited", "isGuest",
+"isOperational", "isRicRivTenLimited", "lengthOverBuffer", "manufacturer", "manufacturerBody",
+"manufacturerFrame", "maxTowWeight", "maximumPayload", "meterWeight", "mileage",
+"nbrEmergencyBrakeValve", "note", "numberOfAxes", "numberOfBrakePads", "operationalEndDate",
+"outerHeightBody", "outerWidth", "plainOrRollerBearings", "specialities", "standardLoadingWeight",
+"stateChangeNote", "suspension", "vehicleGenre", "vehicleNumberNVR", "vehicleType",
+"vehicleWeightGross", "vehicleWeightNet", "vmax"]
 
     name = fields.Char("Label", required=True)
     ds_id = fields.Char("ds id", help="UUID linking vehicles to the Drehscheibe")
@@ -59,7 +74,7 @@ class Vehicle(models.Model):
     maximumPayload = fields.Float()
     meterWeight = fields.Float()
     mileage = fields.Float()
-    nbrEmergencyBrakeValve = fields.Integer()
+    nbrEmergencyBrakeValve = fields.Text()
     note = fields.Text()
     numberOfAxes = fields.Integer()
     numberOfBrakePads = fields.Integer()
@@ -77,3 +92,38 @@ class Vehicle(models.Model):
     vehicleWeightGross = fields.Float()
     vehicleWeightNet = fields.Float()
     vmax = fields.Float()
+    weight = fields.Float()
+    height = fields.Float()
+    length = fields.Float()
+
+    def search(self, domain, offset=0, limit=None, order=None, count=False):
+        drehscheibe = Drehscheibe()
+        id_domain = [d for d in domain if d[0] == "id"]
+        if id_domain:
+            response_data = drehscheibe.get_data(uuid=id_domain[2])
+        else:
+            response_data = drehscheibe.get_data()
+
+        new_items = []
+        # TODO: clean up
+        for old_item in response_data:
+            new_item = {}
+            for prop in self.props:
+                if prop == "operationalEndDate":
+                    if old_item.get(prop):
+                        new_item[prop] = datetime.strptime(
+                            old_item.get(prop), "%Y-%m-%dT%H:%M:%S%z"
+                        ).strftime("%Y-%m-%d %H:%M:%S")
+                else:
+                    new_item[prop] = old_item.get(prop)
+            new_item["ds_id"] = old_item.get("id")
+            new_item["weight"] = 55
+            new_item["height"] = 66
+            new_item["length"] = 66
+            new_item["name"] = old_item.get("id")
+            new_item["type"] = "engine"
+            new_items.append(new_item)
+
+        return self.env['train_management.vehicle'].sudo().create(
+            new_items
+        )
