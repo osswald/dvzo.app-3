@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- VEHICLE VIEWS -->
+        <record id="vehicle_view_form" model="ir.ui.view">
+            <field name="name">vehicle.form</field>
+            <field name="model">train_management.vehicle</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="type"/>
+                                <field name="ds_id"/>
+                                <field name="vehicleNumberNVR"/>
+                                <field name="weight"/>
+                                <field name="length"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="vehicle_view_tree" model="ir.ui.view">
+            <field name="name">vehicle.tree</field>
+            <field name="model">train_management.vehicle</field>
+            <field name="arch" type="xml">
+                <tree string="Vehicle">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="weight"/>
+                    <field name="length"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="vehicle_action" model="ir.actions.act_window">
+            <field name="name">Vehicles</field>
+            <field name="res_model">train_management.vehicle</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+    </data>
+</odoo>

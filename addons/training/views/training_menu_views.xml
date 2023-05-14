@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<odoo><data>
+
+    <!-- Training MENU VIEWS -->
+    <menuitem id="key_management_menu_root" name="Education">
+            <menuitem id="training_menu_action" action="training_action" />
+            <menuitem id="training_module_menu_action" action="training_module_action" />
+        <menuitem id="settings_menu" name="Settings">
+            <menuitem id="training_qualification_menu_action" action="training.training_qualification_action"/>
+            <menuitem id="training_qualification_type_menu_action" action="training.training_qualification_type_action"/>
+            <menuitem id="training_qualification_category_menu_action" action="training.training_qualification_category_action"/>
+            <menuitem id="training_medical_fitness_level_menu_action" action="training.training_medical_fitness_level_action"/>
+        </menuitem>
+    </menuitem>
+
+
+</data></odoo>
+
+
+

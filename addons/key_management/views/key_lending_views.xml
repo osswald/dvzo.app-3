@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<odoo><data>
+
+    <!-- KEY LENDING VIEWS -->
+    <record id="key_lending_action" model="ir.actions.act_window">
+        <field name="name">Key Lending</field>
+        <field name="res_model">key_management.lending</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- KEY LENDING TREE VIEW -->
+    <record id="key_lending_tree_view" model="ir.ui.view">
+        <field name="name">key.lending.tree</field>
+        <field name="model">key_management.lending</field>
+        <field name="arch" type="xml">
+            <tree string="key_lending">
+                <field name="lender" />
+                <field name="key" />
+                <field name="lending_date" />
+                <field name="return_date" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- KEY LENDING FORM VIEW -->
+    <record id="key_lending_view_form" model="ir.ui.view">
+        <field name="name">key.lending.form</field>
+        <field name="model">key_management.lending</field>
+        <field name="arch" type="xml">
+            <form string="key_lending">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="lender"/>
+                            <field name="key"/>
+                        </group>
+                        <group>
+                            <field name="lending_date"/>
+                            <field name="return_date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ESTATE.PROPERTY SEARCH VIEW -->
+    <!--<record id="estate_property_view_search" model="ir.ui.view">
+        <field name="name">estate.property.search</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="postcode"/>
+                <field name="expected_price"/>
+                <field name="bedrooms"/>
+                <field name="living_area" filter_domain="[('living_area', '>=', self)]"/>
+                <field name="facades"/>
+                <field name="garage"/>
+                <field name="garden"/>
+                <filter string="Available" name="available" domain="[('state', 'in', ('new', 'offer_received'))]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Postcode" name='postcode' context="{'group_by':'postcode'}"/>
+                </group>
+            </search>
+        </field>
+    </record>-->
+
+
+</data></odoo>

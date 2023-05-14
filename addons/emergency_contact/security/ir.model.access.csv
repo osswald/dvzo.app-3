@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_emergency_contact,emergency_contact.emergency_contact,model_emergency_contact_emergency_contact,base.group_user,1,1,1,1

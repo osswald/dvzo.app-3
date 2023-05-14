@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- KEY GROUP VIEWS -->
+        <record id="key_group_view_form" model="ir.ui.view">
+            <field name="name">key.group.form</field>
+            <field name="model">key_management.group</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="short_name"/>
+                                <field name="name"/>
+                                <field name="comment"/>
+                                <field name="key_permission"/>
+                                <field name="key_system"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Keys">
+                                <field name="key_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="key_group_view_tree" model="ir.ui.view">
+            <field name="name">key.group.tree</field>
+            <field name="model">key_management.group</field>
+            <field name="arch" type="xml">
+                <tree string="Property Types">
+                    <field name="short_name"/>
+                    <field name="name"/>
+                    <field name="comment"/>
+                    <field name="key_permission"/>
+                    <field name="key_system"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="key_group_action" model="ir.actions.act_window">
+            <field name="name">Key Group</field>
+            <field name="res_model">key_management.group</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a key group
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

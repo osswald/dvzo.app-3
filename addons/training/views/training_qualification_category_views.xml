@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- TRAINING QUALIFICATION CATEGORY VIEWS -->
+        <record id="training_qualification_category_view_form" model="ir.ui.view">
+            <field name="name">training.qualification.category.form</field>
+            <field name="model">training.qualification.category</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="training_qualification_category_view_tree" model="ir.ui.view">
+            <field name="name">training.qualification.category.tree</field>
+            <field name="model">training.qualification.category</field>
+            <field name="arch" type="xml">
+                <tree string="Qualification category" editable="bottom">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="training_qualification_category_action" model="ir.actions.act_window">
+            <field name="name">Qualification category</field>
+            <field name="res_model">training.qualification.category</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a qualification category
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

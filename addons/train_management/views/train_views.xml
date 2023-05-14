@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- TRAIN VIEWS -->
+        <record id="train_view_form" model="ir.ui.view">
+            <field name="name">train.form</field>
+            <field name="model">train_management.train</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="circuit"/>
+                                <field name="name"/>
+                                <field name="description"/>
+                                <field name="frequency"/>
+                                <field name="distance"/>
+                                <field name="start_station"/>
+                                <field name="end_station"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Vehicles">
+                                <field name="train_vehicle">
+                                    <tree editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="vehicle"/>
+                                        <field name="comment"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Timetable">
+                                <field name="timetable">
+                                    <tree editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="station"/>
+                                        <field name="arrival_time"/>
+                                        <field name="departure_time"/>
+                                        <field name="stop_code"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Reservations">
+                                <field name="reservation_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="amount"/>
+                                        <field name="type"/>
+                                        <field name="phone_number"/>
+                                        <field name="email"/>
+                                        <field name="comment" widget="text" options="{'maxlength': 50}"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="train_view_tree" model="ir.ui.view">
+            <field name="name">train.tree</field>
+            <field name="model">train_management.train</field>
+            <field name="arch" type="xml">
+                <tree string="Train">
+                    <field name="name"/>
+                    <field name="start_station"/>
+                    <field name="end_station"/>
+                    <field name="train_composition"/>
+                    <field name="distance"/>
+                    <field name="frequency"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="train_action" model="ir.actions.act_window">
+            <field name="name">Train</field>
+            <field name="res_model">train_management.train</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<odoo><data>
+
+    <!-- KEY MANAGEMENT MENU VIEWS -->
+    <menuitem id="key_management_menu_root" name="Key Management">
+        <menuitem id="lending_menu" name="Lending">
+            <menuitem id="lending_menu_action" action="key_lending_action" />
+        </menuitem>
+        <menuitem id="settings_menu" name="Settings">
+            <menuitem id="key_menu_action" action="key_management.key_action" />
+            <menuitem id="key_permission_menu_action" action="key_management.key_permission_action" />
+            <menuitem id="key_group_menu_action" action="key_management.key_group_action" />
+            <menuitem id="key_system_menu_action" action="key_management.key_system_action" />
+        </menuitem>
+    </menuitem>
+
+
+</data></odoo>
+
+
+

@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- TRAINING VIEWS -->
+        <record id="training_view_form" model="ir.ui.view">
+            <field name="name">training.form</field>
+            <field name="model">training.training</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="label"/>
+                                <field name="module"/>
+                                <field name="responsible"/>
+                                <field name="start"/>
+                                <field name="end"/>
+                            </group>
+                            <group>
+                                <field name="meeting_place"/>
+                                <field name="take_along"/>
+                                <field name="important"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Participants">
+                                <field name="participant_ids"/>
+                            </page>
+                            <page string="Training dates">
+                                <field name="training_date_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="training_view_tree" model="ir.ui.view">
+            <field name="name">training.tree</field>
+            <field name="model">training.training</field>
+            <field name="arch" type="xml">
+                <tree string="Training">
+                    <field name="name"/>
+                    <field name="label"/>
+                    <field name="start"/>
+                    <field name="end"/>
+                    <field name="module"/>
+                    <field name="responsible"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="training_action" model="ir.actions.act_window">
+            <field name="name">Training</field>
+            <field name="res_model">training.training</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a training
+                </p>
+            </field>
+        </record>
+
+        <record id="training_search" model="ir.ui.view">
+        <field name="name">training.search</field>
+        <field name="model">training.training</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="module"/>
+                <field name="responsible"/>
+                <field name="label"/>
+                <group expand="1" string="Group By">
+                    <filter string="Module" name='module' context="{'group_by':'module'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    </data>
+</odoo>

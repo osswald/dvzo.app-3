@@ -1,0 +1,245 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* key_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-10 06:26+0000\n"
+"PO-Revision-Date: 2023-05-10 08:34+0200\n"
+"Last-Translator: Christoph Osswald\n"
+"Language-Team: \n"
+"Language: de_CH\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. module: key_management
+#: model:ir.model.fields,field_description:key_management.field_key_management_group__comment
+#: model:ir.model.fields,field_description:key_management.field_key_management_system__comment
+msgid "Comment"
+msgstr "Kommentar"
+
+#. module: key_management
+#: model_terms:ir.actions.act_window,help:key_management.key_action
+msgid "Create a key"
+msgstr "Schlüssel erstellen"
+
+#. module: key_management
+#: model_terms:ir.actions.act_window,help:key_management.key_group_action
+msgid "Create a key group"
+msgstr "Schlüsselgruppe erstellen"
+
+#. module: key_management
+#: model:ir.model.fields,field_description:key_management.field_key_management_group__create_uid
+#: model:ir.model.fields,field_description:key_management.field_key_management_key__create_uid
+#: model:ir.model.fields,field_description:key_management.field_key_management_lending__create_uid
+#: model:ir.model.fields,field_description:key_management.field_key_management_permission__create_uid
+#: model:ir.model.fields,field_description:key_management.field_key_management_system__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: key_management
+#: model:ir.model.fields,field_description:key_management.field_key_management_group__create_date
+#: model:ir.model.fields,field_description:key_management.field_key_management_key__create_date
+#: model:ir.model.fields,field_description:key_management.field_key_management_lending__create_date
+#: model:ir.model.fields,field_description:key_management.field_key_management_permission__create_date
+#: model:ir.model.fields,field_description:key_management.field_key_management_system__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: key_management
+#: model:ir.model.fields,field_description:key_management.field_key_management_group__display_name
+#: model:ir.model.fields,field_description:key_management.field_key_management_key__display_name
+#: model:ir.model.fields,field_description:key_management.field_key_management_lending__display_name
+#: model:ir.model.fields,field_description:key_management.field_key_management_permission__display_name
+#: model:ir.model.fields,field_description:key_management.field_key_management_system__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: key_management
+#: model:ir.model.fields.selection,name:key_management.selection__key_management_system__manufacturer__kaba
+msgid "DormaKABA"
+msgstr "DormaKABA"
+
+#. module: key_management
+#: model:ir.model.fields,field_description:key_management.field_key_management_group__id
+#: model:ir.model.fields,field_description:key_management.field_key_management_key__id
+#: model:ir.model.fields,field_description:key_management.field_key_management_lending__id
+#: model:ir.model.fields,field_description:key_management.field_key_management_permission__id
+#: model:ir.model.fields,field_description:key_management.field_key_management_system__id
+msgid "ID"
+msgstr "ID"
+
+#. module: key_management
+#: model:ir.model.fields.selection,name:key_management.selection__key_management_system__manufacturer__keso
+msgid "KESO"
+msgstr "KESO"
+
+#. module: key_management
+#: model:ir.actions.act_window,name:key_management.key_action
+#: model:ir.model.fields,field_description:key_management.field_key_management_lending__key
+#: model:ir.ui.menu,name:key_management.key_menu_action
+msgid "Key"
+msgstr "Schlüssel"
+
+#. module: key_management
+#: model:ir.actions.act_window,name:key_management.key_group_action
+#: model:ir.model.fields,field_description:key_management.field_key_management_key__key_group
+#: model:ir.ui.menu,name:key_management.key_group_menu_action
+msgid "Key Group"
+msgstr "Schliessgruppe"
+
+#. module: key_management
+#: model:ir.actions.act_window,name:key_management.key_lending_action
+#: model:ir.ui.menu,name:key_management.lending_menu_action
+msgid "Key Lending"
+msgstr "Ausleihe"
+
+#. module: key_management
+#: model:ir.ui.menu,name:key_management.key_management_menu_root
+msgid "Key Management"
+msgstr "Schlüsselverwaltung"
+
+#. module: key_management
+#: model:ir.actions.act_window,name:key_management.key_permission_action
+#: model:ir.model.fields,field_description:key_management.field_key_management_group__key_permission
+#: model:ir.ui.menu,name:key_management.key_permission_menu_action
+#: model_terms:ir.ui.view,arch_db:key_management.key_permission_view_tree
+msgid "Key Permission"
+msgstr "Berechtigung"
+
+#. module: key_management
+#: model:ir.actions.act_window,name:key_management.key_system_action
+#: model:ir.model.fields,field_description:key_management.field_key_management_group__key_system
+#: model:ir.ui.menu,name:key_management.key_system_menu_action
+#: model_terms:ir.ui.view,arch_db:key_management.key_system_view_form
+#: model_terms:ir.ui.view,arch_db:key_management.key_system_view_tree
+msgid "Key System"
+msgstr "Schlüsselsystem"
+
+#. module: key_management
+#: model:ir.model.fields,field_description:key_management.field_key_management_group__key_ids
+#: model_terms:ir.ui.view,arch_db:key_management.key_group_view_form
+msgid "Keys"
+msgstr "Schlüssel"
+
+#. module: key_management
+#: model:ir.model.fields,field_description:key_management.field_key_management_group__name
+#: model:ir.model.fields,field_description:key_management.field_key_management_permission__name
+#: model:ir.model.fields,field_description:key_management.field_key_management_system__name
+msgid "Label"
+msgstr "Bezeichnung"
+
+#. module: key_management
+#: model:ir.model.fields,field_description:key_management.field_key_management_group____last_update
+#: model:ir.model.fields,field_description:key_management.field_key_management_key____last_update
+#: model:ir.model.fields,field_description:key_management.field_key_management_lending____last_update
+#: model:ir.model.fields,field_description:key_management.field_key_management_permission____last_update
+#: model:ir.model.fields,field_description:key_management.field_key_management_system____last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: key_management
+#: model:ir.model.fields,field_description:key_management.field_key_management_group__write_uid
+#: model:ir.model.fields,field_description:key_management.field_key_management_key__write_uid
+#: model:ir.model.fields,field_description:key_management.field_key_management_lending__write_uid
+#: model:ir.model.fields,field_description:key_management.field_key_management_permission__write_uid
+#: model:ir.model.fields,field_description:key_management.field_key_management_system__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: key_management
+#: model:ir.model.fields,field_description:key_management.field_key_management_group__write_date
+#: model:ir.model.fields,field_description:key_management.field_key_management_key__write_date
+#: model:ir.model.fields,field_description:key_management.field_key_management_lending__write_date
+#: model:ir.model.fields,field_description:key_management.field_key_management_permission__write_date
+#: model:ir.model.fields,field_description:key_management.field_key_management_system__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: key_management
+#: model:ir.model.fields,field_description:key_management.field_key_management_lending__lender
+msgid "Lender"
+msgstr "Ausgeliehen an"
+
+#. module: key_management
+#: model:ir.ui.menu,name:key_management.lending_menu
+msgid "Lending"
+msgstr "Ausleihe"
+
+#. module: key_management
+#: model:ir.model.fields,field_description:key_management.field_key_management_lending__lending_date
+msgid "Lending Date"
+msgstr "Datum der Ausleihe"
+
+#. module: key_management
+#: model:ir.model,name:key_management.model_key_management_key
+msgid "List of keys"
+msgstr "Liste der Schlüssel"
+
+#. module: key_management
+#: model:ir.model.fields,field_description:key_management.field_key_management_key__name
+msgid "Number"
+msgstr "Nummer"
+
+#. module: key_management
+#: model_terms:ir.ui.view,arch_db:key_management.key_group_view_tree
+#: model_terms:ir.ui.view,arch_db:key_management.key_view_tree
+msgid "Property Types"
+msgstr "Eigenschaftstypen"
+
+#. module: key_management
+#: model:ir.model.fields,field_description:key_management.field_key_management_lending__return_date
+msgid "Return Date"
+msgstr "Rückgabedatum"
+
+#. module: key_management
+#: model:ir.model.fields.selection,name:key_management.selection__key_management_system__manufacturer__sea
+msgid "SEA"
+msgstr "SEA"
+
+#. module: key_management
+#: model:ir.ui.menu,name:key_management.settings_menu
+msgid "Settings"
+msgstr "Einstellungen"
+
+#. module: key_management
+#: model:ir.model.fields,field_description:key_management.field_key_management_group__short_name
+#: model:ir.model.fields,field_description:key_management.field_key_management_system__short_name
+msgid "Short Name"
+msgstr "Kürzel"
+
+#. module: key_management
+#: model:ir.model.fields,field_description:key_management.field_key_management_system__manufacturer
+msgid "Type"
+msgstr "Typ"
+
+#. module: key_management
+#: model_terms:ir.ui.view,arch_db:key_management.key_lending_tree_view
+#: model_terms:ir.ui.view,arch_db:key_management.key_lending_view_form
+msgid "key_lending"
+msgstr "Ausleihe"
+
+#. module: key_management
+#: model:ir.model,name:key_management.model_key_management_group
+msgid "key_management.group"
+msgstr "Schliessgruppe"
+
+#. module: key_management
+#: model:ir.model,name:key_management.model_key_management_lending
+msgid "key_management.lending"
+msgstr "Ausleihe"
+
+#. module: key_management
+#: model:ir.model,name:key_management.model_key_management_permission
+msgid "key_management.permission"
+msgstr "Berechtigung"
+
+#. module: key_management
+#: model:ir.model,name:key_management.model_key_management_system
+msgid "key_management.system"
+msgstr "Schlüsselsystem"

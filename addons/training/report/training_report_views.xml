@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_report_training_participant_list" model="ir.actions.report">
+            <field name="name">Participant list</field>
+            <field name="model">training.training</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">training.participant_list</field>
+            <field name="report_file">training.participant_list</field>
+            <field name="print_report_name">'Participant list'</field>
+            <field name="binding_model_id" ref="model_training_training"/>
+        </record>
+    </data>
+</odoo>

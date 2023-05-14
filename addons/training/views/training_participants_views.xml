@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- TRAINING DATE VIEWS -->
+        <record id="training_date_view_form" model="ir.ui.view">
+            <field name="name">training.date.form</field>
+            <field name="model">training.date</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="training"/>
+                                <field name="start"/>
+                                <field name="end"/>
+                                <field name="name"/>
+                                <field name="responsible"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="training_date_view_tree" model="ir.ui.view">
+            <field name="name">training.date.tree</field>
+            <field name="model">training.date</field>
+            <field name="arch" type="xml">
+                <tree string="Date">
+                    <field name="start"/>
+                    <field name="end"/>
+                    <field name="name"/>
+                    <field name="responsible"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="training_date_action" model="ir.actions.act_window">
+            <field name="name">Date</field>
+            <field name="res_model">training.date</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a date
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

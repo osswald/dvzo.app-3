@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- DAY PLANNING SHIFT VIEWS -->
+        <record id="day_planning_shift_view_form" model="ir.ui.view">
+            <field name="name">day.planning.shift.form</field>
+            <field name="model">train_management.day_planning_shift</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="day_planning"/>
+                                <field name="shift"/>
+                                <field name="person"/>
+                                <field name="comment"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="day_planning_shift_view_tree" model="ir.ui.view">
+            <field name="name">day.planning.shift.tree</field>
+            <field name="model">train_management.day_planning_shift</field>
+            <field name="arch" type="xml">
+                <tree string="Day planning shift">
+                    <field name="day_planning"/>
+                    <field name="shift"/>
+                    <field name="person"/>
+                    <field name="comment"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="day_planning_shift_action" model="ir.actions.act_window">
+            <field name="name">Day planning shift</field>
+            <field name="res_model">train_management.day_planning_shift</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>

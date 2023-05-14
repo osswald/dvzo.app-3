@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_key,key_management.key,model_key_management_key,base.group_user,1,1,1,1
+access_key_lending,key_management.key_lending,model_key_management_lending,base.group_user,1,1,1,1
+access_key_permission,key_management.key_permission,model_key_management_permission,base.group_user,1,1,1,1
+access_key_group,key_management.key_group,model_key_management_group,base.group_user,1,1,1,1
+access_key_system,key_management.key_system,model_key_management_system,base.group_user,1,1,1,1

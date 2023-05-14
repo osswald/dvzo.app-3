@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- KEY VIEWS -->
+        <record id="key_view_form" model="ir.ui.view">
+            <field name="name">key.form</field>
+            <field name="model">key_management.key</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="key_group"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="key_view_tree" model="ir.ui.view">
+            <field name="name">key.tree</field>
+            <field name="model">key_management.key</field>
+            <field name="arch" type="xml">
+                <tree string="Property Types">
+                    <field name="name"/>
+                    <field name="key_group"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="key_action" model="ir.actions.act_window">
+            <field name="name">Key</field>
+            <field name="res_model">key_management.key</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a key
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

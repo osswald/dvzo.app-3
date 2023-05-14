@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- COPY RECIPIENT TEXT VIEWS -->
+        <record id="copy_recipient_text_view_form" model="ir.ui.view">
+            <field name="name">copy.recipient.form</field>
+            <field name="model">train_management.copy_recipient</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="email" widget="email"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="copy_recipient_view_tree" model="ir.ui.view">
+            <field name="name">copy.recipient.tree</field>
+            <field name="model">train_management.copy_recipient</field>
+            <field name="arch" type="xml">
+                <tree string="Day Planning Text" editable="bottom">
+                    <field name="name"/>
+                    <field name="email"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="copy_recipient_action" model="ir.actions.act_window">
+            <field name="name">Copy recipient</field>
+            <field name="res_model">train_management.copy_recipient</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>

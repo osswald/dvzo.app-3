@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Main report templates -->
+    <template id="participant_list">
+        <t t-foreach="docs" t-as="training">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1>
+                            <span style="font-weight:bold;">Participant list</span>
+                        </h1>
+                        <h3>
+                            <span t-field="training.name"/>
+                            <br/>
+                            <span t-field="training.start"/>
+                            -
+                            <span t-field="training.end"/>
+                        </h3>
+                        <div>
+                            <strong>Responsible:</strong>
+                            <span t-field="training.responsible"/>
+                        </div>
+                        <table class="table" t-if="training.participant_ids">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Department</th>
+                                    <th>Mobile / E-Mail</th>
+                                    <th>Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="participants" t-value="training.mapped('participant_ids')"/>
+                                <tr t-foreach="participants" t-as="participant">
+                                    <td>
+<!--                                        <span t-field="participant.name"/>-->
+                                    </td>
+                                    <td>
+                                        Daten fehlen
+                                    </td>
+                                    <td>
+<!--                                        <span t-field="participant.mobile"/><br/>-->
+<!--                                        <span t-field="participant.email"/>-->
+                                    </td>
+                                    <td>
+<!--                                        <span t-field="participant.contact_address"/>-->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

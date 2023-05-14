@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- DAY PLANNING VIEWS -->
+        <record id="day_planning_view_form" model="ir.ui.view">
+            <field name="name">day_planning.form</field>
+            <field name="model">train_management.day_planning</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,executed"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="e.g. Extrafahrt Familie Müller"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group string="Master data">
+                                <field name="date" placeholder="e.g.09.03.2033"/>
+                                <field name="type"/>
+                                <field name="responsible_phone"/>
+                            </group>
+                            <group string="Planning">
+                                <field name="railway_company" placeholder="e.g. SBB Historic"/>
+                                <field name="slot_ordered_st"/>
+                                <field name="slot_ordered_sbb"/>
+                                <field name="personnel_disposition"/>
+                                <field name="engine_planning_status"/>
+                                <field name="carriage_planning_status"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Booking">
+                                <field name="customers"/>
+                                <field name="price" placeholder="e.g. 30'000.00"/>
+                                <field name="comment"
+                                       placeholder="e.g. The customer would like to have 3 green carriages. Catering required."/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Texts">
+                                <field name="day_planning_text_ids">
+                                    <tree>
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="name"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Circuits">
+                                <field name="circuit_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="train_composition"/>
+                                        <field name="distance"/>
+                                        <field name="frequency"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Reservations">
+                                <field name="reservation_ids">
+                                    <tree>
+                                        <field name="train"/>
+                                        <field name="start_station_short"/>
+                                        <field name="end_station_short"/>
+                                        <field name="name"/>
+                                        <field name="amount"/>
+                                        <field name="type"/>
+                                        <field name="phone_number"/>
+                                        <field name="email"/>
+                                        <field name="comment" widget="text" options="{'maxlength': 50}"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Shifts">
+                                <field name="day_planning_shift_ids">
+                                    <tree editable="bottom">
+                                        <field name="shift"/>
+                                        <field name="person"/>
+                                        <field name="comment"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="day_planning_view_calendar" model="ir.ui.view">
+            <field name="name">day.planning.calendar</field>
+            <field name="model">train_management.day_planning</field>
+            <field name="arch" type="xml">
+                <calendar
+                        date_start="date"
+                        mode="year"
+                        color="type"
+                        event_open_popup="true"
+                        form_view_id="day_planning_view_form"
+                        quick_add="false"
+                        scales="year,month"
+                        string="Tasks"
+                >
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="slot_ordered_st"/>
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record id="day_planning_view_tree" model="ir.ui.view">
+            <field name="name">day_planning.tree</field>
+            <field name="model">train_management.day_planning</field>
+            <field name="arch" type="xml">
+                <tree string="Day planning">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="type"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="day_planning_action" model="ir.actions.act_window">
+            <field name="name">Day planning</field>
+            <field name="res_model">train_management.day_planning</field>
+            <field name="context">{"search_default_future_day_plannings":1}</field>
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+
+        <record id="day_planning_search" model="ir.ui.view">
+            <field name="name">day_planning.search</field>
+            <field name="model">train_management.day_planning</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <filter
+                            string="Future day plannings"
+                            name="future_day_plannings"
+                            domain="[('date','>=', ((datetime.datetime.now()).strftime('%Y-%m-%d')))]"
+                    />
+                </search>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

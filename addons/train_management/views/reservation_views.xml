@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- RESERVATION VIEWS -->
+        <record id="reservation_view_form" model="ir.ui.view">
+            <field name="name">reservation.form</field>
+            <field name="model">train_management.reservation</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="day_planning"/>
+                                <field name="train"/>
+                                <field name="name"/>
+                                <field name="commission_nr"/>
+                                <field name="phone_number"/>
+                                <field name="email"/>
+                                <field name="amount"/>
+                                <field name="type"/>
+                                <field name="comment"/>
+                                <field name="station_ids" invisible="True"/>
+                                <field name="start_station"
+                                       widget="radio"
+                                       domain="[('id', 'in', station_ids)]"
+                                />
+                                <field name="end_station"
+                                       widget="radio"
+                                       domain="[('id', 'in', station_ids)]"
+                                />
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="reservation_view_tree" model="ir.ui.view">
+            <field name="name">reservation.tree</field>
+            <field name="model">train_management.reservation</field>
+            <field name="arch" type="xml">
+                <tree string="Reservation">
+                    <field name="day_planning"/>
+                    <field name="train"/>
+                    <field name="start_station" optional="show"/>
+                    <field name="start_station_short" optional="hide"/>
+                    <field name="end_station" optional="show"/>
+                    <field name="end_station_short" optional="hide"/>
+                    <field name="name"/>
+                    <field name="amount"/>
+                    <field name="type"/>
+                    <field name="phone_number"/>
+                    <field name="email"/>
+                    <field name="comment" widget="text" options="{'maxlength': 50}"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="reservation_action" model="ir.actions.act_window">
+            <field name="name">Reservation</field>
+            <field name="res_model">train_management.reservation</field>
+            <field name="context">{'search_default_day_planning':1, 'search_default_train':2}</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="reservation_search" model="ir.ui.view">
+            <field name="name">reservation.search</field>
+            <field name="model">train_management.reservation</field>
+            <field name="arch" type="xml">
+                <search>
+                    <group expand="True" string="Group By">
+                        <filter string="Day Planning" name='day_planning' context="{'group_by':'day_planning'}"/>
+                        <filter string="Train" name='train' context="{'group_by':'train'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

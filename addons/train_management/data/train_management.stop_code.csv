@@ -1,0 +1,49 @@
+id,name,code,type
+11,Ein-/Aussteigen,11,commercial
+51,Nur Einsteigen,51,commercial
+41,Nur Aussteigen,41,commercial
+14,Ein-/Aussteigen bei Bedarf,14,commercial
+54,Nur Einsteigen bei Bedarf,54,commercial
+44,Nur Aussteigen bei Bedarf,44,commercial
+18,Ein-/Auslad,18,commercial
+19,Ein-/Auslad bei Bedarf,19,commercial
+10,"Zu-/Abfuhr, Traktions- und Personalwechsel",10,commercial
+15,Zu-/Abfuhr,15,commercial
+13,"Abfuhr, Traktions- und Personalwechsel",13,commercial
+55,Nur Abfuhr,55,commercial
+12,"Zufuhr, Traktions- und Personalwechsel",12,commercial
+45,Nur Zufuhr,45,commercial
+16,Zu-/Abfuhr bei Bedarf,16,commercial
+56,Nur Abfuhr bei Bedarf,56,commercial
+46,Nur Zufuhr bei Bedarf,46,commercial
+70,Tfz-Wechsel,70,non_commercial
+80,Beistellen Tfz,80,non_commercial
+90,Wegstellen Tfz,90,non_commercial
+81,Beistellen P-Lok,81,non_commercial
+91,Wegstellen P-Lok,91,non_commercial
+82,Beistellen D/V-Lok,82,non_commercial
+92,Wegstellen D/V-Lok,92,non_commercial
+76,Wenden mit Tfz-Wechsel,76,non_commercial
+73,Umfahren,73,non_commercial
+77,Wenden ohne Tfz-Wechsel,77,non_commercial
+83,Stärken/Vereinigen,83,non_commercial
+93,Schwächen/Trennen,93,non_commercial
+84,Aufstellen,84,non_commercial
+95,Auf-/Absteigen Personal,95,non_commercial
+94,Wegstellen,94,non_commercial
+74,Umstellen,74,non_commercial
+75,Wagendurchlauf,75,non_commercial
+71,Traktions- und Personalwechsel,71,non_commercial
+78,Personalwechsel,78,non_commercial
+88,Pause Lokpersonal,88,non_commercial
+79,Systemwechsel,79,non_commercial
+1,Diensthalt,1,non_commercial
+2,Intervention (nur für I-B),2,infra
+23,Kreuzung,23,infra
+24,Zugfolgeänderung,24,infra
+25,Abwarten Zugfolgezeit,25,infra
+26,Abwarten Gleisfreigabe Bhf,26,infra
+27,Abwarten Streckenfreigabe,27,infra
+32,Durchfahrt (ohne Haltberechnung),32,non_commercial
+33,Durchfahrt (mit Haltberechnung),33,infra
+28,Trassenwechsel,28,Infra
