@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 16.0-20230430\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-10 06:05+0000\n"
-"PO-Revision-Date: 2023-05-10 06:05+0000\n"
+"POT-Creation-Date: 2023-05-14 16:09+0000\n"
+"PO-Revision-Date: 2023-05-14 16:09+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,26 @@ msgstr ""
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_reservation__amount
 msgid "Amount"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__approximate_end_time
+msgid "Approximate End Time"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__approximate_start_time
+msgid "Approximate Start Time"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__approximate_times
+msgid "Approximate Times"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_timetable__arrival_time
+msgid "Arrival Time"
 msgstr ""
 
 #. module: train_management
@@ -52,12 +72,28 @@ msgid "Carriage planning status"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__category
+msgid "Category"
+msgstr ""
+
+#. module: train_management
 #: model:ir.actions.act_window,name:train_management.circuit_action
 #: model:ir.model,name:train_management.model_train_management_circuit
+#: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__circuit
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__circuit_ids
 #: model:ir.model.fields,field_description:train_management.field_train_management_train__circuit
 #: model_terms:ir.ui.view,arch_db:train_management.circuit_view_tree
 msgid "Circuit"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_circuit__circuit_vehicle
+msgid "Circuit Vehicle"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model,name:train_management.model_train_management_circuit_vehicle
+msgid "Circuit-Vehicle"
 msgstr ""
 
 #. module: train_management
@@ -66,9 +102,23 @@ msgid "Circuits"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_stop_code__code
+msgid "Code"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__comment
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__comment
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift__comment
 #: model:ir.model.fields,field_description:train_management.field_train_management_reservation__comment
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__comment
+#: model:ir.model.fields,field_description:train_management.field_train_management_train_vehicle__comment
 msgid "Comment"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields.selection,name:train_management.selection__train_management_stop_code__type__commercial
+msgid "Commercial stop"
 msgstr ""
 
 #. module: train_management
@@ -82,25 +132,50 @@ msgid "Confirmed"
 msgstr ""
 
 #. module: train_management
+#: model:ir.actions.act_window,name:train_management.copy_recipient_action
+#: model:ir.model,name:train_management.model_train_management_copy_recipient
+#: model:ir.ui.menu,name:train_management.copy_recipient_menu_action
+msgid "Copy recipient"
+msgstr ""
+
+#. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__create_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__create_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_copy_recipient__create_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__create_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift__create_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_text__create_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_railway_company__create_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_reservation__create_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__create_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position_type__create_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__create_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_station__create_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_stop_code__create_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_timetable__create_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_train__create_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_train_vehicle__create_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__create_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__create_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_copy_recipient__create_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__create_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift__create_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_text__create_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_railway_company__create_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_reservation__create_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__create_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position_type__create_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__create_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_station__create_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_stop_code__create_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_timetable__create_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_train__create_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_train_vehicle__create_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__create_date
 msgid "Created on"
 msgstr ""
@@ -118,10 +193,13 @@ msgstr ""
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__day_planning
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_text__day_planning
+#: model:ir.model.fields,field_description:train_management.field_train_management_reservation__day_planning
+#: model_terms:ir.ui.view,arch_db:train_management.reservation_search
 msgid "Day Planning"
 msgstr ""
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.copy_recipient_view_tree
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_text_view_tree
 msgid "Day Planning Text"
 msgstr ""
@@ -129,9 +207,17 @@ msgstr ""
 #. module: train_management
 #: model:ir.actions.act_window,name:train_management.day_planning_action
 #: model:ir.model,name:train_management.model_train_management_day_planning
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift__day_planning
 #: model:ir.ui.menu,name:train_management.day_planning_menu_action
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_tree
 msgid "Day planning"
+msgstr ""
+
+#. module: train_management
+#: model:ir.actions.act_window,name:train_management.day_planning_shift_action
+#: model:ir.model,name:train_management.model_train_management_day_planning_shift
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift_view_tree
+msgid "Day planning shift"
 msgstr ""
 
 #. module: train_management
@@ -145,18 +231,37 @@ msgid "Debi-Code"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_timetable__departure_time
+msgid "Departure Time"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__description
+msgid "Description"
+msgstr ""
+
+#. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_station__didok
 msgid "Didok"
 msgstr ""
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__display_name
+#: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__display_name
+#: model:ir.model.fields,field_description:train_management.field_train_management_copy_recipient__display_name
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__display_name
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift__display_name
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_text__display_name
 #: model:ir.model.fields,field_description:train_management.field_train_management_railway_company__display_name
 #: model:ir.model.fields,field_description:train_management.field_train_management_reservation__display_name
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__display_name
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position_type__display_name
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__display_name
 #: model:ir.model.fields,field_description:train_management.field_train_management_station__display_name
+#: model:ir.model.fields,field_description:train_management.field_train_management_stop_code__display_name
+#: model:ir.model.fields,field_description:train_management.field_train_management_timetable__display_name
 #: model:ir.model.fields,field_description:train_management.field_train_management_train__display_name
+#: model:ir.model.fields,field_description:train_management.field_train_management_train_vehicle__display_name
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__display_name
 msgid "Display Name"
 msgstr ""
@@ -167,18 +272,36 @@ msgid "Disposed"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_train__distance
+msgid "Distance"
+msgstr ""
+
+#. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__state__draft
 msgid "Draft"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_copy_recipient__email
 #: model:ir.model.fields,field_description:train_management.field_train_management_reservation__email
 msgid "E-Mail"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_reservation__end_station_short
+msgid "End"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_reservation__end_station
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__end_station
 #: model:ir.model.fields,field_description:train_management.field_train_management_train__end_station
 msgid "End Station"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__end_time
+msgid "End Time"
 msgstr ""
 
 #. module: train_management
@@ -219,24 +342,48 @@ msgid "Gastro"
 msgstr ""
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.reservation_search
+msgid "Group By"
+msgstr ""
+
+#. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__id
+#: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__id
+#: model:ir.model.fields,field_description:train_management.field_train_management_copy_recipient__id
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__id
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift__id
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_text__id
 #: model:ir.model.fields,field_description:train_management.field_train_management_railway_company__id
 #: model:ir.model.fields,field_description:train_management.field_train_management_reservation__id
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__id
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position_type__id
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__id
 #: model:ir.model.fields,field_description:train_management.field_train_management_station__id
+#: model:ir.model.fields,field_description:train_management.field_train_management_stop_code__id
+#: model:ir.model.fields,field_description:train_management.field_train_management_timetable__id
 #: model:ir.model.fields,field_description:train_management.field_train_management_train__id
+#: model:ir.model.fields,field_description:train_management.field_train_management_train_vehicle__id
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__id
 msgid "ID"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields.selection,name:train_management.selection__train_management_stop_code__type__infra
+msgid "Infrastructure stop"
+msgstr ""
+
+#. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__name
+#: model:ir.model.fields,field_description:train_management.field_train_management_copy_recipient__name
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__name
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_text__name
 #: model:ir.model.fields,field_description:train_management.field_train_management_railway_company__name
 #: model:ir.model.fields,field_description:train_management.field_train_management_reservation__name
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__name
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position_type__name
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__label
 #: model:ir.model.fields,field_description:train_management.field_train_management_station__name
+#: model:ir.model.fields,field_description:train_management.field_train_management_stop_code__name
 #: model:ir.model.fields,field_description:train_management.field_train_management_train__name
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__name
 msgid "Label"
@@ -244,36 +391,63 @@ msgstr ""
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit____last_update
+#: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle____last_update
+#: model:ir.model.fields,field_description:train_management.field_train_management_copy_recipient____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning____last_update
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_text____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_railway_company____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_reservation____last_update
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position____last_update
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position_type____last_update
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_template____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_station____last_update
+#: model:ir.model.fields,field_description:train_management.field_train_management_stop_code____last_update
+#: model:ir.model.fields,field_description:train_management.field_train_management_timetable____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_train____last_update
+#: model:ir.model.fields,field_description:train_management.field_train_management_train_vehicle____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle____last_update
 msgid "Last Modified on"
 msgstr ""
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__write_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__write_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_copy_recipient__write_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__write_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift__write_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_text__write_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_railway_company__write_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_reservation__write_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__write_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position_type__write_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__write_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_station__write_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_stop_code__write_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_timetable__write_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_train__write_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_train_vehicle__write_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__write_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__write_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_copy_recipient__write_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__write_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift__write_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_text__write_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_railway_company__write_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_reservation__write_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__write_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position_type__write_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__write_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_station__write_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_stop_code__write_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_timetable__write_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_train__write_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_train_vehicle__write_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__write_date
 msgid "Last Updated on"
 msgstr ""
@@ -296,6 +470,11 @@ msgstr ""
 #. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__billed__no
 msgid "No"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields.selection,name:train_management.selection__train_management_stop_code__type__non_commercial
+msgid "Non-commercial stop"
 msgstr ""
 
 #. module: train_management
@@ -330,6 +509,11 @@ msgstr ""
 #. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__type__other
 msgid "Other"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift__person
+msgid "Person"
 msgstr ""
 
 #. module: train_management
@@ -382,7 +566,12 @@ msgid "Received"
 msgstr ""
 
 #. module: train_management
+#: model:ir.actions.act_window,name:train_management.reservation_action
 #: model:ir.model,name:train_management.model_train_management_reservation
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__reservation_ids
+#: model:ir.model.fields,field_description:train_management.field_train_management_train__reservation_ids
+#: model:ir.ui.menu,name:train_management.reservation_menu_action
+#: model_terms:ir.ui.view,arch_db:train_management.reservation_view_tree
 msgid "Reservation"
 msgstr ""
 
@@ -392,9 +581,20 @@ msgid "Reservation type"
 msgstr ""
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_form
+#: model_terms:ir.ui.view,arch_db:train_management.train_view_form
+msgid "Reservations"
+msgstr ""
+
+#. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__slot_ordered_sbb__reserved
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__slot_ordered_st__reserved
 msgid "Reserved"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__responsible_phone
+msgid "Responsible phone"
 msgstr ""
 
 #. module: train_management
@@ -404,13 +604,68 @@ msgid "Seat"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__sequence
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_text__sequence
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__sequence
+#: model:ir.model.fields,field_description:train_management.field_train_management_timetable__sequence
+#: model:ir.model.fields,field_description:train_management.field_train_management_train_vehicle__sequence
 msgid "Sequence"
 msgstr ""
 
 #. module: train_management
 #: model:ir.ui.menu,name:train_management.settings_menu
 msgid "Settings"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift__shift
+#: model:ir.ui.menu,name:train_management.shift_menu_root
+msgid "Shift"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__shift_template
+msgid "Shift Template"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__name
+msgid "Shift number"
+msgstr ""
+
+#. module: train_management
+#: model:ir.actions.act_window,name:train_management.shift_position_action
+#: model:ir.model,name:train_management.model_train_management_shift_position
+#: model_terms:ir.ui.view,arch_db:train_management.shift_position_view_tree
+msgid "Shift position"
+msgstr ""
+
+#. module: train_management
+#: model:ir.actions.act_window,name:train_management.shift_position_type_action
+#: model:ir.model,name:train_management.model_train_management_shift_position_type
+#: model:ir.ui.menu,name:train_management.shift_position_type_menu_action
+#: model_terms:ir.ui.view,arch_db:train_management.shift_position_type_view_tree
+msgid "Shift position type"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__shift_position_ids
+#: model_terms:ir.ui.view,arch_db:train_management.shift_template_view_form
+msgid "Shift positions"
+msgstr ""
+
+#. module: train_management
+#: model:ir.actions.act_window,name:train_management.shift_template_action
+#: model:ir.model,name:train_management.model_train_management_shift_template
+#: model:ir.ui.menu,name:train_management.shift_template_menu_action
+#: model_terms:ir.ui.view,arch_db:train_management.shift_template_view_tree
+msgid "Shift template"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__day_planning_shift_ids
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_form
+msgid "Shifts"
 msgstr ""
 
 #. module: train_management
@@ -429,12 +684,25 @@ msgid "Slot ordered ST"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_reservation__start_station_short
+msgid "Start"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_reservation__start_station
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__start_station
 #: model:ir.model.fields,field_description:train_management.field_train_management_train__start_station
 msgid "Start Station"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__start_time
+msgid "Start Time"
+msgstr ""
+
+#. module: train_management
 #: model:ir.model,name:train_management.model_train_management_station
+#: model:ir.model.fields,field_description:train_management.field_train_management_timetable__station
 #: model_terms:ir.ui.view,arch_db:train_management.station_search
 #: model_terms:ir.ui.view,arch_db:train_management.station_view_tree
 msgid "Station"
@@ -449,6 +717,19 @@ msgstr ""
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__state
 msgid "Status"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_timetable__stop_code
+msgid "Stop Code"
+msgstr ""
+
+#. module: train_management
+#: model:ir.actions.act_window,name:train_management.stop_code_action
+#: model:ir.model,name:train_management.model_train_management_stop_code
+#: model:ir.ui.menu,name:train_management.stop_code_menu_action
+#: model_terms:ir.ui.view,arch_db:train_management.stop_code_view_tree
+msgid "Stop code"
 msgstr ""
 
 #. module: train_management
@@ -468,16 +749,43 @@ msgid "Texts"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model,name:train_management.model_train_management_timetable
+#: model:ir.model.fields,field_description:train_management.field_train_management_train__timetable
+#: model_terms:ir.ui.view,arch_db:train_management.train_view_form
+msgid "Timetable"
+msgstr ""
+
+#. module: train_management
 #: model:ir.actions.act_window,name:train_management.train_action
 #: model:ir.model,name:train_management.model_train_management_train
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__train_ids
+#: model:ir.model.fields,field_description:train_management.field_train_management_reservation__train
+#: model:ir.model.fields,field_description:train_management.field_train_management_timetable__train
+#: model:ir.model.fields,field_description:train_management.field_train_management_train_vehicle__train
+#: model_terms:ir.ui.view,arch_db:train_management.reservation_search
 #: model_terms:ir.ui.view,arch_db:train_management.train_view_tree
 msgid "Train"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_circuit__train_composition
+#: model:ir.model.fields,field_description:train_management.field_train_management_train__train_composition
+msgid "Train Composition"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_train__train_vehicle
+msgid "Train Vehicle"
+msgstr ""
+
+#. module: train_management
 #: model:ir.ui.menu,name:train_management.train_management_menu_root
 msgid "Train management"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model,name:train_management.model_train_management_train_vehicle
+msgid "Train-Vehicle"
 msgstr ""
 
 #. module: train_management
@@ -487,6 +795,8 @@ msgstr ""
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__type
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__type
+#: model:ir.model.fields,field_description:train_management.field_train_management_stop_code__type
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__type
 msgid "Type"
 msgstr ""
@@ -502,15 +812,25 @@ msgid "UUID linking vehicles to the Drehscheibe"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__valid_from
+msgid "Valid From"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__valid_until
+msgid "Valid Until"
+msgstr ""
+
+#. module: train_management
 #: model:ir.model,name:train_management.model_train_management_vehicle
+#: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__vehicle
+#: model:ir.model.fields,field_description:train_management.field_train_management_train_vehicle__vehicle
 #: model_terms:ir.ui.view,arch_db:train_management.vehicle_view_tree
 msgid "Vehicle"
 msgstr ""
 
 #. module: train_management
 #: model:ir.actions.act_window,name:train_management.vehicle_action
-#: model:ir.model.fields,field_description:train_management.field_train_management_circuit__vehicles
-#: model:ir.model.fields,field_description:train_management.field_train_management_train__vehicles
 #: model:ir.ui.menu,name:train_management.vehicle_menu_action
 #: model_terms:ir.ui.view,arch_db:train_management.circuit_view_form
 #: model_terms:ir.ui.view,arch_db:train_management.train_view_form
@@ -528,6 +848,11 @@ msgid "Yes"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_reservation__station_ids
+msgid "asdf"
+msgstr ""
+
+#. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_vehicle__type__cargo
 msgid "cargo"
 msgstr ""
@@ -539,10 +864,37 @@ msgstr ""
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__distance
+#: model:ir.model.fields,field_description:train_management.field_train_management_shift_position_type__work_time
 msgid "distance"
 msgstr ""
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__ds_id
 msgid "ds id"
+msgstr ""
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_form
+msgid "e.g. 30'000.00"
+msgstr ""
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_form
+msgid "e.g. Extrafahrt Familie Müller"
+msgstr ""
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_form
+msgid "e.g. SBB Historic"
+msgstr ""
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_form
+msgid ""
+"e.g. The customer would like to have 3 green carriages. Catering required."
+msgstr ""
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_form
+msgid "e.g.09.03.2033"
 msgstr ""

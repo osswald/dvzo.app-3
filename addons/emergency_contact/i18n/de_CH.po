@@ -1,0 +1,107 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* emergency_contact
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0-20230430\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-14 16:04+0000\n"
+"PO-Revision-Date: 2023-05-14 18:13+0200\n"
+"Last-Translator: Christoph Osswald\n"
+"Language-Team: \n"
+"Language: de_CH\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.3\n"
+
+#. module: emergency_contact
+#: model:ir.model,name:emergency_contact.model_res_partner
+#: model:ir.model.fields,field_description:emergency_contact.field_emergency_contact_emergency_contact__res_partner
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: emergency_contact
+#: model:ir.model.fields,field_description:emergency_contact.field_emergency_contact_emergency_contact__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: emergency_contact
+#: model:ir.model.fields,field_description:emergency_contact.field_emergency_contact_emergency_contact__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: emergency_contact
+#: model:ir.model.fields,field_description:emergency_contact.field_emergency_contact_emergency_contact__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: emergency_contact
+#: model:ir.model.fields,field_description:emergency_contact.field_res_partner__emergency_contact_ids
+#: model:ir.model.fields,field_description:emergency_contact.field_res_users__emergency_contact_ids
+#: model_terms:ir.ui.view,arch_db:emergency_contact.view_partner_form
+msgid "Emergency contact"
+msgstr "Notfallkontakt"
+
+#. module: emergency_contact
+#: model:ir.model,name:emergency_contact.model_emergency_contact_emergency_contact
+msgid "Emergency_contact"
+msgstr "Notfallkontakt"
+
+#. module: emergency_contact
+#: model:ir.model.fields,field_description:emergency_contact.field_res_partner__has_emergency_contact
+#: model:ir.model.fields,field_description:emergency_contact.field_res_users__has_emergency_contact
+msgid "Has emergency contact"
+msgstr "Hat Notfallkontakt"
+
+#. module: emergency_contact
+#: model:ir.model.fields,field_description:emergency_contact.field_emergency_contact_emergency_contact__id
+msgid "ID"
+msgstr "ID"
+
+#. module: emergency_contact
+#: model:ir.model.fields,field_description:emergency_contact.field_emergency_contact_emergency_contact____last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: emergency_contact
+#: model:ir.model.fields,field_description:emergency_contact.field_emergency_contact_emergency_contact__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: emergency_contact
+#: model:ir.model.fields,field_description:emergency_contact.field_emergency_contact_emergency_contact__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: emergency_contact
+#: model:ir.model.fields,field_description:emergency_contact.field_emergency_contact_emergency_contact__name
+msgid "Name"
+msgstr "Name"
+
+#. module: emergency_contact
+#: model:ir.model.fields.selection,name:emergency_contact.selection__res_partner__has_emergency_contact__no
+msgid "No"
+msgstr "Nein"
+
+#. module: emergency_contact
+#: model:ir.model.fields.selection,name:emergency_contact.selection__res_partner__has_emergency_contact__open
+msgid "Open"
+msgstr "Offen"
+
+#. module: emergency_contact
+#: model:ir.model.fields,field_description:emergency_contact.field_emergency_contact_emergency_contact__phone
+msgid "Phone number"
+msgstr "Telefonnummer"
+
+#. module: emergency_contact
+#: model:ir.model.fields,field_description:emergency_contact.field_emergency_contact_emergency_contact__relation
+msgid "Relation"
+msgstr "Kontaktbeziehung"
+
+#. module: emergency_contact
+#: model:ir.model.fields.selection,name:emergency_contact.selection__res_partner__has_emergency_contact__yes
+msgid "Yes"
+msgstr "Ja"

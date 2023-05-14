@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 16.0-20230430\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-10 06:26+0000\n"
-"PO-Revision-Date: 2023-05-10 08:34+0200\n"
+"POT-Creation-Date: 2023-05-14 16:05+0000\n"
+"PO-Revision-Date: 2023-05-14 18:14+0200\n"
 "Last-Translator: Christoph Osswald\n"
 "Language-Team: \n"
 "Language: de_CH\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3\n"
 
 #. module: key_management
 #: model:ir.model.fields,field_description:key_management.field_key_management_group__comment
@@ -81,6 +81,7 @@ msgstr "KESO"
 
 #. module: key_management
 #: model:ir.actions.act_window,name:key_management.key_action
+#: model:ir.model,name:key_management.model_key_management_key
 #: model:ir.model.fields,field_description:key_management.field_key_management_lending__key
 #: model:ir.ui.menu,name:key_management.key_menu_action
 msgid "Key"
@@ -119,6 +120,26 @@ msgstr "Berechtigung"
 #: model_terms:ir.ui.view,arch_db:key_management.key_system_view_form
 #: model_terms:ir.ui.view,arch_db:key_management.key_system_view_tree
 msgid "Key System"
+msgstr "Schlüsselsystem"
+
+#. module: key_management
+#: model:ir.model,name:key_management.model_key_management_group
+msgid "Key group"
+msgstr "Schliessgruppe"
+
+#. module: key_management
+#: model:ir.model,name:key_management.model_key_management_lending
+msgid "Key lending"
+msgstr "Ausleihe"
+
+#. module: key_management
+#: model:ir.model,name:key_management.model_key_management_permission
+msgid "Key permission"
+msgstr "Berechtigung"
+
+#. module: key_management
+#: model:ir.model,name:key_management.model_key_management_system
+msgid "Key system"
 msgstr "Schlüsselsystem"
 
 #. module: key_management
@@ -177,11 +198,6 @@ msgid "Lending Date"
 msgstr "Datum der Ausleihe"
 
 #. module: key_management
-#: model:ir.model,name:key_management.model_key_management_key
-msgid "List of keys"
-msgstr "Liste der Schlüssel"
-
-#. module: key_management
 #: model:ir.model.fields,field_description:key_management.field_key_management_key__name
 msgid "Number"
 msgstr "Nummer"
@@ -223,23 +239,3 @@ msgstr "Typ"
 #: model_terms:ir.ui.view,arch_db:key_management.key_lending_view_form
 msgid "key_lending"
 msgstr "Ausleihe"
-
-#. module: key_management
-#: model:ir.model,name:key_management.model_key_management_group
-msgid "key_management.group"
-msgstr "Schliessgruppe"
-
-#. module: key_management
-#: model:ir.model,name:key_management.model_key_management_lending
-msgid "key_management.lending"
-msgstr "Ausleihe"
-
-#. module: key_management
-#: model:ir.model,name:key_management.model_key_management_permission
-msgid "key_management.permission"
-msgstr "Berechtigung"
-
-#. module: key_management
-#: model:ir.model,name:key_management.model_key_management_system
-msgid "key_management.system"
-msgstr "Schlüsselsystem"
