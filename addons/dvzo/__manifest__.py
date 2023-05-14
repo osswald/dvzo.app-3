@@ -17,6 +17,7 @@
         'train_management',
         'uniform',
         'web_window_title',
+        'auth_oidc',
     ],
     'installable': True,
     'application': True,
