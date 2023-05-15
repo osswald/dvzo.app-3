@@ -120,7 +120,7 @@
                                         <ul>
                                             <li>
                                                 <h4>
-                                                    <i class="fa fa-calendar" aria-hidden="true"/> <field name="date"/>
+                                                    <i class="fa fa-calendar" aria-hidden="true" title="calendar"/> <field name="date"/>
                                                 </h4>
                                             </li>
                                             <li>
@@ -202,7 +202,7 @@
             <field name="name">Day planning</field>
             <field name="res_model">train_management.day_planning</field>
             <field name="context">{"search_default_future_day_plannings":1}</field>
-            <field name="view_mode">tree,form,calendar,kanban</field>
+            <field name="view_mode">kanban,tree,form,calendar</field>
         </record>
 
         <record id="day_planning_search" model="ir.ui.view">
