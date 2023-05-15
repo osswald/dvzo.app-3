@@ -4,16 +4,38 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 16.0-20230430\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-08 13:23+0000\n"
-"PO-Revision-Date: 2023-05-08 13:23+0000\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2023-05-15 06:49+0000\n"
+"PO-Revision-Date: 2023-05-15 08:54+0200\n"
+"Last-Translator: Christoph Osswald\n"
 "Language-Team: \n"
+"Language: de_CH\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 3.3\n"
+
+#. module: training
+#: model:ir.actions.report,print_report_name:training.action_report_training_participant_list
+msgid "'Participant list'"
+msgstr "‚Teilnehmerliste‘"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.participant_list
+msgid "<span style=\"font-weight:bold;\">Participant list</span>"
+msgstr "<span style=\"font-weight:bold;\">Teilnehmerliste</span>"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.participant_list
+msgid "<strong>Responsible:</strong>"
+msgstr "<strong>Verantwortlich:</strong>"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.participant_list
+msgid "Address"
+msgstr "Adresse"
 
 #. module: training
 #: model:ir.model.fields,field_description:training.field_training_participant__attended
@@ -106,6 +128,11 @@ msgid "Date"
 msgstr "Datum"
 
 #. module: training
+#: model_terms:ir.ui.view,arch_db:training.participant_list
+msgid "Daten fehlen"
+msgstr "Daten fehlen"
+
+#. module: training
 #: model:ir.model.fields,field_description:training.field_training_training__training_date_ids
 msgid "Dates"
 msgstr "Daten"
@@ -114,6 +141,11 @@ msgstr "Daten"
 #: model:ir.model,name:training.model_training_date
 msgid "Dates for trainings"
 msgstr "Kursdaten"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.participant_list
+msgid "Department"
+msgstr "Ressort"
 
 #. module: training
 #: model:ir.model.fields,field_description:training.field_training_qualification__description
@@ -131,6 +163,11 @@ msgstr "Beschreibung"
 #: model:ir.model.fields,field_description:training.field_training_training__display_name
 msgid "Display Name"
 msgstr "Anzeigename"
+
+#. module: training
+#: model:ir.ui.menu,name:training.key_management_menu_root
+msgid "Education"
+msgstr "Aus- und Weiterbildung"
 
 #. module: training
 #: model:ir.model.fields,field_description:training.field_training_date__end
@@ -229,6 +266,11 @@ msgid "Meeting place"
 msgstr "Treffpunkt"
 
 #. module: training
+#: model_terms:ir.ui.view,arch_db:training.participant_list
+msgid "Mobile / E-Mail"
+msgstr "Handy / E-Mail"
+
+#. module: training
 #: model:ir.actions.act_window,name:training.training_module_action
 #: model:ir.model.fields,field_description:training.field_training_training__module
 #: model:ir.ui.menu,name:training.training_module_menu_action
@@ -242,11 +284,21 @@ msgid "Modules in training"
 msgstr "Module"
 
 #. module: training
+#: model_terms:ir.ui.view,arch_db:training.participant_list
+msgid "Name"
+msgstr "Name"
+
+#. module: training
 #: model:ir.actions.act_window,name:training.training_participant_action
 #: model:ir.model.fields,field_description:training.field_training_participant__participant
 #: model_terms:ir.ui.view,arch_db:training.training_participant_view_tree
 msgid "Participant"
 msgstr "Teilnehmer"
+
+#. module: training
+#: model:ir.actions.report,name:training.action_report_training_participant_list
+msgid "Participant list"
+msgstr "Teilnehmerliste"
 
 #. module: training
 #: model:ir.model.fields,field_description:training.field_training_training__participant_ids
@@ -342,13 +394,12 @@ msgstr "Mitnehmen"
 #: model:ir.model.fields,field_description:training.field_res_users__training_ids
 #: model:ir.model.fields,field_description:training.field_training_date__training
 #: model:ir.model.fields,field_description:training.field_training_participant__training
-#: model:ir.ui.menu,name:training.key_management_menu_root
 #: model:ir.ui.menu,name:training.training_menu_action
 #: model_terms:ir.ui.view,arch_db:training.training_module_view_tree
 #: model_terms:ir.ui.view,arch_db:training.training_view_tree
 #: model_terms:ir.ui.view,arch_db:training.view_partner_form
 msgid "Training"
-msgstr "Kurs"
+msgstr "Aus-/Weiterbildung"
 
 #. module: training
 #: model_terms:ir.ui.view,arch_db:training.training_view_form
