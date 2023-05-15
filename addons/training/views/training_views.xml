@@ -37,6 +37,64 @@
             </field>
         </record>
 
+        <record id="training_kanban_view" model="ir.ui.view">
+            <field name="name">training.kanban</field>
+            <field name="model">training.training</field>
+            <field name="arch" type="xml">
+                <kanban class="o_res_partner_kanban" sample="1">
+                    <field name="name"/>
+                    <field name="label"/>
+                    <field name="module"/>
+                    <field name="responsible"/>
+                    <field name="start"/>
+                    <field name="end"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <!--<div class="ribbon ribbon-top-right" attrs="{'invisible': [('active', '=', True)]}">
+                                    <span class="bg-danger">Archived</span>
+                                </div>-->
+                                <div class="oe_kanban_details d-flex flex-column justify-content-between">
+                                    <div>
+                                        <field name="name"/>
+                                        <strong class="o_kanban_record_title oe_partner_heading">
+                                            <h2>
+                                                <field name="label"/>
+                                            </h2>
+                                        </strong>
+                                        <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                                        <ul>
+                                            <li>
+                                                <i class="fa fa-calendar" title="calendar" aria-hidden="true"
+                                                   style="padding-right:5px"/>
+                                                <field name="start"/>
+                                                -
+                                                <field name="end"/>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-code-fork" title="module" aria-hidden="true"
+                                                   style="padding-right:5px"/>
+                                                <field name="module"/>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-user" title="user" aria-hidden="true"
+                                                   style="padding-right:5px"/>
+                                                <field name="responsible"/>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="o_kanban_record_bottom">
+                                        <div class="oe_kanban_bottom_left"/>
+                                        <div class="oe_kanban_bottom_right"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
         <record id="training_view_tree" model="ir.ui.view">
             <field name="name">training.tree</field>
             <field name="model">training.training</field>
@@ -55,7 +113,7 @@
         <record id="training_action" model="ir.actions.act_window">
             <field name="name">Training</field>
             <field name="res_model">training.training</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,kanban</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Create a training
@@ -64,20 +122,20 @@
         </record>
 
         <record id="training_search" model="ir.ui.view">
-        <field name="name">training.search</field>
-        <field name="model">training.training</field>
-        <field name="arch" type="xml">
-            <search>
-                <field name="name"/>
-                <field name="module"/>
-                <field name="responsible"/>
-                <field name="label"/>
-                <group expand="1" string="Group By">
-                    <filter string="Module" name='module' context="{'group_by':'module'}"/>
-                </group>
-            </search>
-        </field>
-    </record>
+            <field name="name">training.search</field>
+            <field name="model">training.training</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="module"/>
+                    <field name="responsible"/>
+                    <field name="label"/>
+                    <group expand="1" string="Group By">
+                        <filter string="Module" name='module' context="{'group_by':'module'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
 
 
     </data>
