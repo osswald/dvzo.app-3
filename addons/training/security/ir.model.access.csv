@@ -10,3 +10,5 @@ access_training_vte_evu_regulations,training.training_vte_evu_regulations,model_
 access_training_vte_locomotive,training.training_vte_locomotive,model_training_vte_locomotive,base.group_user,1,1,1,1
 access_training_vte_rail_network,training.training_vte_rail_network,model_training_vte_rail_network,base.group_user,1,1,1,1
 access_training_exam,training.training_exam,model_training_exam,base.group_user,1,1,1,1
+access_training_qualification_type,training.training_qualification_type,model_training_qualification_type,base.group_user,1,1,1,1
+access_training_qualification_category,training.training_qualification_category,model_training_qualification_category,base.group_user,1,1,1,1
