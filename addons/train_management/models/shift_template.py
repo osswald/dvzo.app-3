@@ -8,7 +8,7 @@ class ShiftTemplate(models.Model):
     name = fields.Char("Shift number", required=True)
     label = fields.Char("Label")
     description = fields.Text()
-    category = fields.Many2one("training.qualification", required=True)
+    category = fields.Many2many("res.partner.category", required=True)
     valid_from = fields.Date()
     valid_until = fields.Date()
     approximate_times = fields.Boolean()

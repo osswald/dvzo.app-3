@@ -6,3 +6,4 @@ class TrainingQualificationCategory(models.Model):
     _description = "Qualification Category"
 
     name = fields.Char("Label", required=True)
+    type = fields.Many2one("training.qualification.type", required=True)

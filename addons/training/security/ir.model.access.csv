@@ -3,7 +3,10 @@ access_training,training.training,model_training_training,base.group_user,1,1,1,
 access_training_date,training.training_date,model_training_date,base.group_user,1,1,1,1
 access_training_module,training.training_module,model_training_module,base.group_user,1,1,1,1
 access_training_participant,training.training_participant,model_training_participant,base.group_user,1,1,1,1
-access_training_qualification,training.training_qualification,model_training_qualification,base.group_user,1,1,1,1
-access_training_qualification_type,training.training_qualification_type,model_training_qualification_type,base.group_user,1,1,1,1
-access_training_qualification_category,training.training_qualification_category,model_training_qualification_category,base.group_user,1,1,1,1
 access_training_medical_fitness_level,training.training_medical_fitness_level,model_training_medical_fitness_level,base.group_user,1,1,1,1
+access_training_vte_category,training.training_vte_category,model_training_vte_category,base.group_user,1,1,1,1
+access_training_medical_assessment,training.training_medical_assessment,model_training_medical_assessment,base.group_user,1,1,1,1
+access_training_vte_evu_regulations,training.training_vte_evu_regulations,model_training_vte_evu_regulations,base.group_user,1,1,1,1
+access_training_vte_locomotive,training.training_vte_locomotive,model_training_vte_locomotive,base.group_user,1,1,1,1
+access_training_vte_rail_network,training.training_vte_rail_network,model_training_vte_rail_network,base.group_user,1,1,1,1
+access_training_exam,training.training_exam,model_training_exam,base.group_user,1,1,1,1

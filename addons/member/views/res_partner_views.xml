@@ -7,9 +7,8 @@
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="emergency_contact.view_partner_form"/>
             <field name="arch" type="xml">
-<!--                <xpath expr="//field[@name='vat']" position="replace"/>-->
+                <xpath expr="//field[@name='vat']" position="replace"/>
                 <xpath expr="//field[@name='function']" position="replace"/>
-                <xpath expr="//field[@name='category_id']" position="replace"/>
                 <xpath expr="//sheet/group/group" position="after">
                     <group>
                         <field name="date_of_birth"/>

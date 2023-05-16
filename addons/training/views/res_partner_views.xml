@@ -17,6 +17,44 @@
                             </tree>
                         </field>
                     </page>
+                    <page name="qualification" string="HR">
+                        <group>
+                            <group string="Validity dates">
+                                <field name="medical_assessment_valid_until"/>
+                                <field name="license_valid_until"/>
+                                <field name="exam_valid_until"/>
+                            </group>
+                            <group string="Train driver">
+                                <field name="has_locomotive"/>
+                                <field name="locomotive"
+                                       attrs="{'invisible': [('has_locomotive', '=', False)]}"
+                                       widget="many2many_tags"
+                                />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="medical" string="Medical assessments">
+                                <field name="medical_assessment_ids">
+                                    <tree>
+                                        <field name="medical_fitness_level"/>
+                                        <field name="assessment_date"/>
+                                        <field name="valid_until"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="exam" string="Exam">
+                                <field name="exam_ids">
+                                    <tree>
+                                        <field name="type"/>
+                                        <field name="category"/>
+                                        <field name="date"/>
+                                        <field name="valid_until"/>
+                                        <field name="competence"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </page>
                 </notebook>
             </field>
         </record>

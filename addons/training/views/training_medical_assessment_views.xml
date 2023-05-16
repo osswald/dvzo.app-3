@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- TRAINING MEDICAL ASSESSMENT VIEWS -->
+        <record id="training_medical_assessment_view_form" model="ir.ui.view">
+            <field name="name">training.medical.assessment.form</field>
+            <field name="model">training.medical_assessment</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="person"/>
+                                <field name="medical_fitness_level"/>
+                                <field name="assessment_date"/>
+                                <field name="valid_until"/>
+                            </group>
+                            <group>
+                                <field name="assessment_file" widget="binary" filename="assessment_file_name"/>
+                                <button name="download_assessment_file" string="Download" type="object"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="training_medical_assessment_view_tree" model="ir.ui.view">
+            <field name="name">training.medical_assessment.tree</field>
+            <field name="model">training.medical_assessment</field>
+            <field name="arch" type="xml">
+                <tree string="Medical assessment">
+                    <field name="medical_fitness_level"/>
+                    <field name="assessment_date"/>
+                    <field name="valid_until"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="training_medical_assessment_action" model="ir.actions.act_window">
+            <field name="name">Medical assessment</field>
+            <field name="res_model">training.medical_assessment</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>

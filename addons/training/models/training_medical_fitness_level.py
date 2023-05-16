@@ -7,3 +7,4 @@ class TrainingMedicalFitnessLevel(models.Model):
 
     name = fields.Char("Label", required=True)
     bav_equivalent = fields.Char("BAV equivalent")
+    dvzo_equivalent = fields.Char("DVZO equivalent")

@@ -2,8 +2,13 @@ from . import training
 from . import training_date
 from . import training_module
 from . import training_participant
-from . import training_qualification
-from . import training_qualification_type
-from . import training_qualification_category
 from . import training_medical_fitness_level
+from . import training_vte_category
+from . import training_vte_evu_regulations
+from . import training_vte_locomotive
+from . import training_vte_rail_network
+from . import training_medical_assessment
+from . import training_exam
+from . import training_qualification_category
+from . import training_qualification_type
 from . import res_partner
