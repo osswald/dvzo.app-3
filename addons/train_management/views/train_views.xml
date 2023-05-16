@@ -35,8 +35,8 @@
                                     <tree editable="bottom">
                                         <field name="sequence" widget="handle"/>
                                         <field name="station"/>
-                                        <field name="arrival_time"/>
-                                        <field name="departure_time"/>
+                                        <field name="arrival_time" widget="float_time"/>
+                                        <field name="departure_time" widget="float_time"/>
                                         <field name="stop_code"/>
                                     </tree>
                                 </field>

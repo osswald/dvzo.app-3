@@ -18,9 +18,9 @@
                                 <field name="valid_from"/>
                                 <field name="valid_until"/>
                                 <field name="approximate_times"/>
-                                <field name="approximate_start_time"
+                                <field name="approximate_start_time" widget="float_time"
                                        attrs="{'invisible': [('approximate_times', '=', False)]}"/>
-                                <field name="approximate_end_time"
+                                <field name="approximate_end_time" widget="float_time"
                                        attrs="{'invisible': [('approximate_times', '=', False)]}"/>
                             </group>
 

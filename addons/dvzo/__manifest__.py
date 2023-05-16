@@ -11,7 +11,6 @@
         'contacts',
         'partner_firstname',
         'emergency_contact',
-        'training',
         'key_management',
         'member',
         'train_management',

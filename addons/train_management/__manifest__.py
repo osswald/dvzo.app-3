@@ -5,6 +5,7 @@
     'name': 'Train Management',
     'depends': [
         'base',
+        'training',
     ],
     'author': 'Christoph Osswald',
     'installable': True,
