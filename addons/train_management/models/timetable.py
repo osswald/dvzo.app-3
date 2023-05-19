@@ -6,7 +6,8 @@ class Timetable(models.Model):
     _description = "Timetable"
 
     station = fields.Many2one("train_management.station", required=True)
-    train = fields.Many2one("train_management.train", required=True)
+    train = fields.Many2one("train_management.train")
+    train_template = fields.Many2one("train_management.train_template")
     sequence = fields.Integer(string='Sequence', default=1)
     departure_time = fields.Float()
     arrival_time = fields.Float()

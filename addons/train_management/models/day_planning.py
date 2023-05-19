@@ -1,4 +1,5 @@
-from odoo import models, fields
+from odoo import models, fields, api
+from odoo.exceptions import UserError
 
 
 class DayPlanning(models.Model):
@@ -104,7 +105,29 @@ class DayPlanning(models.Model):
         required=True,
         copy=False
     )
+    frequency = fields.Integer("Frequency", compute="_compute_total_frequency", store=True)
+    distance = fields.Integer("Distance", compute="_compute_total_distance", store=True)
     day_planning_text_ids = fields.One2many("train_management.day_planning_text", "day_planning", string="Texts")
     circuit_ids = fields.One2many("train_management.circuit", "day_planning")
     reservation_ids = fields.One2many("train_management.reservation", "day_planning")
     day_planning_shift_ids = fields.One2many("train_management.day_planning_shift", "day_planning", string="Shifts")
+
+    @api.depends('circuit_ids.frequency')
+    def _compute_total_frequency(self):
+        for day_planning in self:
+            day_planning.frequency = sum(circuit.frequency for circuit in day_planning.circuit_ids)
+
+    @api.depends('circuit_ids.distance')
+    def _compute_total_distance(self):
+        for day_planning in self:
+            day_planning.distance = sum(circuit.distance for circuit in day_planning.circuit_ids)
+
+    def action_confirmed(self):
+        if "executed" in self.mapped("state"):
+            raise UserError("Executed day plannings can't be confirmed.")
+        return self.write({"state": "confirmed"})
+
+    def action_executed(self):
+        if "draft" in self.mapped("state"):
+            raise UserError("Draft day plannings can't be executed")
+        return self.write({"state": "executed"})

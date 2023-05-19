@@ -13,7 +13,7 @@
                             <group>
                                 <field name="name"/>
                                 <field name="label"/>
-                                <field name="category"/>
+                                <field name="category" widget="many2many_tags" options="{'color_field': 'color'}"/>
                                 <field name="description"/>
                                 <field name="valid_from"/>
                                 <field name="valid_until"/>

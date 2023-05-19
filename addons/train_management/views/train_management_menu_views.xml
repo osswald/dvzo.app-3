@@ -9,6 +9,7 @@
             <menuitem id="reservation_menu_action" action="train_management.reservation_action" sequence="5"/>
             <menuitem id="settings_menu" name="Settings" sequence="10">
                 <menuitem id="station_menu_action" action="train_management.station_action"/>
+                <menuitem id="train_template_menu_action" action="train_management.train_template_action"/>
                 <menuitem id="railway_company_menu_action" action="train_management.railway_company_action"/>
                 <menuitem id="stop_code_menu_action" action="train_management.stop_code_action"/>
                 <menuitem id="copy_recipient_menu_action" action="train_management.copy_recipient_action"/>

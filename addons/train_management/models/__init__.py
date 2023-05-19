@@ -6,6 +6,7 @@ from . import railway_company
 from . import reservation
 from . import station
 from . import train
+from . import train_template
 from . import train_vehicle
 from . import vehicle
 from . import timetable

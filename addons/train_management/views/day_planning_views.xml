@@ -9,6 +9,10 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
+                        <button name="action_confirmed" type="object" string="Confirm" states="draft"
+                                class="oe_highlight"/>
+                        <button name="action_executed" type="object" string="Executed"
+                                states="confirmed" class="oe_highlight"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,executed"/>
                     </header>
                     <sheet>
@@ -38,6 +42,10 @@
                                 <field name="price" placeholder="e.g. 30'000.00"/>
                                 <field name="comment"
                                        placeholder="e.g. The customer would like to have 3 green carriages. Catering required."/>
+                            </group>
+                            <group>
+                                <field name="frequency"/>
+                                <field name="distance"/>
                             </group>
                         </group>
                         <notebook>
@@ -78,6 +86,7 @@
                                 <field name="day_planning_shift_ids">
                                     <tree editable="bottom">
                                         <field name="shift"/>
+                                        <field name="shift_label"/>
                                         <field name="person"/>
                                         <field name="comment"/>
                                     </tree>
@@ -120,7 +129,10 @@
                                         <ul>
                                             <li>
                                                 <h4>
-                                                    <i class="fa fa-calendar" aria-hidden="true" title="calendar"/> <field name="date"/>
+                                                    <i class="fa fa-calendar"
+                                                       aria-hidden="true" style="padding-right:5px"
+                                                       title="calendar"/>
+                                                    <field name="date"/>
                                                 </h4>
                                             </li>
                                             <li>
@@ -130,23 +142,33 @@
                                         <table class="table">
                                             <tr>
                                                 <th>Slot ordered ST</th>
-                                                <td><field name="slot_ordered_st"/></td>
+                                                <td>
+                                                    <field name="slot_ordered_st"/>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <th>Slot ordered SBB</th>
-                                                <td><field name="slot_ordered_sbb"/></td>
+                                                <td>
+                                                    <field name="slot_ordered_sbb"/>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <th>Personnel disposition</th>
-                                                <td><field name="personnel_disposition"/></td>
+                                                <td>
+                                                    <field name="personnel_disposition"/>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <th>Engine planning status</th>
-                                                <td><field name="engine_planning_status"/></td>
+                                                <td>
+                                                    <field name="engine_planning_status"/>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <th>Carriage planning status</th>
-                                                <td><field name="carriage_planning_status"/></td>
+                                                <td>
+                                                    <field name="carriage_planning_status"/>
+                                                </td>
                                             </tr>
                                         </table>
                                     </div>

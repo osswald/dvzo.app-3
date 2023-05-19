@@ -8,6 +8,9 @@
             <field name="model">train_management.circuit</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button name="%(open_create_train_wizard)d" type="action" string="Create Train from template"/>
+                    </header>
                     <sheet>
                         <group>
                             <group>

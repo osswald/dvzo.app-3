@@ -6,8 +6,8 @@ class Circuit(models.Model):
     _description = "Circuit"
 
     name = fields.Char("Label", required=True)
-    distance = fields.Integer("distance")
-    frequency = fields.Integer("Frequency")
+    distance = fields.Integer("distance", compute="_compute_total_distance", store=True)
+    frequency = fields.Integer("Frequency", compute="_compute_total_frequency", store=True)
     day_planning = fields.Many2one("train_management.day_planning", required=True, readonly=True)
     circuit_vehicle = fields.One2many("train_management.circuit_vehicle", "circuit")
     train_ids = fields.One2many("train_management.train", "circuit")
@@ -18,3 +18,14 @@ class Circuit(models.Model):
         for circuit in self:
             vehicle_names = circuit.circuit_vehicle.sorted('sequence').mapped('vehicle.name')
             circuit.train_composition = ', '.join(vehicle_names)
+
+    @api.depends('train_ids.frequency')
+    def _compute_total_frequency(self):
+        for circuit in self:
+            circuit.frequency = sum(train.frequency for train in circuit.train_ids)
+
+    @api.depends('train_ids.distance')
+    def _compute_total_distance(self):
+        for circuit in self:
+            circuit.distance = sum(train.distance for train in circuit.train_ids)
+
