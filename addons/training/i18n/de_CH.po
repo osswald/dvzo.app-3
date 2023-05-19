@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0-20230430\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-15 06:49+0000\n"
-"PO-Revision-Date: 2023-05-15 08:54+0200\n"
+"POT-Creation-Date: 2023-05-19 15:11+0000\n"
+"PO-Revision-Date: 2023-05-19 17:13+0200\n"
 "Last-Translator: Christoph Osswald\n"
 "Language-Team: \n"
 "Language: de_CH\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 3.3\n"
+"X-Generator: Poedit 3.3.1\n"
 
 #. module: training
 #: model:ir.actions.report,print_report_name:training.action_report_training_participant_list
@@ -23,9 +23,46 @@ msgid "'Participant list'"
 msgstr "‚Teilnehmerliste‘"
 
 #. module: training
+#: model:ir.actions.report,print_report_name:training.action_report_training_invitation
+msgid "'Training invitation'"
+msgstr "‚Kurseinladung‘"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.training_kanban_view
+msgid ""
+"<i class=\"fa fa-calendar\" title=\"calendar\" aria-hidden=\"true\" "
+"style=\"padding-right:5px\"/>"
+msgstr ""
+"<i class=„fa fa-calendar“ title=„calendar“ aria-hidden=„true“ "
+"style=„padding-right:5px“/>"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.training_kanban_view
+msgid ""
+"<i class=\"fa fa-code-fork\" title=\"module\" aria-hidden=\"true\" "
+"style=\"padding-right:5px\"/>"
+msgstr ""
+"<i class=\"fa fa-code-fork\" title=\"module\" aria-hidden=\"true\" "
+"style=\"padding-right:5px\"/>"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.training_kanban_view
+msgid ""
+"<i class=\"fa fa-user\" title=\"user\" aria-hidden=\"true\" style=\"padding-"
+"right:5px\"/>"
+msgstr ""
+"<i class=\"fa fa-user\" title=\"user\" aria-hidden=\"true\" style=\"padding-"
+"right:5px\"/>"
+
+#. module: training
 #: model_terms:ir.ui.view,arch_db:training.participant_list
 msgid "<span style=\"font-weight:bold;\">Participant list</span>"
 msgstr "<span style=\"font-weight:bold;\">Teilnehmerliste</span>"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.invitation
+msgid "<span style=\"font-weight:bold;\">Training invitation</span>"
+msgstr "<span style=\"font-weight:bold;\">Kurseinladung</span>"
 
 #. module: training
 #: model_terms:ir.ui.view,arch_db:training.participant_list
@@ -38,6 +75,16 @@ msgid "Address"
 msgstr "Adresse"
 
 #. module: training
+#: model:ir.model.fields,field_description:training.field_training_medical_assessment__assessment_date
+msgid "Assessment date"
+msgstr "Datum Untersuchung"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_medical_assessment__assessment_file
+msgid "Assessment file"
+msgstr "Untersuchungsbericht"
+
+#. module: training
 #: model:ir.model.fields,field_description:training.field_training_participant__attended
 msgid "Attended"
 msgstr "Teilgenommen"
@@ -48,14 +95,24 @@ msgid "BAV equivalent"
 msgstr "BAV Äquivalent"
 
 #. module: training
-#: model:ir.model.fields,field_description:training.field_training_qualification__category
+#: model:ir.model.fields,field_description:training.field_training_exam__category
 msgid "Category"
 msgstr "Kategorie"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_exam__competence
+msgid "Competence"
+msgstr "Kompetenz"
 
 #. module: training
 #: model:ir.model,name:training.model_res_partner
 msgid "Contact"
 msgstr "Kontakt"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.invitation
+msgid "Course name:"
+msgstr "Kursbezeichnung"
 
 #. module: training
 #: model_terms:ir.actions.act_window,help:training.training_date_action
@@ -78,11 +135,6 @@ msgid "Create a participant"
 msgstr "Teilnehmer erstellen"
 
 #. module: training
-#: model_terms:ir.actions.act_window,help:training.training_qualification_action
-msgid "Create a qualification"
-msgstr "Qualifikation erstellen"
-
-#. module: training
 #: model_terms:ir.actions.act_window,help:training.training_qualification_category_action
 msgid "Create a qualification category"
 msgstr "Qualifikations-Kategorie erstellen"
@@ -99,27 +151,42 @@ msgstr "Kurs erstellen"
 
 #. module: training
 #: model:ir.model.fields,field_description:training.field_training_date__create_uid
+#: model:ir.model.fields,field_description:training.field_training_exam__create_uid
+#: model:ir.model.fields,field_description:training.field_training_medical_assessment__create_uid
 #: model:ir.model.fields,field_description:training.field_training_medical_fitness_level__create_uid
 #: model:ir.model.fields,field_description:training.field_training_module__create_uid
 #: model:ir.model.fields,field_description:training.field_training_participant__create_uid
-#: model:ir.model.fields,field_description:training.field_training_qualification__create_uid
 #: model:ir.model.fields,field_description:training.field_training_qualification_category__create_uid
 #: model:ir.model.fields,field_description:training.field_training_qualification_type__create_uid
 #: model:ir.model.fields,field_description:training.field_training_training__create_uid
+#: model:ir.model.fields,field_description:training.field_training_vte_category__create_uid
+#: model:ir.model.fields,field_description:training.field_training_vte_evu_regulations__create_uid
+#: model:ir.model.fields,field_description:training.field_training_vte_locomotive__create_uid
+#: model:ir.model.fields,field_description:training.field_training_vte_rail_network__create_uid
 msgid "Created by"
 msgstr "Erstellt von"
 
 #. module: training
 #: model:ir.model.fields,field_description:training.field_training_date__create_date
+#: model:ir.model.fields,field_description:training.field_training_exam__create_date
+#: model:ir.model.fields,field_description:training.field_training_medical_assessment__create_date
 #: model:ir.model.fields,field_description:training.field_training_medical_fitness_level__create_date
 #: model:ir.model.fields,field_description:training.field_training_module__create_date
 #: model:ir.model.fields,field_description:training.field_training_participant__create_date
-#: model:ir.model.fields,field_description:training.field_training_qualification__create_date
 #: model:ir.model.fields,field_description:training.field_training_qualification_category__create_date
 #: model:ir.model.fields,field_description:training.field_training_qualification_type__create_date
 #: model:ir.model.fields,field_description:training.field_training_training__create_date
+#: model:ir.model.fields,field_description:training.field_training_vte_category__create_date
+#: model:ir.model.fields,field_description:training.field_training_vte_evu_regulations__create_date
+#: model:ir.model.fields,field_description:training.field_training_vte_locomotive__create_date
+#: model:ir.model.fields,field_description:training.field_training_vte_rail_network__create_date
 msgid "Created on"
 msgstr "Erstellt am"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_medical_fitness_level__dvzo_equivalent
+msgid "DVZO equivalent"
+msgstr "DVZO-Äquivalent"
 
 #. module: training
 #: model:ir.actions.act_window,name:training.training_date_action
@@ -128,9 +195,9 @@ msgid "Date"
 msgstr "Datum"
 
 #. module: training
-#: model_terms:ir.ui.view,arch_db:training.participant_list
-msgid "Daten fehlen"
-msgstr "Daten fehlen"
+#: model_terms:ir.ui.view,arch_db:training.invitation
+msgid "Date:"
+msgstr "Datum:"
 
 #. module: training
 #: model:ir.model.fields,field_description:training.field_training_training__training_date_ids
@@ -148,26 +215,31 @@ msgid "Department"
 msgstr "Ressort"
 
 #. module: training
-#: model:ir.model.fields,field_description:training.field_training_qualification__description
-msgid "Description"
-msgstr "Beschreibung"
-
-#. module: training
 #: model:ir.model.fields,field_description:training.field_training_date__display_name
+#: model:ir.model.fields,field_description:training.field_training_exam__display_name
+#: model:ir.model.fields,field_description:training.field_training_medical_assessment__display_name
 #: model:ir.model.fields,field_description:training.field_training_medical_fitness_level__display_name
 #: model:ir.model.fields,field_description:training.field_training_module__display_name
 #: model:ir.model.fields,field_description:training.field_training_participant__display_name
-#: model:ir.model.fields,field_description:training.field_training_qualification__display_name
 #: model:ir.model.fields,field_description:training.field_training_qualification_category__display_name
 #: model:ir.model.fields,field_description:training.field_training_qualification_type__display_name
 #: model:ir.model.fields,field_description:training.field_training_training__display_name
+#: model:ir.model.fields,field_description:training.field_training_vte_category__display_name
+#: model:ir.model.fields,field_description:training.field_training_vte_evu_regulations__display_name
+#: model:ir.model.fields,field_description:training.field_training_vte_locomotive__display_name
+#: model:ir.model.fields,field_description:training.field_training_vte_rail_network__display_name
 msgid "Display Name"
 msgstr "Anzeigename"
 
 #. module: training
+#: model_terms:ir.ui.view,arch_db:training.training_medical_assessment_view_form
+msgid "Download"
+msgstr "Herunterladen"
+
+#. module: training
 #: model:ir.ui.menu,name:training.key_management_menu_root
 msgid "Education"
-msgstr "Aus- und Weiterbildung"
+msgstr "Aus-/Weiterbildung"
 
 #. module: training
 #: model:ir.model.fields,field_description:training.field_training_date__end
@@ -180,19 +252,59 @@ msgid "End date"
 msgstr "Enddatum"
 
 #. module: training
+#: model:ir.actions.act_window,name:training.training_exam_action
+#: model:ir.model,name:training.model_training_exam
+#: model_terms:ir.ui.view,arch_db:training.training_exam_view_tree
+#: model_terms:ir.ui.view,arch_db:training.view_partner_form
+msgid "Exam"
+msgstr "Prüfung"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_exam__date
+msgid "Exam date"
+msgstr "Prüfungsdatum"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner__exam_valid_until
+#: model:ir.model.fields,field_description:training.field_res_users__exam_valid_until
+msgid "Exam valid until"
+msgstr "Prüfung gültig bis"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner__exam_ids
+#: model:ir.model.fields,field_description:training.field_res_users__exam_ids
+msgid "Exams"
+msgstr "Prüfungen"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_medical_assessment__assessment_file_name
+msgid "File Name"
+msgstr "Dateiname"
+
+#. module: training
 #: model_terms:ir.ui.view,arch_db:training.training_search
 msgid "Group By"
 msgstr "Gruppieren nach"
 
 #. module: training
+#: model_terms:ir.ui.view,arch_db:training.view_partner_form
+msgid "HR"
+msgstr "HR"
+
+#. module: training
 #: model:ir.model.fields,field_description:training.field_training_date__id
+#: model:ir.model.fields,field_description:training.field_training_exam__id
+#: model:ir.model.fields,field_description:training.field_training_medical_assessment__id
 #: model:ir.model.fields,field_description:training.field_training_medical_fitness_level__id
 #: model:ir.model.fields,field_description:training.field_training_module__id
 #: model:ir.model.fields,field_description:training.field_training_participant__id
-#: model:ir.model.fields,field_description:training.field_training_qualification__id
 #: model:ir.model.fields,field_description:training.field_training_qualification_category__id
 #: model:ir.model.fields,field_description:training.field_training_qualification_type__id
 #: model:ir.model.fields,field_description:training.field_training_training__id
+#: model:ir.model.fields,field_description:training.field_training_vte_category__id
+#: model:ir.model.fields,field_description:training.field_training_vte_evu_regulations__id
+#: model:ir.model.fields,field_description:training.field_training_vte_locomotive__id
+#: model:ir.model.fields,field_description:training.field_training_vte_rail_network__id
 msgid "ID"
 msgstr "ID"
 
@@ -202,56 +314,123 @@ msgid "Important"
 msgstr "Wichtig"
 
 #. module: training
+#: model_terms:ir.ui.view,arch_db:training.invitation
+msgid "Important:"
+msgstr "Wichtig:"
+
+#. module: training
 #: model:ir.model.fields,field_description:training.field_training_date__name
 #: model:ir.model.fields,field_description:training.field_training_medical_fitness_level__name
 #: model:ir.model.fields,field_description:training.field_training_module__label
-#: model:ir.model.fields,field_description:training.field_training_qualification__name
 #: model:ir.model.fields,field_description:training.field_training_qualification_category__name
 #: model:ir.model.fields,field_description:training.field_training_qualification_type__name
 #: model:ir.model.fields,field_description:training.field_training_training__label
+#: model:ir.model.fields,field_description:training.field_training_vte_category__name
+#: model:ir.model.fields,field_description:training.field_training_vte_evu_regulations__name
+#: model:ir.model.fields,field_description:training.field_training_vte_locomotive__name
+#: model:ir.model.fields,field_description:training.field_training_vte_rail_network__name
 msgid "Label"
 msgstr "Bezeichnung"
 
 #. module: training
 #: model:ir.model.fields,field_description:training.field_training_date____last_update
+#: model:ir.model.fields,field_description:training.field_training_exam____last_update
+#: model:ir.model.fields,field_description:training.field_training_medical_assessment____last_update
 #: model:ir.model.fields,field_description:training.field_training_medical_fitness_level____last_update
 #: model:ir.model.fields,field_description:training.field_training_module____last_update
 #: model:ir.model.fields,field_description:training.field_training_participant____last_update
-#: model:ir.model.fields,field_description:training.field_training_qualification____last_update
 #: model:ir.model.fields,field_description:training.field_training_qualification_category____last_update
 #: model:ir.model.fields,field_description:training.field_training_qualification_type____last_update
 #: model:ir.model.fields,field_description:training.field_training_training____last_update
+#: model:ir.model.fields,field_description:training.field_training_vte_category____last_update
+#: model:ir.model.fields,field_description:training.field_training_vte_evu_regulations____last_update
+#: model:ir.model.fields,field_description:training.field_training_vte_locomotive____last_update
+#: model:ir.model.fields,field_description:training.field_training_vte_rail_network____last_update
 msgid "Last Modified on"
 msgstr "Zuletzt geändert am"
 
 #. module: training
 #: model:ir.model.fields,field_description:training.field_training_date__write_uid
+#: model:ir.model.fields,field_description:training.field_training_exam__write_uid
+#: model:ir.model.fields,field_description:training.field_training_medical_assessment__write_uid
 #: model:ir.model.fields,field_description:training.field_training_medical_fitness_level__write_uid
 #: model:ir.model.fields,field_description:training.field_training_module__write_uid
 #: model:ir.model.fields,field_description:training.field_training_participant__write_uid
-#: model:ir.model.fields,field_description:training.field_training_qualification__write_uid
 #: model:ir.model.fields,field_description:training.field_training_qualification_category__write_uid
 #: model:ir.model.fields,field_description:training.field_training_qualification_type__write_uid
 #: model:ir.model.fields,field_description:training.field_training_training__write_uid
+#: model:ir.model.fields,field_description:training.field_training_vte_category__write_uid
+#: model:ir.model.fields,field_description:training.field_training_vte_evu_regulations__write_uid
+#: model:ir.model.fields,field_description:training.field_training_vte_locomotive__write_uid
+#: model:ir.model.fields,field_description:training.field_training_vte_rail_network__write_uid
 msgid "Last Updated by"
 msgstr "Zuletzt bearbeitet von"
 
 #. module: training
 #: model:ir.model.fields,field_description:training.field_training_date__write_date
+#: model:ir.model.fields,field_description:training.field_training_exam__write_date
+#: model:ir.model.fields,field_description:training.field_training_medical_assessment__write_date
 #: model:ir.model.fields,field_description:training.field_training_medical_fitness_level__write_date
 #: model:ir.model.fields,field_description:training.field_training_module__write_date
 #: model:ir.model.fields,field_description:training.field_training_participant__write_date
-#: model:ir.model.fields,field_description:training.field_training_qualification__write_date
 #: model:ir.model.fields,field_description:training.field_training_qualification_category__write_date
 #: model:ir.model.fields,field_description:training.field_training_qualification_type__write_date
 #: model:ir.model.fields,field_description:training.field_training_training__write_date
+#: model:ir.model.fields,field_description:training.field_training_vte_category__write_date
+#: model:ir.model.fields,field_description:training.field_training_vte_evu_regulations__write_date
+#: model:ir.model.fields,field_description:training.field_training_vte_locomotive__write_date
+#: model:ir.model.fields,field_description:training.field_training_vte_rail_network__write_date
 msgid "Last Updated on"
 msgstr "Zuletzt bearbeitet am"
 
 #. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner__license_valid_until
+#: model:ir.model.fields,field_description:training.field_res_users__license_valid_until
+msgid "License valid until"
+msgstr "Ausweis gültig bis"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner__locomotive
+#: model:ir.model.fields,field_description:training.field_res_users__locomotive
+msgid "Locomotive"
+msgstr "Triebfahrzeug"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner__has_locomotive
+#: model:ir.model.fields,field_description:training.field_res_users__has_locomotive
+msgid "Locomotive knowledge"
+msgstr "Triebfahrzeugkenntnisse"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_exam__vte_locomotive
+msgid "Locomotives"
+msgstr "Triebfahrzeuge"
+
+#. module: training
 #: model:ir.model,name:training.model_training_medical_fitness_level
+#: model:ir.model.fields,field_description:training.field_training_medical_assessment__medical_fitness_level
 msgid "Medical Fitness Level"
 msgstr "Medizinische Anforderungsstufe"
+
+#. module: training
+#: model:ir.actions.act_window,name:training.training_medical_assessment_action
+#: model:ir.model,name:training.model_training_medical_assessment
+#: model:ir.model.fields,field_description:training.field_res_partner__medical_assessment_ids
+#: model:ir.model.fields,field_description:training.field_res_users__medical_assessment_ids
+#: model_terms:ir.ui.view,arch_db:training.training_medical_assessment_view_tree
+msgid "Medical assessment"
+msgstr "Medizinische Untersuchung"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner__medical_assessment_valid_until
+#: model:ir.model.fields,field_description:training.field_res_users__medical_assessment_valid_until
+msgid "Medical assessment valid until"
+msgstr "Medizinische Untersuchung gültig bis"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.view_partner_form
+msgid "Medical assessments"
+msgstr "Medizinische Untersuchungen"
 
 #. module: training
 #: model:ir.actions.act_window,name:training.training_medical_fitness_level_action
@@ -266,6 +445,11 @@ msgid "Meeting place"
 msgstr "Treffpunkt"
 
 #. module: training
+#: model_terms:ir.ui.view,arch_db:training.invitation
+msgid "Meeting place:"
+msgstr "Treffpunkt:"
+
+#. module: training
 #: model_terms:ir.ui.view,arch_db:training.participant_list
 msgid "Mobile / E-Mail"
 msgstr "Handy / E-Mail"
@@ -277,6 +461,11 @@ msgstr "Handy / E-Mail"
 #: model_terms:ir.ui.view,arch_db:training.training_search
 msgid "Module"
 msgstr "Modul"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.invitation
+msgid "Module:"
+msgstr "Modul:"
 
 #. module: training
 #: model:ir.model,name:training.model_training_module
@@ -317,12 +506,10 @@ msgid "Passed"
 msgstr "Bestanden"
 
 #. module: training
-#: model:ir.actions.act_window,name:training.training_qualification_action
-#: model:ir.model,name:training.model_training_qualification
-#: model:ir.ui.menu,name:training.training_qualification_menu_action
-#: model_terms:ir.ui.view,arch_db:training.training_qualification_view_tree
-msgid "Qualification"
-msgstr "Qualifikation"
+#: model:ir.model.fields,field_description:training.field_training_exam__person
+#: model:ir.model.fields,field_description:training.field_training_medical_assessment__person
+msgid "Person"
+msgstr "Person"
 
 #. module: training
 #: model:ir.model,name:training.model_training_qualification_category
@@ -359,6 +546,11 @@ msgid "Responsible"
 msgstr "Verantwortlich"
 
 #. module: training
+#: model_terms:ir.ui.view,arch_db:training.invitation
+msgid "Responsible:"
+msgstr "Verantwortlich:"
+
+#. module: training
 #: model:ir.ui.menu,name:training.settings_menu
 msgid "Settings"
 msgstr "Einstellungen"
@@ -389,6 +581,16 @@ msgid "Take along"
 msgstr "Mitnehmen"
 
 #. module: training
+#: model_terms:ir.ui.view,arch_db:training.invitation
+msgid "Take along:"
+msgstr "Mitnehmen:"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.view_partner_form
+msgid "Train driver"
+msgstr "Lokführer"
+
+#. module: training
 #: model:ir.actions.act_window,name:training.training_action
 #: model:ir.model.fields,field_description:training.field_res_partner__training_ids
 #: model:ir.model.fields,field_description:training.field_res_users__training_ids
@@ -407,6 +609,11 @@ msgid "Training dates"
 msgstr "Kursdaten"
 
 #. module: training
+#: model:ir.actions.report,name:training.action_report_training_invitation
+msgid "Training invitation"
+msgstr "Kurseinladung"
+
+#. module: training
 #: model:ir.model,name:training.model_training_training
 #: model:ir.model.fields,field_description:training.field_training_module__training_ids
 #: model_terms:ir.ui.view,arch_db:training.training_module_view_form
@@ -414,11 +621,46 @@ msgid "Trainings"
 msgstr "Kurse"
 
 #. module: training
-#: model:ir.model.fields,field_description:training.field_training_qualification__type
+#: model:ir.model.fields,field_description:training.field_training_exam__type
+#: model:ir.model.fields,field_description:training.field_training_qualification_category__type
 msgid "Type"
 msgstr "Typ"
 
 #. module: training
-#: model:ir.model.fields,field_description:training.field_training_qualification__valid_years
-msgid "Valid (Years)"
-msgstr "Gültig (Jahre)"
+#: model:ir.model,name:training.model_training_vte_evu_regulations
+#: model:ir.model.fields,field_description:training.field_training_exam__vte_evu_regulations
+msgid "VTE EVU regulations"
+msgstr "VTE EVU-Vorschriften"
+
+#. module: training
+#: model:ir.model,name:training.model_training_vte_locomotive
+msgid "VTE Locomotive"
+msgstr "VTE Triebfahrzeuge"
+
+#. module: training
+#: model:ir.model,name:training.model_training_vte_category
+#: model:ir.model.fields,field_description:training.field_training_exam__vte_category
+msgid "VTE category"
+msgstr "VTE-Kategorie"
+
+#. module: training
+#: model:ir.model,name:training.model_training_vte_rail_network
+#: model:ir.model.fields,field_description:training.field_training_exam__vte_rail_network
+msgid "VTE rail network"
+msgstr "VTE Infrastrukturen"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_exam__valid_until
+#: model:ir.model.fields,field_description:training.field_training_medical_assessment__valid_until
+msgid "Valid until"
+msgstr "Gültig bis"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.view_partner_form
+msgid "Validity dates"
+msgstr "Gültigkeitsdaten"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.training_exam_view_form
+msgid "z. B. „B2B“, „VIP“, „Beratung“ ..."
+msgstr "z. B. „Lokführer“, „Rangier“, „Stationswärter“ ..."
