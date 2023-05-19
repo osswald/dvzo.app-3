@@ -7,4 +7,5 @@ class ShiftPositionType(models.Model):
     _order = "name"
 
     name = fields.Char("Label", required=True)
-    work_time = fields.Integer("distance")
+    work_time = fields.Integer("Percentage work time")
+    is_work_time = fields.Boolean("Is work time", default=True)

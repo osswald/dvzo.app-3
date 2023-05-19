@@ -13,6 +13,7 @@
                             <group>
                                 <field name="name"/>
                                 <field name="work_time"/>
+                                <field name="is_work_time"/>
                             </group>
                         </group>
                     </sheet>
@@ -27,6 +28,7 @@
                 <tree string="Shift position type" editable="bottom">
                     <field name="name"/>
                     <field name="work_time"/>
+                    <field name="is_work_time"/>
                 </tree>
             </field>
         </record>

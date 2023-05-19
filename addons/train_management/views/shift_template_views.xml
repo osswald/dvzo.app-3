@@ -23,7 +23,13 @@
                                 <field name="approximate_end_time" widget="float_time"
                                        attrs="{'invisible': [('approximate_times', '=', False)]}"/>
                             </group>
-
+                            <group string="Statistics">
+                                <field name="shift_start" widget="float_time"/>
+                                <field name="shift_end" widget="float_time"/>
+                                <field name="shift_duration" widget="float_time"/>
+                                <field name="work_duration" widget="float_time"/>
+                                <field name="time_accountable" widget="float_time"/>
+                            </group>
                             <notebook>
                                 <page string="Shift positions">
                                     <field name="shift_position_ids"/>

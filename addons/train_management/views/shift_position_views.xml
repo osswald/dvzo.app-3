@@ -16,6 +16,7 @@
                                 <field name="type"/>
                                 <field name="start_time" widget="float_time"/>
                                 <field name="end_time" widget="float_time"/>
+                                <field name="shift_position_duration" widget="float_time"/>
                                 <field name="start_station"/>
                                 <field name="end_station"/>
                                 <field name="comment"/>
