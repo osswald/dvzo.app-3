@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Main report templates -->
+    <template id="invitation">
+        <t t-foreach="docs" t-as="training">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1>
+                            <span style="font-weight:bold;">Training invitation</span>
+                        </h1>
+                        <table class="table table-borderless">
+                            <tr>
+                                <th>Date:</th>
+                                <td>
+                                    <span t-field="training.start"/>
+                                    <t t-if="training.start != training.end">
+                                        -
+                                        <span t-field="training.end"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Meeting place:</th>
+                                <td><span t-field="training.meeting_place"/></td>
+                            </tr>
+                            <tr>
+                                <th>Module:</th>
+                                <td>
+                                    <span t-field="training.module"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Course name:</th>
+                                <td>
+                                    <span t-field="training.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Responsible:</th>
+                                <td><span t-field="training.responsible"/> </td>
+                            </tr>
+                            <tr>
+                                <th>Take along:</th>
+                                <td><span t-field="training.take_along"/></td>
+                            </tr>
+                            <tr>
+                                <th>Important:</th>
+                                <td><span t-field="training.important"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

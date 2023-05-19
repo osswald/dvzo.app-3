@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Main report templates -->
+    <template id="briefing">
+        <t t-foreach="docs" t-as="day_planning">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+
+                        <h1>
+                            <span>Briefing</span>
+                            <span t-field="day_planning.name"/>
+                            -
+                            <span t-field="day_planning.date"/>
+                        </h1>
+
+                        <!-- Day planning texts -->
+                        <div t-if="day_planning.day_planning_text_ids">
+                            <t t-set="texts" t-value="day_planning.mapped('day_planning_text_ids')"/>
+                            <div t-foreach="texts" t-as="text">
+                                <span t-field="text.text"/>
+                            </div>
+                        </div>
+
+                        <!-- Circuits -->
+                        <h2 t-if="day_planning.circuit_ids">Circuit formation</h2>
+                        <table class="table" t-if="day_planning.circuit_ids">
+                            <thead>
+                                <t t-set="circuits" t-value="day_planning.mapped('circuit_ids')"/>
+                                <tr>
+                                    <th t-foreach="circuits" t-as="circuit">
+                                        <span t-field="circuit.name"/>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td t-foreach="circuits" t-as="circuit2">
+                                        <t t-set="circuit_vehicles" t-value="circuit2.mapped('circuit_vehicle')"/>
+                                        <div t-foreach="circuit_vehicles" t-as="circuit_vehicle">
+                                            <span t-field="circuit_vehicle.vehicle"/>
+                                            <t t-if="circuit_vehicle.comment">
+                                                (<span t-field="circuit_vehicle.comment"/>)
+                                        </t>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Personnel -->
+                        <h2 t-if="day_planning.day_planning_shift_ids">Personnel</h2>
+                        <table class="table" t-if="day_planning.day_planning_shift_ids">
+                            <thead>
+                                <tr>
+                                    <th>Shift</th>
+                                    <th>Start</th>
+                                    <th>End</th>
+                                    <th>Person</th>
+                                    <th>Phone</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="shifts" t-value="day_planning.mapped('day_planning_shift_ids')"/>
+                                <tr t-foreach="shifts" t-as="shift">
+                                    <td>
+                                        <span t-field="shift.shift"/> / <span t-field="shift.shift_label"/>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <span t-field="shift.person"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="shift.person.mobile"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                        <!-- Reservations -->
+                        <h2 t-if="day_planning.reservation_ids">Reservations</h2>
+                        <table class="table table-sm" t-if="day_planning.reservation_ids">
+                            <thead>
+                                <tr>
+                                    <th>Train</th>
+                                    <th>Start-End</th>
+                                    <th>PAX</th>
+                                    <th>Contact</th>
+                                    <th>Comment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="reservations" t-value="day_planning.mapped('reservation_ids').sorted(key=lambda r: r.train)"/>
+                                <tr t-foreach="reservations" t-as="reservation">
+                                    <td>
+                                        <span t-field="reservation.train"/>
+                                        <span t-field="reservation.train.start_station.short_name"/> -
+                                        <span t-field="reservation.train.end_station.short_name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="reservation.start_station_short"/> -
+                                        <span t-field="reservation.end_station_short"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="reservation.amount"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="reservation.name"/>
+                                        <span t-field="reservation.phone_number"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="reservation.comment"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

@@ -14,8 +14,10 @@
                             <span t-field="training.name"/>
                             <br/>
                             <span t-field="training.start"/>
+                            <t t-if="training.start != training.end">
                             -
                             <span t-field="training.end"/>
+                            </t>
                         </h3>
                         <div>
                             <strong>Responsible:</strong>
@@ -34,17 +36,17 @@
                                 <t t-set="participants" t-value="training.mapped('participant_ids')"/>
                                 <tr t-foreach="participants" t-as="participant">
                                     <td>
-<!--                                        <span t-field="participant.name"/>-->
+                                        <span t-field="participant.participant"/>
                                     </td>
                                     <td>
-                                        Daten fehlen
                                     </td>
                                     <td>
-<!--                                        <span t-field="participant.mobile"/><br/>-->
-<!--                                        <span t-field="participant.email"/>-->
+                                        <span t-field="participant.participant.mobile"/>
+                                        <br/>
+                                        <span t-field="participant.participant.email"/>
                                     </td>
                                     <td>
-<!--                                        <span t-field="participant.contact_address"/>-->
+                                        <span t-field="participant.participant.contact_address"/>
                                     </td>
                                 </tr>
                             </tbody>

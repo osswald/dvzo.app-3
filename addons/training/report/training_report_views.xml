@@ -10,5 +10,14 @@
             <field name="print_report_name">'Participant list'</field>
             <field name="binding_model_id" ref="model_training_training"/>
         </record>
+        <record id="action_report_training_invitation" model="ir.actions.report">
+            <field name="name">Training invitation</field>
+            <field name="model">training.training</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">training.invitation</field>
+            <field name="report_file">training.invitation</field>
+            <field name="print_report_name">'Training invitation'</field>
+            <field name="binding_model_id" ref="model_training_training"/>
+        </record>
     </data>
 </odoo>
