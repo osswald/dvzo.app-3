@@ -5,7 +5,8 @@ class Train(models.Model):
     _name = "train_management.train"
     _description = "Train"
 
-    name = fields.Char("Label", required=True)
+    name = fields.Char("Name", required=True)
+    name_readonly = fields.Char("Label", related="name", readonly=True)
     description = fields.Text("description")
     frequency = fields.Integer("Frequency")
     distance = fields.Integer("Distance")
@@ -16,6 +17,12 @@ class Train(models.Model):
     train_composition = fields.Char(compute="_compute_train_composition")
     circuit = fields.Many2one("train_management.circuit", required=True, readonly=True)
     reservation_ids = fields.One2many("train_management.reservation", "train")
+    day_planning_id = fields.Many2one("train_management.day_planning", compute="_compute_day_planning", store=True)
+
+    @api.depends('circuit')
+    def _compute_day_planning(self):
+        for train in self:
+            train.day_planning_id = train.circuit.day_planning
 
     @api.depends('timetable')
     def _compute_start_station(self):

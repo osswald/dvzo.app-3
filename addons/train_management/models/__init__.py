@@ -16,3 +16,4 @@ from . import day_planning_shift
 from . import shift_template
 from . import shift_position
 from . import shift_position_type
+from . import res_partner

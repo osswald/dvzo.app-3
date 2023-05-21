@@ -34,6 +34,7 @@
         'views/shift_position_views.xml',
         'views/shift_position_type_views.xml',
         'views/shift_template_views.xml',
+        'views/res_partner_views.xml',
         'views/shift_menu_views.xml',
         'views/train_management_menu_views.xml',
     ],

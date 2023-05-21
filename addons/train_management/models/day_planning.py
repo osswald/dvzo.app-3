@@ -15,6 +15,7 @@ class DayPlanning(models.Model):
         selection=[
             ("public", "Public"),
             ("extra", "Extra"),
+            ("bus", "Bus"),
             ("other", "Other"),
         ],
         string="Type",
@@ -50,6 +51,7 @@ class DayPlanning(models.Model):
             ("draft", "Draft"),
             ("confirmed", "Confirmed"),
             ("executed", "Executed"),
+            ("canceled", "Canceled"),
         ],
         string="Status",
         required=True,
@@ -110,6 +112,7 @@ class DayPlanning(models.Model):
     day_planning_text_ids = fields.One2many("train_management.day_planning_text", "day_planning", string="Texts")
     circuit_ids = fields.One2many("train_management.circuit", "day_planning")
     reservation_ids = fields.One2many("train_management.reservation", "day_planning")
+    train_ids = fields.One2many("train_management.train", "day_planning_id")
     day_planning_shift_ids = fields.One2many("train_management.day_planning_shift", "day_planning", string="Shifts")
 
     @api.depends('circuit_ids.frequency')

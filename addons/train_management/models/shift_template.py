@@ -13,6 +13,7 @@ class ShiftTemplate(models.Model):
     approximate_times = fields.Boolean()
     approximate_start_time = fields.Float()
     approximate_end_time = fields.Float()
+    in_training = fields.Boolean("In training")
 
     shift_start = fields.Float(compute="_compute_start_time", store=True)
     shift_end = fields.Float(compute="_compute_end_time", store=True)
@@ -23,6 +24,22 @@ class ShiftTemplate(models.Model):
 
     category = fields.Many2many("res.partner.category", required=True)
     shift_position_ids = fields.One2many("train_management.shift_position", "shift_template", "Shift positions")
+
+    def copy(self, default=None):
+        default = default or {}
+        default['name'] = self.name + " - Copy"
+        default['shift_position_ids'] = [(0, 0, {
+            'name': position.name,
+            'start_time': position.start_time,
+            'end_time': position.end_time,
+            'comment': position.comment,
+            'sequence': position.sequence,
+            'start_station': position.start_station.id,
+            'end_station': position.end_station.id,
+            'type': position.type.id,
+            'shift_template': self.id,
+        }) for position in self.shift_position_ids]
+        return super(ShiftTemplate, self).copy(default)
 
     @api.depends('shift_position_ids')
     def _compute_start_time(self):

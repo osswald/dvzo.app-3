@@ -7,10 +7,9 @@
             <field name="model">train_management.create.train.wizard</field>
             <field name="arch" type="xml">
                 <form>
-
-                            <group>
-                                <field name="train_templates"/>
-                            </group>
+                    <group>
+                        <field name="train_templates"/>
+                    </group>
 
                     <footer>
                         <button name="create_trains" type="object" data-hotkey="s"

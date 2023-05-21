@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 15:14+0000\n"
-"PO-Revision-Date: 2023-05-19 17:25+0200\n"
+"POT-Creation-Date: 2023-05-21 08:26+0000\n"
+"PO-Revision-Date: 2023-05-21 10:33+0200\n"
 "Last-Translator: Christoph Osswald\n"
 "Language-Team: \n"
 "Language: de_CH\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. module: train_management
 #: model:ir.actions.report,print_report_name:train_management.action_report_day_planning_briefing
 msgid "'Briefing'"
-msgstr "Briefing"
+msgstr "‚Briefing‘"
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_kanban_view
@@ -133,6 +133,11 @@ msgid "Cancel"
 msgstr "Abbrechen"
 
 #. module: train_management
+#: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__state__canceled
+msgid "Canceled"
+msgstr "Storniert"
+
+#. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__cargo
 msgid "Cargo"
 msgstr "Güterwagen"
@@ -240,6 +245,7 @@ msgid "Constructionyear"
 msgstr "Baujahr"
 
 #. module: train_management
+#: model:ir.model,name:train_management.model_res_partner
 #: model_terms:ir.ui.view,arch_db:train_management.briefing
 msgid "Contact"
 msgstr "Kontakt"
@@ -324,6 +330,7 @@ msgstr "Kunden"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__date
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift__day_planning_date
 msgid "Date"
 msgstr "Datum"
 
@@ -331,6 +338,7 @@ msgstr "Datum"
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__day_planning
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_text__day_planning
 #: model:ir.model.fields,field_description:train_management.field_train_management_reservation__day_planning
+#: model:ir.model.fields,field_description:train_management.field_train_management_train__day_planning_id
 #: model_terms:ir.ui.view,arch_db:train_management.reservation_search
 msgid "Day Planning"
 msgstr "Tagesplanung"
@@ -449,7 +457,7 @@ msgstr "Ziel Bahnhof"
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__end_time
 msgid "End Time"
-msgstr "Endzeit"
+msgstr "Schlusszeit"
 
 #. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_vehicle__type__engine
@@ -487,6 +495,11 @@ msgstr "Extrafahrt"
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__frameWagon
 msgid "Framewagon"
 msgstr ""
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_form
+msgid "Frequencies"
+msgstr "Frequenzen"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__frequency
@@ -646,7 +659,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__label
 #: model:ir.model.fields,field_description:train_management.field_train_management_station__name
 #: model:ir.model.fields,field_description:train_management.field_train_management_stop_code__name
-#: model:ir.model.fields,field_description:train_management.field_train_management_train__name
+#: model:ir.model.fields,field_description:train_management.field_train_management_train__name_readonly
 #: model:ir.model.fields,field_description:train_management.field_train_management_train_template__name
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__name
 msgid "Label"
@@ -777,6 +790,11 @@ msgid "Mileage"
 msgstr "Kilometerstand"
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_train__name
+msgid "Name"
+msgstr "Name"
+
+#. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__nbrEmergencyBrakeValve
 msgid "Nbremergencybrakevalve"
 msgstr ""
@@ -789,7 +807,7 @@ msgstr "Nein"
 #. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_stop_code__type__non_commercial
 msgid "Non-commercial stop"
-msgstr "Nichtkommerzieller Halt"
+msgstr "Nicht-kommerzieller Halt"
 
 #. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__billed__not_applicable
@@ -863,7 +881,7 @@ msgstr "PAX"
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_position_type__work_time
 msgid "Percentage work time"
-msgstr "Distanz"
+msgstr "Anrechenbar an Mindestfahrpraxis (%)"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift__person
@@ -990,11 +1008,13 @@ msgid "Settings"
 msgstr "Einstellungen"
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_res_partner__shift_ids
+#: model:ir.model.fields,field_description:train_management.field_res_users__shift_ids
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift__shift
 #: model:ir.ui.menu,name:train_management.shift_menu_root
 #: model_terms:ir.ui.view,arch_db:train_management.briefing
 msgid "Shift"
-msgstr "Tour"
+msgstr "Tourenplanung"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__shift_duration
@@ -1009,7 +1029,7 @@ msgstr "Arbeitsende"
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift__shift_label
 msgid "Shift Label"
-msgstr "Bezeichnung"
+msgstr "Tour Bezeichnung"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__shift_position_duration
@@ -1063,6 +1083,7 @@ msgstr "Touren-Vorlage"
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__day_planning_shift_ids
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_form
+#: model_terms:ir.ui.view,arch_db:train_management.view_partner_form
 msgid "Shifts"
 msgstr "Touren"
 
@@ -1203,6 +1224,7 @@ msgstr "Fahrplan"
 #: model:ir.actions.act_window,name:train_management.train_action
 #: model:ir.model,name:train_management.model_train_management_train
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__train_ids
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__train_ids
 #: model:ir.model.fields,field_description:train_management.field_train_management_reservation__train
 #: model:ir.model.fields,field_description:train_management.field_train_management_timetable__train
 #: model:ir.model.fields,field_description:train_management.field_train_management_train_vehicle__train
@@ -1295,7 +1317,7 @@ msgstr "Fahrzeuggattung"
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__vehicleNumberNVR
 msgid "Vehiclenumbernvr"
-msgstr "UIC-Nr"
+msgstr ""
 
 #. module: train_management
 #: model:ir.actions.act_window,name:train_management.vehicle_action

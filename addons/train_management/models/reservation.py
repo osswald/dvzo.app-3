@@ -32,6 +32,7 @@ class Reservation(models.Model):
 
     train = fields.Many2one("train_management.train")
     day_planning = fields.Many2one("train_management.day_planning", compute="_compute_day_planning", store=True)
+    day_planning_date = fields.Date("Date", related="day_planning.date")
 
     @api.depends('train')
     def _compute_day_planning(self):

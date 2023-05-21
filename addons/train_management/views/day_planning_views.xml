@@ -13,7 +13,7 @@
                                 class="oe_highlight"/>
                         <button name="action_executed" type="object" string="Executed"
                                 states="confirmed" class="oe_highlight"/>
-                        <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,executed"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,executed,canceled"/>
                     </header>
                     <sheet>
                         <div class="oe_title">
@@ -69,7 +69,7 @@
                             </page>
                             <page string="Reservations">
                                 <field name="reservation_ids">
-                                    <tree>
+                                    <tree create="False">
                                         <field name="train"/>
                                         <field name="start_station_short"/>
                                         <field name="end_station_short"/>
@@ -86,9 +86,18 @@
                                 <field name="day_planning_shift_ids">
                                     <tree editable="bottom">
                                         <field name="shift"/>
+                                        <field name="shift_categories" invisible="True"/>
                                         <field name="shift_label"/>
                                         <field name="person"/>
                                         <field name="comment"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Frequencies">
+                                <field name="train_ids">
+                                    <tree editable="bottom" create="False" delete="False">
+                                        <field name="name_readonly"/>
+                                        <field name="frequency"/>
                                     </tree>
                                 </field>
                             </page>
@@ -107,6 +116,7 @@
                     <field name="date"/>
                     <field name="type"/>
                     <field name="active"/>
+                    <field name="state"/>
                     <field name="slot_ordered_st"/>
                     <field name="slot_ordered_sbb"/>
                     <field name="personnel_disposition"/>
@@ -114,67 +124,78 @@
                     <field name="carriage_planning_status"/>
                     <templates>
                         <t t-name="kanban-box">
-                            <div class="oe_kanban_global_click">
-                                <div class="ribbon ribbon-top-right" attrs="{'invisible': [('active', '=', True)]}">
-                                    <span class="bg-danger">Archived</span>
-                                </div>
-                                <div class="oe_kanban_details d-flex flex-column justify-content-between">
-                                    <div>
-                                        <strong class="o_kanban_record_title oe_partner_heading">
-                                            <h2>
-                                                <field name="name"/>
-                                            </h2>
-                                        </strong>
-                                        <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
-                                        <ul>
-                                            <li>
-                                                <h4>
-                                                    <i class="fa fa-calendar"
-                                                       aria-hidden="true" style="padding-right:5px"
-                                                       title="calendar"/>
-                                                    <field name="date"/>
-                                                </h4>
-                                            </li>
-                                            <li>
-                                                <field name="type"/>
-                                            </li>
-                                        </ul>
-                                        <table class="table">
-                                            <tr>
-                                                <th>Slot ordered ST</th>
-                                                <td>
-                                                    <field name="slot_ordered_st"/>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>Slot ordered SBB</th>
-                                                <td>
-                                                    <field name="slot_ordered_sbb"/>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>Personnel disposition</th>
-                                                <td>
-                                                    <field name="personnel_disposition"/>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>Engine planning status</th>
-                                                <td>
-                                                    <field name="engine_planning_status"/>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>Carriage planning status</th>
-                                                <td>
-                                                    <field name="carriage_planning_status"/>
-                                                </td>
-                                            </tr>
-                                        </table>
+                            <div t-attf-style="background-color:#{record.type.raw_value == 'public' and '#d2eef1'
+                               or record.type.raw_value == 'extra' and '#DE8E85'
+                                or record.type.raw_value == 'other' and '#ffffff'
+                                or record.type.raw_value == 'bus' and '#fce7b2'};">
+                                <div class="oe_kanban_global_click">
+                                    <div class="ribbon ribbon-top-right" attrs="{'invisible': [('state', '!=', 'draft')]}">
+                                        <span class="bg-danger">Draft</span>
                                     </div>
-                                    <div class="o_kanban_record_bottom">
-                                        <div class="oe_kanban_bottom_left"/>
-                                        <div class="oe_kanban_bottom_right"/>
+                                    <div class="ribbon ribbon-top-right" attrs="{'invisible': [('state', '!=', 'executed')]}">
+                                        <span class="bg-success">Executed</span>
+                                    </div>
+                                    <div class="ribbon ribbon-top-right" attrs="{'invisible': [('state', '!=', 'canceled')]}">
+                                        <span class="bg-info">Canceled</span>
+                                    </div>
+                                    <div class="oe_kanban_details d-flex flex-column justify-content-between">
+                                        <div>
+                                            <strong class="o_kanban_record_title oe_partner_heading">
+                                                <h2>
+                                                    <field name="name"/>
+                                                </h2>
+                                            </strong>
+                                            <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                                            <ul>
+                                                <li>
+                                                    <h4>
+                                                        <i class="fa fa-calendar"
+                                                           aria-hidden="true" style="padding-right:5px"
+                                                           title="calendar"/>
+                                                        <field name="date"/>
+                                                    </h4>
+                                                </li>
+                                                <li>
+                                                    <field name="type"/>
+                                                </li>
+                                            </ul>
+                                            <table class="table">
+                                                <tr>
+                                                    <th>Slot ordered ST</th>
+                                                    <td>
+                                                        <field name="slot_ordered_st"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Slot ordered SBB</th>
+                                                    <td>
+                                                        <field name="slot_ordered_sbb"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Personnel disposition</th>
+                                                    <td>
+                                                        <field name="personnel_disposition"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Engine planning status</th>
+                                                    <td>
+                                                        <field name="engine_planning_status"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Carriage planning status</th>
+                                                    <td>
+                                                        <field name="carriage_planning_status"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="o_kanban_record_bottom">
+                                            <div class="oe_kanban_bottom_left"/>
+                                            <div class="oe_kanban_bottom_right"/>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
