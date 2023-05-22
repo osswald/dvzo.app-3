@@ -6,12 +6,14 @@
     'author': 'Christoph Osswald',
     'depends': [
         'base',
+        'mail',
     ],
     'installable': True,
     'application': False,
     'license': "LGPL-3",
     'data': [
         'security/ir.model.access.csv',
+        'data/activity_type_data.xml',
         'report/training_participant_list_report.xml',
         'report/training_invitation_report.xml',
         'report/training_report_views.xml',

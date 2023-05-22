@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class TrainingMedicalAssessment(models.Model):
@@ -21,3 +21,20 @@ class TrainingMedicalAssessment(models.Model):
             'url': '/web/content/%s?download=true' % (self.assessment_file.id,),
             'target': 'new',
         }
+
+    @api.model
+    def create(self, values):
+        # Create the medical assessment record
+        medical_assessment = super(TrainingMedicalAssessment, self).create(values)
+
+        # Create the activity
+        activity = self.env['mail.activity'].create({
+            'activity_type_id': self.env.ref('training.mail_activity_type_medical_assessment').id,
+            'date_deadline': medical_assessment.valid_until,
+            'res_id': medical_assessment.person.id,
+            'res_model_id': self.env['ir.model']._get_id('res.partner'),
+            'summary': 'Medical assessment',
+            'note': 'Activity for medical assessment.',
+        })
+
+        return medical_assessment

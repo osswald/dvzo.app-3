@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="mail_activity_type_periodic_exam" model="mail.activity.type">
+            <field name="name">Periodic exam</field>
+            <field name="category">default</field>
+            <field name="icon">fa-graduation-cap</field>
+        </record>
+        <record id="mail_activity_type_medical_assessment" model="mail.activity.type">
+            <field name="name">Medical assessment</field>
+            <field name="category">default</field>
+            <field name="icon">fa-stethoscope</field>
+        </record>
+    </data>
+</odoo>

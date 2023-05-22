@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class TrainingExam(models.Model):
@@ -16,3 +16,20 @@ class TrainingExam(models.Model):
     vte_locomotive = fields.Many2many("training.vte.locomotive", string="Locomotives")
     person = fields.Many2one("res.partner", required=True, readonly=True)
     competence = fields.Many2many("res.partner.category")
+
+    @api.model
+    def create(self, values):
+        # Create the training exam record
+        exam = super(TrainingExam, self).create(values)
+
+        # Create the activity
+        activity = self.env['mail.activity'].create({
+            'activity_type_id': self.env.ref('training.mail_activity_type_periodic_exam').id,
+            'date_deadline': exam.valid_until,
+            'res_id': exam.person.id,
+            'res_model_id': self.env['ir.model']._get_id('res.partner'),
+            'summary': 'Periodic exam',
+            'note': 'Activity for periodic examination.',
+        })
+
+        return exam
