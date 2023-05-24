@@ -17,6 +17,7 @@
         'data/train_management.stop_code.csv',
         'data/train_management.railway_company.csv',
         'report/train_management_briefing_report.xml',
+        'report/train_management_shift_report.xml',
         'report/train_management_report_views.xml',
         'wizards/create_train_wizard.xml',
         'views/circuit_views.xml',

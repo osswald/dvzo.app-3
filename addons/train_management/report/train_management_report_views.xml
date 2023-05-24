@@ -10,5 +10,14 @@
             <field name="print_report_name">'Briefing'</field>
             <field name="binding_model_id" ref="model_train_management_day_planning"/>
         </record>
+        <record id="action_report_shift" model="ir.actions.report">
+            <field name="name">Shift</field>
+            <field name="model">train_management.shift_template</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">train_management.shift</field>
+            <field name="report_file">train_management.shift</field>
+            <field name="print_report_name">'Shift'</field>
+            <field name="binding_model_id" ref="model_train_management_shift_template"/>
+        </record>
     </data>
 </odoo>

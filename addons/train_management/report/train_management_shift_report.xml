@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Main report templates -->
+    <template id="shift">
+        <t t-foreach="docs" t-as="shift_template">
+            <t t-call="web.html_container">
+                <t t-call="dvzo.dvzo_layout">
+                    <div class="page">
+
+                        <h1>
+                            <span>Shift</span>
+                            <span t-field="shift_template.name"/>
+                            -
+                            <span t-field="shift_template.label"/>
+                        </h1>
+
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Description:</td>
+                                    <td>
+                                        <span t-field="shift_template.description"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Validity:</td>
+                                    <td>
+                                        <span t-field="shift_template.valid_from"/>
+                                        -
+                                        <span t-field="shift_template.valid_until"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Start time:</td>
+                                    <td>
+                                        <span t-field="shift_template.shift_start"
+                                              t-options='{"widget": "float_time"}'/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>End time:</td>
+                                    <td>
+                                        <span t-field="shift_template.shift_end"
+                                              t-options='{"widget": "float_time"}'/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Duration:</td>
+                                    <td>
+                                        <span t-field="shift_template.shift_duration"
+                                              t-options='{"widget": "float_time"}'/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Work duration:</td>
+                                    <td>
+                                        <span t-field="shift_template.work_duration"
+                                              t-options='{"widget": "float_time"}'/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Time accountable:</td>
+                                    <td>
+                                        <span t-field="shift_template.time_accountable"
+                                              t-options='{"widget": "float_time"}'/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Shift positions -->
+                        <h2 t-if="shift_template.shift_position_ids">Positions</h2>
+                        <table class="table" t-if="shift_template.shift_position_ids">
+                            <thead>
+                                <t t-set="positions" t-value="shift_template.mapped('shift_position_ids')"/>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Time</th>
+                                    <th>Place</th>
+                                    <th>Comment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="positions" t-as="position">
+                                    <td>
+                                        <span t-field="position.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="position.type"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="position.start_time" t-options='{"widget": "float_time"}'/>
+                                        -
+                                        <span t-field="position.end_time" t-options='{"widget": "float_time"}'/>
+                                    </td>
+                                    <td>
+                                        <span t-field="position.start_station"/>
+                                        -
+                                        <span t-field="position.end_station"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="position.comment"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

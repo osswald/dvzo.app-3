@@ -18,6 +18,9 @@
         'web_window_title',
         'auth_oidc',
     ],
+    'data': [
+        'report/layouts.xml',
+    ],
     'installable': True,
     'application': True,
     'license': "LGPL-3"
