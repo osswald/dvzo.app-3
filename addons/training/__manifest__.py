@@ -14,6 +14,7 @@
     'data': [
         'security/ir.model.access.csv',
         'data/activity_type_data.xml',
+        'data/competence_validation.xml',
         'report/training_participant_list_report.xml',
         'report/training_invitation_report.xml',
         'report/training_report_views.xml',

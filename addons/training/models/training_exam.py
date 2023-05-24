@@ -32,4 +32,13 @@ class TrainingExam(models.Model):
             'note': 'Activity for periodic examination.',
         })
 
+        if exam.person:
+            competences = exam.competence.ids
+            exam.person.category_id = [(4, competence_id) for competence_id in competences]
+
+            if 'vte_locomotive' in values and values['vte_locomotive']:
+                exam.person.has_locomotive = True
+                locomotives = exam.vte_locomotive.ids
+                exam.person.locomotive = [(4, locomotive_id) for locomotive_id in locomotives]
+
         return exam

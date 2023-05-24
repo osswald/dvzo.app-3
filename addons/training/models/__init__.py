@@ -12,3 +12,4 @@ from . import training_exam
 from . import training_qualification_category
 from . import training_qualification_type
 from . import res_partner
+from . import competence_validation
