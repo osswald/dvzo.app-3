@@ -6,19 +6,21 @@ from odoo import models, fields
 class Vehicle(models.Model):
     _name = "train_management.vehicle"
     _description = "Vehicle"
+    _rec_name = "historicalDesignation"
 
-    props = [ "axleWeight", "brakePadType", "brakingWeight1", "brakingWeightHighG",
-"brakingWeightLowG", "brakingWeightLowP", "cargo", "clearanceProfile",
-"clutchType", "colorBody", "colorFrame", "constructionYear", "distanceWheelsets", "entityECM",
-"epoch", "frameWagon", "gauge", "handbrakeWeight", "hasBavLicense", "hasBbLicense",
-"hasChangeOver", "hasDynamoGenerator", "hasEboLicense", "hasEbvLicense", "hasRicRivTenLicense", "historicalDesignation",
-"isBavLimited", "isBbLimited", "isEboLimited", "isEbvLimited", "isGuest",
-"isOperational", "isRicRivTenLimited", "lengthOverBuffer", "manufacturer", "manufacturerBody",
-"manufacturerFrame", "maxTowWeight", "maximumPayload", "meterWeight", "mileage",
-"nbrEmergencyBrakeValve", "note", "numberOfAxes", "numberOfBrakePads", "operationalEndDate",
-"outerHeightBody", "outerWidth", "plainOrRollerBearings", "specialities", "standardLoadingWeight",
-"stateChangeNote", "suspension", "vehicleGenre", "vehicleNumberNVR", "vehicleType",
-"vehicleWeightGross", "vehicleWeightNet", "vmax"]
+    props = ["axleWeight", "brakePadType", "brakingWeight1", "brakingWeightHighG",
+             "brakingWeightLowG", "brakingWeightLowP", "cargo", "clearanceProfile",
+             "clutchType", "colorBody", "colorFrame", "constructionYear", "distanceWheelsets", "entityECM",
+             "epoch", "frameWagon", "gauge", "handbrakeWeight", "hasBavLicense", "hasBbLicense",
+             "hasChangeOver", "hasDynamoGenerator", "hasEboLicense", "hasEbvLicense", "hasRicRivTenLicense",
+             "historicalDesignation",
+             "isBavLimited", "isBbLimited", "isEboLimited", "isEbvLimited", "isGuest",
+             "isOperational", "isRicRivTenLimited", "lengthOverBuffer", "manufacturer", "manufacturerBody",
+             "manufacturerFrame", "maxTowWeight", "maximumPayload", "meterWeight", "mileage",
+             "nbrEmergencyBrakeValve", "note", "numberOfAxes", "numberOfBrakePads", "operationalEndDate",
+             "outerHeightBody", "outerWidth", "plainOrRollerBearings", "specialities", "standardLoadingWeight",
+             "stateChangeNote", "suspension", "vehicleGenre", "vehicleNumberNVR", "vehicleType",
+             "vehicleWeightGross", "vehicleWeightNet", "vmax"]
 
     name = fields.Char("Label", required=True)
     ds_id = fields.Char("ds id", help="UUID linking vehicles to the Drehscheibe")

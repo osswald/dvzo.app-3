@@ -11,12 +11,10 @@
                     <sheet>
                         <group>
                             <group>
-                                <field name="name"/>
+                                <field name="historicalDesignation"/>
                                 <field name="type"/>
                                 <field name="ds_id"/>
                                 <field name="vehicleNumberNVR"/>
-                                <field name="weight"/>
-                                <field name="length"/>
                             </group>
                         </group>
                     </sheet>
@@ -29,10 +27,10 @@
             <field name="model">train_management.vehicle</field>
             <field name="arch" type="xml">
                 <tree string="Vehicle">
-                    <field name="name"/>
-                    <field name="type"/>
-                    <field name="weight"/>
-                    <field name="length"/>
+                    <field name="historicalDesignation"/>
+                    <field name="vehicleNumberNVR"/>
+                    <field name="vehicleType"/>
+                    <field name="vehicleGenre"/>
                 </tree>
             </field>
         </record>
@@ -42,7 +40,6 @@
             <field name="res_model">train_management.vehicle</field>
             <field name="view_mode">tree,form</field>
         </record>
-
 
 
     </data>

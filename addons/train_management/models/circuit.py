@@ -16,7 +16,7 @@ class Circuit(models.Model):
     @api.depends('circuit_vehicle')
     def _compute_train_composition(self):
         for circuit in self:
-            vehicle_names = circuit.circuit_vehicle.sorted('sequence').mapped('vehicle.name')
+            vehicle_names = circuit.circuit_vehicle.sorted('sequence').mapped('vehicle.historicalDesignation')
             circuit.train_composition = ', '.join(vehicle_names)
 
     @api.depends('train_ids.frequency')

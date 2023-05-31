@@ -9,7 +9,8 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <field name="state" widget="statusbar" statusbar_visible="planned,running,archived,canceled"/>
+                        <field name="state" widget="statusbar" clickable="true"
+                               statusbar_visible="planned,running,archived,canceled"/>
                     </header>
                     <sheet>
                         <group>
