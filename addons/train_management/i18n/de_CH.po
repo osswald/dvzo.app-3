@@ -1381,7 +1381,7 @@ msgstr "Gültig bis"
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.shift
 msgid "Validity:"
-msgstr "Gültigkeit der Verpackung:"
+msgstr "Gültigkeit:"
 
 #. module: train_management
 #: model:ir.model,name:train_management.model_train_management_vehicle
