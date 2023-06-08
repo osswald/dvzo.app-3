@@ -57,9 +57,34 @@
             </field>
         </record>
 
+        <record id="shift_template_search" model="ir.ui.view">
+            <field name="name">shift_template.search</field>
+            <field name="model">train_management.shift_template</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="label"/>
+                    <field name="category"/>
+                    <filter
+                            string="Valid shift templates"
+                            name="valid_shift_templates"
+                            domain="[('valid_from','&lt;=', ((datetime.datetime.now()).strftime('%Y-%m-%d'))),
+                            ('valid_until','>=', ((datetime.datetime.now()).strftime('%Y-%m-%d')))]"
+                    />
+                    <filter
+                            string="Category"
+                            name="category"
+                            context="{'group_by': 'category'}"
+                    />
+                </search>
+            </field>
+        </record>
+
+
         <record id="shift_template_action" model="ir.actions.act_window">
             <field name="name">Shift template</field>
             <field name="res_model">train_management.shift_template</field>
+            <field name="context">{"search_default_valid_shift_templates":1}</field>
             <field name="view_mode">tree,form</field>
         </record>
 

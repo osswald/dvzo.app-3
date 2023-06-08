@@ -13,3 +13,21 @@ class DayPlanningShift(models.Model):
     shift_label = fields.Char(string='Shift Label', related='shift.label', readonly=True)
     person = fields.Many2one("res.partner", string="Person", copy=False)
     comment = fields.Char("Comment")
+
+
+class AddShiftsWizard(models.TransientModel):
+    _name = 'train_management.add.shifts.wizard'
+    _description = "Add shifts wizard"
+
+    shift_templates = fields.Many2many('train_management.shift_template',
+                                       relation="train_management_shift_wizard_templates", string='Shift Templates')
+
+    def add_shifts(self):
+        active_day_planning = self.env['train_management.day_planning'].browse(self._context.get('active_id'))
+        for template in self.shift_templates:
+            day_planning_shift_data = {
+                'day_planning': active_day_planning.id,
+                'shift': template.id,
+            }
+            self.env['train_management.day_planning_shift'].create(day_planning_shift_data)
+        return {'type': 'ir.actions.act_window_close'}

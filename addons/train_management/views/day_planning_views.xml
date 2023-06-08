@@ -9,6 +9,7 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
+                        <button name="%(open_add_shifts_wizard)d" type="action" string="Add shifts"/>
                         <button name="action_confirmed" type="object" string="Confirm" states="draft"
                                 class="oe_highlight"/>
                         <button name="action_executed" type="object" string="Executed"

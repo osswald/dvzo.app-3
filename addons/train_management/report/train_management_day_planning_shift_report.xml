@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Main report templates -->
+    <template id="day_planning_shift">
+        <t t-foreach="docs" t-as="day_planning">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+
+                        <h1>
+                            <span>Shifts</span>
+                            <span t-field="day_planning.name"/>
+                            -
+                            <span t-field="day_planning.date"/>
+                        </h1>
+
+                        <!-- Shifts -->
+                        <t t-set="shifts" t-value="day_planning.mapped('day_planning_shift_ids')"/>
+                        <t t-foreach="shifts" t-as="day_planning_shift">
+                            <h3>
+                                <span>Shift</span>
+                                <span t-field="day_planning_shift.shift.name"/>
+                                -
+                                <span t-field="day_planning_shift.shift.label"/>
+                            </h3>
+
+                            <table class="table table-sm">
+                                <tbody>
+                                    <tr>
+                                        <td>Description:</td>
+                                        <td>
+                                            <span t-field="day_planning_shift.shift.description"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Start time:</td>
+                                        <td>
+                                            <span t-field="day_planning_shift.shift.shift_start"
+                                                  t-options='{"widget": "float_time"}'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>End time:</td>
+                                        <td>
+                                            <span t-field="day_planning_shift.shift.shift_end"
+                                                  t-options='{"widget": "float_time"}'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Duration:</td>
+                                        <td>
+                                            <span t-field="day_planning_shift.shift.shift_duration"
+                                                  t-options='{"widget": "float_time"}'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Work duration:</td>
+                                        <td>
+                                            <span t-field="day_planning_shift.shift.work_duration"
+                                                  t-options='{"widget": "float_time"}'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Time accountable:</td>
+                                        <td>
+                                            <span t-field="day_planning_shift.shift.time_accountable"
+                                                  t-options='{"widget": "float_time"}'/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Shift positions -->
+                            <table class="table table-sm" t-if="day_planning_shift.shift.shift_position_ids">
+                                <thead>
+                                    <t t-set="positions" t-value="day_planning_shift.shift.mapped('shift_position_ids')"/>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Type</th>
+                                        <th>Time</th>
+                                        <th>Place</th>
+                                        <th>Comment</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="positions" t-as="position">
+                                        <td>
+                                            <span t-field="position.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="position.type"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="position.start_time" t-options='{"widget": "float_time"}'/>
+                                            -
+                                            <span t-field="position.end_time" t-options='{"widget": "float_time"}'/>
+                                        </td>
+                                        <td>
+                                            <span t-field="position.start_station"/>
+                                            -
+                                            <span t-field="position.end_station"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="position.comment"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </t>
+
+
+                        <!--<h2 t-if="day_planning.day_planning_shift_ids">Circuit formation</h2>
+                        <table class="table" t-if="day_planning.circuit_ids">
+                            <thead>
+                                <t t-set="circuits" t-value="day_planning.mapped('circuit_ids')"/>
+                                <tr>
+                                    <th t-foreach="circuits" t-as="circuit">
+                                        <span t-field="circuit.name"/>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td t-foreach="circuits" t-as="circuit2">
+                                        <t t-set="circuit_vehicles" t-value="circuit2.mapped('circuit_vehicle')"/>
+                                        <div t-foreach="circuit_vehicles" t-as="circuit_vehicle">
+                                            <span t-field="circuit_vehicle.vehicle"/>
+                                            <t t-if="circuit_vehicle.comment">
+                                                (<span t-field="circuit_vehicle.comment"/>)
+                                            </t>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>-->
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
