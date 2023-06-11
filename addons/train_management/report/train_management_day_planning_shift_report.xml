@@ -28,6 +28,18 @@
                             <table class="table table-sm">
                                 <tbody>
                                     <tr>
+                                        <td style="width:30%">Person:</td>
+                                        <td>
+                                            <span t-field="day_planning_shift.person"/>
+                                        </td>
+                                    </tr>
+                                    <tr t-if="day_planning_shift.comment">
+                                        <td>Comment:</td>
+                                        <td>
+                                            <span t-field="day_planning_shift.comment"/>
+                                        </td>
+                                    </tr>
+                                    <tr t-if="day_planning_shift.shift.description">
                                         <td>Description:</td>
                                         <td>
                                             <span t-field="day_planning_shift.shift.description"/>
@@ -37,35 +49,35 @@
                                         <td>Start time:</td>
                                         <td>
                                             <span t-field="day_planning_shift.shift.shift_start"
-                                                  t-options='{"widget": "float_time"}'/>
+                                                  t-options='{"widget": "float_time"}'/> <span>h</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>End time:</td>
                                         <td>
                                             <span t-field="day_planning_shift.shift.shift_end"
-                                                  t-options='{"widget": "float_time"}'/>
+                                                  t-options='{"widget": "float_time"}'/> <span>h</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Duration:</td>
                                         <td>
                                             <span t-field="day_planning_shift.shift.shift_duration"
-                                                  t-options='{"widget": "float_time"}'/>
+                                                  t-options='{"widget": "float_time"}'/> <span>hours</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Work duration:</td>
                                         <td>
                                             <span t-field="day_planning_shift.shift.work_duration"
-                                                  t-options='{"widget": "float_time"}'/>
+                                                  t-options='{"widget": "float_time"}'/> <span>hours</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Time accountable:</td>
                                         <td>
                                             <span t-field="day_planning_shift.shift.time_accountable"
-                                                  t-options='{"widget": "float_time"}'/>
+                                                  t-options='{"widget": "float_time"}'/> <span>hours</span>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -108,33 +120,6 @@
                                 </tbody>
                             </table>
                         </t>
-
-
-                        <!--<h2 t-if="day_planning.day_planning_shift_ids">Circuit formation</h2>
-                        <table class="table" t-if="day_planning.circuit_ids">
-                            <thead>
-                                <t t-set="circuits" t-value="day_planning.mapped('circuit_ids')"/>
-                                <tr>
-                                    <th t-foreach="circuits" t-as="circuit">
-                                        <span t-field="circuit.name"/>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td t-foreach="circuits" t-as="circuit2">
-                                        <t t-set="circuit_vehicles" t-value="circuit2.mapped('circuit_vehicle')"/>
-                                        <div t-foreach="circuit_vehicles" t-as="circuit_vehicle">
-                                            <span t-field="circuit_vehicle.vehicle"/>
-                                            <t t-if="circuit_vehicle.comment">
-                                                (<span t-field="circuit_vehicle.comment"/>)
-                                            </t>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>-->
-
                     </div>
                 </t>
             </t>

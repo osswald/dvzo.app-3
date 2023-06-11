@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-07 18:03+0000\n"
-"PO-Revision-Date: 2023-06-07 20:11+0200\n"
+"POT-Creation-Date: 2023-06-11 13:37+0000\n"
+"PO-Revision-Date: 2023-06-11 15:39+0200\n"
 "Last-Translator: Christoph Osswald\n"
 "Language-Team: \n"
 "Language: de_CH\n"
@@ -25,6 +25,11 @@ msgstr "'Briefing'"
 #. module: train_management
 #: model:ir.actions.report,print_report_name:train_management.action_report_shift
 msgid "'Shift'"
+msgstr "'Tour'"
+
+#. module: train_management
+#: model:ir.actions.report,print_report_name:train_management.action_report_day_planning_shifts
+msgid "'Shifts'"
 msgstr "'Tour'"
 
 #. module: train_management
@@ -57,14 +62,42 @@ msgid "<span>Briefing</span>"
 msgstr "<span>Briefing</span>"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
 msgid "<span>Shift</span>"
 msgstr "<span>Tour</span>"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
+msgid "<span>Shifts</span>"
+msgstr "<span>Touren</span>"
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
+msgid "<span>h</span>"
+msgstr "<span>Uhr</span>"
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
+msgid "<span>hours</span>"
+msgstr "<span>Stunden</span>"
+
+#. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__active
 msgid "Active"
 msgstr "Aktiv"
+
+#. module: train_management
+#: model:ir.actions.act_window,name:train_management.open_add_shifts_wizard
+#: model_terms:ir.ui.view,arch_db:train_management.add_shifts_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_form
+msgid "Add shifts"
+msgstr "Touren hinzufügen"
+
+#. module: train_management
+#: model:ir.model,name:train_management.model_train_management_add_shifts_wizard
+msgid "Add shifts wizard"
+msgstr "Assistent für das Hinzufügen von Touren"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_reservation__amount
@@ -153,6 +186,7 @@ msgid "Bus"
 msgstr "Bus"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.add_shifts_wizard_view_form
 #: model_terms:ir.ui.view,arch_db:train_management.create_train_wizard_view_form
 msgid "Cancel"
 msgstr "Abbrechen"
@@ -176,6 +210,7 @@ msgstr "Wagen-Planung"
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift__shift_categories
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__category
+#: model_terms:ir.ui.view,arch_db:train_management.shift_template_search
 msgid "Category"
 msgstr "Kategorie"
 
@@ -211,7 +246,6 @@ msgstr "Umläufe"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__clearanceProfile
-#, fuzzy
 msgid "Clearanceprofile"
 msgstr "Lichtraumprofil"
 
@@ -243,9 +277,15 @@ msgstr ""
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__comment
 #: model:ir.model.fields,field_description:train_management.field_train_management_train_vehicle__comment
 #: model_terms:ir.ui.view,arch_db:train_management.briefing
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
 msgid "Comment"
 msgstr "Kommentar"
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
+msgid "Comment:"
+msgstr "Kommentar:"
 
 #. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_stop_code__type__commercial
@@ -306,6 +346,7 @@ msgid "Create trains"
 msgstr "Züge erstellen"
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_add_shifts_wizard__create_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__create_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__create_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_copy_recipient__create_uid
@@ -329,6 +370,7 @@ msgid "Created by"
 msgstr "Erstellt von"
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_add_shifts_wizard__create_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__create_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__create_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_copy_recipient__create_date
@@ -415,6 +457,7 @@ msgid "Description"
 msgstr "Beschreibung"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
 msgid "Description:"
 msgstr "Beschreibung:"
@@ -425,6 +468,7 @@ msgid "Didok"
 msgstr "Didok"
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_add_shifts_wizard__display_name
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__display_name
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__display_name
 #: model:ir.model.fields,field_description:train_management.field_train_management_copy_recipient__display_name
@@ -469,6 +513,7 @@ msgid "Draft"
 msgstr "Entwurf"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
 msgid "Duration:"
 msgstr "Dauer:"
@@ -499,6 +544,7 @@ msgid "End Time"
 msgstr "Endzeit"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
 msgid "End time:"
 msgstr "Endzeit:"
@@ -624,6 +670,7 @@ msgid "Historicaldesignation"
 msgstr "Historische Kennzeichnung"
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_add_shifts_wizard__id
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__id
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__id
 #: model:ir.model.fields,field_description:train_management.field_train_management_copy_recipient__id
@@ -715,6 +762,7 @@ msgid "Label"
 msgstr "Bezeichnung"
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_add_shifts_wizard____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_copy_recipient____last_update
@@ -738,6 +786,7 @@ msgid "Last Modified on"
 msgstr "Zuletzt geändert am"
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_add_shifts_wizard__write_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__write_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__write_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_copy_recipient__write_uid
@@ -761,6 +810,7 @@ msgid "Last Updated by"
 msgstr "Zuletzt aktualisiert von"
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_add_shifts_wizard__write_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__write_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__write_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_copy_recipient__write_date
@@ -840,6 +890,7 @@ msgstr "Kilometerstand"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_train__name
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
 msgid "Name"
 msgstr "Bezeichnung"
@@ -940,6 +991,11 @@ msgid "Person"
 msgstr "Person"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
+msgid "Person:"
+msgstr "Person:"
+
+#. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.briefing
 msgid "Personnel"
 msgstr "Personal"
@@ -961,6 +1017,7 @@ msgid "Phone number"
 msgstr "Telefonnummer"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
 msgid "Place"
 msgstr "Ort"
@@ -1108,6 +1165,11 @@ msgid "Shift Template"
 msgstr "Touren-Vorlage"
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_add_shifts_wizard__shift_templates
+msgid "Shift Templates"
+msgstr "Touren-Vorlagen"
+
+#. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__name
 msgid "Shift number"
 msgstr "Touren-Nr."
@@ -1142,6 +1204,7 @@ msgid "Shift template"
 msgstr "Touren-Vorlage"
 
 #. module: train_management
+#: model:ir.actions.report,name:train_management.action_report_day_planning_shifts
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__day_planning_shift_ids
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_form
 #: model_terms:ir.ui.view,arch_db:train_management.view_partner_form
@@ -1195,6 +1258,7 @@ msgid "Start Time"
 msgstr "Start Zeit"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
 msgid "Start time:"
 msgstr "Startzeit:"
@@ -1273,6 +1337,7 @@ msgid "Texts"
 msgstr "Texte"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
 msgid "Time"
 msgstr "Zeit"
@@ -1283,6 +1348,7 @@ msgid "Time Accountable"
 msgstr "Anrechenbare Zeit"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
 msgid "Time accountable:"
 msgstr "Anrechenbare Zeit:"
@@ -1359,6 +1425,7 @@ msgstr "Züge"
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__type
 #: model:ir.model.fields,field_description:train_management.field_train_management_stop_code__type
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__type
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
 msgid "Type"
 msgstr "Typ"
@@ -1377,6 +1444,11 @@ msgstr "Gültig von"
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__valid_until
 msgid "Valid Until"
 msgstr "Gültig bis"
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.shift_template_search
+msgid "Valid shift templates"
+msgstr "Gültige Touren-Vorlagen"
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.shift
@@ -1440,6 +1512,7 @@ msgid "Work Duration"
 msgstr "Dauer Arbeitszeit"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
 msgid "Work duration:"
 msgstr "Dauer Arbeitszeit:"
