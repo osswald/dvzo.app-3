@@ -18,6 +18,7 @@
                         <!-- Shifts -->
                         <t t-set="shifts" t-value="day_planning.mapped('day_planning_shift_ids')"/>
                         <t t-foreach="shifts" t-as="day_planning_shift">
+                            <div id="single_shift" style="page-break-inside: avoid !important;">
                             <h3>
                                 <span>Shift</span>
                                 <span t-field="day_planning_shift.shift.name"/>
@@ -138,6 +139,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            </div>
                         </t>
                     </div>
                 </t>
