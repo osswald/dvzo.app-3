@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-16 14:16+0000\n"
-"PO-Revision-Date: 2023-06-16 16:19+0200\n"
+"POT-Creation-Date: 2023-06-16 14:36+0000\n"
+"PO-Revision-Date: 2023-06-16 16:37+0200\n"
 "Last-Translator: Christoph Osswald\n"
 "Language-Team: \n"
 "Language: de_CH\n"
@@ -907,7 +907,6 @@ msgstr "Kilometerstand"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_train__name
-#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
 msgid "Name"
 msgstr "Bezeichnung"
@@ -1442,10 +1441,14 @@ msgstr "Züge"
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__type
 #: model:ir.model.fields,field_description:train_management.field_train_management_stop_code__type
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__type
-#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
 msgid "Type"
 msgstr "Typ"
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
+msgid "Type / Name"
+msgstr "Typ / Bezeichnung"
 
 #. module: train_management
 #: model:ir.model.fields,help:train_management.field_train_management_vehicle__ds_id

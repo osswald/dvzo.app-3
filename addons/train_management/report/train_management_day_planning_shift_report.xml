@@ -108,8 +108,7 @@
                                     <t t-set="positions"
                                        t-value="day_planning_shift.shift.mapped('shift_position_ids')"/>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Type</th>
+                                        <th>Type / Name</th>
                                         <th>Time</th>
                                         <th>Place</th>
                                         <th>Comment</th>
@@ -118,10 +117,9 @@
                                 <tbody>
                                     <tr t-foreach="positions" t-as="position">
                                         <td>
-                                            <span t-field="position.name"/>
-                                        </td>
-                                        <td>
                                             <span t-field="position.type"/>
+                                            <span t-if="position.type and position.name">/</span>
+                                            <span t-field="position.name"/>
                                         </td>
                                         <td>
                                             <span t-field="position.start_time" t-options='{"widget": "float_time"}'/>
