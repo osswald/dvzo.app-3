@@ -45,39 +45,57 @@
                                             <span t-field="day_planning_shift.shift.description"/>
                                         </td>
                                     </tr>
+                                    <tr t-if="day_planning_shift.shift.approximate_times">
+                                        <td colspan="2">
+                                            <strong>For this shift only approximate times are available.</strong>
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <td>Start time:</td>
                                         <td>
-                                            <span t-field="day_planning_shift.shift.shift_start"
-                                                  t-options='{"widget": "float_time"}'/> <span>h</span>
+                                            <span t-if="day_planning_shift.shift.approximate_times"
+                                                  t-field="day_planning_shift.shift.approximate_start_time"
+                                                  t-options='{"widget": "float_time"}'/>
+                                            <span t-if="not day_planning_shift.shift.approximate_times"
+                                                  t-field="day_planning_shift.shift.shift_start"
+                                                  t-options='{"widget": "float_time"}'/>
+                                            <span>h</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>End time:</td>
                                         <td>
-                                            <span t-field="day_planning_shift.shift.shift_end"
-                                                  t-options='{"widget": "float_time"}'/> <span>h</span>
+                                            <span t-if="day_planning_shift.shift.approximate_times"
+                                                  t-field="day_planning_shift.shift.approximate_end_time"
+                                                  t-options='{"widget": "float_time"}'/>
+                                            <span t-if="not day_planning_shift.shift.approximate_times"
+                                                  t-field="day_planning_shift.shift.shift_end"
+                                                  t-options='{"widget": "float_time"}'/>
+                                            <span>h</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Duration:</td>
                                         <td>
                                             <span t-field="day_planning_shift.shift.shift_duration"
-                                                  t-options='{"widget": "float_time"}'/> <span>hours</span>
+                                                  t-options='{"widget": "float_time"}'/>
+                                            <span>hours</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Work duration:</td>
                                         <td>
                                             <span t-field="day_planning_shift.shift.work_duration"
-                                                  t-options='{"widget": "float_time"}'/> <span>hours</span>
+                                                  t-options='{"widget": "float_time"}'/>
+                                            <span>hours</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Time accountable:</td>
                                         <td>
                                             <span t-field="day_planning_shift.shift.time_accountable"
-                                                  t-options='{"widget": "float_time"}'/> <span>hours</span>
+                                                  t-options='{"widget": "float_time"}'/>
+                                            <span>hours</span>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -86,7 +104,8 @@
                             <!-- Shift positions -->
                             <table class="table table-sm" t-if="day_planning_shift.shift.shift_position_ids">
                                 <thead>
-                                    <t t-set="positions" t-value="day_planning_shift.shift.mapped('shift_position_ids')"/>
+                                    <t t-set="positions"
+                                       t-value="day_planning_shift.shift.mapped('shift_position_ids')"/>
                                     <tr>
                                         <th>Name</th>
                                         <th>Type</th>

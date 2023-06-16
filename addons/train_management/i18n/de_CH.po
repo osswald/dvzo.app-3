@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-11 13:37+0000\n"
-"PO-Revision-Date: 2023-06-11 15:39+0200\n"
+"POT-Creation-Date: 2023-06-16 14:16+0000\n"
+"PO-Revision-Date: 2023-06-16 16:19+0200\n"
 "Last-Translator: Christoph Osswald\n"
 "Language-Team: \n"
 "Language: de_CH\n"
@@ -81,6 +81,11 @@ msgstr "<span>Uhr</span>"
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 msgid "<span>hours</span>"
 msgstr "<span>Stunden</span>"
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
+msgid "<strong>For this shift only approximate times are available.</strong>"
+msgstr "<strong>Für diese Tour sind nur ungefähre Zeiten verfügbar.</strong>"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__active
@@ -402,6 +407,7 @@ msgstr "Kunden"
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__date
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift__day_planning_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_reservation__day_planning_date
+#: model_terms:ir.ui.view,arch_db:train_management.web_day_planning_list_view
 msgid "Date"
 msgstr "Datum"
 
@@ -421,11 +427,17 @@ msgid "Day Planning Text"
 msgstr "Tagesplanungs-Text"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_day_planning_list_view
+msgid "Day Plannings"
+msgstr "Tagesplanungen"
+
+#. module: train_management
 #: model:ir.actions.act_window,name:train_management.day_planning_action
 #: model:ir.model,name:train_management.model_train_management_day_planning
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift__day_planning
 #: model:ir.ui.menu,name:train_management.day_planning_menu_action
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_tree
+#: model_terms:ir.ui.view,arch_db:train_management.web_day_planning_list_view
 msgid "Day planning"
 msgstr "Tagesplanung"
 
@@ -439,6 +451,11 @@ msgstr "Tagesplanung-Tour"
 #. module: train_management
 #: model:ir.model,name:train_management.model_train_management_day_planning_text
 msgid "Day planning text"
+msgstr "Tagesplanungs-Text"
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_day_planning_list_view
+msgid "Day planning type"
 msgstr "Tagesplanungs-Text"
 
 #. module: train_management
