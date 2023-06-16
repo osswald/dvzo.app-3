@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <template id="web_day_planning_list_view">
+            <t t-call="website.layout">
+                <title>Day plannings</title>
+                <div class="container">
+                    <h1>Day Plannings</h1>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Day planning</th>
+                                <th>Day planning type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr t-foreach="day_plannings" t-as="p">
+                            <td><span t-field="p.date" t-field-options='{"format": "dd.MM.yyyy"}'/></td>
+                            <td><span t-field="p.name"/></td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

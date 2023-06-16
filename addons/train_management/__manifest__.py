@@ -13,15 +13,19 @@
     'license': "LGPL-3",
     'data': [
         'security/ir.model.access.csv',
+
         'data/train_management.station.csv',
         'data/train_management.stop_code.csv',
         'data/train_management.railway_company.csv',
+
         'report/train_management_briefing_report.xml',
         'report/train_management_day_planning_shift_report.xml',
         'report/train_management_shift_report.xml',
         'report/train_management_report_views.xml',
+
         'wizards/create_train_wizard.xml',
         'wizards/add_shifts_wizard.xml',
+
         'views/circuit_views.xml',
         'views/day_planning_views.xml',
         'views/day_planning_text_views.xml',
@@ -38,6 +42,9 @@
         'views/shift_position_type_views.xml',
         'views/shift_template_views.xml',
         'views/res_partner_views.xml',
+
+        'views/web_day_planning_views.xml',
+
         'views/shift_menu_views.xml',
         'views/train_management_menu_views.xml',
     ],

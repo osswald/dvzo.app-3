@@ -7,6 +7,7 @@
     'maintainer': 'Dampfbahn-Verein Zürcher Oberland',
     'depends': [
         'base',
+        'website',
         'project',
         'contacts',
         'partner_firstname',
