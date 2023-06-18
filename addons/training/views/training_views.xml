@@ -154,6 +154,10 @@
                     <group expand="1" string="Group By">
                         <filter string="Module" name='module' context="{'group_by':'module'}"/>
                         <filter string="Type" name='type' context="{'group_by':'type'}"/>
+                        <filter string="All trainings" name='all_trainings'
+                                domain="['|', ('active', '=', True), ('active', '=', False)]"/>
+                        <filter string="Training courses" name="training_courses" domain="[('type','=','training')]"/>
+                        <filter string="Further training" name="further_training" domain="[('type','=','further_training')]"/>
                     </group>
                 </search>
             </field>
