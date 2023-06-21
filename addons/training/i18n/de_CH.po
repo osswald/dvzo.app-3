@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-18 07:37+0000\n"
-"PO-Revision-Date: 2023-06-18 10:05+0200\n"
+"POT-Creation-Date: 2023-06-21 14:32+0000\n"
+"PO-Revision-Date: 2023-06-21 16:37+0200\n"
 "Last-Translator: Christoph Osswald\n"
 "Language-Team: \n"
 "Language: de_CH\n"
@@ -16,6 +16,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.3.1\n"
+
+#. module: training
+#: model:ir.actions.report,print_report_name:training.action_report_training_competence_matrix
+msgid "'Competence_matrix'"
+msgstr "Kompetenzmatrix Betrieb"
 
 #. module: training
 #: model:ir.actions.report,print_report_name:training.action_report_training_participant_list
@@ -55,6 +60,11 @@ msgstr ""
 "right:5px\"/>"
 
 #. module: training
+#: model_terms:ir.ui.view,arch_db:training.competence_matrix
+msgid "<span style=\"font-weight:bold;\">Competence matrix</span>"
+msgstr "<span style=\"font-weight:bold;\">Kompetenzmatrix Betrieb</span>"
+
+#. module: training
 #: model_terms:ir.ui.view,arch_db:training.participant_list
 msgid "<span style=\"font-weight:bold;\">Participant list</span>"
 msgstr "<span style=\"font-weight:bold;\">Teilnehmerliste</span>"
@@ -63,6 +73,46 @@ msgstr "<span style=\"font-weight:bold;\">Teilnehmerliste</span>"
 #: model_terms:ir.ui.view,arch_db:training.invitation
 msgid "<span style=\"font-weight:bold;\">Training invitation</span>"
 msgstr "<span style=\"font-weight:bold;\">Kurseinladung</span>"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.competence_matrix
+msgid "<span>Assessment level</span>"
+msgstr "<span>AS</span>"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.competence_matrix
+msgid "<span>Category</span>"
+msgstr "<span>Kat.</span>"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.competence_matrix
+msgid "<span>Employer</span>"
+msgstr "<span>Arbeitgeber</span>"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.competence_matrix
+msgid "<span>Exam valid until</span>"
+msgstr "<span>Prüfung gültig bis</span>"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.competence_matrix
+msgid "<span>License Nr.</span>"
+msgstr "<span>BAV Nr.</span>"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.competence_matrix
+msgid "<span>License valid until</span>"
+msgstr "<span>Ausweis gültig bis</span>"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.competence_matrix
+msgid "<span>Limitation</span>"
+msgstr "<span>Einschränkung</span>"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.competence_matrix
+msgid "<span>Next assessment</span>"
+msgstr "<span>Nächste PP</span>"
 
 #. module: training
 #: model_terms:ir.ui.view,arch_db:training.participant_list
@@ -105,6 +155,11 @@ msgstr "Aktivitätsart-Symbol"
 #: model_terms:ir.ui.view,arch_db:training.participant_list
 msgid "Address"
 msgstr "Adresse"
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.training_search
+msgid "All trainings"
+msgstr "Alle Kurse"
 
 #. module: training
 #: model:ir.model.fields.selection,name:training.selection__training_training__state__archived
@@ -150,6 +205,11 @@ msgstr "Kategorie"
 #: model:ir.model.fields,field_description:training.field_training_exam__competence
 msgid "Competence"
 msgstr "Kompetenz"
+
+#. module: training
+#: model:ir.actions.report,name:training.action_report_training_competence_matrix
+msgid "Competence Matrix"
+msgstr "Kompetenzmatrix"
 
 #. module: training
 #: model:ir.actions.server,name:training.ir_cron_validate_competences_ir_actions_server
@@ -259,6 +319,11 @@ msgid "Date"
 msgstr "Datum"
 
 #. module: training
+#: model_terms:ir.ui.view,arch_db:training.competence_matrix
+msgid "Date of birth"
+msgstr "Geburtstdatum"
+
+#. module: training
 #: model_terms:ir.ui.view,arch_db:training.invitation
 msgid "Date:"
 msgstr "Datum:"
@@ -347,6 +412,11 @@ msgid "File Name"
 msgstr "Dateiname"
 
 #. module: training
+#: model_terms:ir.ui.view,arch_db:training.competence_matrix
+msgid "First name"
+msgstr "Vorname"
+
+#. module: training
 #: model:ir.model.fields,field_description:training.field_training_training__message_follower_ids
 msgid "Followers"
 msgstr "Anhänger"
@@ -362,7 +432,13 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr "Font awesome icon, z. B. fa-tasks"
 
 #. module: training
+#: model_terms:ir.ui.view,arch_db:training.competence_matrix
+msgid "Functions"
+msgstr "Funktionen"
+
+#. module: training
 #: model:ir.model.fields.selection,name:training.selection__training_training__type__further_training
+#: model_terms:ir.ui.view,arch_db:training.training_search
 msgid "Further training"
 msgstr "Weiterbildung"
 
@@ -378,7 +454,6 @@ msgstr "HR"
 
 #. module: training
 #: model:ir.model.fields,field_description:training.field_training_training__has_message
-#, fuzzy
 msgid "Has Message"
 msgstr "Hat Nachricht"
 
@@ -475,6 +550,11 @@ msgid "Last Modified on"
 msgstr "Zuletzt geändert am"
 
 #. module: training
+#: model_terms:ir.ui.view,arch_db:training.competence_matrix
+msgid "Last Name"
+msgstr "Nachname"
+
+#. module: training
 #: model:ir.model.fields,field_description:training.field_training_competence_validation__write_uid
 #: model:ir.model.fields,field_description:training.field_training_date__write_uid
 #: model:ir.model.fields,field_description:training.field_training_exam__write_uid
@@ -511,10 +591,21 @@ msgid "Last Updated on"
 msgstr "Zuletzt bearbeitet am"
 
 #. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner__license_nr
+#: model:ir.model.fields,field_description:training.field_res_users__license_nr
+msgid "License number"
+msgstr "BAV Nr."
+
+#. module: training
 #: model:ir.model.fields,field_description:training.field_res_partner__license_valid_until
 #: model:ir.model.fields,field_description:training.field_res_users__license_valid_until
 msgid "License valid until"
 msgstr "Ausweis gültig bis"
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_medical_assessment__limitation
+msgid "Limitation"
+msgstr "Einschränkung"
 
 #. module: training
 #: model:ir.model.fields,field_description:training.field_res_partner__locomotive
@@ -535,7 +626,6 @@ msgstr "Triebfahrzeuge"
 
 #. module: training
 #: model:ir.model.fields,field_description:training.field_training_training__message_main_attachment_id
-#, fuzzy
 msgid "Main Attachment"
 msgstr "Hauptanhang"
 
@@ -551,6 +641,7 @@ msgstr "Medizinische Anforderungsstufe"
 #: model:ir.model.fields,field_description:training.field_res_partner__medical_assessment_ids
 #: model:ir.model.fields,field_description:training.field_res_users__medical_assessment_ids
 #: model:mail.activity.type,name:training.mail_activity_type_medical_assessment
+#: model_terms:ir.ui.view,arch_db:training.competence_matrix
 #: model_terms:ir.ui.view,arch_db:training.training_medical_assessment_view_tree
 msgid "Medical assessment"
 msgstr "Medizinische Untersuchung"
@@ -700,7 +791,6 @@ msgstr "Bestanden"
 
 #. module: training
 #: model:mail.activity.type,name:training.mail_activity_type_periodic_exam
-#, fuzzy
 msgid "Periodic exam"
 msgstr "Periodische Prüfung"
 
@@ -740,6 +830,12 @@ msgid "Qualification type"
 msgstr "Qualifikations-Typ"
 
 #. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner__railway_company
+#: model:ir.model.fields,field_description:training.field_res_users__railway_company
+msgid "Railway company (Employer)"
+msgstr ""
+
+#. module: training
 #: model:ir.model.fields,field_description:training.field_training_date__responsible
 msgid "Responsable"
 msgstr "Verantwortlich"
@@ -751,8 +847,6 @@ msgstr "Verantwortlich"
 
 #. module: training
 #: model:ir.model.fields,field_description:training.field_training_training__activity_user_id
-#, fuzzy
-#| msgid "Responsible"
 msgid "Responsible User"
 msgstr "Verantwortlich"
 
@@ -768,25 +862,21 @@ msgstr "Läuft"
 
 #. module: training
 #: model_terms:ir.ui.view,arch_db:training.training_view_form
-#, fuzzy
 msgid "Set to Archived"
 msgstr "Auf \"Archiviert\" setzen"
 
 #. module: training
 #: model_terms:ir.ui.view,arch_db:training.training_view_form
-#, fuzzy
 msgid "Set to Canceled"
 msgstr "Auf \"Abgebrochen\" setzen"
 
 #. module: training
 #: model_terms:ir.ui.view,arch_db:training.training_view_form
-#, fuzzy
 msgid "Set to Planned"
 msgstr "Auf \"Geplant\" setzen"
 
 #. module: training
 #: model_terms:ir.ui.view,arch_db:training.training_view_form
-#, fuzzy
 msgid "Set to Running"
 msgstr "Auf \"Läuft\" setzen"
 
@@ -868,6 +958,11 @@ msgid "Training course"
 msgstr "Ausbildung"
 
 #. module: training
+#: model_terms:ir.ui.view,arch_db:training.training_search
+msgid "Training courses"
+msgstr "Ausbildungen"
+
+#. module: training
 #: model_terms:ir.ui.view,arch_db:training.training_view_form
 msgid "Training dates"
 msgstr "Kursdaten"
@@ -897,6 +992,11 @@ msgstr "Typ"
 #, fuzzy
 msgid "Type of the exception activity on record."
 msgstr "Art der aufgezeichneten Ausnahmeaktivität."
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.competence_matrix
+msgid "VTE"
+msgstr "VTE"
 
 #. module: training
 #: model:ir.model,name:training.model_training_vte_evu_regulations
