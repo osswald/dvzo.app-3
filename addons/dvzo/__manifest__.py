@@ -14,6 +14,7 @@
         'emergency_contact',
         'key_management',
         'member',
+        'training',
         'train_management',
         'uniform',
         'web_window_title',
