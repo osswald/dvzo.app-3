@@ -1,4 +1,5 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, _
+from dateutil.relativedelta import relativedelta
 
 
 class TrainingMedicalAssessment(models.Model):
@@ -27,15 +28,17 @@ class TrainingMedicalAssessment(models.Model):
     def create(self, values):
         # Create the medical assessment record
         medical_assessment = super(TrainingMedicalAssessment, self).create(values)
+        reminder_date = medical_assessment.valid_until - relativedelta(months=4)
+        valid_until_str = medical_assessment.valid_until.strftime('%d.%m.%Y')
 
         # Create the activity
         activity = self.env['mail.activity'].create({
             'activity_type_id': self.env.ref('training.mail_activity_type_medical_assessment').id,
-            'date_deadline': medical_assessment.valid_until,
+            'date_deadline': reminder_date,
             'res_id': medical_assessment.person.id,
             'res_model_id': self.env['ir.model']._get_id('res.partner'),
-            'summary': 'Medical assessment',
-            'note': 'Activity for medical assessment.',
+            'summary': _('Medical assessment'),
+            'note': _('Next medical assessment before %s', valid_until_str),
         })
 
         return medical_assessment

@@ -1,4 +1,5 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, _
+from dateutil.relativedelta import relativedelta
 
 
 class TrainingExam(models.Model):
@@ -21,15 +22,17 @@ class TrainingExam(models.Model):
     def create(self, values):
         # Create the training exam record
         exam = super(TrainingExam, self).create(values)
+        reminder_date = exam.valid_until - relativedelta(months=4)
+        valid_until_str = exam.valid_until.strftime('%d.%m.%Y')
 
         # Create the activity
         activity = self.env['mail.activity'].create({
             'activity_type_id': self.env.ref('training.mail_activity_type_periodic_exam').id,
-            'date_deadline': exam.valid_until,
+            'date_deadline': reminder_date,
             'res_id': exam.person.id,
             'res_model_id': self.env['ir.model']._get_id('res.partner'),
-            'summary': 'Periodic exam',
-            'note': 'Activity for periodic examination.',
+            'summary': _('Periodic exam'),
+            'note': _('Next periodic exam has to be taken before %s', valid_until_str),
         })
 
         if exam.person:

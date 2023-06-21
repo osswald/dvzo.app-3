@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-21 14:32+0000\n"
-"PO-Revision-Date: 2023-06-21 14:32+0000\n"
+"POT-Creation-Date: 2023-06-21 15:26+0000\n"
+"PO-Revision-Date: 2023-06-21 15:26+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -615,6 +615,8 @@ msgid "Medical Fitness Level"
 msgstr ""
 
 #. module: training
+#. odoo-python
+#: code:addons/training/models/training_medical_assessment.py:0
 #: model:ir.actions.act_window,name:training.training_medical_assessment_action
 #: model:ir.model,name:training.model_training_medical_assessment
 #: model:ir.model.fields,field_description:training.field_res_partner__medical_assessment_ids
@@ -622,6 +624,7 @@ msgstr ""
 #: model:mail.activity.type,name:training.mail_activity_type_medical_assessment
 #: model_terms:ir.ui.view,arch_db:training.competence_matrix
 #: model_terms:ir.ui.view,arch_db:training.training_medical_assessment_view_tree
+#, python-format
 msgid "Medical assessment"
 msgstr ""
 
@@ -712,6 +715,20 @@ msgid "Next Activity Type"
 msgstr ""
 
 #. module: training
+#. odoo-python
+#: code:addons/training/models/training_medical_assessment.py:0
+#, python-format
+msgid "Next medical assessment before %s"
+msgstr ""
+
+#. module: training
+#. odoo-python
+#: code:addons/training/models/training_exam.py:0
+#, python-format
+msgid "Next periodic exam has to be taken before %s"
+msgstr ""
+
+#. module: training
 #: model:ir.model.fields,field_description:training.field_training_training__message_needaction_counter
 msgid "Number of Actions"
 msgstr ""
@@ -760,7 +777,10 @@ msgid "Passed"
 msgstr ""
 
 #. module: training
+#. odoo-python
+#: code:addons/training/models/training_exam.py:0
 #: model:mail.activity.type,name:training.mail_activity_type_periodic_exam
+#, python-format
 msgid "Periodic exam"
 msgstr ""
 
