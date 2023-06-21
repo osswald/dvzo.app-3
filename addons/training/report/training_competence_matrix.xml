@@ -85,7 +85,7 @@
                                     </td>
                                     <td>
                                         <t t-if="assessment">
-                                            <span t-field="assessment.medical_fitness_level"/>
+                                            <span t-field="assessment.medical_fitness_level" style="white-space:nowrap;"/>
                                         </t>
                                     </td>
                                     <td>
