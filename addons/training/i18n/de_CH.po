@@ -112,7 +112,7 @@ msgstr "<span>Einschränkung</span>"
 #. module: training
 #: model_terms:ir.ui.view,arch_db:training.competence_matrix
 msgid "<span>Next assessment</span>"
-msgstr "<span>Nächste PP</span>"
+msgstr "<span>Nächste Untersuchung</span>"
 
 #. module: training
 #: model_terms:ir.ui.view,arch_db:training.participant_list
