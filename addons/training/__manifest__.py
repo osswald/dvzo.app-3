@@ -13,11 +13,15 @@
     'license': "LGPL-3",
     'data': [
         'security/ir.model.access.csv',
+
         'data/activity_type_data.xml',
         'data/competence_validation.xml',
+
         'report/training_participant_list_report.xml',
         'report/training_invitation_report.xml',
+        'report/training_competence_matrix.xml',
         'report/training_report_views.xml',
+
         'views/training_views.xml',
         'views/training_module_views.xml',
         'views/training_date_views.xml',

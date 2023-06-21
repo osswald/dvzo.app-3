@@ -14,6 +14,8 @@ class Partner(models.Model):
     license_valid_until = fields.Date("License valid until")
     exam_valid_until = fields.Date("Exam valid until", compute="_compute_exam_valid_until", store=True)
     has_locomotive = fields.Boolean("Locomotive knowledge")
+    license_nr = fields.Char("License number")
+    railway_company = fields.Char("Railway company (Employer)")
 
     # Relational
     locomotive = fields.Many2many("training.vte.locomotive")

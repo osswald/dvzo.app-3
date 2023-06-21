@@ -13,6 +13,7 @@
                             <group>
                                 <field name="person"/>
                                 <field name="medical_fitness_level"/>
+                                <field name="limitation"/>
                                 <field name="assessment_date"/>
                                 <field name="valid_until"/>
                             </group>
@@ -32,6 +33,7 @@
             <field name="arch" type="xml">
                 <tree string="Medical assessment">
                     <field name="medical_fitness_level"/>
+                    <field name="limitation"/>
                     <field name="assessment_date"/>
                     <field name="valid_until"/>
                 </tree>

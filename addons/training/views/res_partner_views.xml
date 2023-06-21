@@ -25,6 +25,8 @@
                                 <field name="exam_valid_until"/>
                             </group>
                             <group string="Train driver">
+                                <field name="license_nr"/>
+                                <field name="railway_company"/>
                                 <field name="has_locomotive"/>
                                 <field name="locomotive"
                                        attrs="{'invisible': [('has_locomotive', '=', False)]}"
@@ -37,6 +39,7 @@
                                 <field name="medical_assessment_ids">
                                     <tree>
                                         <field name="medical_fitness_level"/>
+                                        <field name="limitation"/>
                                         <field name="assessment_date"/>
                                         <field name="valid_until"/>
                                     </tree>

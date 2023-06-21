@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Main report templates -->
+    <template id="competence_matrix">
+        <t t-call="web.html_container">
+            <t t-call="dvzo.dvzo_layout">
+                <t t-set="categories" t-value="env['res.partner.category'].search([('active','=',True)])"/>
+                <t t-set="category_count" t-value="env['res.partner.category'].search_count([('active','=',True)])"/>
+                <div class="page">
+                    <h1>
+                        <span style="font-weight:bold;">Competence matrix</span>
+                    </h1>
+
+
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th rowspan="2">Last Name</th>
+                                <th rowspan="2">First name</th>
+                                <th rowspan="2">Date of birth</th>
+                                <th colspan="4">Medical assessment</th>
+                                <th colspan="5">VTE</th>
+                                <th t-att-colspan="category_count">Functions</th>
+                            </tr>
+                            <tr>
+                                <th style="vertical-align: bottom; text-align: center;">
+                                    <span>Next assessment</span>
+                                </th>
+                                <th style="vertical-align: bottom; text-align: center;">
+                                    <span>Assessment level</span>
+                                </th>
+                                <th style="vertical-align: bottom; text-align: center;">
+                                    <span>Limitation</span>
+                                </th>
+                                <th style="vertical-align: bottom; text-align: center;">
+                                    <span>Category</span>
+                                </th>
+                                <th style="vertical-align: bottom; text-align: center;">
+                                    <span>Employer</span>
+                                </th>
+                                <th style="vertical-align: bottom; text-align: center;">
+                                    <span>License Nr.</span>
+                                </th>
+                                <th style="vertical-align: bottom; text-align: center;">
+                                    <span>License valid until</span>
+                                </th>
+                                <th style="vertical-align: bottom; text-align: center;">
+                                    <span>Exam valid until</span>
+                                </th>
+                                <t t-foreach="categories" t-as="category">
+                                    <th style="vertical-align: bottom; text-align: center;">
+                                        <span t-field="category.name"/>
+                                    </th>
+                                </t>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="docs" t-as="person">
+                                <t t-set="assessment" t-value=""/>
+                                <t t-set="exam" t-value=""/>
+                                <t t-if="person.medical_assessment_ids">
+                                    <t t-set="assessment"
+                                       t-value="person.medical_assessment_ids.sorted(key=lambda r: r.valid_until)[-1]"/>
+                                </t>
+                                <t t-if="person.exam_ids">
+                                    <t t-set="exam" t-value="person.exam_ids.sorted(key=lambda r: r.valid_until).search([('type.name','=','VTE')])[-1]"/>
+                                </t>
+                                <tr>
+                                    <td>
+                                        <t t-if="person.lastname">
+                                            <span t-esc="person.lastname" style="white-space:nowrap;"/>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-if="person.firstname">
+                                            <span t-esc="person.firstname" style="white-space:nowrap;"/>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <span t-field="person.date_of_birth"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="person.medical_assessment_valid_until"/>
+                                    </td>
+                                    <td>
+                                        <t t-if="assessment">
+                                            <span t-field="assessment.medical_fitness_level"/>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-if="assessment">
+                                            <span t-field="assessment.limitation"/>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-if="exam">
+                                            <span t-field="exam.vte_category"/>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <span t-field="person.railway_company"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="person.license_nr"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="person.license_valid_until"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="person.exam_valid_until"/>
+                                    </td>
+                                    <t t-foreach="categories" t-as="category">
+                                        <td style="text-align: center">
+                                            <t t-if="category in person.category_id">x</t>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

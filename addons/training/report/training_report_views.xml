@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+        <record id="paperformat_a4_landscape" model="report.paperformat">
+            <field name="name">A4 Landscape</field>
+            <field name="default" eval="False"/>
+            <field name="disable_shrinking" eval="False"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <!-- this one is to make the pdf to become horizontal, if landscape=False, pdf will become vertical -->
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">0</field>
+            <field name="margin_bottom">8</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+            <field name="dpi">96</field>
+        </record>
+        <record id="paperformat_a3_landscape" model="report.paperformat">
+            <field name="name">A3 Landscape</field>
+            <field name="default" eval="False"/>
+            <field name="disable_shrinking" eval="False"/>
+            <field name="format">A3</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <!-- this one is to make the pdf to become horizontal, if landscape=False, pdf will become vertical -->
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">0</field>
+            <field name="margin_bottom">8</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+            <field name="dpi">150</field>
+        </record>
+
+
         <record id="action_report_training_participant_list" model="ir.actions.report">
             <field name="name">Participant list</field>
             <field name="model">training.training</field>
@@ -18,6 +50,16 @@
             <field name="report_file">training.invitation</field>
             <field name="print_report_name">'Training invitation'</field>
             <field name="binding_model_id" ref="model_training_training"/>
+        </record>
+        <record id="action_report_training_competence_matrix" model="ir.actions.report">
+            <field name="name">Competence Matrix</field>
+            <field name="model">res.partner</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">training.competence_matrix</field>
+            <field name="report_file">training.competence_matrix</field>
+            <field name="paperformat_id" ref="paperformat_a3_landscape"/>
+            <field name="print_report_name">'Competence_matrix'</field>
+            <field name="binding_model_id" ref="model_res_partner"/>
         </record>
     </data>
 </odoo>

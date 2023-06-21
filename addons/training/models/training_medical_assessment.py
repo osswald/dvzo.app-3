@@ -8,6 +8,7 @@ class TrainingMedicalAssessment(models.Model):
     _order = "valid_until"
 
     medical_fitness_level = fields.Many2one("training.medical_fitness_level", required=True)
+    limitation = fields.Char("Limitation")
     assessment_date = fields.Date("Assessment date", required=True)
     valid_until = fields.Date("Valid until", required=True)
     assessment_file = fields.Binary(string='Assessment file', attachment=True)
