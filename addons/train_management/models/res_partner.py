@@ -9,5 +9,16 @@ class Partner(models.Model):
 
     # --------------------------------------- Fields Declaration ----------------------------------
 
+    phone_publish = fields.Selection(
+        selection=[
+            ("unknown", "Unknown"),
+            ("yes", "Yes"),
+            ("no", "No"),
+        ],
+        string="Phone publish",
+        default="unknown",
+        required=True,
+    )
+
     # Relational
     shift_ids = fields.One2many("train_management.day_planning_shift", "person")

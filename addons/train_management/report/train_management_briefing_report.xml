@@ -42,7 +42,7 @@
                                             <span t-field="circuit_vehicle.vehicle"/>
                                             <t t-if="circuit_vehicle.comment">
                                                 (<span t-field="circuit_vehicle.comment"/>)
-                                        </t>
+                                            </t>
                                         </div>
                                     </td>
                                 </tr>
@@ -51,7 +51,7 @@
 
                         <!-- Personnel -->
                         <h2 t-if="day_planning.day_planning_shift_ids">Personnel</h2>
-                        <table class="table" t-if="day_planning.day_planning_shift_ids">
+                        <table class="table table-sm" t-if="day_planning.day_planning_shift_ids">
                             <thead>
                                 <tr>
                                     <th>Shift</th>
@@ -65,19 +65,33 @@
                                 <t t-set="shifts" t-value="day_planning.mapped('day_planning_shift_ids')"/>
                                 <tr t-foreach="shifts" t-as="shift">
                                     <td>
-                                        <span t-field="shift.shift"/> / <span t-field="shift.shift_label"/>
+                                        <span t-field="shift.shift"/>
+                                        /
+                                        <span t-field="shift.shift_label"/>
                                     </td>
                                     <td>
-
+                                        <t t-if="shift.shift.approximate_times">
+                                            <span t-field="shift.shift.approximate_start_time" t-options='{"widget": "float_time"}'/>
+                                        </t>
+                                        <t t-else="">
+                                        <span t-field="shift.shift.shift_start" t-options='{"widget": "float_time"}'/>
+                                        </t>
                                     </td>
                                     <td>
-
+                                        <t t-if="shift.shift.approximate_times">
+                                            <span t-field="shift.shift.approximate_end_time" t-options='{"widget": "float_time"}'/>
+                                        </t>
+                                        <t t-else="">
+                                        <span t-field="shift.shift.shift_end" t-options='{"widget": "float_time"}'/>
+                                        </t>
                                     </td>
                                     <td>
                                         <span t-field="shift.person"/>
                                     </td>
                                     <td>
-                                        <span t-field="shift.person.mobile"/>
+                                        <t t-if="shift.person.phone_publish == 'yes'">
+                                            <span t-field="shift.person.mobile"/>
+                                        </t>
                                     </td>
                                 </tr>
                             </tbody>
@@ -97,15 +111,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <t t-set="reservations" t-value="day_planning.mapped('reservation_ids').sorted(key=lambda r: r.train)"/>
+                                <t t-set="reservations"
+                                   t-value="day_planning.mapped('reservation_ids').sorted(key=lambda r: r.train)"/>
                                 <tr t-foreach="reservations" t-as="reservation">
                                     <td>
                                         <span t-field="reservation.train"/>
-                                        <span t-field="reservation.train.start_station.short_name"/> -
+                                        <span t-field="reservation.train.start_station.short_name"/>
+                                        -
                                         <span t-field="reservation.train.end_station.short_name"/>
                                     </td>
                                     <td>
-                                        <span t-field="reservation.start_station_short"/> -
+                                        <span t-field="reservation.start_station_short"/>
+                                        -
                                         <span t-field="reservation.end_station_short"/>
                                     </td>
                                     <td>

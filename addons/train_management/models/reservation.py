@@ -25,10 +25,10 @@ class Reservation(models.Model):
                                    string="asdf")
     start_station = fields.Many2one('train_management.station', string='Start Station',
                                     domain="[('id', 'in', station_ids)]")
-    start_station_short = fields.Char(related="start_station.short_name", string="Start")
+    start_station_short = fields.Char(related="start_station.short_name", string="Start station")
     end_station = fields.Many2one("train_management.station",
                                   domain="[('id', 'in', station_ids)]")
-    end_station_short = fields.Char(related="end_station.short_name", string="End")
+    end_station_short = fields.Char(related="end_station.short_name", string="End station")
 
     train = fields.Many2one("train_management.train")
     day_planning = fields.Many2one("train_management.day_planning", compute="_compute_day_planning", store=True)

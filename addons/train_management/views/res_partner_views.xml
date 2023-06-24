@@ -7,6 +7,9 @@
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
+                 <xpath expr="//sheet/group/group" position="inside">
+                        <field name="phone_publish"/>
+                </xpath>
                 <notebook position="inside">
                     <page name="shifts" string="Shifts">
                         <field name="shift_ids">
