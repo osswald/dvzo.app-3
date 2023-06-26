@@ -7,6 +7,9 @@
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="in_training_ids" widget="many2many_tags"/>
+                </xpath>
                 <notebook position="inside">
                     <page name="training" string="Training">
                         <field name="training_ids">

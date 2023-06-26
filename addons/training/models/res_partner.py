@@ -2,7 +2,6 @@ from odoo import fields, models, api
 
 
 class Partner(models.Model):
-
     # ---------------------------------------- Private Attributes ---------------------------------
 
     _inherit = "res.partner"
@@ -22,6 +21,13 @@ class Partner(models.Model):
     training_ids = fields.One2many("training.participant", "participant", string="Training")
     medical_assessment_ids = fields.One2many("training.medical_assessment", "person", string="Medical assessment")
     exam_ids = fields.One2many("training.exam", "person", string="Exams")
+    in_training_ids = fields.Many2many(
+        'res.partner.category',
+        'partner_in_training_rel',
+        'partner_id',
+        'category_id',
+        string='In training'
+    )
 
     @api.depends('exam_ids.valid_until')
     def _compute_exam_valid_until(self):
