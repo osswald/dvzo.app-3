@@ -6,7 +6,15 @@
         <t t-call="web.html_container">
             <t t-call="dvzo.dvzo_layout">
                 <t t-set="categories" t-value="env['res.partner.category'].search([('active','=',True)])"/>
+                <t t-set="categories_vte" t-value="env['res.partner.category'].search([('active','=',True), ('parent_id','=','VTE')])"/>
+                <t t-set="categories_zstebv" t-value="env['res.partner.category'].search([('active','=',True), ('parent_id','=','ZSTEBV')])"/>
+                <t t-set="categories_dvzo" t-value="env['res.partner.category'].search([('active','=',True), ('parent_id','=','DVZO')])"/>
+                <t t-set="categories_crane" t-value="env['res.partner.category'].search([('active','=',True), ('parent_id','=','Kran')])"/>
                 <t t-set="category_count" t-value="env['res.partner.category'].search_count([('active','=',True)])"/>
+                <t t-set="category_count_vte" t-value="env['res.partner.category'].search_count([('active','=',True), ('parent_id','=','VTE')])"/>
+                <t t-set="category_count_zstebv" t-value="env['res.partner.category'].search_count([('active','=',True), ('parent_id','=','ZSTEBV')])"/>
+                <t t-set="category_count_dvzo" t-value="env['res.partner.category'].search_count([('active','=',True), ('parent_id','=','DVZO')])"/>
+                <t t-set="category_count_crane" t-value="env['res.partner.category'].search_count([('active','=',True), ('parent_id','=','Kran')])"/>
                 <div class="page">
                     <h1>
                         <span style="font-weight:bold;">Competence matrix</span>
@@ -16,15 +24,24 @@
                     <table class="table table-sm">
                         <thead>
                             <tr>
-                                <th rowspan="2">Last Name</th>
-                                <th rowspan="2">First name</th>
-                                <th rowspan="2">Date of birth</th>
-                                <th colspan="4">Medical assessment</th>
-                                <th colspan="5">VTE</th>
+                                <th rowspan="3">Last Name</th>
+                                <th rowspan="3">First name</th>
+                                <th rowspan="3">Date of birth</th>
+                                <th rowspan="2" colspan="3">Medical assessment</th>
+                                <th rowspan="2" colspan="4">VTE</th>
+                                <th rowspan="3" style="vertical-align: bottom; text-align: center;">
+                                    <span>Exam valid until</span>
+                                </th>
                                 <th t-att-colspan="category_count">Functions</th>
                             </tr>
                             <tr>
-                                <th style="vertical-align: bottom; text-align: center;">
+                                <th t-att-colspan="category_count_vte">VTE</th>
+                                <th t-att-colspan="category_count_zstebv">ZSTEBV</th>
+                                <th t-att-colspan="category_count_dvzo">DVZO</th>
+                                <th t-att-colspan="category_count_crane">Crane</th>
+                            </tr>
+                            <tr>
+                                 <th style="vertical-align: bottom; text-align: center;">
                                     <span>Next assessment</span>
                                 </th>
                                 <th style="vertical-align: bottom; text-align: center;">
@@ -45,12 +62,24 @@
                                 <th style="vertical-align: bottom; text-align: center;">
                                     <span>License valid until</span>
                                 </th>
-                                <th style="vertical-align: bottom; text-align: center;">
-                                    <span>Exam valid until</span>
-                                </th>
-                                <t t-foreach="categories" t-as="category">
+                                <t t-foreach="categories_vte" t-as="category_vte">
                                     <th style="vertical-align: bottom; text-align: center;">
-                                        <span t-field="category.name"/>
+                                        <span t-field="category_vte.name"/>
+                                    </th>
+                                </t>
+                                <t t-foreach="categories_zstebv" t-as="category_zstebv">
+                                    <th style="vertical-align: bottom; text-align: center;">
+                                        <span t-field="category_zstebv.name"/>
+                                    </th>
+                                </t>
+                                <t t-foreach="categories_dvzo" t-as="category_dvzo">
+                                    <th style="vertical-align: bottom; text-align: center;">
+                                        <span t-field="category_dvzo.name"/>
+                                    </th>
+                                </t>
+                                <t t-foreach="categories_crane" t-as="category_crane">
+                                    <th style="vertical-align: bottom; text-align: center;">
+                                        <span t-field="category_crane.name"/>
                                     </th>
                                 </t>
                             </tr>
@@ -64,7 +93,7 @@
                                        t-value="person.medical_assessment_ids.sorted(key=lambda r: r.valid_until)[-1]"/>
                                 </t>
                                 <t t-if="person.exam_ids">
-                                    <t t-set="exam" t-value="person.exam_ids.sorted(key=lambda r: r.valid_until).search([('type.name','=','VTE')])[-1]"/>
+                                    <t t-set="exam" t-value="person.exam_ids.sorted(key=lambda r: r.valid_until)[-1]"/>
                                 </t>
                                 <tr>
                                     <td>
@@ -94,7 +123,7 @@
                                         </t>
                                     </td>
                                     <td>
-                                        <t t-if="exam">
+                                        <t t-if="exam.vte_category">
                                             <span t-field="exam.vte_category"/>
                                         </t>
                                     </td>
@@ -110,9 +139,24 @@
                                     <td>
                                         <span t-field="person.exam_valid_until"/>
                                     </td>
-                                    <t t-foreach="categories" t-as="category">
+                                    <t t-foreach="categories_vte" t-as="category_vte">
                                         <td style="text-align: center">
-                                            <t t-if="category in person.category_id">x</t>
+                                            <t t-if="category_vte in person.category_id">x</t>
+                                        </td>
+                                    </t>
+                                    <t t-foreach="categories_zstebv" t-as="category_zstebv">
+                                        <td style="text-align: center">
+                                            <t t-if="category_zstebv in person.category_id">x</t>
+                                        </td>
+                                    </t>
+                                    <t t-foreach="categories_dvzo" t-as="category_dvzo">
+                                        <td style="text-align: center">
+                                            <t t-if="category_dvzo in person.category_id">x</t>
+                                        </td>
+                                    </t>
+                                    <t t-foreach="categories_crane" t-as="category_crane">
+                                        <td style="text-align: center">
+                                            <t t-if="category_crane in person.category_id">x</t>
                                         </td>
                                     </t>
                                 </tr>
