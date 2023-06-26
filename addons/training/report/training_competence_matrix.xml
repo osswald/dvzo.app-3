@@ -85,7 +85,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <t t-foreach="docs" t-as="person">
+                            <t t-foreach="sorted(docs, key=lambda x: (x.lastname or '', x.firstname or ''))" t-as="person">
                                 <t t-set="assessment" t-value=""/>
                                 <t t-set="exam" t-value=""/>
                                 <t t-if="person.medical_assessment_ids">
