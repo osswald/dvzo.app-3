@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="group_training_readonly_courses" model="res.groups">
+        <field name="name">Read-only courses</field>
+        <field name="category_id" ref="base.module_category_dvzo_training"/>
+        <field name="comment">The user will be able to view courses, dates and participants.</field>
+    </record>
+
+    <record id="group_training_teacher" model="res.groups">
+        <field name="name">Teacher</field>
+        <field name="category_id" ref="base.module_category_dvzo_training"/>
+        <field name="comment">The user will be able to add, edit and delete courses, dates and participants.</field>
+    </record>
+
+    <record id="group_training_readonly_all" model="res.groups">
+        <field name="name">Read-only all</field>
+        <field name="category_id" ref="base.module_category_dvzo_training"/>
+        <field name="implied_ids" eval="[(4, ref('training.group_training_readonly_courses'))]"/>
+        <field name="comment">
+            The user will be able to view courses, dates and participants as well as all qualifications.
+        </field>
+    </record>
+
+    <record id="group_training_readonly_all_teacher" model="res.groups">
+        <field name="name">Read-only all + Teacher</field>
+        <field name="category_id" ref="base.module_category_dvzo_training"/>
+        <field name="implied_ids" eval="[(4, ref('training.group_training_readonly_all')), (4, ref('training.group_training_teacher'))]"/>
+        <field name="comment">
+            The user will be able to view all qualifications. And they can create, edit and delete courses, dates and participants.
+        </field>
+    </record>
+
+    <record id="group_training_manager" model="res.groups">
+        <field name="name">Administrator</field>
+        <field name="category_id" ref="base.module_category_dvzo_training"/>
+        <field name="implied_ids" eval="[(4, ref('training.group_training_teacher'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        <field name="comment">The user will have full access to the training module.
+        </field>
+    </record>
+</odoo>

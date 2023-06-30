@@ -8,19 +8,58 @@ class Partner(models.Model):
 
     # --------------------------------------- Fields Declaration ----------------------------------
 
-    medical_assessment_valid_until = fields.Date("Medical assessment valid until",
-                                                 compute="_compute_medical_valid_until", store=True)
-    license_valid_until = fields.Date("License valid until")
-    exam_valid_until = fields.Date("Exam valid until", compute="_compute_exam_valid_until", store=True)
-    has_locomotive = fields.Boolean("Locomotive knowledge")
-    license_nr = fields.Char("License number")
-    railway_company = fields.Char("Railway company (Employer)")
+    medical_assessment_valid_until = fields.Date(
+        "Medical assessment valid until",
+        compute="_compute_medical_valid_until",
+        store=True,
+        groups="training.group_training_readonly_all, training.group_training_manager"
+    )
+    license_valid_until = fields.Date(
+        "License valid until",
+        groups="training.group_training_readonly_all, training.group_training_manager"
+    )
+    exam_valid_until = fields.Date(
+        "Exam valid until",
+        compute="_compute_exam_valid_until",
+        store=True,
+        groups="training.group_training_readonly_all, training.group_training_manager"
+    )
+    has_locomotive = fields.Boolean(
+        "Locomotive knowledge",
+        groups="training.group_training_readonly_all, training.group_training_manager"
+    )
+    license_nr = fields.Char(
+        "License number",
+        groups="training.group_training_readonly_all, training.group_training_manager"
+    )
+    railway_company = fields.Char(
+        "Railway company (Employer)",
+        groups="training.group_training_readonly_all, training.group_training_manager"
+    )
 
     # Relational
-    locomotive = fields.Many2many("training.vte.locomotive")
-    training_ids = fields.One2many("training.participant", "participant", string="Training")
-    medical_assessment_ids = fields.One2many("training.medical_assessment", "person", string="Medical assessment")
-    exam_ids = fields.One2many("training.exam", "person", string="Exams")
+    locomotive = fields.Many2many(
+        "training.vte.locomotive",
+        groups="training.group_training_readonly_all, training.group_training_manager"
+    )
+    training_ids = fields.One2many(
+        "training.participant",
+        "participant",
+        string="Training",
+        groups="training.group_training_readonly_courses, training.group_training_teacher"
+    )
+    medical_assessment_ids = fields.One2many(
+        "training.medical_assessment",
+        "person",
+        string="Medical assessment",
+        groups="training.group_training_readonly_all, training.group_training_manager"
+    )
+    exam_ids = fields.One2many(
+        "training.exam",
+        "person",
+        string="Exams",
+        groups="training.group_training_readonly_all, training.group_training_manager"
+    )
     in_training_ids = fields.Many2many(
         'res.partner.category',
         'partner_in_training_rel',

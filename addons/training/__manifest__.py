@@ -13,6 +13,7 @@
     'application': False,
     'license': "LGPL-3",
     'data': [
+        'security/training_security.xml',
         'security/ir.model.access.csv',
 
         'data/activity_type_data.xml',
