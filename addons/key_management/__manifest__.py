@@ -12,6 +12,7 @@
     'application': False,
     'license': "LGPL-3",
     'data': [
+        'security/key_management_security.xml',
         'security/ir.model.access.csv',
         'views/key_lending_views.xml',
         'views/key_permission_views.xml',
