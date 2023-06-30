@@ -21,4 +21,8 @@ class Partner(models.Model):
     )
 
     # Relational
-    shift_ids = fields.One2many("train_management.day_planning_shift", "person")
+    shift_ids = fields.One2many(
+        "train_management.day_planning_shift",
+        "person",
+        groups="train_management.group_train_management_readonly_day_planning"
+    )
