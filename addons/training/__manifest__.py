@@ -4,6 +4,7 @@
 {
     'name': 'Training',
     'author': 'Christoph Osswald',
+    'category': 'DVZO/Training',
     'depends': [
         'base',
         'mail',

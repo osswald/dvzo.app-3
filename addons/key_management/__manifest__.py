@@ -4,6 +4,7 @@
 {
     'name': 'Key Management',
     'author': 'Christoph Osswald',
+    'category': 'DVZO/Key management',
     'depends': [
         'base',
     ],

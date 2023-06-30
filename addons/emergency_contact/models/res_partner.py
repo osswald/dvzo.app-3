@@ -10,8 +10,12 @@ class Partner(models.Model):
     # --------------------------------------- Fields Declaration ----------------------------------
 
     # Relational
-    emergency_contact_ids = fields.One2many("emergency_contact.emergency_contact", "res_partner", string="Emergency "
-                                                                                                         "contact")
+    emergency_contact_ids = fields.One2many(
+        "emergency_contact.emergency_contact",
+        "res_partner",
+        string="Emergency contact",
+        groups="emergency_contact.group_emergency_contact_user,emergency_contact.group_emergency_contact_manager"
+    )
     has_emergency_contact = fields.Selection(
         selection=[
             ("yes", "Yes"),
@@ -21,5 +25,6 @@ class Partner(models.Model):
         string="Has emergency contact",
         default="open",
         required=True,
-        copy=False
+        copy=False,
+        groups="emergency_contact.group_emergency_contact_user,emergency_contact.group_emergency_contact_manager"
     )

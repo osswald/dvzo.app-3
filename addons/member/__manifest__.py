@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-
-
 {
     'name': 'membership',
     'author': 'Christoph Osswald',
+    'category': 'DVZO/Membership',
     'depends': [
         'base',
     ],

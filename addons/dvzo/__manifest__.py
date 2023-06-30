@@ -5,6 +5,7 @@
     'name': 'DVZO.app',
     'author': "Christoph Osswald",
     'maintainer': 'Dampfbahn-Verein Zürcher Oberland',
+    'category': 'DVZO',
     'depends': [
         'base',
         'website',

@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_emergency_contact,emergency_contact.emergency_contact,model_emergency_contact_emergency_contact,base.group_user,1,1,1,1
+read_emergency_contact,emergency_contact.emergency_contact_read,model_emergency_contact_emergency_contact,emergency_contact.group_emergency_contact_user,1,"","",""
+access_emergency_contact,emergency_contact.emergency_contact_full,model_emergency_contact_emergency_contact,emergency_contact.group_emergency_contact_manager,1,1,1,1

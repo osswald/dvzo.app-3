@@ -8,6 +8,7 @@
         'training',
     ],
     'author': 'Christoph Osswald',
+    'category': 'DVZO/Train management',
     'installable': True,
     'application': False,
     'license': "LGPL-3",

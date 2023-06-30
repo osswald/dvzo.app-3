@@ -4,6 +4,7 @@
 {
     'name': 'Uniform',
     'author': 'Christoph Osswald',
+    'category': 'DVZO/Uniform',
     'depends': [
         'base',
     ],
