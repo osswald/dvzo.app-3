@@ -8,7 +8,11 @@ class DayPlanningShift(models.Model):
 
     day_planning = fields.Many2one("train_management.day_planning", string="Day planning", required=True)
     day_planning_date = fields.Date("Date", related="day_planning.date")
-    shift = fields.Many2one("train_management.shift_template", required=True)
+    shift = fields.Many2one(
+        "train_management.shift_template",
+        required=True,
+        domain="[('valid_from', '<=', day_planning_date), ('valid_until', '>=', day_planning_date)]"
+    )
     shift_categories = fields.Many2many(related="shift.category")
     shift_label = fields.Char(string='Shift Label', related='shift.label', readonly=True)
     person = fields.Many2one("res.partner", string="Person", copy=False)

@@ -12,6 +12,7 @@
                         <group>
                             <group>
                                 <field name="day_planning"/>
+                                <field name="day_planning_date" invisible="True"/>
                                 <field name="shift"/>
                                 <field name="shift_categories" invisible="True"/>
                                 <field name="person"/>
@@ -29,6 +30,7 @@
             <field name="arch" type="xml">
                 <tree string="Day planning shift">
                     <field name="day_planning"/>
+                    <field name="day_planning" invisible="True"/>
                     <field name="shift"/>
                     <field name="shift_categories" invisible="True"/>
                     <field name="person"/>

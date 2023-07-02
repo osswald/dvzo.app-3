@@ -87,6 +87,7 @@
                                 <field name="day_planning_shift_ids">
                                     <tree editable="bottom">
                                         <field name="shift"/>
+                                        <field name="day_planning_date" invisible="True"/>
                                         <field name="shift_categories" invisible="True"/>
                                         <field name="shift_label"/>
                                         <field name="person"/>
