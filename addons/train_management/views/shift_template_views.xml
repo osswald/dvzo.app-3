@@ -8,10 +8,6 @@
             <field name="model">train_management.shift_template</field>
             <field name="arch" type="xml">
                 <form>
-                    <header>
-                        <button name="action_archived" type="object" string="Set to Archived" class="oe_highlight"
-                        attrs="{'invisible': [('active', '=', False)]}"/>
-                    </header>
                     <sheet>
                         <group>
                             <group>
