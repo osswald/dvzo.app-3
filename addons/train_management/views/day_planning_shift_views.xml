@@ -29,6 +29,7 @@
             <field name="model">train_management.day_planning_shift</field>
             <field name="arch" type="xml">
                 <tree string="Day planning shift">
+                    <field name="sequence" widget="handle"/>
                     <field name="day_planning"/>
                     <field name="day_planning" invisible="True"/>
                     <field name="shift"/>

@@ -17,6 +17,7 @@ class DayPlanningShift(models.Model):
     shift_label = fields.Char(string='Shift Label', related='shift.label', readonly=True)
     person = fields.Many2one("res.partner", string="Person", copy=False)
     comment = fields.Char("Comment")
+    sequence = fields.Integer(string='Sequence', default=1)
 
 
 class AddShiftsWizard(models.TransientModel):
