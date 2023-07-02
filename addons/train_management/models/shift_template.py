@@ -14,7 +14,7 @@ class ShiftTemplate(models.Model):
     approximate_start_time = fields.Float()
     approximate_end_time = fields.Float()
     in_training = fields.Boolean("In training")
-
+    active = fields.Boolean("Active", default=True)
     shift_start = fields.Float(compute="_compute_start_time", store=True)
     shift_end = fields.Float(compute="_compute_end_time", store=True)
     shift_duration = fields.Float(compute="_compute_total_shift_duration", store=True)
@@ -71,3 +71,6 @@ class ShiftTemplate(models.Model):
 
             record.work_duration = work_duration
             record.time_accountable = time_accountable
+
+    def action_archived(self):
+        return self.action_archive()

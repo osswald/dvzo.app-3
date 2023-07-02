@@ -8,11 +8,16 @@
             <field name="model">train_management.shift_template</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button name="action_archived" type="object" string="Set to Archived" class="oe_highlight"
+                        attrs="{'invisible': [('active', '=', False)]}"/>
+                    </header>
                     <sheet>
                         <group>
                             <group>
                                 <field name="name"/>
                                 <field name="label"/>
+                                <field name="active" invisible="True"/>
                                 <field name="category" widget="many2many_tags" options="{'color_field': 'color'}"/>
                                 <field name="in_training"/>
                                 <field name="description"/>

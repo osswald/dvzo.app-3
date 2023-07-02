@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-16 14:36+0000\n"
-"PO-Revision-Date: 2023-06-16 16:37+0200\n"
+"POT-Creation-Date: 2023-07-02 12:50+0000\n"
+"PO-Revision-Date: 2023-07-02 14:55+0200\n"
 "Last-Translator: Christoph Osswald\n"
 "Language-Team: \n"
 "Language: de_CH\n"
@@ -15,7 +15,32 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.3.2\n"
+
+#. module: train_management
+#: model:res.groups,comment:train_management.group_train_management_day_planning
+msgid ""
+"\n"
+"            The user will be able to create, edit and delete day plannings.\n"
+"        "
+msgstr ""
+"\n"
+"            Der Benutzer kann Tagesplanungen erstellen, bearbeiten und "
+"löschen.\n"
+"        "
+
+#. module: train_management
+#: model:res.groups,comment:train_management.group_train_management_shift
+msgid ""
+"\n"
+"            The user will be able to create, edit and delete shift templates "
+"and shift positions.\n"
+"        "
+msgstr ""
+"\n"
+"            Der Benutzer kann Tourenvorlagen und Tourenpositionen zu "
+"erstellen, bearbeiten und löschen.\n"
+"        "
 
 #. module: train_management
 #: model:ir.actions.report,print_report_name:train_management.action_report_day_planning_briefing
@@ -103,6 +128,11 @@ msgstr "Touren hinzufügen"
 #: model:ir.model,name:train_management.model_train_management_add_shifts_wizard
 msgid "Add shifts wizard"
 msgstr "Assistent für das Hinzufügen von Touren"
+
+#. module: train_management
+#: model:res.groups,name:train_management.group_train_management_manager
+msgid "Administrator"
+msgstr "Administrator"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_reservation__amount
@@ -436,6 +466,7 @@ msgstr "Tagesplanungen"
 #: model:ir.model,name:train_management.model_train_management_day_planning
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift__day_planning
 #: model:ir.ui.menu,name:train_management.day_planning_menu_action
+#: model:res.groups,name:train_management.group_train_management_day_planning
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_tree
 #: model_terms:ir.ui.view,arch_db:train_management.web_day_planning_list_view
 msgid "Day planning"
@@ -542,7 +573,6 @@ msgid "E-Mail"
 msgstr "E-Mail"
 
 #. module: train_management
-#: model:ir.model.fields,field_description:train_management.field_train_management_reservation__end_station_short
 #: model_terms:ir.ui.view,arch_db:train_management.briefing
 msgid "End"
 msgstr "Ziel"
@@ -559,6 +589,13 @@ msgstr "Ziel Bahnhof"
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__end_time
 msgid "End Time"
 msgstr "Endzeit"
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_reservation__end_station_short
+#, fuzzy
+#| msgid "End Station"
+msgid "End station"
+msgstr "Ziel Bahnhof"
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
@@ -917,6 +954,7 @@ msgid "Nbremergencybrakevalve"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields.selection,name:train_management.selection__res_partner__phone_publish__no
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__billed__no
 msgid "No"
 msgstr "Nein"
@@ -1033,6 +1071,12 @@ msgid "Phone number"
 msgstr "Telefonnummer"
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_res_partner__phone_publish
+#: model:ir.model.fields,field_description:train_management.field_res_users__phone_publish
+msgid "Phone publish"
+msgstr "Telefonnummer publizieren"
+
+#. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
 msgid "Place"
@@ -1082,6 +1126,16 @@ msgid "Railway company"
 msgstr "EVU"
 
 #. module: train_management
+#: model:res.groups,name:train_management.group_train_management_readonly_day_planning
+msgid "Read-only day planning"
+msgstr "Tagesplanungen ansehen"
+
+#. module: train_management
+#: model:res.groups,name:train_management.group_train_management_readonly_shift
+msgid "Read-only shift"
+msgstr "Touren ansehen"
+
+#. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__slot_ordered_sbb__received
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__slot_ordered_st__received
 msgid "Received"
@@ -1093,6 +1147,7 @@ msgstr "Erhalten"
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__reservation_ids
 #: model:ir.model.fields,field_description:train_management.field_train_management_train__reservation_ids
 #: model:ir.ui.menu,name:train_management.reservation_menu_action
+#: model:res.groups,name:train_management.group_train_management_reservation
 #: model_terms:ir.ui.view,arch_db:train_management.reservation_view_tree
 msgid "Reservation"
 msgstr "Reservation"
@@ -1191,6 +1246,11 @@ msgid "Shift number"
 msgstr "Touren-Nr."
 
 #. module: train_management
+#: model:res.groups,name:train_management.group_train_management_shift
+msgid "Shift planner"
+msgstr "Einteilung"
+
+#. module: train_management
 #: model:ir.actions.act_window,name:train_management.shift_position_action
 #: model:ir.model,name:train_management.model_train_management_shift_position
 #: model_terms:ir.ui.view,arch_db:train_management.shift_position_view_tree
@@ -1255,7 +1315,6 @@ msgid "Standardloadingweight"
 msgstr ""
 
 #. module: train_management
-#: model:ir.model.fields,field_description:train_management.field_train_management_reservation__start_station_short
 #: model_terms:ir.ui.view,arch_db:train_management.briefing
 msgid "Start"
 msgstr "Start"
@@ -1272,6 +1331,11 @@ msgstr "Start Bahnhof"
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__start_time
 msgid "Start Time"
 msgstr "Start Zeit"
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_reservation__start_station_short
+msgid "Start station"
+msgstr "Start Bahnhof"
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
@@ -1351,6 +1415,30 @@ msgstr "Text"
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_form
 msgid "Texts"
 msgstr "Texte"
+
+#. module: train_management
+#: model:res.groups,comment:train_management.group_train_management_reservation
+msgid "The user will be able to add, edit and delete reservations."
+msgstr "Der Benutzer kann Reservierungen hinzufügen, bearbeiten und löschen."
+
+#. module: train_management
+#: model:res.groups,comment:train_management.group_train_management_readonly_day_planning
+msgid "The user will be able to view day plannings."
+msgstr "Der Benutzer kann die Tagesplanungen einsehen."
+
+#. module: train_management
+#: model:res.groups,comment:train_management.group_train_management_readonly_shift
+msgid "The user will be able to view shifts."
+msgstr "Der Benutzer kann die Touren einsehen."
+
+#. module: train_management
+#: model:res.groups,comment:train_management.group_train_management_manager
+msgid ""
+"The user will have full access to the train management module.\n"
+"        "
+msgstr ""
+"Der Nutzer hat vollen Zugriff auf das Betriebsplanungs-Modul.\n"
+"        "
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
@@ -1456,6 +1544,11 @@ msgid "UUID linking vehicles to the Drehscheibe"
 msgstr "UUID, die Fahrzeuge mit der Drehscheibe verbindet"
 
 #. module: train_management
+#: model:ir.model.fields.selection,name:train_management.selection__res_partner__phone_publish__unknown
+msgid "Unknown"
+msgstr "Unbekannt"
+
+#. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__valid_from
 msgid "Valid From"
 msgstr "Gültig von"
@@ -1543,6 +1636,7 @@ msgid "Work time that counts towards the minimal working hours"
 msgstr "Arbeitszeit, die auf die Mindestpraxis angerechnet wird"
 
 #. module: train_management
+#: model:ir.model.fields.selection,name:train_management.selection__res_partner__phone_publish__yes
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__billed__yes
 msgid "Yes"
 msgstr "Ja"
