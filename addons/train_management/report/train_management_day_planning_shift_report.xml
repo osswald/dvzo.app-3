@@ -17,7 +17,7 @@
 
                         <!-- Shifts -->
                         <t t-set="shifts" t-value="day_planning.mapped('day_planning_shift_ids')"/>
-                        <t t-foreach="shifts" t-as="day_planning_shift">
+                        <t t-foreach="shifts.sorted(key=lambda r: r.sequence)" t-as="day_planning_shift">
                             <div id="single_shift" style="page-break-inside: avoid !important;">
                             <h3>
                                 <span>Shift</span>
