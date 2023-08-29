@@ -24,6 +24,7 @@
                                        attrs="{'invisible': [('approximate_times', '=', False)]}"/>
                                 <field name="approximate_end_time" widget="float_time"
                                        attrs="{'invisible': [('approximate_times', '=', False)]}"/>
+                                <field name="eating_in_bauma"/>
                             </group>
                             <group string="Statistics">
                                 <field name="shift_start" widget="float_time"/>

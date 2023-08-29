@@ -47,6 +47,7 @@
                             <group>
                                 <field name="frequency"/>
                                 <field name="distance"/>
+                                <field name="eating_in_bauma"/>
                             </group>
                         </group>
                         <notebook>
@@ -132,13 +133,16 @@
                                 or record.type.raw_value == 'other' and '#ffffff'
                                 or record.type.raw_value == 'bus' and '#fce7b2'};">
                                 <div class="oe_kanban_global_click">
-                                    <div class="ribbon ribbon-top-right" attrs="{'invisible': [('state', '!=', 'draft')]}">
+                                    <div class="ribbon ribbon-top-right"
+                                         attrs="{'invisible': [('state', '!=', 'draft')]}">
                                         <span class="bg-danger">Draft</span>
                                     </div>
-                                    <div class="ribbon ribbon-top-right" attrs="{'invisible': [('state', '!=', 'executed')]}">
+                                    <div class="ribbon ribbon-top-right"
+                                         attrs="{'invisible': [('state', '!=', 'executed')]}">
                                         <span class="bg-success">Executed</span>
                                     </div>
-                                    <div class="ribbon ribbon-top-right" attrs="{'invisible': [('state', '!=', 'canceled')]}">
+                                    <div class="ribbon ribbon-top-right"
+                                         attrs="{'invisible': [('state', '!=', 'canceled')]}">
                                         <span class="bg-info">Canceled</span>
                                     </div>
                                     <div class="oe_kanban_details d-flex flex-column justify-content-between">

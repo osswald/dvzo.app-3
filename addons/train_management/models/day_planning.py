@@ -109,6 +109,7 @@ class DayPlanning(models.Model):
     )
     frequency = fields.Integer("Frequency", compute="_compute_total_frequency", store=True)
     distance = fields.Integer("Distance", compute="_compute_total_distance", store=True)
+    eating_in_bauma = fields.Integer("Eating in Bauma", compute='_compute_eating_in_bauma', store=True)
     day_planning_text_ids = fields.One2many("train_management.day_planning_text", "day_planning", string="Texts")
     circuit_ids = fields.One2many("train_management.circuit", "day_planning")
     reservation_ids = fields.One2many("train_management.reservation", "day_planning")
@@ -124,6 +125,13 @@ class DayPlanning(models.Model):
     def _compute_total_distance(self):
         for day_planning in self:
             day_planning.distance = sum(circuit.distance for circuit in day_planning.circuit_ids)
+
+    @api.depends('day_planning_shift_ids', 'day_planning_shift_ids.shift.eating_in_bauma')
+    def _compute_eating_in_bauma(self):
+        for record in self:
+            sum_eating_in_bauma = sum(shift1.shift.eating_in_bauma for shift1 in record.day_planning_shift_ids if
+                                      shift1.shift.eating_in_bauma)
+            record.eating_in_bauma = sum_eating_in_bauma
 
     def action_confirmed(self):
         if "executed" in self.mapped("state"):

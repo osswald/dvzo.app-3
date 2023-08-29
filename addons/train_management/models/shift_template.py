@@ -15,6 +15,7 @@ class ShiftTemplate(models.Model):
     approximate_end_time = fields.Float()
     in_training = fields.Boolean("In training")
     active = fields.Boolean("Active", default=True, copy=False)
+    eating_in_bauma = fields.Boolean("Eating in Bauma", default=False, copy=True)
     shift_start = fields.Float(compute="_compute_start_time", store=True)
     shift_end = fields.Float(compute="_compute_end_time", store=True)
     shift_duration = fields.Float(compute="_compute_total_shift_duration", store=True)
