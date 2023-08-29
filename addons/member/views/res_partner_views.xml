@@ -15,8 +15,19 @@
                         <field name="gender"/>
                         <field name="nationality"/>
                         <field name="membership_id"/>
+                        <field name="departments" readonly="True"/>
                     </group>
                 </xpath>
+                <notebook position="inside">
+                    <page name="departments" string="Departments">
+                        <field name="department_ids">
+                            <tree>
+                                <field name="department"/>
+                                <field name="department_type"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
             </field>
         </record>
 
