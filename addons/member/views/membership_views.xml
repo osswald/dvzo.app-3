@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- MEMBERSHIP VIEWS -->
+        <record id="membership_view_form" model="ir.ui.view">
+            <field name="name">membership.form</field>
+            <field name="model">member.membership</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="res_partner"/>
+                                <field name="membership_type"/>
+                                <field name="membership_status"/>
+                                <field name="joining_date"/>
+                                <field name="leaving_date"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="membership_view_tree" model="ir.ui.view">
+            <field name="name">membership.tree</field>
+            <field name="model">member.membership</field>
+            <field name="arch" type="xml">
+                <tree string="Membership">
+                    <field name="res_partner"/>
+                    <field name="membership_type"/>
+                    <field name="membership_status"/>
+                    <field name="joining_date"/>
+                    <field name="leaving_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="membership_action" model="ir.actions.act_window">
+            <field name="name">Membership</field>
+            <field name="res_model">member.membership</field>
+            <field name="context">{"search_default_active_memberships":1}</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="membership_search" model="ir.ui.view">
+            <field name="name">membership.search</field>
+            <field name="model">member.membership</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="res_partner"/>
+                    <filter
+                            string="Active memberships"
+                            name="active_memberships"
+                            domain="[('membership_status','=', 'active')]"
+                    />
+                    <group expand="True" string="Group By">
+                        <filter string="Membership type" name='membership_type' context="{'group_by':'membership_type'}"/>
+                        <filter string="Membership status" name='membership_status' context="{'group_by':'membership_status'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -23,6 +23,7 @@ class Partner(models.Model):
     departments = fields.Text(compute='_compute_departments')
     membership_id = fields.Char("Membership ID")
     department_ids = fields.One2many("member.department_res_partner", "person", string="Departments")
+    membership_ids = fields.One2many("member.membership", "res_partner", string="Memberships")
 
     @api.depends('department_ids')
     def _compute_departments(self):

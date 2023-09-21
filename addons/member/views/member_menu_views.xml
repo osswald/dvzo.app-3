@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- Define the menu item -->
+        <menuitem id="menu_membership" name="Membership Views" parent="contacts.menu_contacts" action="membership_action" sequence="10"/>
+    </data>
+</odoo>

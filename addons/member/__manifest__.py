@@ -11,7 +11,10 @@
     'license': "LGPL-3",
     'data': [
         'views/res_partner_views.xml',
+        'views/membership_views.xml',
         'views/department_views.xml',
+        'views/member_menu_views.xml',
+        'security/membership_security.xml',
         'security/ir.model.access.csv',
     ],
 }

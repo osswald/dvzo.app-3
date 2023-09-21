@@ -2,3 +2,7 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_department,member.department,model_member_department,base.group_user,1,1,1,1
 access_department_type,member.department_type,model_member_department_type,base.group_user,1,1,1,1
 access_department_res_partner,member.department_res_partmer,model_member_department_res_partner,base.group_user,1,1,1,1
+access_membership,member.membership,model_member_membership,base.group_user,1,0,0,0
+access_membership_type,member.membership_type,model_member_membership_type,base.group_user,1,0,0,0
+manage_membership,member.membership,model_member_membership,member.group_manage_membership,1,1,1,1
+manage_membership_type,member.membership_type,model_member_membership_type,member.group_manage_membership,1,1,1,1

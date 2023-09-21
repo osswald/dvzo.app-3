@@ -7,7 +7,7 @@
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="emergency_contact.view_partner_form"/>
             <field name="arch" type="xml">
-<!--                <xpath expr="//field[@name='vat']" position="replace"/>-->
+                <!--                <xpath expr="//field[@name='vat']" position="replace"/>-->
                 <xpath expr="//field[@name='function']" position="replace"/>
                 <xpath expr="//sheet/group/group" position="after">
                     <group>
@@ -24,6 +24,16 @@
                             <tree>
                                 <field name="department"/>
                                 <field name="department_type"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page name="memberships" string="Memberships">
+                        <field name="membership_ids">
+                            <tree string="Membership">
+                                <field name="membership_type"/>
+                                <field name="membership_status"/>
+                                <field name="joining_date"/>
+                                <field name="leaving_date"/>
                             </tree>
                         </field>
                     </page>
