@@ -20,9 +20,6 @@
                             </tree>
                         </field>
                     </page>
-                    <page name="min_hours" string="Minimal hours">
-                        <field name="minimal_hours_ids"/>
-                    </page>
                     <page name="qualification" string="HR">
                         <group>
                             <group string="Validity dates">
