@@ -60,6 +60,11 @@ class Partner(models.Model):
         string="Exams",
         groups="training.group_training_readonly_all, training.group_training_manager"
     )
+    minimal_hours_ids = fields.One2many(
+        "training.min_hours",
+        "person",
+        string="Minimal hours",
+    )
     in_training_ids = fields.Many2many(
         'res.partner.category',
         'partner_in_training_rel',

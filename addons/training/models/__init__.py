@@ -13,3 +13,4 @@ from . import training_qualification_category
 from . import training_qualification_type
 from . import res_partner
 from . import competence_validation
+from . import min_hours

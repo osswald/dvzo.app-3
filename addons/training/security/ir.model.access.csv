@@ -25,3 +25,4 @@ read_training_vte_rail_network,training.training_vte_rail_network_read,model_tra
 read_training_exam,training.training_exam_read,model_training_exam,training.group_training_readonly_all,1,"","",""
 read_training_qualification_type,training.training_qualification_type_read,model_training_qualification_type,base.group_user,1,"","",""
 read_training_qualification_category,training.training_qualification_category_read,model_training_qualification_category,base.group_user,1,"","",""
+read_min_hours,training.min_hours,model_training_min_hours,base.group_user,1,,,

@@ -33,6 +33,7 @@
         'views/training_qualification_category_views.xml',
         'views/training_qualification_type_views.xml',
         'views/training_medical_assessment_views.xml',
+        'views/min_hours_views.xml',
         'views/training_menu_views.xml',
         'views/res_partner_views.xml',
     ],

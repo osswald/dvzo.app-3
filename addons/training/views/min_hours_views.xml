@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- MINIMAL HOURS VIEWS -->
+        <record id="minimal_hors_view_form" model="ir.ui.view">
+            <field name="name">training.min_hours.form</field>
+            <field name="model">training.min_hours</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="year"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group string="VTE">
+                                <field name="min_hours_vte"/>
+                                <field name="hours_worked_vte"/>
+                                <field name="hours_planned_vte"/>
+                                <field name="goal_reached_vte"/>
+                            </group>
+                            <group string="ZSTEBV">
+                                <field name="min_hours_zstebv"/>
+                                <field name="hours_worked_zstebv"/>
+                                <field name="hours_planned_zstebv"/>
+                                <field name="goal_reached_zstebv"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="minimal_hours_view_tree" model="ir.ui.view">
+            <field name="name">training.min_hours.tree</field>
+            <field name="model">training.min_hours</field>
+            <field name="arch" type="xml">
+                <tree string="Minimal hours">
+                    <field name="year"/>
+                    <field name="min_hours_vte"/>
+                    <field name="hours_worked_vte"/>
+                    <field name="hours_planned_vte"/>
+                    <field name="goal_reached_vte"/>
+                    <field name="min_hours_zstebv"/>
+                    <field name="hours_worked_zstebv"/>
+                    <field name="hours_planned_zstebv"/>
+                    <field name="goal_reached_zstebv"/>
+                </tree>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
