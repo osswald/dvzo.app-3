@@ -1,26 +1,35 @@
 from ..drehscheibe.api import Drehscheibe
 from datetime import datetime
-from odoo import models, fields
+from odoo import models, fields, api
+
+PROPS = ["axleWeight", "brakePadType", "brakingWeight1", "brakingWeightHighG",
+         "brakingWeightLowG", "brakingWeightLowP", "cargo", "clearanceProfile",
+         "clutchType", "colorBody", "colorFrame", "constructionYear",
+         "distanceWheelsets", "entityECM",
+         "epoch", "frameWagon", "gauge", "handbrakeWeight", "hasBavLicense",
+         "hasBbLicense",
+         "hasChangeOver", "hasDynamoGenerator", "hasEboLicense",
+         "hasEbvLicense", "hasRicRivTenLicense",
+         "historicalDesignation",
+         "isBavLimited", "isBbLimited", "isEboLimited", "isEbvLimited",
+         "isGuest",
+         "isOperational", "isRicRivTenLimited", "lengthOverBuffer",
+         "manufacturer", "manufacturerBody",
+         "manufacturerFrame", "maxTowWeight", "maximumPayload", "meterWeight",
+         "mileage",
+         "nbrEmergencyBrakeValve", "note", "numberOfAxes", "numberOfBrakePads",
+         "operationalEndDate",
+         "outerHeightBody", "outerWidth", "plainOrRollerBearings",
+         "specialities", "standardLoadingWeight",
+         "stateChangeNote", "suspension", "vehicleGenre", "vehicleNumberNVR",
+         "vehicleType",
+         "vehicleWeightGross", "vehicleWeightNet", "vmax"]
 
 
 class Vehicle(models.Model):
     _name = "train_management.vehicle"
     _description = "Vehicle"
     _rec_name = "historicalDesignation"
-
-    props = ["axleWeight", "brakePadType", "brakingWeight1", "brakingWeightHighG",
-             "brakingWeightLowG", "brakingWeightLowP", "cargo", "clearanceProfile",
-             "clutchType", "colorBody", "colorFrame", "constructionYear", "distanceWheelsets", "entityECM",
-             "epoch", "frameWagon", "gauge", "handbrakeWeight", "hasBavLicense", "hasBbLicense",
-             "hasChangeOver", "hasDynamoGenerator", "hasEboLicense", "hasEbvLicense", "hasRicRivTenLicense",
-             "historicalDesignation",
-             "isBavLimited", "isBbLimited", "isEboLimited", "isEbvLimited", "isGuest",
-             "isOperational", "isRicRivTenLimited", "lengthOverBuffer", "manufacturer", "manufacturerBody",
-             "manufacturerFrame", "maxTowWeight", "maximumPayload", "meterWeight", "mileage",
-             "nbrEmergencyBrakeValve", "note", "numberOfAxes", "numberOfBrakePads", "operationalEndDate",
-             "outerHeightBody", "outerWidth", "plainOrRollerBearings", "specialities", "standardLoadingWeight",
-             "stateChangeNote", "suspension", "vehicleGenre", "vehicleNumberNVR", "vehicleType",
-             "vehicleWeightGross", "vehicleWeightNet", "vmax"]
 
     name = fields.Char("Label", required=True)
     ds_id = fields.Char("ds id", help="UUID linking vehicles to the Drehscheibe")
@@ -98,19 +107,19 @@ class Vehicle(models.Model):
     height = fields.Float()
     length = fields.Float()
 
-    def search(self, domain, offset=0, limit=None, order=None, count=False):
-        drehscheibe = Drehscheibe()
-        id_domain = [d for d in domain if d[0] == "id"]
-        if id_domain:
-            response_data = drehscheibe.get_data(uuid=id_domain[2])
-        else:
-            response_data = drehscheibe.get_data()
 
+class VehicleBatchUpdate(models.Model):
+    _name = "train_management.vehicle_batch_update"
+    _description = "Vehicle Batch Update"
+
+    @api.model
+    def update_vehicles(self):
+        drehscheibe = Drehscheibe()
+        response_data = drehscheibe.get_data()
         new_items = []
-        # TODO: clean up
         for old_item in response_data:
             new_item = {}
-            for prop in self.props:
+            for prop in PROPS:
                 if prop == "operationalEndDate":
                     if old_item.get(prop):
                         new_item[prop] = datetime.strptime(
@@ -125,7 +134,12 @@ class Vehicle(models.Model):
             new_item["name"] = old_item.get("id")
             new_item["type"] = "engine"
             new_items.append(new_item)
-
-        return self.env['train_management.vehicle'].sudo().create(
-            new_items
-        )
+        for new_item in new_items:
+            db_item = self.env["train_management.vehicle"].sudo().search(
+                [("ds_id", "=", new_item["ds_id"])]
+            )
+            if len(db_item) == 0:
+                self.env["train_management.vehicle"].sudo().create(new_item)
+            else:
+                db_item.write(new_item)
+        self.env.cr.commit()
