@@ -35,5 +35,6 @@
         'views/training_medical_assessment_views.xml',
         'views/training_menu_views.xml',
         'views/res_partner_views.xml',
+        'views/res_partner_category_views.xml',
     ],
 }
