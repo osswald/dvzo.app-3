@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Main report templates -->
+    <template id="minimal_hours">
+        <t t-call="web.html_container">
+            <t t-call="dvzo.dvzo_layout">
+                <div class="page">
+                    <h1>
+                        <span style="font-weight:bold;">Minimal hours</span>
+                    </h1>
+                    <h3></h3>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th rowspan="2">Name</th>
+                                <th colspan="3">Hours</th>
+                                <th colspan="3">Shifts</th>
+                                <th rowspan="2">Goal reached</th>
+                            </tr>
+                            <tr>
+                                <th>Min. hours</th>
+                                <th>Hours worked</th>
+                                <th>Hours planned</th>
+                                <th>Min. shifts</th>
+                                <th>Shifts worked</th>
+                                <th>Shifts planned</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="docs" t-as="person">
+                                <tr>
+                                    <td>
+                                        <span t-field="person.lastname"/>,
+                                        <span t-field="person.firstname"/>
+                                    </td>
+                                    <td class="text-end">
+                                        <span t-field="person.min_hours_category"/>
+                                    </td>
+                                    <td class="text-end">
+                                        <span t-field="person.hours_worked_current_year"/>
+                                    </td>
+                                    <td class="text-end">
+                                        <span t-field="person.hours_planned_current_year"/>
+                                    </td>
+                                    <td class="text-end">
+                                        <span t-field="person.min_shifts_category"/>
+                                    </td>
+                                    <td class="text-end">
+                                        <span t-field="person.shifts_worked_current_year"/>
+                                    </td>
+                                    <td class="text-end">
+                                        <span t-field="person.shifts_planned_current_year"/>
+                                    </td>
+                                    <td t-attf-style="background-color: red;"
+                                        t-if="person.goal_reached_current_year == 'not_reachable'">
+                                        <span t-field="person.goal_reached_current_year"/>
+                                    </td>
+                                    <td t-attf-style="background-color: yellow;"
+                                        t-if="person.goal_reached_current_year == 'reachable'">
+                                        <span t-field="person.goal_reached_current_year"/>
+                                    </td>
+                                    <td t-attf-style="background-color: green;"
+                                        t-if="person.goal_reached_current_year == 'reached'">
+                                        <span t-field="person.goal_reached_current_year"/>
+                                    </td>
+                                    <td t-attf-style="background-color: gray;"
+                                        t-if="person.goal_reached_current_year == 'unknown'">
+                                        <span t-field="person.goal_reached_current_year"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+
+    </template>
+
+</odoo>

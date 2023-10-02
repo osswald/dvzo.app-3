@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record id="view_partner_form" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit.minimal.hours</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="training.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='qualification']" position="inside">
+                    <group string="Minimal hours" style="background-color:#dddddd;">
+                            <group>
+                                <field name="min_hours_category"/>
+                            </group>
+                            <group>
+                                <field name="min_shifts_category"/>
+                            </group>
+                            <group string="This year">
+                                <field name="hours_worked_current_year"/>
+                                <field name="hours_planned_current_year"/>
+                                <field name="shifts_worked_current_year"/>
+                                <field name="shifts_planned_current_year"/>
+                                <field name="goal_reached_current_year"/>
+                            </group>
+                            <group string="Last year">
+                                <field name="hours_worked_last_year"/>
+                                <field name="hours_planned_last_year"/>
+                                <field name="shifts_worked_last_year"/>
+                                <field name="shifts_planned_last_year"/>
+                                <field name="goal_reached_last_year"/>
+                            </group>
+                        </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_res_partner_filter_inherit" model="ir.ui.view">
+            <field name="name">res.partner.select.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <!-- Add your custom filter after the existing filters -->
+                <xpath expr="//filter[@name='inactive']" position="after">
+                    <filter name="partner_with_category" string="With Category" domain="[('category_id', '!=', False)]"/>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

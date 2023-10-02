@@ -17,6 +17,7 @@
         'member',
         'training',
         'train_management',
+        'minimal_hours',
         'uniform',
         'web_window_title',
         'auth_oidc',

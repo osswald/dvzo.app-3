@@ -6,14 +6,30 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-21 15:26+0000\n"
-"PO-Revision-Date: 2023-06-21 15:26+0000\n"
+"POT-Creation-Date: 2023-10-02 07:32+0000\n"
+"PO-Revision-Date: 2023-10-02 07:32+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: training
+#: model:res.groups,comment:training.group_training_readonly_all_teacher
+msgid ""
+"\n"
+"            The user will be able to view all qualifications. And they can create, edit and delete courses, dates and participants.\n"
+"        "
+msgstr ""
+
+#. module: training
+#: model:res.groups,comment:training.group_training_readonly_all
+msgid ""
+"\n"
+"            The user will be able to view courses, dates and participants as well as all qualifications.\n"
+"        "
+msgstr ""
 
 #. module: training
 #: model:ir.actions.report,print_report_name:training.action_report_training_competence_matrix
@@ -147,6 +163,11 @@ msgid "Address"
 msgstr ""
 
 #. module: training
+#: model:res.groups,name:training.group_training_manager
+msgid "Administrator"
+msgstr ""
+
+#. module: training
 #: model_terms:ir.ui.view,arch_db:training.training_search
 msgid "All trainings"
 msgstr ""
@@ -223,6 +244,11 @@ msgid "Course name:"
 msgstr ""
 
 #. module: training
+#: model_terms:ir.ui.view,arch_db:training.competence_matrix
+msgid "Crane"
+msgstr ""
+
+#. module: training
 #: model_terms:ir.actions.act_window,help:training.training_date_action
 msgid "Create a date"
 msgstr ""
@@ -263,6 +289,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:training.field_training_exam__create_uid
 #: model:ir.model.fields,field_description:training.field_training_medical_assessment__create_uid
 #: model:ir.model.fields,field_description:training.field_training_medical_fitness_level__create_uid
+#: model:ir.model.fields,field_description:training.field_training_min_hours__create_uid
 #: model:ir.model.fields,field_description:training.field_training_module__create_uid
 #: model:ir.model.fields,field_description:training.field_training_participant__create_uid
 #: model:ir.model.fields,field_description:training.field_training_qualification_category__create_uid
@@ -281,6 +308,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:training.field_training_exam__create_date
 #: model:ir.model.fields,field_description:training.field_training_medical_assessment__create_date
 #: model:ir.model.fields,field_description:training.field_training_medical_fitness_level__create_date
+#: model:ir.model.fields,field_description:training.field_training_min_hours__create_date
 #: model:ir.model.fields,field_description:training.field_training_module__create_date
 #: model:ir.model.fields,field_description:training.field_training_participant__create_date
 #: model:ir.model.fields,field_description:training.field_training_qualification_category__create_date
@@ -291,6 +319,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:training.field_training_vte_locomotive__create_date
 #: model:ir.model.fields,field_description:training.field_training_vte_rail_network__create_date
 msgid "Created on"
+msgstr ""
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.competence_matrix
+msgid "DVZO"
 msgstr ""
 
 #. module: training
@@ -335,6 +368,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:training.field_training_exam__display_name
 #: model:ir.model.fields,field_description:training.field_training_medical_assessment__display_name
 #: model:ir.model.fields,field_description:training.field_training_medical_fitness_level__display_name
+#: model:ir.model.fields,field_description:training.field_training_min_hours__display_name
 #: model:ir.model.fields,field_description:training.field_training_module__display_name
 #: model:ir.model.fields,field_description:training.field_training_participant__display_name
 #: model:ir.model.fields,field_description:training.field_training_qualification_category__display_name
@@ -429,6 +463,20 @@ msgid "Further training"
 msgstr ""
 
 #. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner__goal_reached_current_year
+#: model:ir.model.fields,field_description:training.field_res_partner__goal_reached_last_year
+#: model:ir.model.fields,field_description:training.field_res_users__goal_reached_current_year
+#: model:ir.model.fields,field_description:training.field_res_users__goal_reached_last_year
+#: model:ir.model.fields,field_description:training.field_training_min_hours__goal_reached_vte
+msgid "Goal reached VTE"
+msgstr ""
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_min_hours__goal_reached_zstebv
+msgid "Goal reached ZSTEBV"
+msgstr ""
+
+#. module: training
 #: model_terms:ir.ui.view,arch_db:training.training_search
 msgid "Group By"
 msgstr ""
@@ -444,11 +492,56 @@ msgid "Has Message"
 msgstr ""
 
 #. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner__hours_planned_current_year
+#: model:ir.model.fields,field_description:training.field_res_users__hours_planned_current_year
+msgid "Hours Planned Current Year"
+msgstr ""
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner__hours_planned_last_year
+#: model:ir.model.fields,field_description:training.field_res_users__hours_planned_last_year
+msgid "Hours Planned Last Year"
+msgstr ""
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner__hours_worked_current_year
+#: model:ir.model.fields,field_description:training.field_res_users__hours_worked_current_year
+msgid "Hours Worked Current Year"
+msgstr ""
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner__hours_worked_last_year
+#: model:ir.model.fields,field_description:training.field_res_users__hours_worked_last_year
+msgid "Hours Worked Last Year"
+msgstr ""
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_min_hours__hours_planned_vte
+msgid "Hours planned VTE"
+msgstr ""
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_min_hours__hours_planned_zstebv
+msgid "Hours planned ZSTEBV"
+msgstr ""
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_min_hours__hours_worked_vte
+msgid "Hours worked VTE"
+msgstr ""
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_min_hours__hours_worked_zstebv
+msgid "Hours worked ZSTEBV"
+msgstr ""
+
+#. module: training
 #: model:ir.model.fields,field_description:training.field_training_competence_validation__id
 #: model:ir.model.fields,field_description:training.field_training_date__id
 #: model:ir.model.fields,field_description:training.field_training_exam__id
 #: model:ir.model.fields,field_description:training.field_training_medical_assessment__id
 #: model:ir.model.fields,field_description:training.field_training_medical_fitness_level__id
+#: model:ir.model.fields,field_description:training.field_training_min_hours__id
 #: model:ir.model.fields,field_description:training.field_training_module__id
 #: model:ir.model.fields,field_description:training.field_training_participant__id
 #: model:ir.model.fields,field_description:training.field_training_qualification_category__id
@@ -492,6 +585,12 @@ msgid "Important:"
 msgstr ""
 
 #. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner__in_training_ids
+#: model:ir.model.fields,field_description:training.field_res_users__in_training_ids
+msgid "In training"
+msgstr ""
+
+#. module: training
 #: model:ir.model.fields,field_description:training.field_training_training__message_is_follower
 msgid "Is Follower"
 msgstr ""
@@ -516,6 +615,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:training.field_training_exam____last_update
 #: model:ir.model.fields,field_description:training.field_training_medical_assessment____last_update
 #: model:ir.model.fields,field_description:training.field_training_medical_fitness_level____last_update
+#: model:ir.model.fields,field_description:training.field_training_min_hours____last_update
 #: model:ir.model.fields,field_description:training.field_training_module____last_update
 #: model:ir.model.fields,field_description:training.field_training_participant____last_update
 #: model:ir.model.fields,field_description:training.field_training_qualification_category____last_update
@@ -539,6 +639,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:training.field_training_exam__write_uid
 #: model:ir.model.fields,field_description:training.field_training_medical_assessment__write_uid
 #: model:ir.model.fields,field_description:training.field_training_medical_fitness_level__write_uid
+#: model:ir.model.fields,field_description:training.field_training_min_hours__write_uid
 #: model:ir.model.fields,field_description:training.field_training_module__write_uid
 #: model:ir.model.fields,field_description:training.field_training_participant__write_uid
 #: model:ir.model.fields,field_description:training.field_training_qualification_category__write_uid
@@ -557,6 +658,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:training.field_training_exam__write_date
 #: model:ir.model.fields,field_description:training.field_training_medical_assessment__write_date
 #: model:ir.model.fields,field_description:training.field_training_medical_fitness_level__write_date
+#: model:ir.model.fields,field_description:training.field_training_min_hours__write_date
 #: model:ir.model.fields,field_description:training.field_training_module__write_date
 #: model:ir.model.fields,field_description:training.field_training_participant__write_date
 #: model:ir.model.fields,field_description:training.field_training_qualification_category__write_date
@@ -567,6 +669,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:training.field_training_vte_locomotive__write_date
 #: model:ir.model.fields,field_description:training.field_training_vte_rail_network__write_date
 msgid "Last Updated on"
+msgstr ""
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.view_partner_form
+msgid "Last year"
 msgstr ""
 
 #. module: training
@@ -667,6 +774,52 @@ msgid "Messages"
 msgstr ""
 
 #. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner__min_hours_category
+#: model:ir.model.fields,field_description:training.field_res_users__min_hours_category
+msgid "Min Hours Category"
+msgstr ""
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner__min_shifts_category
+#: model:ir.model.fields,field_description:training.field_res_users__min_shifts_category
+msgid "Min Shifts Category"
+msgstr ""
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner_category__minimal_hours_vte
+msgid "Minimal Hours Vte"
+msgstr ""
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner_category__minimal_hours_zstebv
+msgid "Minimal Hours Zstebv"
+msgstr ""
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner_category__minimal_shifts
+msgid "Minimal Shifts"
+msgstr ""
+
+#. module: training
+#: model:ir.model,name:training.model_training_min_hours
+#: model:ir.model.fields,field_description:training.field_res_partner__minimal_hours_ids
+#: model:ir.model.fields,field_description:training.field_res_users__minimal_hours_ids
+#: model_terms:ir.ui.view,arch_db:training.view_partner_category_form
+#: model_terms:ir.ui.view,arch_db:training.view_partner_form
+msgid "Minimal hours"
+msgstr ""
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_min_hours__min_hours_vte
+msgid "Minimal hours VTE"
+msgstr ""
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_min_hours__min_hours_zstebv
+msgid "Minimal hours ZSTEBV"
+msgstr ""
+
+#. module: training
 #: model_terms:ir.ui.view,arch_db:training.participant_list
 msgid "Mobile / E-Mail"
 msgstr ""
@@ -729,6 +882,14 @@ msgid "Next periodic exam has to be taken before %s"
 msgstr ""
 
 #. module: training
+#: model:ir.model.fields.selection,name:training.selection__res_partner__goal_reached_current_year__not_reachable
+#: model:ir.model.fields.selection,name:training.selection__res_partner__goal_reached_last_year__not_reachable
+#: model:ir.model.fields.selection,name:training.selection__training_min_hours__goal_reached_vte__not_reachable
+#: model:ir.model.fields.selection,name:training.selection__training_min_hours__goal_reached_zstebv__not_reachable
+msgid "Not reachable"
+msgstr ""
+
+#. module: training
 #: model:ir.model.fields,field_description:training.field_training_training__message_needaction_counter
 msgid "Number of Actions"
 msgstr ""
@@ -772,6 +933,11 @@ msgid "Participants in trainings"
 msgstr ""
 
 #. module: training
+#: model:ir.model,name:training.model_res_partner_category
+msgid "Partner Tags"
+msgstr ""
+
+#. module: training
 #: model:ir.model.fields,field_description:training.field_training_participant__passed
 msgid "Passed"
 msgstr ""
@@ -787,6 +953,7 @@ msgstr ""
 #. module: training
 #: model:ir.model.fields,field_description:training.field_training_exam__person
 #: model:ir.model.fields,field_description:training.field_training_medical_assessment__person
+#: model:ir.model.fields,field_description:training.field_training_min_hours__person
 msgid "Person"
 msgstr ""
 
@@ -823,6 +990,37 @@ msgstr ""
 #: model:ir.model.fields,field_description:training.field_res_partner__railway_company
 #: model:ir.model.fields,field_description:training.field_res_users__railway_company
 msgid "Railway company (Employer)"
+msgstr ""
+
+#. module: training
+#: model:ir.model.fields.selection,name:training.selection__res_partner__goal_reached_current_year__reachable
+#: model:ir.model.fields.selection,name:training.selection__res_partner__goal_reached_last_year__reachable
+#: model:ir.model.fields.selection,name:training.selection__training_min_hours__goal_reached_vte__reachable
+#: model:ir.model.fields.selection,name:training.selection__training_min_hours__goal_reached_zstebv__reachable
+msgid "Reachable"
+msgstr ""
+
+#. module: training
+#: model:ir.model.fields.selection,name:training.selection__res_partner__goal_reached_current_year__reached
+#: model:ir.model.fields.selection,name:training.selection__res_partner__goal_reached_last_year__reached
+#: model:ir.model.fields.selection,name:training.selection__training_min_hours__goal_reached_vte__reached
+#: model:ir.model.fields.selection,name:training.selection__training_min_hours__goal_reached_zstebv__reached
+msgid "Reached"
+msgstr ""
+
+#. module: training
+#: model:res.groups,name:training.group_training_readonly_all
+msgid "Read-only all"
+msgstr ""
+
+#. module: training
+#: model:res.groups,name:training.group_training_readonly_all_teacher
+msgid "Read-only all + Teacher"
+msgstr ""
+
+#. module: training
+#: model:res.groups,name:training.group_training_readonly_courses
+msgid "Read-only courses"
 msgstr ""
 
 #. module: training
@@ -876,6 +1074,30 @@ msgid "Settings"
 msgstr ""
 
 #. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner__shifts_planned_current_year
+#: model:ir.model.fields,field_description:training.field_res_users__shifts_planned_current_year
+msgid "Shifts Planned Current Year"
+msgstr ""
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner__shifts_planned_last_year
+#: model:ir.model.fields,field_description:training.field_res_users__shifts_planned_last_year
+msgid "Shifts Planned Last Year"
+msgstr ""
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner__shifts_worked_current_year
+#: model:ir.model.fields,field_description:training.field_res_users__shifts_worked_current_year
+msgid "Shifts Worked Current Year"
+msgstr ""
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_res_partner__shifts_worked_last_year
+#: model:ir.model.fields,field_description:training.field_res_users__shifts_worked_last_year
+msgid "Shifts Worked Last Year"
+msgstr ""
+
+#. module: training
 #: model:ir.model.fields,field_description:training.field_training_training__name
 msgid "Short Name"
 msgstr ""
@@ -917,6 +1139,35 @@ msgstr ""
 #. module: training
 #: model_terms:ir.ui.view,arch_db:training.invitation
 msgid "Take along:"
+msgstr ""
+
+#. module: training
+#: model:res.groups,name:training.group_training_teacher
+msgid "Teacher"
+msgstr ""
+
+#. module: training
+#: model:res.groups,comment:training.group_training_teacher
+msgid ""
+"The user will be able to add, edit and delete courses, dates and "
+"participants."
+msgstr ""
+
+#. module: training
+#: model:res.groups,comment:training.group_training_readonly_courses
+msgid "The user will be able to view courses, dates and participants."
+msgstr ""
+
+#. module: training
+#: model:res.groups,comment:training.group_training_manager
+msgid ""
+"The user will have full access to the training module.\n"
+"        "
+msgstr ""
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.view_partner_form
+msgid "This year"
 msgstr ""
 
 #. module: training
@@ -978,6 +1229,14 @@ msgid "Type of the exception activity on record."
 msgstr ""
 
 #. module: training
+#: model:ir.model.fields.selection,name:training.selection__res_partner__goal_reached_current_year__unknown
+#: model:ir.model.fields.selection,name:training.selection__res_partner__goal_reached_last_year__unknown
+#: model:ir.model.fields.selection,name:training.selection__training_min_hours__goal_reached_vte__unknown
+#: model:ir.model.fields.selection,name:training.selection__training_min_hours__goal_reached_zstebv__unknown
+msgid "Unknown"
+msgstr ""
+
+#. module: training
 #: model_terms:ir.ui.view,arch_db:training.competence_matrix
 msgid "VTE"
 msgstr ""
@@ -1014,6 +1273,16 @@ msgstr ""
 #. module: training
 #: model_terms:ir.ui.view,arch_db:training.view_partner_form
 msgid "Validity dates"
+msgstr ""
+
+#. module: training
+#: model:ir.model.fields,field_description:training.field_training_min_hours__year
+msgid "Year"
+msgstr ""
+
+#. module: training
+#: model_terms:ir.ui.view,arch_db:training.competence_matrix
+msgid "ZSTEBV"
 msgstr ""
 
 #. module: training
