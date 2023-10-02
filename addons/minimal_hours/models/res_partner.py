@@ -9,12 +9,12 @@ class Partner(models.Model):
 
     # --------------------------------------- Fields Declaration ----------------------------------
 
-    min_hours_category = fields.Integer(compute='_compute_min_hours_category')
-    min_shifts_category = fields.Integer(compute='_compute_min_shifts_category')
-    hours_worked_current_year = fields.Integer(compute='_compute_hours_worked_current_year')
-    hours_planned_current_year = fields.Integer(compute='_compute_hours_planned_current_year')
-    shifts_worked_current_year = fields.Integer(compute='_compute_shifts_worked_current_year')
-    shifts_planned_current_year = fields.Integer(compute='_compute_shifts_planned_current_year')
+    min_hours_category = fields.Integer(compute='_compute_min_hours_category', default=0)
+    min_shifts_category = fields.Integer(compute='_compute_min_shifts_category', default=0)
+    hours_worked_current_year = fields.Integer(compute='_compute_hours_worked_current_year', default=0)
+    hours_planned_current_year = fields.Integer(compute='_compute_hours_planned_current_year', default=0)
+    shifts_worked_current_year = fields.Integer(compute='_compute_shifts_worked_current_year', default=0)
+    shifts_planned_current_year = fields.Integer(compute='_compute_shifts_planned_current_year', default=0)
     goal_reached_current_year = fields.Selection(
         selection=[
             ("unknown", "Unknown"),
@@ -27,10 +27,10 @@ class Partner(models.Model):
         required=True,
         compute='_compute_goal_reached_current_year'
     )
-    hours_worked_last_year = fields.Integer(compute='_compute_hours_worked_last_year')
-    hours_planned_last_year = fields.Integer(readonly=True)
-    shifts_worked_last_year = fields.Integer(compute='_compute_shifts_worked_last_year')
-    shifts_planned_last_year = fields.Integer(readonly=True)
+    hours_worked_last_year = fields.Integer(compute='_compute_hours_worked_last_year', default=0)
+    hours_planned_last_year = fields.Integer(readonly=True, default=0)
+    shifts_worked_last_year = fields.Integer(compute='_compute_shifts_worked_last_year', default=0)
+    shifts_planned_last_year = fields.Integer(readonly=True, default=0)
     goal_reached_last_year = fields.Selection(
         selection=[
             ("unknown", "Unknown"),
@@ -165,7 +165,7 @@ class Partner(models.Model):
     def _compute_goal_reached_last_year(self):
         for partner in self:
             if partner.min_hours_category == 0 and partner.min_shifts_category == 0:
-                partner.goal_reached_current_year = 'unknown'
+                partner.goal_reached_last_year = 'unknown'
             elif (
                 partner.shifts_worked_last_year >= partner.min_shifts_category
                 and partner.min_hours_category == 0
