@@ -18,6 +18,7 @@
         'training',
         'train_management',
         'minimal_hours',
+        'risk_management',
         'uniform',
         'web_window_title',
         'auth_oidc',

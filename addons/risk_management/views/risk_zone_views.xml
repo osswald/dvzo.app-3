@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="risk_zone_view_form" model="ir.ui.view">
+        <field name="name">risk.zone.form</field>
+        <field name="model">risk_management.risk_zone</field>
+        <field name="arch" type="xml">
+            <form string="Risk zone">
+                <group>
+                    <field name="name"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="risk_zone_view_tree" model="ir.ui.view">
+        <field name="name">risk.zone.tree</field>
+        <field name="model">risk_management.risk_zone</field>
+        <field name="arch" type="xml">
+            <tree string="Risk zone" editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="risk_zone_action" model="ir.actions.act_window">
+        <field name="name">Risk zone</field>
+        <field name="res_model">risk_management.risk_zone</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

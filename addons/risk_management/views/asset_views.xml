@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="asset_view_form" model="ir.ui.view">
+        <field name="name">asset.form</field>
+        <field name="model">risk_management.asset</field>
+        <field name="arch" type="xml">
+            <form string="Asset">
+                <group>
+                    <field name="name"/>
+                    <field name="asset_type"/>
+                    <field name="description"/>
+                </group>
+                <notebook>
+                    <page string="Risk assessment">
+                        <field name="risk_assessment_ids"/>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <record id="asset_view_tree" model="ir.ui.view">
+        <field name="name">asset.tree</field>
+        <field name="model">risk_management.asset</field>
+        <field name="arch" type="xml">
+            <tree string="Asset">
+                <field name="name"/>
+                <field name="asset_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="asset_action" model="ir.actions.act_window">
+        <field name="name">Asset</field>
+        <field name="res_model">risk_management.asset</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

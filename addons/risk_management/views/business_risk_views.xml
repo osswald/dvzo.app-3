@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="business_risk_view_form" model="ir.ui.view">
+        <field name="name">business.risk.form</field>
+        <field name="model">risk_management.business_risk</field>
+        <field name="arch" type="xml">
+            <form string="Business risk">
+                <group>
+                    <field name="name"/>
+                    <field name="business_risk_type"/>
+                    <field name="description"/>
+                </group>
+                <notebook>
+                    <page string="Risk assessment">
+                        <field name="risk_assessment_ids"/>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <record id="business_risk_view_tree" model="ir.ui.view">
+        <field name="name">business.risk.tree</field>
+        <field name="model">risk_management.business_risk</field>
+        <field name="arch" type="xml">
+            <tree string="Business risk">
+                <field name="name"/>
+                <field name="business_risk_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="business_risk_action" model="ir.actions.act_window">
+        <field name="name">Business risk</field>
+        <field name="res_model">risk_management.business_risk</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
