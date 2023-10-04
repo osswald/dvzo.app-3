@@ -8,8 +8,12 @@
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
                 <notebook position="inside">
-                    <page name="risk_assessment" string="Risk assessment">
-                        <field name="emergency_contact_ids"/>
+                    <page
+                            name="risk_assessment"
+                            string="Risk assessment"
+                            groups="risk_management.group_risk_management_user, risk_management.group_risk_management_manager"
+                    >
+                        <field name="risk_assessment_ids"/>
                     </page>
                 </notebook>
             </field>

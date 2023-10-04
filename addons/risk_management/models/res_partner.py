@@ -13,6 +13,5 @@ class Partner(models.Model):
         "risk_management.risk_assessment",
         "res_partner_id",
         string="Risk assessments",
-        #   groups="emergency_contact.group_emergency_contact_user,emergency_contact.group_emergency_contact_manager"
-        # TODO: Add groups for module
+        groups="risk_management.group_risk_management_user,risk_management.group_risk_management_manager"
     )
