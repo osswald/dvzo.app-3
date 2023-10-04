@@ -24,6 +24,7 @@ class Partner(models.Model):
     membership_id = fields.Char("Membership ID")
     department_ids = fields.One2many("member.department_res_partner", "person", string="Departments")
     membership_ids = fields.One2many("member.membership", "res_partner", string="Memberships")
+    mailing_ids = fields.Many2many("member.mailing")
 
     @api.depends('department_ids')
     def _compute_departments(self):

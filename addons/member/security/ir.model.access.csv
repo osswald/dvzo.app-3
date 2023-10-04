@@ -6,3 +6,5 @@ access_membership,member.membership,model_member_membership,base.group_user,1,0,
 access_membership_type,member.membership_type,model_member_membership_type,base.group_user,1,0,0,0
 manage_membership,member.membership,model_member_membership,member.group_manage_membership,1,1,1,1
 manage_membership_type,member.membership_type,model_member_membership_type,member.group_manage_membership,1,1,1,1
+access_mailing,member.mailing,model_member_mailing,base.group_user,1,0,0,0
+manage_mailing,member.mailing,model_member_mailing,member.group_manage_membership,1,1,1,1
