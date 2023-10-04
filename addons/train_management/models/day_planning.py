@@ -135,7 +135,7 @@ class DayPlanning(models.Model):
 
     def briefing_recipients(self):
         cc_recipients = self.env['train_management.copy_recipient'].search([])
-        recipients = [recipient.mail for recipient in cc_recipients]
+        recipients = [recipient.email for recipient in cc_recipients]
         people_with_shifts = self.day_planning_shift_ids.person
         for person in people_with_shifts:
             recipients.append(person.email)
