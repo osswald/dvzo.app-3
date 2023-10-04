@@ -138,12 +138,13 @@ class DayPlanning(models.Model):
         recipients = [recipient.email for recipient in cc_recipients]
         people_with_shifts = self.day_planning_shift_ids.person
         for person in people_with_shifts:
-            recipients.append(person.email)
+            if person.email:
+                recipients.append(person.email)
         return ",".join(recipients)
 
     def post_mortem_recipients(self):
         recipients = self.env['res.partner'].search([("mailing_ids.name", "in", "Nachlese")])
-        return ",".join([recipient.email for recipient in recipients])
+        return ",".join([recipient.email for recipient in recipients if recipient.email])
 
     def action_confirmed(self):
         if "executed" in self.mapped("state"):
