@@ -133,6 +133,18 @@ class DayPlanning(models.Model):
                                       shift1.shift.eating_in_bauma)
             record.eating_in_bauma = sum_eating_in_bauma
 
+    def briefing_recipients(self):
+        cc_recipients = self.env['train_management.copy_recipient'].search([])
+        recipients = [recipient.mail for recipient in cc_recipients]
+        people_with_shifts = self.day_planning_shift_ids.person
+        for person in people_with_shifts:
+            recipients.append(person.email)
+        return ",".join(recipients)
+
+    def post_mortem_recipients(self):
+        recipients = self.env['res.partner'].search([("mailing_ids.name", "in", "Nachlese")])
+        return ",".join([recipient.email for recipient in recipients])
+
     def action_confirmed(self):
         if "executed" in self.mapped("state"):
             raise UserError("Executed day plannings can't be confirmed.")
