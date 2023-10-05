@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
     <data>
-        <template id="web_day_planning_list_view">
+        <template id="web_day_planning_list_view" name="Day plannings">
             <t t-call="website.layout">
                 <title>Day plannings</title>
                 <div class="container">
@@ -15,11 +15,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <tr t-foreach="day_plannings" t-as="p">
-                            <td><span t-field="p.date" t-field-options='{"format": "dd.MM.yyyy"}'/></td>
-                            <td><span t-field="p.name"/></td>
-                            <td></td>
-                        </tr>
+                            <tr t-foreach="day_plannings" t-as="p">
+                                <td>
+                                    <span t-field="p.date" t-field-options='{"format": "dd.MM.yyyy"}'/>
+                                </td>
+                                <td>
+                                    <span t-field="p.name"/>
+                                </td>
+                                <td></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
