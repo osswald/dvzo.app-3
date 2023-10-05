@@ -3,7 +3,7 @@ from odoo.http import Controller
 from odoo.http import route
 
 
-class ShiftController(Controller):
+class CurrentShiftController(Controller):
 
     @route("/my/shift/current/", website=True, auth="user")
     def list_view(self):

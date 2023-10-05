@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <template id="web_minimal_hours_list_view" name="My hours">
+            <t t-call="website.layout">
+                <title>My hours</title>
+                <div class="container">
+                    <h1>My hours</h1>
+                    This page is currently under construction. Please check back later.
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

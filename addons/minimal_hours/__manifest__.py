@@ -14,6 +14,8 @@
     'application': False,
     'license': "LGPL-3",
     'data': [
+        'views/web_minimal_hours_views.xml',
+
         'views/res_partner_views.xml',
 
         'report/minimal_hours.xml',
