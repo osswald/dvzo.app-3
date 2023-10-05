@@ -1,7 +1,6 @@
 from odoo.http import request
 from odoo.http import Controller
 from odoo.http import route
-from datetime import datetime
 
 
 class ShiftController(Controller):
@@ -17,6 +16,7 @@ class ShiftController(Controller):
                 "day_planning": day_planning_shift.day_planning,
                 "shift": shift
                 })
+        past_shifts = sorted(past_shifts, key=lambda shift: shift['day_planning'].date, reverse=True)
         return request.render("train_management.web_shifts_list_view", {
             'past_shifts': past_shifts,
         })

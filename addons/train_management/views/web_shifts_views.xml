@@ -17,13 +17,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <tr t-foreach="past_shifts" t-as="shift">
-			<!--<td><span t-field="shift['date']"/></td>-->
+		        <tr t-foreach="past_shifts" t-as="shift">
 			<td><span t-field="shift['day_planning'].date" t-field-options='{"format": "dd.MM.yyyy"}'/></td>
 			<td><span t-field="shift['day_planning'].name"/></td>
 			<td><span t-field="shift['shift'].name"/></td>
 			<td><span t-field="shift['shift'].label"/></td>
-			<td><span t-field="shift['shift'].shift_start"/> - <span t-field="shift['shift'].shift_end"/></td>
+			<td><span t-field="shift['shift'].shift_start" t-options="{'widget': 'float_time'}"/> - <span t-field="shift['shift'].shift_end" t-options="{'widget': 'float_time'}"/></td>
 			<td></td>
                         </tr>
                         </tbody>
