@@ -13,6 +13,7 @@ from . import timetable
 from . import stop_code
 from . import copy_recipient
 from . import day_planning_shift
+from . import day_planning_shift_offer
 from . import shift_template
 from . import shift_position
 from . import shift_position_type

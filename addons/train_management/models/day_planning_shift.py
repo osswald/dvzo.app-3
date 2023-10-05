@@ -17,7 +17,26 @@ class DayPlanningShift(models.Model):
     shift_label = fields.Char(string='Shift Label', related='shift.label', readonly=True)
     person = fields.Many2one("res.partner", string="Person", copy=False)
     comment = fields.Char("Comment")
+    day_planning_shift_offer_ids = fields.One2many("train_management.day_planning_shift_offer", "day_planning_shift")
+    offers = fields.Html("Offers", compute="_compute_offers")
     sequence = fields.Integer(string='Sequence', default=1)
+
+    @api.depends('day_planning_shift_offer_ids')
+    def _compute_offers(self):
+        for shift in self:
+            offer_lines = []
+            for offer in shift.day_planning_shift_offer_ids:
+                if offer.offer == "yes":
+                    icon = "<i style='color:green;' class='fa fa-check' aria-hidden='true'></i>"
+                elif offer.offer == "possible":
+                    icon = "<span style='color:orange;'>(<i class='fa fa-check' aria-hidden='true'></i>)</span>"
+                else:
+                    icon = "<i style='color:red;' class='fa fa-times' aria-hidden='true'></i>"
+                offer_line = f"<b>{offer.person.name}</b>: {icon}"
+                if offer.comment:
+                    offer_line += f" ({offer.comment})"
+                offer_lines.append(offer_line)
+            shift.offers = '<br>'.join(offer_lines)
 
 
 class AddShiftsWizard(models.TransientModel):

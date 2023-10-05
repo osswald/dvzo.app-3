@@ -1,3 +1,4 @@
 [options]
 admin_passwd = supersecret
 addons_path = /mnt/extra-addons
+proxy_mode = True

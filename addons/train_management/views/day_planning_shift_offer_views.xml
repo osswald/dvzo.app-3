@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- DAY PLANNING SHIFT OFFER VIEWS -->
+        <record id="day_planning_shift_offer_view_form" model="ir.ui.view">
+            <field name="name">day.planning.shift.offer.form</field>
+            <field name="model">train_management.day_planning_shift_offer</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="day_planning"/>
+                                <field name="day_planning_shift"/>
+                                <field name="day_planning_date"/>
+                                <field name="person"/>
+                                <field name="comment"/>
+                                <field name="offer"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="day_planning_shift_offer_view_tree" model="ir.ui.view">
+            <field name="name">day.planning.shift.offer.tree</field>
+            <field name="model">train_management.day_planning_shift_offer</field>
+            <field name="arch" type="xml">
+                <tree string="Day planning shift offer" editable="bottom">
+                    <field name="day_planning"/>
+                    <field name="day_planning_shift"/>
+                    <field name="day_planning_date"/>
+                    <field name="person"/>
+                    <field name="comment"/>
+                    <field name="offer"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="day_planning_shift_offer_action" model="ir.actions.act_window">
+            <field name="name">Day planning shift offer</field>
+            <field name="res_model">train_management.day_planning_shift_offer</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="day_planning_shift_offer_search" model="ir.ui.view">
+            <field name="name">day.planning.shift.offer.search</field>
+            <field name="model">train_management.day_planning_shift_offer</field>
+            <field name="arch" type="xml">
+                <search>
+                    <group expand="True" string="Group By">
+                        <filter string="Day planning" name='day_planning' context="{'group_by':'day_planning'}"/>
+                        <filter string="Day planning shift" name='shift' context="{'group_by':'day_planning_shift'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

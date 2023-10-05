@@ -16,6 +16,7 @@
                                 <field name="shift"/>
                                 <field name="shift_categories" invisible="True"/>
                                 <field name="person"/>
+                                <field name="offers"/>
                                 <field name="comment"/>
                             </group>
                         </group>
@@ -28,15 +29,33 @@
             <field name="name">day.planning.shift.tree</field>
             <field name="model">train_management.day_planning_shift</field>
             <field name="arch" type="xml">
-                <tree string="Day planning shift">
+                <tree string="Day planning shift" editable="bottom">
                     <field name="sequence" widget="handle"/>
-                    <field name="day_planning"/>
-                    <field name="day_planning" invisible="True"/>
-                    <field name="shift"/>
+                    <field name="day_planning" readonly="True"/>
+                    <field name="day_planning_date" invisible="True"/>
+                    <field name="shift" readonly="True"/>
                     <field name="shift_categories" invisible="True"/>
                     <field name="person"/>
-                    <field name="comment"/>
+                    <field name="offers"/>
+                    <field name="comment" readonly="True"/>
                 </tree>
+            </field>
+        </record>
+
+        <record id="day_planning_shift_search" model="ir.ui.view">
+            <field name="name">day.planning.shift.search</field>
+            <field name="model">train_management.day_planning_shift</field>
+            <field name="arch" type="xml">
+                <search>
+                    <group expand="True" string="Group By">
+                        <filter string="Day planning" name='day_planning' context="{'group_by':'day_planning'}"/>
+                    </group>
+                    <filter
+                            string="Future day plannings"
+                            name="future_day_plannings"
+                            domain="[('day_planning_date','>=', ((datetime.datetime.now()).strftime('%Y-%m-%d')))]"
+                    />
+                </search>
             </field>
         </record>
 

@@ -33,6 +33,7 @@
         'views/day_planning_views.xml',
         'views/day_planning_text_views.xml',
         'views/day_planning_shift_views.xml',
+        'views/day_planning_shift_offer_views.xml',
         'views/railway_company_views.xml',
         'views/station_views.xml',
         'views/vehicle_views.xml',
