@@ -47,6 +47,7 @@
         'views/res_partner_views.xml',
 
         'views/web_day_planning_views.xml',
+        'views/web_shifts_views.xml',
 
         'views/shift_menu_views.xml',
         'views/train_management_menu_views.xml',

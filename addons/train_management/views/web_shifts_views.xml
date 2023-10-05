@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <template id="web_shifts_list_view">
+            <t t-call="website.layout">
+                <title>Past shifts</title>
+                <div class="container">
+                    <h1>Past shifts</h1>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+				<th>Name</th>
+				<th>Tour Nr</th>
+				<th>Tour</th>
+				<th>from-to</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr t-foreach="past_shifts" t-as="shift">
+			<!--<td><span t-field="shift['date']"/></td>-->
+			<td><span t-field="shift['day_planning'].date" t-field-options='{"format": "dd.MM.yyyy"}'/></td>
+			<td><span t-field="shift['day_planning'].name"/></td>
+			<td><span t-field="shift['shift'].name"/></td>
+			<td><span t-field="shift['shift'].label"/></td>
+			<td><span t-field="shift['shift'].shift_start"/> - <span t-field="shift['shift'].shift_end"/></td>
+			<td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
