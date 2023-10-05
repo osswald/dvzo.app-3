@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <template id="web_current_shifts_list_view" name="My current shifts">
+            <t t-call="website.layout">
+                <title>Current shifts</title>
+                <div class="container">
+                    <h1>Current shifts</h1>
+                    This page is currently under construction. Please check back later.
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
