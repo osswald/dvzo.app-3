@@ -18,7 +18,7 @@
                             <tree editable="bottom">
                                 <field name="name"/>
                                 <field name="relation"/>
-                                <field name="phone"/>
+                                <field name="phone" widget="phone"/>
                             </tree>
                         </field>
                     </page>
