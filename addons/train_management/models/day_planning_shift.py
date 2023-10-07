@@ -38,6 +38,18 @@ class DayPlanningShift(models.Model):
                 offer_lines.append(offer_line)
             shift.offers = '<br>'.join(offer_lines)
 
+    def open_form_view(self):
+        return {
+            'name': 'Day planning shift Edit',
+            'domain': [],
+            'res_model': 'train_management.day_planning_shift',
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'view_type': 'form',
+            'res_id': self.id,
+            'target': 'current',
+        }
+
 
 class AddShiftsWizard(models.TransientModel):
     _name = 'train_management.add.shifts.wizard'
