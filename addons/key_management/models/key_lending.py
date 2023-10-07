@@ -11,11 +11,14 @@ class KeyLending(models.Model):
     lending_date = fields.Date(copy=False, default=fields.Date.today())
     return_date = fields.Date(copy=False)
     computed_name = fields.Char(compute="_compute_name", store=True)
+    owner_unknown = fields.Boolean("Owner unknown", default=False)
 
-    @api.depends('lender', 'key')
+    @api.depends('lender', 'key', 'owner_unknown')
     def _compute_name(self):
         for record in self:
-            if record.lender and record.key:
+            if record.owner_unknown and record.key:
+                record.computed_name = f"{record.key.name} - Owner unknown"
+            elif record.lender and record.key:
                 record.computed_name = f"{record.key.name} - {record.lender.name}"
             else:
                 record.computed_name = record.lender.name
