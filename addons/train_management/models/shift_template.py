@@ -4,6 +4,7 @@ from odoo import models, fields, api
 class ShiftTemplate(models.Model):
     _name = "train_management.shift_template"
     _description = "Shift template"
+    _rec_name = "computed_name"
 
     name = fields.Char("Shift number", required=True)
     label = fields.Char("Label")
@@ -25,6 +26,7 @@ class ShiftTemplate(models.Model):
 
     category = fields.Many2many("res.partner.category", required=True)
     shift_position_ids = fields.One2many("train_management.shift_position", "shift_template", "Shift positions")
+    computed_name = fields.Char(compute="_compute_name")
 
     def copy(self, default=None):
         default = default or {}
@@ -72,3 +74,11 @@ class ShiftTemplate(models.Model):
 
             record.work_duration = work_duration
             record.time_accountable = time_accountable
+
+    @api.depends('name', 'label')
+    def _compute_name(self):
+        for record in self:
+            if record.name and record.label:
+                record.computed_name = f"{record.name} {record.label}"
+            else:
+                record.computed_name = record.name
