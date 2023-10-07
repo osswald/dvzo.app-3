@@ -23,7 +23,7 @@
                         <notebook>
                             <page string="Offers">
                                 <field name="day_planning_shift_offer_ids">
-                                    <tree>
+                                    <tree editable="bottom">
                                         <field name="person"/>
                                         <field name="offer"/>
                                         <field name="comment"/>
