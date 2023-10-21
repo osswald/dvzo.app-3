@@ -82,3 +82,8 @@ class ShiftTemplate(models.Model):
                 record.computed_name = f"{record.name} {record.label}"
             else:
                 record.computed_name = record.name
+
+    @api.model
+    def name_search(self, name, args=None, operator='ilike', limit=100):
+        partners = self.search(['|', ('name', operator, name), ('label', operator, name)])
+        return partners.name_get()
