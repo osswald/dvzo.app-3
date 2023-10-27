@@ -5,6 +5,7 @@ class Partner(models.Model):
     # ---------------------------------------- Private Attributes ---------------------------------
 
     _inherit = "res.partner"
+    _order = "lastname,firstname"
 
     # --------------------------------------- Fields Declaration ----------------------------------
 

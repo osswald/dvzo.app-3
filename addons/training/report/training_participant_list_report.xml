@@ -19,10 +19,39 @@
                             <span t-field="training.end"/>
                             </t>
                         </h3>
-                        <div>
-                            <strong>Responsible:</strong>
-                            <span t-field="training.responsible"/>
-                        </div>
+                        <div t-if="training.training_date_ids">
+                            <strong>Dates:</strong>
+                        </div><br/>
+                        <table class="table" t-if="training.training_date_ids">
+                            <thead>
+                                <tr>
+                                    <th>Start</th>
+                                    <th>End</th>
+                                    <th>Label</th>
+                                    <th>Responsible</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="dates" t-value="training.mapped('training_date_ids')"/>
+                                <tr t-foreach="dates" t-as="date">
+                                    <td style="vertical-align:top;">
+                                        <span t-field="date.start"/>
+                                    </td>
+                                    <td style="vertical-align:top;">
+                                        <span t-field="date.end"/>
+                                    </td>
+                                    <td style="vertical-align:top;">
+                                        <span t-field="date.name"/>
+                                    </td>
+                                    <td style="vertical-align:top;">
+                                        <span t-field="date.responsible"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div t-if="training.participant_ids">
+                            <strong>Participants:</strong>
+                        </div><br/>
                         <table class="table" t-if="training.participant_ids">
                             <thead>
                                 <tr>
