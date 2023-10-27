@@ -5,7 +5,7 @@
     <template id="participant_list">
         <t t-foreach="docs" t-as="training">
             <t t-call="web.html_container">
-                <t t-call="web.external_layout_striped">
+                <t t-call="web.external_layout">
                     <div class="page">
                         <h1>
                             <span style="font-weight:bold;">Participant list</span>
@@ -28,6 +28,7 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Department</th>
+                                    <th>Date of birth</th>
                                     <th>Mobile / E-Mail</th>
                                     <th>Address</th>
                                 </tr>
@@ -35,18 +36,27 @@
                             <tbody>
                                 <t t-set="participants" t-value="training.mapped('participant_ids')"/>
                                 <tr t-foreach="participants" t-as="participant">
-                                    <td>
+                                    <td style="vertical-align:top;">
                                         <span t-field="participant.participant"/>
                                     </td>
-                                    <td>
+                                    <td style="vertical-align:top;">
+                                        <t t-set="departments" t-value="participant.participant.mapped('department_ids')"/>
+                                        <div t-foreach="departments" t-as="department">
+                                            <span t-field="department.department"/>
+                                        </div>
                                     </td>
-                                    <td>
+                                    <td style="vertical-align:top;">
+                                        <span t-field="participant.participant.date_of_birth"/>
+                                    </td>
+                                    <td style="vertical-align:top;">
                                         <span t-field="participant.participant.mobile"/>
                                         <br/>
                                         <span t-field="participant.participant.email"/>
                                     </td>
-                                    <td>
-                                        <span t-field="participant.participant.contact_address"/>
+                                    <td style="vertical-align:top;">
+                                        <span t-field="participant.participant.street"/><br/>
+                                        <span t-field="participant.participant.zip"/>
+                                        <span t-field="participant.participant.city"/>
                                     </td>
                                 </tr>
                             </tbody>

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-02 07:32+0000\n"
-"PO-Revision-Date: 2023-10-02 09:34+0200\n"
+"POT-Creation-Date: 2023-10-27 14:33+0000\n"
+"PO-Revision-Date: 2023-10-27 16:34+0200\n"
 "Last-Translator: Christoph Osswald\n"
 "Language-Team: \n"
 "Language: de_CH\n"
@@ -357,6 +357,7 @@ msgstr "Datum"
 
 #. module: training
 #: model_terms:ir.ui.view,arch_db:training.competence_matrix
+#: model_terms:ir.ui.view,arch_db:training.participant_list
 msgid "Date of birth"
 msgstr "Geburtstdatum"
 
@@ -481,10 +482,6 @@ msgid "Further training"
 msgstr "Weiterbildung"
 
 #. module: training
-#: model:ir.model.fields,field_description:training.field_res_partner__goal_reached_current_year
-#: model:ir.model.fields,field_description:training.field_res_partner__goal_reached_last_year
-#: model:ir.model.fields,field_description:training.field_res_users__goal_reached_current_year
-#: model:ir.model.fields,field_description:training.field_res_users__goal_reached_last_year
 #: model:ir.model.fields,field_description:training.field_training_min_hours__goal_reached_vte
 msgid "Goal reached VTE"
 msgstr "Ziel erreicht"
@@ -508,30 +505,6 @@ msgstr "HR"
 #: model:ir.model.fields,field_description:training.field_training_training__has_message
 msgid "Has Message"
 msgstr "Hat Nachricht"
-
-#. module: training
-#: model:ir.model.fields,field_description:training.field_res_partner__hours_planned_current_year
-#: model:ir.model.fields,field_description:training.field_res_users__hours_planned_current_year
-msgid "Hours Planned Current Year"
-msgstr "Stunden geplant"
-
-#. module: training
-#: model:ir.model.fields,field_description:training.field_res_partner__hours_planned_last_year
-#: model:ir.model.fields,field_description:training.field_res_users__hours_planned_last_year
-msgid "Hours Planned Last Year"
-msgstr "Stunden geplant"
-
-#. module: training
-#: model:ir.model.fields,field_description:training.field_res_partner__hours_worked_current_year
-#: model:ir.model.fields,field_description:training.field_res_users__hours_worked_current_year
-msgid "Hours Worked Current Year"
-msgstr "Stunden geleistet"
-
-#. module: training
-#: model:ir.model.fields,field_description:training.field_res_partner__hours_worked_last_year
-#: model:ir.model.fields,field_description:training.field_res_users__hours_worked_last_year
-msgid "Hours Worked Last Year"
-msgstr "Stunden geleistet"
 
 #. module: training
 #: model:ir.model.fields,field_description:training.field_training_min_hours__hours_planned_vte
@@ -697,11 +670,6 @@ msgid "Last Updated on"
 msgstr "Zuletzt bearbeitet am"
 
 #. module: training
-#: model_terms:ir.ui.view,arch_db:training.view_partner_form
-msgid "Last year"
-msgstr "Letztes Jahr"
-
-#. module: training
 #: model:ir.model.fields,field_description:training.field_res_partner__license_nr
 #: model:ir.model.fields,field_description:training.field_res_users__license_nr
 msgid "License number"
@@ -799,18 +767,6 @@ msgid "Messages"
 msgstr "Nachrichten"
 
 #. module: training
-#: model:ir.model.fields,field_description:training.field_res_partner__min_hours_category
-#: model:ir.model.fields,field_description:training.field_res_users__min_hours_category
-msgid "Min Hours Category"
-msgstr "Mindeststundenzahl Kategorie"
-
-#. module: training
-#: model:ir.model.fields,field_description:training.field_res_partner__min_shifts_category
-#: model:ir.model.fields,field_description:training.field_res_users__min_shifts_category
-msgid "Min Shifts Category"
-msgstr "Min. Touren Kategorie"
-
-#. module: training
 #: model:ir.model.fields,field_description:training.field_res_partner_category__minimal_hours_vte
 msgid "Minimal Hours Vte"
 msgstr "Mindeststunden"
@@ -830,7 +786,6 @@ msgstr "Minimale Touren"
 #: model:ir.model.fields,field_description:training.field_res_partner__minimal_hours_ids
 #: model:ir.model.fields,field_description:training.field_res_users__minimal_hours_ids
 #: model_terms:ir.ui.view,arch_db:training.view_partner_category_form
-#: model_terms:ir.ui.view,arch_db:training.view_partner_form
 msgid "Minimal hours"
 msgstr "Mindeststunden"
 
@@ -911,8 +866,6 @@ msgid "Next periodic exam has to be taken before %s"
 msgstr "Die nächste periodische Prüfung muss vor %s abgelegt werden"
 
 #. module: training
-#: model:ir.model.fields.selection,name:training.selection__res_partner__goal_reached_current_year__not_reachable
-#: model:ir.model.fields.selection,name:training.selection__res_partner__goal_reached_last_year__not_reachable
 #: model:ir.model.fields.selection,name:training.selection__training_min_hours__goal_reached_vte__not_reachable
 #: model:ir.model.fields.selection,name:training.selection__training_min_hours__goal_reached_zstebv__not_reachable
 msgid "Not reachable"
@@ -1026,16 +979,12 @@ msgid "Railway company (Employer)"
 msgstr "EVU (Arbeitgeber)"
 
 #. module: training
-#: model:ir.model.fields.selection,name:training.selection__res_partner__goal_reached_current_year__reachable
-#: model:ir.model.fields.selection,name:training.selection__res_partner__goal_reached_last_year__reachable
 #: model:ir.model.fields.selection,name:training.selection__training_min_hours__goal_reached_vte__reachable
 #: model:ir.model.fields.selection,name:training.selection__training_min_hours__goal_reached_zstebv__reachable
 msgid "Reachable"
 msgstr "Erreichbar"
 
 #. module: training
-#: model:ir.model.fields.selection,name:training.selection__res_partner__goal_reached_current_year__reached
-#: model:ir.model.fields.selection,name:training.selection__res_partner__goal_reached_last_year__reached
 #: model:ir.model.fields.selection,name:training.selection__training_min_hours__goal_reached_vte__reached
 #: model:ir.model.fields.selection,name:training.selection__training_min_hours__goal_reached_zstebv__reached
 msgid "Reached"
@@ -1105,30 +1054,6 @@ msgstr "Auf \"Läuft\" setzen"
 #: model:ir.ui.menu,name:training.settings_menu
 msgid "Settings"
 msgstr "Einstellungen"
-
-#. module: training
-#: model:ir.model.fields,field_description:training.field_res_partner__shifts_planned_current_year
-#: model:ir.model.fields,field_description:training.field_res_users__shifts_planned_current_year
-msgid "Shifts Planned Current Year"
-msgstr "Touren geplant"
-
-#. module: training
-#: model:ir.model.fields,field_description:training.field_res_partner__shifts_planned_last_year
-#: model:ir.model.fields,field_description:training.field_res_users__shifts_planned_last_year
-msgid "Shifts Planned Last Year"
-msgstr "Touren geplant"
-
-#. module: training
-#: model:ir.model.fields,field_description:training.field_res_partner__shifts_worked_current_year
-#: model:ir.model.fields,field_description:training.field_res_users__shifts_worked_current_year
-msgid "Shifts Worked Current Year"
-msgstr "Touren geleistet"
-
-#. module: training
-#: model:ir.model.fields,field_description:training.field_res_partner__shifts_worked_last_year
-#: model:ir.model.fields,field_description:training.field_res_users__shifts_worked_last_year
-msgid "Shifts Worked Last Year"
-msgstr "Touren geleistet"
 
 #. module: training
 #: model:ir.model.fields,field_description:training.field_training_training__name
@@ -1208,11 +1133,6 @@ msgstr ""
 
 #. module: training
 #: model_terms:ir.ui.view,arch_db:training.view_partner_form
-msgid "This year"
-msgstr "Aktuelles Jahr"
-
-#. module: training
-#: model_terms:ir.ui.view,arch_db:training.view_partner_form
 msgid "Train driver"
 msgstr "Lokführer"
 
@@ -1271,8 +1191,6 @@ msgid "Type of the exception activity on record."
 msgstr "Art der aufgezeichneten Ausnahmeaktivität."
 
 #. module: training
-#: model:ir.model.fields.selection,name:training.selection__res_partner__goal_reached_current_year__unknown
-#: model:ir.model.fields.selection,name:training.selection__res_partner__goal_reached_last_year__unknown
 #: model:ir.model.fields.selection,name:training.selection__training_min_hours__goal_reached_vte__unknown
 #: model:ir.model.fields.selection,name:training.selection__training_min_hours__goal_reached_zstebv__unknown
 msgid "Unknown"
@@ -1331,3 +1249,39 @@ msgstr "ZSTEBV"
 #: model_terms:ir.ui.view,arch_db:training.training_exam_view_form
 msgid "z. B. „B2B“, „VIP“, „Beratung“ ..."
 msgstr "z. B. „Lokführer“, „Rangier“, „Stationswärter“ ..."
+
+#~ msgid "Hours Planned Current Year"
+#~ msgstr "Stunden geplant"
+
+#~ msgid "Hours Planned Last Year"
+#~ msgstr "Stunden geplant"
+
+#~ msgid "Hours Worked Current Year"
+#~ msgstr "Stunden geleistet"
+
+#~ msgid "Hours Worked Last Year"
+#~ msgstr "Stunden geleistet"
+
+#~ msgid "Last year"
+#~ msgstr "Letztes Jahr"
+
+#~ msgid "Min Hours Category"
+#~ msgstr "Mindeststundenzahl Kategorie"
+
+#~ msgid "Min Shifts Category"
+#~ msgstr "Min. Touren Kategorie"
+
+#~ msgid "Shifts Planned Current Year"
+#~ msgstr "Touren geplant"
+
+#~ msgid "Shifts Planned Last Year"
+#~ msgstr "Touren geplant"
+
+#~ msgid "Shifts Worked Current Year"
+#~ msgstr "Touren geleistet"
+
+#~ msgid "Shifts Worked Last Year"
+#~ msgstr "Touren geleistet"
+
+#~ msgid "This year"
+#~ msgstr "Aktuelles Jahr"
