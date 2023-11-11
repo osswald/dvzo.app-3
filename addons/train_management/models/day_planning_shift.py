@@ -27,12 +27,12 @@ class DayPlanningShift(models.Model):
             offer_lines = []
             for offer in shift.day_planning_shift_offer_ids:
                 if offer.offer == "yes":
-                    icon = "<i style='color:green;' class='fa fa-check' aria-hidden='true'></i>"
+                    icon = "&nbsp;<i style='color:green;' class='fa fa-check' aria-hidden='true'></i>&nbsp;"
                 elif offer.offer == "possible":
                     icon = "<span style='color:orange;'>(<i class='fa fa-check' aria-hidden='true'></i>)</span>"
                 else:
-                    icon = "<i style='color:red;' class='fa fa-times' aria-hidden='true'></i>"
-                offer_line = f"<b>{offer.person.name}</b>: {icon}"
+                    icon = "&nbsp;<i style='color:red;' class='fa fa-times' aria-hidden='true'></i>&nbsp;"
+                offer_line = f"{icon} <b>{offer.person.name}</b>"
                 if offer.comment:
                     offer_line += f" ({offer.comment})"
                 offer_lines.append(offer_line)

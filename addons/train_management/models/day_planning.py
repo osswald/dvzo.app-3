@@ -115,6 +115,7 @@ class DayPlanning(models.Model):
     reservation_ids = fields.One2many("train_management.reservation", "day_planning")
     train_ids = fields.One2many("train_management.train", "day_planning_id")
     day_planning_shift_ids = fields.One2many("train_management.day_planning_shift", "day_planning", string="Shifts")
+    day_planning_shift_ids_count = fields.Integer(compute="_compute_sum_of_shifts")
 
     @api.depends('circuit_ids.frequency')
     def _compute_total_frequency(self):
@@ -155,3 +156,11 @@ class DayPlanning(models.Model):
         if "draft" in self.mapped("state"):
             raise UserError("Draft day plannings can't be executed")
         return self.write({"state": "executed"})
+
+    def action_view_offers(self):
+        res = self.env.ref("train_management.day_planning_shift_action_domain").read()[0]
+        return res
+
+    def _compute_sum_of_shifts(self):
+        for record in self:
+            record.day_planning_shift_ids_count = len(record.day_planning_shift_ids)

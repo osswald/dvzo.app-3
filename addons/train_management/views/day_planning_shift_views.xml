@@ -71,10 +71,11 @@
             </field>
         </record>
 
-        <record id="day_planning_shift_action" model="ir.actions.act_window">
-            <field name="name">Day planning shift</field>
+        <record id="day_planning_shift_action_domain" model="ir.actions.act_window">
+            <field name="name">Day planning shift with domain</field>
             <field name="res_model">train_management.day_planning_shift</field>
-            <field name="view_mode">tree,form</field>
+            <field name="domain">[('day_planning', '=', active_id)]</field>
+            <field name="view_mode">tree</field>
         </record>
 
 

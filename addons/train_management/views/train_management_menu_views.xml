@@ -7,8 +7,6 @@
             <menuitem id="day_planning_menu_action" action="train_management.day_planning_action" sequence="1"/>
             <menuitem id="vehicle_menu_action" action="train_management.vehicle_action" sequence="5"/>
             <menuitem id="reservation_menu_action" action="train_management.reservation_action" sequence="5"/>
-            <menuitem id="day_planning_shift_menu_action" action="train_management.day_planning_shift_action" sequence="21"/>
-            <menuitem id="day_planning_shift_offer_menu_action" action="train_management.day_planning_shift_offer_action" sequence="21"/>
             <menuitem id="settings_menu" name="Settings" sequence="40">
                 <menuitem id="station_menu_action" action="train_management.station_action"/>
                 <menuitem id="train_template_menu_action" action="train_management.train_template_action"/>

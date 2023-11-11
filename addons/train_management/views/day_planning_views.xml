@@ -17,6 +17,15 @@
                         <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,executed,canceled"/>
                     </header>
                     <sheet>
+                        <div class="oe_button_box" name="button_box">
+                        <button name="%(train_management.day_planning_shift_action_domain)d" type="action" class="oe_stat_button" icon="fa-users">
+                            <field name="day_planning_shift_ids_count" widget="statinfo" string="Shifts"/>
+                        </button>
+                        <!-- This is another solution using a method call -->
+                        <!-- <button name="action_view_offers" type="object" class="oe_stat_button" icon="fa-money">
+                            <field name="offer_count" widget="statinfo" string="Offers"/>
+                        </button> -->
+                    </div>
                         <div class="oe_title">
                             <h1>
                                 <field name="name" placeholder="e.g. Extrafahrt Familie Müller"/>
