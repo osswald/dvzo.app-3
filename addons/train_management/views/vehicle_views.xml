@@ -120,6 +120,22 @@
                             name="is_in_operation"
                             domain="[('isOperational','=', 'True')]"
                     />
+                    <separator/>
+                    <filter string="Engine"
+                            name="is_engine"
+                            domain="[('type','=','engine')]"/>
+                    <filter string="Seat"
+                            name="is_seat"
+                            domain="[('type','=','seat')]"/>
+                    <filter string="Gastro"
+                            name="is_gastro"
+                            domain="[('type','=','gastro')]"/>
+                    <filter string="Luggage"
+                            name="is_luggage"
+                            domain="[('type','=','luggage')]"/>
+                    <filter string="Cargo"
+                            name="is_cargo"
+                            domain="[('type','=','cargo')]"/>
                 </search>
             </field>
         </record>
