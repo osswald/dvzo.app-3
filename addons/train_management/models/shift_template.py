@@ -47,19 +47,22 @@ class ShiftTemplate(models.Model):
     @api.depends('shift_position_ids')
     def _compute_start_time(self):
         for record in self:
-            lowest_sequence_record = record.shift_position_ids.sorted('sequence')[0] if record.shift_position_ids else None
+            lowest_sequence_record = record.shift_position_ids.sorted('sequence')[
+                0] if record.shift_position_ids else None
             record.shift_start = lowest_sequence_record.start_time if lowest_sequence_record else ''
 
     @api.depends('shift_position_ids')
     def _compute_end_time(self):
         for record in self:
-            highest_sequence_record = record.shift_position_ids.sorted('sequence', reverse=True)[0] if record.shift_position_ids else None
+            highest_sequence_record = record.shift_position_ids.sorted('sequence', reverse=True)[
+                0] if record.shift_position_ids else None
             record.shift_end = highest_sequence_record.end_time if highest_sequence_record else ''
 
     @api.depends('shift_position_ids')
     def _compute_total_shift_duration(self):
         for record in self:
-            record.shift_duration = sum(shift_position_ids.shift_position_duration for shift_position_ids in record.shift_position_ids)
+            record.shift_duration = sum(
+                shift_position_ids.shift_position_duration for shift_position_ids in record.shift_position_ids)
 
     @api.depends('shift_position_ids')
     def _compute_work_duration(self):
@@ -87,3 +90,20 @@ class ShiftTemplate(models.Model):
     def name_search(self, name, args=None, operator='ilike', limit=100):
         partners = self.search(['|', ('name', operator, name), ('label', operator, name)])
         return partners.name_get()
+
+
+class AddShiftPositionsWizard(models.TransientModel):
+    _name = 'train_management.add.shift.positions.wizard'
+    _description = "Add shift positions wizard"
+
+    shift_template = fields.Many2one('train_management.shift_template',
+                                     relation="train_management_shift_wizard_templates", string='Shift Template')
+
+    def add_shift_positions(self):
+        active_shift_template = self.env['train_management.shift_template'].browse(self._context.get('active_id'))
+        for position in self.shift_template.shift_position_ids:
+            position_data = {
+                'shift_template': active_shift_template.id,
+            }
+            new_shift_position = position.copy(position_data)
+        return {'type': 'ir.actions.act_window_close'}

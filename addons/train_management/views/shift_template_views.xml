@@ -8,6 +8,9 @@
             <field name="model">train_management.shift_template</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button name="%(open_add_shift_positions_wizard)d" type="action" string="Add shift positions"/>
+                    </header>
                     <sheet>
                         <group>
                             <group>
