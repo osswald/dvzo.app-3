@@ -116,7 +116,7 @@ class VehicleBatchUpdate(models.Model):
     @api.model
     def update_vehicles(self):
         drehscheibe = Drehscheibe()
-        response_data = drehscheibe.get_data()
+        response_data = drehscheibe.get_vehicles()
         new_items = []
         for old_item in response_data:
             new_item = {}
