@@ -142,5 +142,6 @@ class VehicleBatchUpdate(models.Model):
             if len(db_item) == 0:
                 self.env["train_management.vehicle"].sudo().create(new_item)
             else:
+                del new_item["type"]  # don't update type if item already exists
                 db_item.write(new_item)
         self.env.cr.commit()
