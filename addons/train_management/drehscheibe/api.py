@@ -11,6 +11,10 @@ class Drehscheibe:
     def __init__(self) -> None:
         self.session = requests.Session()
         self.__login()
+        self.__headers = {
+            "accept": "application/json",
+            "content-type": "application/json",
+        }
 
     def __login(self) -> None:
         auth = {
@@ -27,7 +31,7 @@ class Drehscheibe:
             url = f"{self.DREHSCHEIBE_URL}/api/{model}/{uuid}"
         else:
             url = f"{self.DREHSCHEIBE_URL}/api/{model}"
-        response = self.session.get(url, timeout=3, headers={"accept": "application/json"})
+        response = self.session.get(url, timeout=3, headers=self.__headers)
         response.raise_for_status()
         response_data = response.json()
         if isinstance(response_data, list):
