@@ -9,6 +9,7 @@ from . import train
 from . import train_template
 from . import train_vehicle
 from . import vehicle
+from . import vehicle_defect
 from . import timetable
 from . import stop_code
 from . import copy_recipient

@@ -5,7 +5,7 @@
     <template id="briefing">
         <t t-foreach="docs" t-as="day_planning">
             <t t-call="web.html_container">
-                <t t-call="web.external_layout">
+                <t t-call="dvzo.dvzo_layout">
                     <div class="page">
 
                         <h1>
@@ -25,7 +25,7 @@
 
                         <!-- Circuits -->
                         <h2 t-if="day_planning.circuit_ids">Circuit formation</h2>
-                        <table class="table" t-if="day_planning.circuit_ids">
+                        <table class="table table-sm" t-if="day_planning.circuit_ids">
                             <thead>
                                 <t t-set="circuits" t-value="day_planning.mapped('circuit_ids')"/>
                                 <tr>

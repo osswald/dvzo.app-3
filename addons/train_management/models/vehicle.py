@@ -32,6 +32,7 @@ class Vehicle(models.Model):
     _rec_name = "historicalDesignation"
 
     name = fields.Char("Label", required=True)
+    vehicle_defect_ids = fields.One2many("train_management.vehicle_defect", "vehicle", string="Vehicle defects")
     ds_id = fields.Char("ds id", help="UUID linking vehicles to the Drehscheibe")
     type = fields.Selection(
         selection=[

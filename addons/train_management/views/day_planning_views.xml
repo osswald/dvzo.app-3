@@ -13,6 +13,7 @@
                         <button name="action_confirmed" type="object" string="Confirm" states="draft"
                                 class="oe_highlight"/>
                         <button name="action_executed" type="object" string="Executed"
+                                confirm="This can not be undone. Trains will be sent to Drehscheibe. Do you wish to proceed?"
                                 states="confirmed" class="oe_highlight"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,executed,canceled"/>
                     </header>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- VEHICLE DEFECT VIEWS -->
+        <record id="vehicle_defect_view_form" model="ir.ui.view">
+            <field name="name">vehicle_defect.form</field>
+            <field name="model">train_management.vehicle_defect</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="vehicle"/>
+                                <field name="date"/>
+                                <field name="defectTitle"/>
+                                <field name="trainNumber"/>
+                                <field name="whereAtVehicle"/>
+                                <field name="isAccident"/>
+                                <field name="isSecurityRelated"/>
+                                <field name="status" readonly="True"/>
+                                <field name="image1" widget="image"/>
+                                <field name="image2" widget="image"/>
+                                <field name="image3" widget="image"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="vehicle_defect_view_tree" model="ir.ui.view">
+            <field name="name">vehicle_defect.tree</field>
+            <field name="model">train_management.vehicle_defect</field>
+            <field name="arch" type="xml">
+                <tree string="Vehicle defect">
+                    <field name="date"/>
+                    <field name="defectTitle"/>
+                    <field name="whereAtVehicle"/>
+                    <field name="isSecurityRelated"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="vehicle_defect_action" model="ir.actions.act_window">
+            <field name="name">Vehicle defects</field>
+            <field name="res_model">train_management.vehicle_defect</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>

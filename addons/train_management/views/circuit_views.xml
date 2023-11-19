@@ -25,7 +25,13 @@
                                 <field name="circuit_vehicle">
                                     <tree editable="bottom">
                                         <field name="sequence" widget="handle"/>
-                                        <field name="vehicle"/>
+                                        <field name="vehicle_type" invisible="True"/>
+                                        <field name="vehicle"
+                                               decoration-danger="vehicle_type == 'gastro'"
+                                               decoration-success="vehicle_type == 'seat'"
+                                               decoration-primary="vehicle_type == 'engine'"
+                                               decoration-info="vehicle_type == 'luggage'"
+                                        />
                                         <field name="comment"/>
                                     </tree>
                                 </field>

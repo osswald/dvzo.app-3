@@ -39,7 +39,7 @@ class Train(models.Model):
     @api.depends('train_vehicle')
     def _compute_train_composition(self):
         for train in self:
-            vehicle_names = train.train_vehicle.sorted('sequence').mapped('vehicle.name')
+            vehicle_names = train.train_vehicle.sorted('sequence').mapped('vehicle.historicalDesignation')
             train.train_composition = ', '.join(vehicle_names)
 
     @api.model

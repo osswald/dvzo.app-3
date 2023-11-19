@@ -36,6 +36,7 @@
         'views/day_planning_shift_offer_views.xml',
         'views/railway_company_views.xml',
         'views/station_views.xml',
+        'views/vehicle_defect_views.xml',
         'views/vehicle_views.xml',
         'views/train_views.xml',
         'views/train_template_views.xml',

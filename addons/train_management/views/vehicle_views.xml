@@ -17,6 +17,11 @@
                                 <field name="vehicleNumberNVR"/>
                             </group>
                         </group>
+                        <notebook>
+                            <page string="Vehicle defects">
+                                <field name="vehicle_defect_ids"/>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
@@ -28,6 +33,12 @@
             <field name="arch" type="xml">
                 <tree string="Vehicle">
                     <field name="historicalDesignation"/>
+                    <field name="type" widget="badge"
+                           decoration-danger="type == 'gastro'"
+                           decoration-success="type == 'seat'"
+                           decoration-primary="type == 'engine'"
+                           decoration-info="type == 'luggage'"
+                    />
                     <field name="vehicleNumberNVR"/>
                     <field name="vehicleType"/>
                     <field name="vehicleGenre"/>
