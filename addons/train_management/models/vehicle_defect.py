@@ -1,5 +1,8 @@
+from ..drehscheibe.api import Drehscheibe
 from datetime import datetime
 from odoo import models, fields, api
+import base64
+import requests
 
 
 class VehicleDefect(models.Model):
@@ -61,5 +64,60 @@ class VehicleDefect(models.Model):
     image2 = fields.Image()
     image3 = fields.Image()
     # TODO:
-    #  Add batch job for fetching data from DS
     #  Add functionality for sending new defects to DS
+
+def convert_string_date_to_date(string_date, time=None):
+    if time:
+        return datetime.strptime(
+            string_date + " " + time, "%Y-%m-%d %H:%M"
+        ).date()
+    return datetime.strptime(string_date, "%Y-%m-%d").date()
+
+class VehicleDefectBatchUpdate(models.Model):
+    _name = "train_management.vehicle_defect_batch_update"
+    _description = "Vehicle Defect Batch Update"
+
+    def update_vehicle_defect_for_single_vehicle(self, drehscheibe, vehicle_id, vehicle_defects):
+        existing_defects = self.env["train_management.vehicle_defect"].sudo().search(
+            [("vehicle.ds_id", "=", vehicle_id)]
+        )
+        existing_defects.unlink()
+        for old_item in vehicle_defects:
+            new_item = {}
+            new_item["date"] = convert_string_date_to_date(old_item.get("date"))
+            new_item["defectTitle"] = old_item.get("defectTitle")
+            new_item["defectDescription"] = old_item.get("defectDescription")
+            new_item["trainNumber"] = old_item.get("trainNumber")
+            new_item["whereAtVehicle"] = old_item.get("whereAtVehicle", "remaining")
+            new_item["isAccident"] = old_item.get("isAccident", "no")
+            new_item["isSecurityRelated"] = old_item.get("isSecurityRelated")
+            new_item["status"] = "from_ds"
+            len_images = (len(old_item.get("images", []))
+                          if len(old_item.get("images", [])) <= 3
+                          else 3)
+            for i in range(0, len_images):
+                prod_url = "drehscheibe.hech.ch"
+                dev_url = "drehscheibe.e9li.com"
+                url = old_item.get("images")[i].replace(dev_url, prod_url)
+                response = requests.get(url)
+                response.raise_for_status()
+                image = base64.b64encode(response.content)
+                new_item[f"image{i+1}"] = image
+            new_item["vehicle"] = self.env["train_management.vehicle"].sudo().search(
+                [("ds_id", "=", vehicle_id)]
+            ).id
+            self.env["train_management.vehicle_defect"].sudo().create(new_item)
+
+    @api.model
+    def update_vehicle_defect(self):
+        vehicle_ids = self.env[
+            "train_management.vehicle"].sudo().search([]).mapped("ds_id")
+        vehicle_ids = [x for x in vehicle_ids if x]
+        drehscheibe = Drehscheibe()
+        from multiprocessing.pool import ThreadPool
+        with ThreadPool() as pool:
+            vehicle_defects = pool.map(drehscheibe.get_vehicle_defects, vehicle_ids)
+
+        for vehicle_id, defects in vehicle_defects:
+            self.update_vehicle_defect_for_single_vehicle(
+                drehscheibe, vehicle_id, defects)

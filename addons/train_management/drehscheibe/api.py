@@ -11,6 +11,7 @@ class Drehscheibe:
     def __init__(self) -> None:
         self.session = requests.Session()
         self.__login()
+        self.__timeout = 5
 
     def __login(self) -> None:
         auth = {
@@ -31,7 +32,7 @@ class Drehscheibe:
             "accept": "application/json",
             "content-type": "application/json",
         }
-        response = self.session.get(url, timeout=3, headers=headers)
+        response = self.session.get(url, timeout=self.__timeout, headers=headers)
         response.raise_for_status()
         response_data = response.json()
 
@@ -48,10 +49,10 @@ class Drehscheibe:
 
         if files:
             response = self.session.post(
-                url, data=body, files=files, timeout=3, headers=headers)
+                url, data=body, files=files, timeout=self.__timeout, headers=headers)
         else:
             response = self.session.post(
-                url, data=body, timeout=3, headers=headers)
+                url, data=body, timeout=self.__timeout, headers=headers)
         response.raise_for_status()
         response_data = response.json()
 
@@ -66,15 +67,10 @@ class Drehscheibe:
 
     def get_vehicle_defects(self, uuid) -> List:
         model = "open-tasks"
-        return self.__get_data(model, uuid)
+        return [uuid, self.__get_data(model, uuid)]
 
     def post_vehicle_defects(self, uuid) -> List:
         model = "repair-task"
-        # with open("./image.png", 'rb') as file:
-            # image = file.read()
-        # files = {
-            # "filePath01": ('image.png', image, 'image/png'),
-        # }
         files = None
         headers = {
             "accept": "application/json",
