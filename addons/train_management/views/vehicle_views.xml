@@ -15,6 +15,67 @@
                                 <field name="type"/>
                                 <field name="ds_id"/>
                                 <field name="vehicleNumberNVR"/>
+                                <field name="vehicleType"/>
+                                <field name="vehicleGenre"/>
+                                <field name="axleWeight"/>
+                                <field name="brakePadType"/>
+                                <field name="brakingWeight1"/>
+                                <field name="brakingWeightHighG"/>
+                                <field name="brakingWeightLowG"/>
+                                <field name="brakingWeightLowP"/>
+                                <field name="cargo"/>
+                                <field name="clearanceProfile"/>
+                                <field name="clutchType"/>
+                                <field name="colorBody"/>
+                                <field name="colorFrame"/>
+                                <field name="constructionYear"/>
+                                <field name="distanceWheelsets"/>
+                                <field name="entityECM"/>
+                                <field name="epoch"/>
+                                <field name="frameWagon"/>
+                                <field name="gauge"/>
+                                <field name="handbrakeWeight"/>
+                                <field name="hasBavLicense"/>
+                                <field name="hasBbLicense"/>
+                                <field name="hasChangeOver"/>
+                                <field name="hasDynamoGenerator"/>
+                                <field name="hasEboLicense"/>
+                                <field name="hasEbvLicense"/>
+                                <field name="hasRicRivTenLicense"/>
+                                <field name="isBavLimited"/>
+                                <field name="isBbLimited"/>
+                                <field name="isEboLimited"/>
+                                <field name="isEbvLimited"/>
+                                <field name="isGuest"/>
+                                <field name="isOperational"/>
+                                <field name="isRicRivTenLimited"/>
+                                <field name="lengthOverBuffer"/>
+                                <field name="manufacturer"/>
+                                <field name="manufacturerBody"/>
+                                <field name="manufacturerFrame"/>
+                                <field name="maxTowWeight"/>
+                                <field name="maximumPayload"/>
+                                <field name="meterWeight"/>
+                                <field name="mileage"/>
+                                <field name="nbrEmergencyBrakeValve"/>
+                                <field name="note"/>
+                                <field name="numberOfAxes"/>
+                                <field name="numberOfBrakePads"/>
+                                <field name="operationalEndDate"/>
+                                <field name="outerHeightBody"/>
+                                <field name="outerWidth"/>
+                                <field name="plainOrRollerBearings"/>
+                                <field name="specialities"/>
+                                <field name="standardLoadingWeight"/>
+                                <field name="stateChangeNote" widget="html"/>
+                                <field name="suspension"/>
+                                <field name="vehicleGenre"/>
+                                <field name="vehicleNumberNVR"/>
+                                <field name="vehicleType"/>
+                                <field name="vehicleWeightGross"/>
+                                <field name="vehicleWeightNet"/>
+                                <field name="vmax"/>
+                                <field name="weight"/>
                             </group>
                         </group>
                         <notebook>
@@ -40,15 +101,33 @@
                            decoration-info="type == 'luggage'"
                     />
                     <field name="vehicleNumberNVR"/>
-                    <field name="vehicleType"/>
-                    <field name="vehicleGenre"/>
+                    <field name="isOperational"/>
                 </tree>
+            </field>
+        </record>
+
+        <record id="vehicle_search" model="ir.ui.view">
+            <field name="name">vehicle.search</field>
+            <field name="model">train_management.vehicle</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="ds_id"/>
+                    <field name="historicalDesignation"/>
+                    <field name="vehicleNumberNVR"/>
+                    <filter
+                            string="In Operation"
+                            name="is_in_operation"
+                            domain="[('isOperational','=', 'True')]"
+                    />
+                </search>
             </field>
         </record>
 
         <record id="vehicle_action" model="ir.actions.act_window">
             <field name="name">Vehicles</field>
             <field name="res_model">train_management.vehicle</field>
+            <field name="context">{"search_default_is_in_operation":1}</field>
             <field name="view_mode">tree,form</field>
         </record>
 
