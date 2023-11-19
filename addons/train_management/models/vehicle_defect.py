@@ -30,6 +30,13 @@ class VehicleDefect(models.Model):
         ],
         required=True,
     )
+    state = fields.Selection(
+        selection=[
+            ("new", "New"),
+        ],
+        required=True,
+        default="new"
+    )
     isAccident = fields.Selection(
         selection=[
             ("no", "no"),
