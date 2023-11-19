@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-19 07:11+0000\n"
-"PO-Revision-Date: 2023-11-19 07:11+0000\n"
+"POT-Creation-Date: 2023-11-19 17:24+0000\n"
+"PO-Revision-Date: 2023-11-19 17:24+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -160,6 +160,18 @@ msgid "Active"
 msgstr ""
 
 #. module: train_management
+#: model:ir.actions.act_window,name:train_management.open_add_shift_positions_wizard
+#: model_terms:ir.ui.view,arch_db:train_management.add_shift_positions_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:train_management.shift_template_view_form
+msgid "Add shift positions"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model,name:train_management.model_train_management_add_shift_positions_wizard
+msgid "Add shift positions wizard"
+msgstr ""
+
+#. module: train_management
 #: model:ir.actions.act_window,name:train_management.open_add_shifts_wizard
 #: model_terms:ir.ui.view,arch_db:train_management.add_shifts_wizard_view_form
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_form
@@ -273,6 +285,7 @@ msgid "Bus"
 msgstr ""
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.add_shift_positions_wizard_view_form
 #: model_terms:ir.ui.view,arch_db:train_management.add_shifts_wizard_view_form
 #: model_terms:ir.ui.view,arch_db:train_management.create_train_wizard_view_form
 msgid "Cancel"
@@ -285,6 +298,7 @@ msgstr ""
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__cargo
+#: model_terms:ir.ui.view,arch_db:train_management.vehicle_search
 msgid "Cargo"
 msgstr ""
 
@@ -439,6 +453,7 @@ msgid "Create trains"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_add_shift_positions_wizard__create_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_add_shifts_wizard__create_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__create_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__create_uid
@@ -462,10 +477,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__create_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_batch_update__create_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_defect__create_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_defect_batch_update__create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_add_shift_positions_wizard__create_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_add_shifts_wizard__create_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__create_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__create_date
@@ -489,6 +506,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__create_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_batch_update__create_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_defect__create_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_defect_batch_update__create_date
 msgid "Created on"
 msgstr ""
 
@@ -628,6 +646,7 @@ msgid "Didok"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_add_shift_positions_wizard__display_name
 #: model:ir.model.fields,field_description:train_management.field_train_management_add_shifts_wizard__display_name
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__display_name
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__display_name
@@ -651,6 +670,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__display_name
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_batch_update__display_name
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_defect__display_name
+#: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_defect_batch_update__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -729,6 +749,7 @@ msgstr ""
 
 #. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_vehicle__type__engine
+#: model_terms:ir.ui.view,arch_db:train_management.vehicle_search
 msgid "Engine"
 msgstr ""
 
@@ -795,6 +816,7 @@ msgstr ""
 #. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_reservation__type__gastro
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_vehicle__type__gastro
+#: model_terms:ir.ui.view,arch_db:train_management.vehicle_search
 msgid "Gastro"
 msgstr ""
 
@@ -866,6 +888,7 @@ msgid "Historicaldesignation"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_add_shift_positions_wizard__id
 #: model:ir.model.fields,field_description:train_management.field_train_management_add_shifts_wizard__id
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__id
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__id
@@ -889,6 +912,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__id
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_batch_update__id
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_defect__id
+#: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_defect_batch_update__id
 msgid "ID"
 msgstr ""
 
@@ -905,6 +929,11 @@ msgstr ""
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_defect__image3
 msgid "Image3"
+msgstr ""
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.vehicle_search
+msgid "In Operation"
 msgstr ""
 
 #. module: train_management
@@ -987,6 +1016,7 @@ msgid "Label"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_add_shift_positions_wizard____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_add_shifts_wizard____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle____last_update
@@ -1010,10 +1040,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_batch_update____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_defect____last_update
+#: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_defect_batch_update____last_update
 msgid "Last Modified on"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_add_shift_positions_wizard__write_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_add_shifts_wizard__write_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__write_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__write_uid
@@ -1037,10 +1069,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__write_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_batch_update__write_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_defect__write_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_defect_batch_update__write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_add_shift_positions_wizard__write_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_add_shifts_wizard__write_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit__write_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__write_date
@@ -1064,6 +1098,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__write_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_batch_update__write_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_defect__write_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_defect_batch_update__write_date
 msgid "Last Updated on"
 msgstr ""
 
@@ -1089,6 +1124,7 @@ msgstr ""
 
 #. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_vehicle__type__luggage
+#: model_terms:ir.ui.view,arch_db:train_management.vehicle_search
 msgid "Luggage"
 msgstr ""
 
@@ -1142,6 +1178,11 @@ msgstr ""
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__nbrEmergencyBrakeValve
 msgid "Nbremergencybrakevalve"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields.selection,name:train_management.selection__train_management_vehicle_defect__state__new
+msgid "New"
 msgstr ""
 
 #. module: train_management
@@ -1414,6 +1455,7 @@ msgstr ""
 #. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_reservation__type__seat
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_vehicle__type__seat
+#: model_terms:ir.ui.view,arch_db:train_management.vehicle_search
 msgid "Seat"
 msgstr ""
 
@@ -1473,6 +1515,7 @@ msgid "Shift Start"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_add_shift_positions_wizard__shift_template
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__shift_template
 msgid "Shift Template"
 msgstr ""
@@ -1594,6 +1637,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:train_management.briefing
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 msgid "Start-End"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_defect__state
+msgid "State"
 msgstr ""
 
 #. module: train_management
@@ -1806,9 +1854,11 @@ msgid "Trains"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__vehicle_type
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__type
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_position__type
 #: model:ir.model.fields,field_description:train_management.field_train_management_stop_code__type
+#: model:ir.model.fields,field_description:train_management.field_train_management_train_vehicle__vehicle_type
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__type
 #: model_terms:ir.ui.view,arch_db:train_management.shift
 msgid "Type"
@@ -1827,6 +1877,12 @@ msgstr ""
 #. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__res_partner__phone_publish__unknown
 msgid "Unknown"
+msgstr ""
+
+#. module: train_management
+#: model:ir.actions.server,name:train_management.ir_cron_update_vehicle_defect_batch_ir_actions_server
+#: model:ir.cron,cron_name:train_management.ir_cron_update_vehicle_defect_batch
+msgid "Update Vehicle Defect Batch"
 msgstr ""
 
 #. module: train_management
@@ -1867,6 +1923,11 @@ msgstr ""
 #. module: train_management
 #: model:ir.model,name:train_management.model_train_management_vehicle_batch_update
 msgid "Vehicle Batch Update"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model,name:train_management.model_train_management_vehicle_defect_batch_update
+msgid "Vehicle Defect Batch Update"
 msgstr ""
 
 #. module: train_management
@@ -1928,6 +1989,14 @@ msgstr ""
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_defect__whereAtVehicle
 msgid "Whereatvehicle"
+msgstr ""
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.add_shift_positions_wizard_view_form
+msgid ""
+"With this action shift positions can be copied from one shift template to another.<br/>\n"
+"                        Please choose the shift template, you would like the positions to be copied from.\n"
+"                        <br/><br/>"
 msgstr ""
 
 #. module: train_management

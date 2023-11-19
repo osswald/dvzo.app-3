@@ -7,6 +7,9 @@
             <field name="model">train_management.add.shift.positions.wizard</field>
             <field name="arch" type="xml">
                 <form>
+                    <div>With this action shift positions can be copied from one shift template to another.<br/>
+                        Please choose the shift template, you would like the positions to be copied from.
+                        <br/><br/></div>
                     <group>
                         <field name="shift_template"/>
                     </group>
