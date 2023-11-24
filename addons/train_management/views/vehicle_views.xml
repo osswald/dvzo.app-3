@@ -58,7 +58,7 @@
                                 <field name="meterWeight"/>
                                 <field name="mileage"/>
                                 <field name="nbrEmergencyBrakeValve"/>
-                                <field name="note"/>
+                                <field name="note" widget="html"/>
                                 <field name="numberOfAxes"/>
                                 <field name="numberOfBrakePads"/>
                                 <field name="operationalEndDate"/>
