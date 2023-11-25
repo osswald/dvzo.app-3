@@ -63,15 +63,13 @@ class VehicleDefect(models.Model):
     image1 = fields.Image()
     image2 = fields.Image()
     image3 = fields.Image()
-    # TODO:
-    #  Add functionality for sending new defects to DS
 
 def convert_string_date_to_date(string_date, time=None):
     if time:
         return datetime.strptime(
             string_date + " " + time, "%Y-%m-%d %H:%M"
         ).date()
-    return datetime.strptime(string_date, "%Y-%m-%d").date()
+    return datetime.strptime(string_date, "%d.%m.%Y").date()
 
 class VehicleDefectBatchUpdate(models.Model):
     _name = "train_management.vehicle_defect_batch_update"
@@ -79,7 +77,9 @@ class VehicleDefectBatchUpdate(models.Model):
 
     def update_vehicle_defect_for_single_vehicle(self, drehscheibe, vehicle_id, vehicle_defects):
         existing_defects = self.env["train_management.vehicle_defect"].sudo().search(
-            [("vehicle.ds_id", "=", vehicle_id)]
+            [("vehicle.ds_id", "=", vehicle_id),
+             ("status", "=", "from_ds")
+            ]
         )
         existing_defects.unlink()
         for old_item in vehicle_defects:
@@ -108,16 +108,30 @@ class VehicleDefectBatchUpdate(models.Model):
             ).id
             self.env["train_management.vehicle_defect"].sudo().create(new_item)
 
-    @api.model
-    def update_vehicle_defect(self):
+    def send_new_defects2ds(self):
+        new_defects = self.env["train_management.vehicle_defect"].sudo().search(
+            [("status", "=", "pending")]
+        )
+        drehscheibe = Drehscheibe()
+        for defect in new_defects:
+            drehscheibe.post_vehicle_defects(defect)
+            defect.unlink()
+
+    def update_all_vehicle_defects(self):
         vehicle_ids = self.env[
             "train_management.vehicle"].sudo().search([]).mapped("ds_id")
         vehicle_ids = [x for x in vehicle_ids if x]
         drehscheibe = Drehscheibe()
+
         from multiprocessing.pool import ThreadPool
-        with ThreadPool() as pool:
+        with ThreadPool(processes=10) as pool:
             vehicle_defects = pool.map(drehscheibe.get_vehicle_defects, vehicle_ids)
 
         for vehicle_id, defects in vehicle_defects:
             self.update_vehicle_defect_for_single_vehicle(
                 drehscheibe, vehicle_id, defects)
+
+    @api.model
+    def update_vehicle_defect(self):
+        self.send_new_defects2ds()
+        self.update_all_vehicle_defects()

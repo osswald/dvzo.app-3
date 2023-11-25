@@ -124,7 +124,7 @@ class VehicleBatchUpdate(models.Model):
                 if prop == "operationalEndDate":
                     if old_item.get(prop):
                         new_item[prop] = datetime.strptime(
-                            old_item.get(prop), "%Y-%m-%d"
+                            old_item.get(prop), "%d.%m.%Y"
                         ).strftime("%Y-%m-%d %H:%M:%S")
                 else:
                     new_item[prop] = old_item.get(prop)

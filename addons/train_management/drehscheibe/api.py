@@ -1,6 +1,11 @@
 from typing import List
 import os
 import requests
+import logging
+from base64 import b64decode
+
+
+log = logging.getLogger(__name__)
 
 
 class Drehscheibe:
@@ -41,18 +46,23 @@ class Drehscheibe:
         else:
             return [response_data]
 
-    def __post_data(self, model, body, headers, files=None, uuid = ""):
+    def __post_data(self, model, body, headers, upload=None, uuid="", form_data=False):
         if uuid:
             url = f"{self.DREHSCHEIBE_URL}/api/{model}/{uuid}"
         else:
             url = f"{self.DREHSCHEIBE_URL}/api/{model}"
 
-        if files:
-            response = self.session.post(
-                url, data=body, files=files, timeout=self.__timeout, headers=headers)
+        if form_data:
+            files = {key: (None, value) for key, value in body.items()}
+
+            for key, (name, data) in upload.items():
+                if data:
+                    files[key] = (name, b64decode(data))
         else:
-            response = self.session.post(
-                url, data=body, timeout=self.__timeout, headers=headers)
+            files = upload
+       
+        response = self.session.post(
+            url, data=body, files=files, timeout=self.__timeout, headers=headers)
         response.raise_for_status()
         response_data = response.json()
 
@@ -69,24 +79,27 @@ class Drehscheibe:
         model = "open-tasks"
         return [uuid, self.__get_data(model, uuid)]
 
-    def post_vehicle_defects(self, uuid) -> List:
+    def post_vehicle_defects(self, defect) -> List:
         model = "repair-task"
-        files = None
         headers = {
             "accept": "application/json",
-            "content-type": "multipart/form-data",
         }
+        upload = {
+                "filePath01": ("image1", defect.image1),
+                "filePath02": ("image2", defect.image2),
+                "filePath03": ("image3", defect.image3),
+                }
         body = {
-            "defectTitle": "Test",
-            "defectDescription": "Test",
-            "date": "01.11.2021",
-            "time": "13:00",
-            "trainNumber": "431K",
-            "whereAtVehicle": "roof",
-            "isAccident": "no",
-            "isSecurityRelated": False,
+            "defectTitle": defect.defectTitle,
+            "defectDescription": defect.defectDescription,
+            "date": defect.date.strftime("%d.%m.%Y"),
+            "time": "12:00",
+            "trainNumber": defect.trainNumber,
+            "whereAtVehicle": defect.whereAtVehicle,
+            "isAccident": defect.isAccident,
+            "isSecurityRelated": defect.isSecurityRelated,
         }
-        return self.__post_data(model, body, headers, files, uuid)
+        return self.__post_data(model, body, headers, upload, defect.vehicle.ds_id, form_data=True)
 
     def post_day_planning(self):
         model = "completed-trip"
@@ -95,26 +108,38 @@ class Drehscheibe:
             "content-type": "application/json",
         }
         body = {
-            "name": "Test",
-            "date": "01.11.2021",
-            "timeStart": "13:00",
-            "completedDate": "01.13.2021",
-            "completedNote": "Test",
+            "name": "Dampf Zug",
+            "date": "12.09.2023",
+            "timeStart": "09:00",
+            "timeEnd": "18:00",
+            "responsiblePerson": "Hans Muster",
+            "location": "Sihlwald",
+            "completedDate": "12.10.2023",
+            "completedNote": "Notiz...",
             "matrix": [
                 {
                     "vehicle": "b96bf00d-94c4-40c3-b364-affcb6d53549",
-                    "km": "15.39",
+                    "km": "33",
                     "railline": [
                         {
-                            "stationStart": "Test",
-                            "stationEnd": "Test",
+                            "stationStart": "BMA",
+                            "stationEnd": "HI"
                         },
                         {
-                            "stationStart": "Gugus",
-                            "stationEnd": "Dadaa",
-                        },
-                    ],
-                },
-            ],
+                            "stationStart": "BMA",
+                            "stationEnd": "BAEW"
+                        }
+                    ]
+                }
+            ]
         }
+
         return self.__post_data(model, body, headers)
+
+
+if __name__ == "__main__":
+    import http.client as http_client
+    http_client.HTTPConnection.debuglevel = 1
+    drehscheibe = Drehscheibe()
+    drehscheibe.DREHSCHEIBE_URL = "https://drehscheibe.e9li.com"
+    print(drehscheibe.post_day_planning())
