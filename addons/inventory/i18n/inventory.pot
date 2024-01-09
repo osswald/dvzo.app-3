@@ -1,0 +1,480 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* inventory
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-09 13:11+0000\n"
+"PO-Revision-Date: 2024-01-09 13:11+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: inventory
+#: model:mail.template,body_html:inventory.mail_template_reminder
+msgid ""
+"<div style=\"margin: 16px; padding: 16px; background-color: #F3F5F6;\">\n"
+"                    <p style=\"font-size:20px;\">Hello ${object.responsible.name},</p>\n"
+"                    <p>Here is the list of inventory items whose expiry dates are within the next 14 days:</p>\n"
+"                    <table style=\"width:100%; border-collapse: collapse;\">\n"
+"                        <tr>\n"
+"                            <th style=\"border: 1px solid black; padding: 8px;\">Inventory Name</th>\n"
+"                            <th style=\"border: 1px solid black; padding: 8px;\">Expiry Date</th>\n"
+"                        </tr>\n"
+"                        % for inventory in ctx['inventories']:\n"
+"                        <tr>\n"
+"                            <td style=\"border: 1px solid black; padding: 8px;\">${inventory.name}</td>\n"
+"                            <td style=\"border: 1px solid black; padding: 8px;\">${inventory.date_expires}</td>\n"
+"                        </tr>\n"
+"                        % endfor\n"
+"                    </table>\n"
+"                    <p>Regards,<br>${object.company_id.name}\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__active
+#: model:ir.model.fields,field_description:inventory.field_inventory_location__active
+#: model:ir.model.fields,field_description:inventory.field_inventory_manufacturer__active
+#: model:ir.model.fields,field_description:inventory.field_inventory_place__active
+#: model:ir.model.fields,field_description:inventory.field_inventory_status__active
+#: model:ir.model.fields,field_description:inventory.field_inventory_type__active
+msgid "Active"
+msgstr ""
+
+#. module: inventory
+#: model:res.groups,name:inventory.group_inventory_manager
+msgid "Administrator"
+msgstr ""
+
+#. module: inventory
+#: model_terms:ir.ui.view,arch_db:inventory.view_inventory_check_wizard
+msgid "Cancel"
+msgstr ""
+
+#. module: inventory
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_form
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_tree
+msgid "Check"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_check__checked_by
+#: model:ir.model.fields,field_description:inventory.field_inventory_check_wizard__checked_by
+msgid "Checked By"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__checks
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_form
+msgid "Checks"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__computed_nr
+msgid "Computed Nr"
+msgstr ""
+
+#. module: inventory
+#: model_terms:ir.ui.view,arch_db:inventory.view_inventory_check_wizard
+msgid "Create"
+msgstr ""
+
+#. module: inventory
+#: model_terms:ir.ui.view,arch_db:inventory.view_inventory_check_wizard
+msgid "Create Inventory Check"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_check__create_uid
+#: model:ir.model.fields,field_description:inventory.field_inventory_check_wizard__create_uid
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__create_uid
+#: model:ir.model.fields,field_description:inventory.field_inventory_location__create_uid
+#: model:ir.model.fields,field_description:inventory.field_inventory_manufacturer__create_uid
+#: model:ir.model.fields,field_description:inventory.field_inventory_place__create_uid
+#: model:ir.model.fields,field_description:inventory.field_inventory_status__create_uid
+#: model:ir.model.fields,field_description:inventory.field_inventory_type__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_check__create_date
+#: model:ir.model.fields,field_description:inventory.field_inventory_check_wizard__create_date
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__create_date
+#: model:ir.model.fields,field_description:inventory.field_inventory_location__create_date
+#: model:ir.model.fields,field_description:inventory.field_inventory_manufacturer__create_date
+#: model:ir.model.fields,field_description:inventory.field_inventory_place__create_date
+#: model:ir.model.fields,field_description:inventory.field_inventory_status__create_date
+#: model:ir.model.fields,field_description:inventory.field_inventory_type__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_check__date
+#: model:ir.model.fields,field_description:inventory.field_inventory_check_wizard__date
+msgid "Date"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__date_bought
+msgid "Date bought"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__date_calibrated
+msgid "Date calibrated"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__date_expires
+msgid "Date expires"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_type__name
+msgid "Department"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_check__display_name
+#: model:ir.model.fields,field_description:inventory.field_inventory_check_wizard__display_name
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__display_name
+#: model:ir.model.fields,field_description:inventory.field_inventory_location__display_name
+#: model:ir.model.fields,field_description:inventory.field_inventory_manufacturer__display_name
+#: model:ir.model.fields,field_description:inventory.field_inventory_place__display_name
+#: model:ir.model.fields,field_description:inventory.field_inventory_status__display_name
+#: model:ir.model.fields,field_description:inventory.field_inventory_type__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_check__expiry_date
+#: model:ir.model.fields,field_description:inventory.field_inventory_check_wizard__expiry_date
+msgid "Expiry Date"
+msgstr ""
+
+#. module: inventory
+#: model:mail.template,name:inventory.mail_template_reminder
+msgid "Expiry Reminder"
+msgstr ""
+
+#. module: inventory
+#: model:mail.template,subject:inventory.mail_template_reminder
+msgid "Expiry Reminder for Inventory: ${object.name}"
+msgstr ""
+
+#. module: inventory
+#: model:ir.actions.act_window,name:inventory.action_generate_expiry_window
+#: model:ir.actions.server,name:inventory.action_generate_expiry
+msgid "Generate Expiry Reminders"
+msgstr ""
+
+#. module: inventory
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_search
+msgid "Group By"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_check__id
+#: model:ir.model.fields,field_description:inventory.field_inventory_check_wizard__id
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__id
+#: model:ir.model.fields,field_description:inventory.field_inventory_location__id
+#: model:ir.model.fields,field_description:inventory.field_inventory_manufacturer__id
+#: model:ir.model.fields,field_description:inventory.field_inventory_place__id
+#: model:ir.model.fields,field_description:inventory.field_inventory_status__id
+#: model:ir.model.fields,field_description:inventory.field_inventory_type__id
+msgid "ID"
+msgstr ""
+
+#. module: inventory
+#: model:ir.actions.act_window,name:inventory.inventory_action
+#: model:ir.actions.act_window,name:inventory.inventory_after_wizard_action
+#: model:ir.model,name:inventory.model_inventory_inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_check__inventory_id
+#: model:ir.model.fields,field_description:inventory.field_inventory_check_wizard__inventory_id
+#: model:ir.ui.menu,name:inventory.inventory_menu_action
+#: model:ir.ui.menu,name:inventory.inventory_menu_root
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_form
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_tree
+msgid "Inventory"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__inventory_nr
+msgid "Inventory Number"
+msgstr ""
+
+#. module: inventory
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_status_view_tree
+msgid "Inventory Status"
+msgstr ""
+
+#. module: inventory
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_type_view_tree
+msgid "Inventory Type"
+msgstr ""
+
+#. module: inventory
+#: model:ir.actions.act_window,name:inventory.inventory_check_action
+#: model:ir.model,name:inventory.model_inventory_check
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_check_view_form
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_check_view_tree
+msgid "Inventory check"
+msgstr ""
+
+#. module: inventory
+#: model:ir.actions.act_window,name:inventory.inventory_location_action
+#: model:ir.model,name:inventory.model_inventory_location
+#: model:ir.ui.menu,name:inventory.inventory_location_menu_action
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_location_view_form
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_location_view_tree
+msgid "Inventory location"
+msgstr ""
+
+#. module: inventory
+#: model:ir.actions.act_window,name:inventory.inventory_manufacturer_action
+#: model:ir.model,name:inventory.model_inventory_manufacturer
+#: model:ir.ui.menu,name:inventory.inventory_manufacturer_menu_action
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_manufacturer_view_form
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_manufacturer_view_tree
+msgid "Inventory manufacturer"
+msgstr ""
+
+#. module: inventory
+#: model:ir.actions.act_window,name:inventory.inventory_place_action
+#: model:ir.model,name:inventory.model_inventory_place
+#: model:ir.ui.menu,name:inventory.inventory_place_menu_action
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_place_view_form
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_place_view_tree
+msgid "Inventory place"
+msgstr ""
+
+#. module: inventory
+#: model:ir.actions.act_window,name:inventory.inventory_status_action
+#: model:ir.model,name:inventory.model_inventory_status
+#: model:ir.ui.menu,name:inventory.inventory_status_menu_action
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_status_view_form
+msgid "Inventory status"
+msgstr ""
+
+#. module: inventory
+#: model:ir.actions.act_window,name:inventory.inventory_type_action
+#: model:ir.model,name:inventory.model_inventory_type
+#: model:ir.ui.menu,name:inventory.inventory_type_menu_action
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_type_view_form
+msgid "Inventory type"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__name
+msgid "Label"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_check____last_update
+#: model:ir.model.fields,field_description:inventory.field_inventory_check_wizard____last_update
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory____last_update
+#: model:ir.model.fields,field_description:inventory.field_inventory_location____last_update
+#: model:ir.model.fields,field_description:inventory.field_inventory_manufacturer____last_update
+#: model:ir.model.fields,field_description:inventory.field_inventory_place____last_update
+#: model:ir.model.fields,field_description:inventory.field_inventory_status____last_update
+#: model:ir.model.fields,field_description:inventory.field_inventory_type____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_check__write_uid
+#: model:ir.model.fields,field_description:inventory.field_inventory_check_wizard__write_uid
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__write_uid
+#: model:ir.model.fields,field_description:inventory.field_inventory_location__write_uid
+#: model:ir.model.fields,field_description:inventory.field_inventory_manufacturer__write_uid
+#: model:ir.model.fields,field_description:inventory.field_inventory_place__write_uid
+#: model:ir.model.fields,field_description:inventory.field_inventory_status__write_uid
+#: model:ir.model.fields,field_description:inventory.field_inventory_type__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_check__write_date
+#: model:ir.model.fields,field_description:inventory.field_inventory_check_wizard__write_date
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__write_date
+#: model:ir.model.fields,field_description:inventory.field_inventory_location__write_date
+#: model:ir.model.fields,field_description:inventory.field_inventory_manufacturer__write_date
+#: model:ir.model.fields,field_description:inventory.field_inventory_place__write_date
+#: model:ir.model.fields,field_description:inventory.field_inventory_status__write_date
+#: model:ir.model.fields,field_description:inventory.field_inventory_type__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__location
+#: model:ir.model.fields,field_description:inventory.field_inventory_location__name
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_search
+msgid "Location"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__manufacturer
+#: model:ir.model.fields,field_description:inventory.field_inventory_manufacturer__name
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_search
+msgid "Manufacturer"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_manufacturer__partner
+msgid "Partner"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__place
+#: model:ir.model.fields,field_description:inventory.field_inventory_place__name
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_search
+msgid "Place"
+msgstr ""
+
+#. module: inventory
+#: model:res.groups,name:inventory.group_inventory_readonly
+msgid "Read-only"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__responsible
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_search
+msgid "Responsible"
+msgstr ""
+
+#. module: inventory
+#: model:ir.actions.server,name:inventory.ir_cron_send_inventory_check_reminders_ir_actions_server
+#: model:ir.cron,cron_name:inventory.ir_cron_send_inventory_check_reminders
+msgid "Send Inventory check reminders"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__serial_number
+msgid "Serial Number"
+msgstr ""
+
+#. module: inventory
+#: model:ir.ui.menu,name:inventory.settings_menu
+msgid "Settings"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_place__short_name
+#: model:ir.model.fields,field_description:inventory.field_inventory_type__short_name
+msgid "Short Name"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__status
+#: model:ir.model.fields,field_description:inventory.field_inventory_status__name
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_search
+msgid "Status"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.constraint,message:inventory.constraint_inventory_inventory_unique_computed_nr
+msgid "The computed number must be unique."
+msgstr ""
+
+#. module: inventory
+#: model:res.groups,comment:inventory.group_inventory_user
+msgid "The user will be able to add entries and do checks."
+msgstr ""
+
+#. module: inventory
+#: model:res.groups,comment:inventory.group_inventory_readonly
+msgid "The user will be able to see the full inventory module."
+msgstr ""
+
+#. module: inventory
+#: model:res.groups,comment:inventory.group_inventory_manager
+msgid ""
+"The user will have full access to the inventory module.\n"
+"        "
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__type
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_search
+msgid "Type"
+msgstr ""
+
+#. module: inventory
+#: model:ir.actions.server,name:inventory.ir_cron_update_inventory_status_ir_actions_server
+#: model:ir.cron,cron_name:inventory.ir_cron_update_inventory_status
+msgid "Update Inventory Status"
+msgstr ""
+
+#. module: inventory
+#: model:res.groups,name:inventory.group_inventory_user
+msgid "User"
+msgstr ""
+
+#. module: inventory
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_form
+msgid "e.g. 11.11.2011"
+msgstr ""
+
+#. module: inventory
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_form
+msgid "e.g. At Luki's home"
+msgstr ""
+
+#. module: inventory
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_form
+msgid "e.g. Cleaning detergent"
+msgstr ""
+
+#. module: inventory
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_form
+msgid "e.g. Ettenhausen-Emmetschlooooo"
+msgstr ""
+
+#. module: inventory
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_form
+msgid "e.g. ME"
+msgstr ""
+
+#. module: inventory
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_form
+msgid "e.g. Microsoft Corp."
+msgstr ""
+
+#. module: inventory
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_form
+msgid "e.g. SQ33333-482P"
+msgstr ""
+
+#. module: inventory
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_form
+msgid ""
+"e.g. Spannungsprüfer FL 15kV, ARCUSDETECT M Type 610241, Gerät- Nr. 00693"
+msgstr ""
+
+#. module: inventory
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_form
+msgid "e.g. tomorrow"
+msgstr ""
+
+#. module: inventory
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_form
+msgid "e.g. yesterday"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model,name:inventory.model_inventory_check_wizard
+msgid "inventory.check.wizard"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_status__label
+msgid "not used"
+msgstr ""

@@ -87,10 +87,10 @@
                 </group>
                 <searchpanel>
                     <field name="place" icon="fa-building" enable_counters="1"/>
-                    <field name="type" icon="fa-users" enable_counters="1"/>
-                    <field name="manufacturer" icon="fa-users" enable_counters="1"/>
-                    <field name="location" icon="fa-users" enable_counters="1"/>
-                    <field name="status" icon="fa-users" enable_counters="1"/>
+                    <field name="type" icon="fa-bookmark" enable_counters="1"/>
+                    <field name="manufacturer" icon="fa-bath" enable_counters="1"/>
+                    <field name="location" icon="fa-train" enable_counters="1"/>
+                    <field name="status" icon="fa-list" enable_counters="1"/>
                     <field name="responsible" icon="fa-users" enable_counters="1"/>
                 </searchpanel>
             </search>
