@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<odoo><data>
+
+    <!-- INVENTORY MENU VIEWS -->
+    <menuitem id="inventory_menu_root" name="Inventory">
+        <menuitem id="inventory_menu_action" action="inventory.inventory_action" sequence="10"/>
+        <menuitem id="settings_menu" name="Settings" sequence="20">
+            <menuitem id="inventory_location_menu_action" action="inventory.inventory_location_action" />
+            <menuitem id="inventory_manufacturer_menu_action" action="inventory.inventory_manufacturer_action" />
+            <menuitem id="inventory_place_menu_action" action="inventory.inventory_place_action" />
+            <menuitem id="inventory_status_menu_action" action="inventory.inventory_status_action" />
+            <menuitem id="inventory_type_menu_action" action="inventory.inventory_type_action" />
+        </menuitem>
+    </menuitem>
+
+
+</data></odoo>
+
+
+

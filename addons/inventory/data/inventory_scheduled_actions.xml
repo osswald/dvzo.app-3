@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ir_cron_update_inventory_status" model="ir.cron">
+            <field name="name">Update Inventory Status</field>
+            <field name="model_id" ref="model_inventory_inventory"/>
+            <field name="state">code</field>
+            <field name="code">model.update_inventory_status()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="active" eval="True"/>
+            <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 00:07:00')"/>
+        </record>
+
+        <record id="ir_cron_send_inventory_check_reminders" model="ir.cron">
+            <field name="name">Send Inventory check reminders</field>
+            <field name="model_id" ref="model_inventory_inventory"/>
+            <field name="state">code</field>
+            <field name="code">model.generate_expiry_reminders()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="active" eval="True"/>
+            <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 00:15:00')"/>
+        </record>
+
+
+        <!--Email template -->
+        <record id="mail_template_reminder" model="mail.template">
+            <field name="name">Expiry Reminder</field>
+            <field name="model_id" ref="inventory.model_inventory_inventory"/>
+            <field name="subject">Expiry Reminder for Inventory: ${object.name}</field>
+            <field name="email_from">${object.company_id.email}</field>
+            <field name="email_to">${object.responsible.email}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 16px; padding: 16px; background-color: #F3F5F6;">
+                    <p style="font-size:20px;">Hello ${object.responsible.name},</p>
+                    <p>Here is the list of inventory items whose expiry dates are within the next 14 days:</p>
+                    <table style="width:100%; border-collapse: collapse;">
+                        <tr>
+                            <th style="border: 1px solid black; padding: 8px;">Inventory Name</th>
+                            <th style="border: 1px solid black; padding: 8px;">Expiry Date</th>
+                        </tr>
+                        % for inventory in ctx['inventories']:
+                        <tr>
+                            <td style="border: 1px solid black; padding: 8px;">${inventory.name}</td>
+                            <td style="border: 1px solid black; padding: 8px;">${inventory.date_expires}</td>
+                        </tr>
+                        % endfor
+                    </table>
+                    <p>Regards,<br/>${object.company_id.name}
+                    </p>
+                </div>
+            </field>
+        </record>
+
+    </data>
+</odoo>

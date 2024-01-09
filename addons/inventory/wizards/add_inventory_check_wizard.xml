@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record id="view_inventory_check_wizard" model="ir.ui.view">
+            <field name="name">inventory.check.wizard.form</field>
+            <field name="model">inventory.check.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Create Inventory Check">
+                    <group>
+                        <field name="date"/>
+                        <field name="expiry_date"/>
+                        <field name="checked_by"/>
+                    </group>
+                    <footer>
+                        <button name="action_create_inventory_check" string="Create" type="object" class="btn-primary"/>
+                        <button special="cancel" data-hotkey="z" string="Cancel" class="btn-secondary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

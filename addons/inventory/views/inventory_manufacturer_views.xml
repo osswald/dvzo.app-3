@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="inventory_manufacturer_view_form" model="ir.ui.view">
+        <field name="name">inventory.manufacturer.form</field>
+        <field name="model">inventory.manufacturer</field>
+        <field name="arch" type="xml">
+            <form string="Inventory manufacturer">
+                <group>
+                    <field name="name"/>
+                    <field name="partner"/>
+                    <field name="active"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="inventory_manufacturer_view_tree" model="ir.ui.view">
+        <field name="name">inventory.manufacturer.tree</field>
+        <field name="model">inventory.manufacturer</field>
+        <field name="arch" type="xml">
+            <tree string="Inventory manufacturer" editable="bottom">
+                <field name="name"/>
+                <field name="partner"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="inventory_manufacturer_action" model="ir.actions.act_window">
+        <field name="name">Inventory manufacturer</field>
+        <field name="res_model">inventory.manufacturer</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

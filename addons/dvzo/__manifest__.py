@@ -19,6 +19,7 @@
         'train_management',
         'minimal_hours',
         'risk_management',
+        'inventory',
         'uniform',
         'web_window_title',
         'auth_oidc',

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="inventory_type_view_form" model="ir.ui.view">
+        <field name="name">inventory.type.form</field>
+        <field name="model">inventory.type</field>
+        <field name="arch" type="xml">
+            <form string="Inventory type">
+                <group>
+                    <field name="short_name"/>
+                    <field name="name"/>
+                    <field name="active"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="inventory_type_view_tree" model="ir.ui.view">
+        <field name="name">inventory.type.tree</field>
+        <field name="model">inventory.type</field>
+        <field name="arch" type="xml">
+            <tree string="Inventory Type" editable="bottom">
+                <field name="short_name"/>
+                <field name="name"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="inventory_type_action" model="ir.actions.act_window">
+        <field name="name">Inventory type</field>
+        <field name="res_model">inventory.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

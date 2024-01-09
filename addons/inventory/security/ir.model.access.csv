@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_inventory,inventory.inventory,model_inventory_inventory,inventory.group_inventory_user,1,1,1,1
+access_inventory_check,inventory.inventory_check,model_inventory_check,inventory.group_inventory_user,1,1,1,1
+access_inventory_location,inventory.inventory_location,model_inventory_location,inventory.group_inventory_manager,1,1,1,1
+access_inventory_manufacturer,inventory.inventory_manufacturer,model_inventory_manufacturer,inventory.group_inventory_manager,1,1,1,1
+access_inventory_place,inventory.inventory_place,model_inventory_place,inventory.group_inventory_manager,1,1,1,1
+access_inventory_status,inventory.inventory_status,model_inventory_status,inventory.group_inventory_manager,1,1,1,1
+access_inventory_type,inventory.inventory_type,model_inventory_type,inventory.group_inventory_manager,1,1,1,1
+access_inventory_check_wizard,inventory.check.wizard,model_inventory_check_wizard,inventory.group_inventory_user,1,1,1,1
+read_inventory,inventory.inventory,model_inventory_inventory,inventory.group_inventory_readonly,1,"","",""
+read_inventory_check,inventory.inventory_check,model_inventory_check,inventory.group_inventory_readonly,1,"","",""
+read_inventory_location,inventory.inventory_location,model_inventory_location,inventory.group_inventory_readonly,1,"","",""
+read_inventory_manufacturer,inventory.inventory_manufacturer,model_inventory_manufacturer,inventory.group_inventory_readonly,1,"",,
+read_inventory_place,inventory.inventory_place,model_inventory_place,inventory.group_inventory_readonly,1,,,
+read_inventory_status,inventory.inventory_status,model_inventory_status,inventory.group_inventory_readonly,1,,,
+read_inventory_type,inventory.inventory_type,model_inventory_type,inventory.group_inventory_readonly,1,,,

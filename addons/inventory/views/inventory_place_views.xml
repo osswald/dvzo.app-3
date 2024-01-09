@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="inventory_place_view_form" model="ir.ui.view">
+        <field name="name">inventory.place.form</field>
+        <field name="model">inventory.place</field>
+        <field name="arch" type="xml">
+            <form string="Inventory place">
+                <group>
+                    <field name="short_name"/>
+                    <field name="name"/>
+                    <field name="active"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="inventory_place_view_tree" model="ir.ui.view">
+        <field name="name">inventory.place.tree</field>
+        <field name="model">inventory.place</field>
+        <field name="arch" type="xml">
+            <tree string="Inventory place" editable="bottom">
+                <field name="short_name"/>
+                <field name="name"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="inventory_place_action" model="ir.actions.act_window">
+        <field name="name">Inventory place</field>
+        <field name="res_model">inventory.place</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="inventory_check_view_form" model="ir.ui.view">
+        <field name="name">inventory.check.form</field>
+        <field name="model">inventory.check</field>
+        <field name="arch" type="xml">
+            <form string="Inventory check">
+                <group>
+                    <field name="date"/>
+                    <field name="expiry_date"/>
+                    <field name="checked_by"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="inventory_check_view_tree" model="ir.ui.view">
+        <field name="name">inventory.check.tree</field>
+        <field name="model">inventory.check</field>
+        <field name="arch" type="xml">
+            <tree string="Inventory check">
+                <field name="date"/>
+                <field name="expiry_date"/>
+                <field name="checked_by"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="inventory_check_action" model="ir.actions.act_window">
+        <field name="name">Inventory check</field>
+        <field name="res_model">inventory.check</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
