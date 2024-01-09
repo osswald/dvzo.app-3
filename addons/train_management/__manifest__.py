@@ -58,4 +58,9 @@
         'views/shift_menu_views.xml',
         'views/train_management_menu_views.xml',
     ],
+    'assets': {
+        'web.assets_frontend': [
+            'train_management/static/src/js/shift_offer.js',
+        ],
+    },
 }
