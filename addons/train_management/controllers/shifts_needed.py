@@ -15,6 +15,11 @@ class ShiftsNeededController(Controller):
             ("date", ">=", date.today()),
             ("personnel_disposition", "=", "open")
             ]).sorted("date")
+        qualifications = request.env["res.partner.category"].sudo().search([
+            "|",
+            ("id", "in", request.env.user.partner_id.category_id.ids),
+            ("id", "in", request.env.user.partner_id.in_training_ids.ids),
+        ])
 
         entries = []
         for day_planning in day_plannings:
@@ -24,19 +29,23 @@ class ShiftsNeededController(Controller):
             
             shifts = []
             for shift in needed_shifts:
-                offer = request.env["train_management.day_planning_shift_offer"].sudo().search([
-                    ("day_planning_shift", "=", shift.id),
-                    ("person", "=", request.env.user.partner_id.id),
-                ])
-                offer = offer[0] if len(offer) > 0 else None
-                shifts.append({
-                    "shift": shift,
-                    "day_planning_shift_offer": offer
+                # Check if any of the shift categories match user's qualifications
+                if any(category.id in qualifications.ids for category in shift.shift_categories):
+                    offer = request.env["train_management.day_planning_shift_offer"].sudo().search([
+                        ("day_planning_shift", "=", shift.id),
+                        ("person", "=", request.env.user.partner_id.id),
+                    ])
+                    offer = offer[0] if len(offer) > 0 else None
+                    shifts.append({
+                        "shift": shift,
+                        "day_planning_shift_offer": offer
                     })
 
-            entries.append({
-                "day_planning": day_planning,
-                "shifts": shifts,
+                # Add the day planning entry only if there are qualifying shifts
+            if shifts:
+                entries.append({
+                    "day_planning": day_planning,
+                    "shifts": shifts,
                 })
             log.info(entries)
 

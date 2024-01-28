@@ -14,7 +14,7 @@
                             <h2 class="accordion-header" style="background-color:#dddddd;">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
 					t-attf-data-bs-target="#collapse{{dayplanning.id}}" aria-expanded="true" t-attf-aria-controls="collapse{{dayplanning.id}}">
-				<span t-field="dayplanning.name"/> - 
+				<span t-field="dayplanning.name"/> <span> - </span>
 				<span t-field="dayplanning.date" t-field-options='{"format": "dd.MM.yyyy"}'/>
                                 </button>
                             </h2>
