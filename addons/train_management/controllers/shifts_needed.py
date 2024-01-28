@@ -14,7 +14,7 @@ class ShiftsNeededController(Controller):
         day_plannings = request.env["train_management.day_planning"].sudo().search([
             ("date", ">=", date.today()),
             ("personnel_disposition", "=", "open")
-            ])
+            ]).sorted("date")
 
         entries = []
         for day_planning in day_plannings:
