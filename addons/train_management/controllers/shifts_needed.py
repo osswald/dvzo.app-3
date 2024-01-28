@@ -47,10 +47,18 @@ class ShiftsNeededController(Controller):
     def set_shift_offer(self, offer_id, shift_id, choice, comment):
         if offer_id == "new":
             log.info("Creating new shift offer")
-            # TODO: create new entry
-
-        shift_offer = request.env["train_management.day_planning_shift_offer"].sudo().search([
-            ("id", "=", offer_id),
-            ("person", "=", request.env.user.partner_id.id),
-        ])
-        shift_offer.offer = choice
+            shift_offer = request.env["train_management.day_planning_shift_offer"].create({
+                "day_planning_shift": shift_id,
+                "day_planning": None,
+                "day_planning_date": None,
+                "person": request.env.user.partner_id.id,
+                "comment": comment,
+                "offer": choice
+            })
+            request.env.cr.commit()
+        else:
+            shift_offer = request.env["train_management.day_planning_shift_offer"].sudo().search([
+                ("id", "=", offer_id),
+                ("person", "=", request.env.user.partner_id.id),
+            ])
+            shift_offer.offer = choice
