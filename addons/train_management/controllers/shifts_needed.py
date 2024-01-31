@@ -25,7 +25,7 @@ class ShiftsNeededController(Controller):
         for day_planning in day_plannings:
             needed_shifts = request.env["train_management.day_planning_shift"].sudo().search([
                 ("day_planning", "=", day_planning.id),
-                ])
+                ]).sorted("sequence")
             
             shifts = []
             for shift in needed_shifts:
