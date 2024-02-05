@@ -56,7 +56,7 @@ class ShiftsNeededController(Controller):
     def set_shift_offer(self, offer_id, shift_id, choice, comment):
         if offer_id == "new":
             log.info("Creating new shift offer")
-            shift_offer = request.env["train_management.day_planning_shift_offer"].create({
+            shift_offer = request.env["train_management.day_planning_shift_offer"].sudo.create({
                 "day_planning_shift": shift_id,
                 "day_planning": None,
                 "day_planning_date": None,
