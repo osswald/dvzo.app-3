@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-19 17:24+0000\n"
-"PO-Revision-Date: 2023-11-19 17:24+0000\n"
+"POT-Creation-Date: 2024-02-06 08:40+0000\n"
+"PO-Revision-Date: 2024-02-06 08:40+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -47,40 +47,25 @@ msgid "'Shifts'"
 msgstr ""
 
 #. module: train_management
-#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
-msgid "04:30 - 13:25"
-msgstr ""
-
-#. module: train_management
-#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
-msgid "08:30 - 17:25"
-msgstr ""
-
-#. module: train_management
-#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
-msgid "08:35 - 17:55"
-msgstr ""
-
-#. module: train_management
-#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
-msgid "123"
-msgstr ""
-
-#. module: train_management
-#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
-msgid "124"
-msgstr ""
-
-#. module: train_management
-#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
-msgid "131"
-msgstr ""
-
-#. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_kanban_view
 msgid ""
 "<i class=\"fa fa-calendar\" aria-hidden=\"true\" style=\"padding-right:5px\""
 " title=\"calendar\"/>"
+msgstr ""
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
+msgid ""
+"<i class=\"fa fa-user text-primary\" aria-hidden=\"true\"/>\n"
+"                        = Diese Tour wurde mir bereits eingeteilt.\n"
+"                        <br/>\n"
+"                        <i class=\"fa fa-users text-warning\" aria-hidden=\"true\"/>\n"
+"                        = Für diese Tour haben sich auch andere Personen zur Verfügung gestellt."
+msgstr ""
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
+msgid "<span aria-hidden=\"true\">x</span>"
 msgstr ""
 
 #. module: train_management
@@ -96,6 +81,11 @@ msgstr ""
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_kanban_view
 msgid "<span class=\"bg-success\">Executed</span>"
+msgstr ""
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
+msgid "<span>-</span>"
 msgstr ""
 
 #. module: train_management
@@ -131,26 +121,12 @@ msgstr ""
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
-msgid ""
-"<strong>This is the second item's accordion body.</strong>\n"
-"                                    It is hidden by default, until the collapse plugin adds the appropriate classes that\n"
-"                                    we use to style each element. These classes control the overall appearance, as well\n"
-"                                    as the showing and hiding via CSS transitions. You can modify any of this with\n"
-"                                    custom CSS or overriding our default variables. It's also worth noting that just\n"
-"                                    about any HTML can go within the <code>.accordion-body</code>, though the transition\n"
-"                                    does limit overflow."
+msgid "<strong>Planned circuits:</strong>"
 msgstr ""
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
-msgid ""
-"<strong>This is the third item's accordion body.</strong>\n"
-"                                    It is hidden by default, until the collapse plugin adds the appropriate classes that\n"
-"                                    we use to style each element. These classes control the overall appearance, as well\n"
-"                                    as the showing and hiding via CSS transitions. You can modify any of this with\n"
-"                                    custom CSS or overriding our default variables. It's also worth noting that just\n"
-"                                    about any HTML can go within the <code>.accordion-body</code>, though the transition\n"
-"                                    does limit overflow."
+msgid "<strong>Type:</strong>"
 msgstr ""
 
 #. module: train_management
@@ -351,6 +327,11 @@ msgid "Clearanceprofile"
 msgstr ""
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
+msgid "Close"
+msgstr ""
+
+#. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__clutchType
 msgid "Clutchtype"
 msgstr ""
@@ -381,11 +362,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:train_management.briefing
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 msgid "Comment"
 msgstr ""
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 msgid "Comment:"
 msgstr ""
 
@@ -526,6 +509,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift_offer__day_planning_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_reservation__day_planning_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_defect__date
+#: model_terms:ir.ui.view,arch_db:train_management.web_current_shifts_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_day_planning_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_list_view
 msgid "Date"
@@ -637,6 +621,7 @@ msgstr ""
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 msgid "Description:"
 msgstr ""
 
@@ -781,11 +766,6 @@ msgid "Extra"
 msgstr ""
 
 #. module: train_management
-#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
-msgid "Fahrsonntag - 10.10.2023"
-msgstr ""
-
-#. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__frameWagon
 msgid "Framewagon"
 msgstr ""
@@ -875,11 +855,6 @@ msgstr ""
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__height
 msgid "Height"
-msgstr ""
-
-#. module: train_management
-#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
-msgid "Heizer früh Zug 1"
 msgstr ""
 
 #. module: train_management
@@ -1016,6 +991,11 @@ msgid "Label"
 msgstr ""
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
+msgid "Label / Type"
+msgstr ""
+
+#. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_add_shift_positions_wizard____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_add_shifts_wizard____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit____last_update
@@ -1113,16 +1093,6 @@ msgid "Lengthoverbuffer"
 msgstr ""
 
 #. module: train_management
-#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
-msgid "Lokführer Zug 1"
-msgstr ""
-
-#. module: train_management
-#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
-msgid "Lokführer Zug 2"
-msgstr ""
-
-#. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_vehicle__type__luggage
 #: model_terms:ir.ui.view,arch_db:train_management.vehicle_search
 msgid "Luggage"
@@ -1171,6 +1141,7 @@ msgstr ""
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_train__name
 #: model_terms:ir.ui.view,arch_db:train_management.shift
+#: model_terms:ir.ui.view,arch_db:train_management.web_current_shifts_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_list_view
 msgid "Name"
 msgstr ""
@@ -1380,6 +1351,11 @@ msgid "Public"
 msgstr ""
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
+msgid "Qualification:"
+msgstr ""
+
+#. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__railway_company
 msgid "Railway Company"
 msgstr ""
@@ -1440,16 +1416,6 @@ msgstr ""
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__responsible_phone
 msgid "Responsible phone"
-msgstr ""
-
-#. module: train_management
-#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
-msgid "Samichlous - 3.12.2023"
-msgstr ""
-
-#. module: train_management
-#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
-msgid "Samichlous - 4.12.2023"
 msgstr ""
 
 #. module: train_management
@@ -1526,6 +1492,11 @@ msgid "Shift Templates"
 msgstr ""
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
+msgid "Shift duration:"
+msgstr ""
+
+#. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__name
 msgid "Shift number"
 msgstr ""
@@ -1554,6 +1525,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__shift_position_ids
 #: model_terms:ir.ui.view,arch_db:train_management.shift_template_view_form
 msgid "Shift positions"
+msgstr ""
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
+msgid "Shift positions:"
 msgstr ""
 
 #. module: train_management
@@ -1664,6 +1640,11 @@ msgid "Stations"
 msgstr ""
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
+msgid "Stations (Start/End)"
+msgstr ""
+
+#. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.shift_template_view_form
 msgid "Statistics"
 msgstr ""
@@ -1743,20 +1724,9 @@ msgid ""
 msgstr ""
 
 #. module: train_management
-#: model_terms:ir.ui.view,arch_db:train_management.web_current_shifts_list_view
-msgid "This page is currently under construction. Please check back later."
-msgstr ""
-
-#. module: train_management
-#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
-msgid ""
-"This page is currently under construction. Please check back later.\n"
-"                    <br/>"
-msgstr ""
-
-#. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 msgid "Time"
 msgstr ""
 
@@ -1772,6 +1742,11 @@ msgid "Time accountable:"
 msgstr ""
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
+msgid "Times:"
+msgstr ""
+
+#. module: train_management
 #: model:ir.model,name:train_management.model_train_management_timetable
 #: model:ir.model.fields,field_description:train_management.field_train_management_train__timetable
 #: model:ir.model.fields,field_description:train_management.field_train_management_train_template__timetable
@@ -1781,11 +1756,13 @@ msgid "Timetable"
 msgstr ""
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_current_shifts_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_list_view
 msgid "Tour"
 msgstr ""
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_current_shifts_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_list_view
 msgid "Tour Nr"
 msgstr ""
@@ -2007,6 +1984,7 @@ msgstr ""
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 msgid "Work duration:"
 msgstr ""
 
@@ -2024,6 +2002,11 @@ msgid "Yes"
 msgstr ""
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
+msgid "Zeichenerklärung"
+msgstr ""
+
+#. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_vehicle_defect__isAccident__accident
 msgid "accident"
 msgstr ""
@@ -2036,6 +2019,11 @@ msgstr ""
 #. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_vehicle_defect__whereAtVehicle__brakesystems
 msgid "brakeSystems"
+msgstr ""
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
+msgid "ca."
 msgstr ""
 
 #. module: train_management
@@ -2101,6 +2089,7 @@ msgid "endangerment"
 msgstr ""
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_current_shifts_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_list_view
 msgid "from-to"
 msgstr ""
