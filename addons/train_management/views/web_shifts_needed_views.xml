@@ -3,27 +3,86 @@
     <data>
         <template id="web_shifts_needed_list_view" name="My current shifts">
             <t t-call="website.layout">
-		    <title>Shifts needed</title>
-		    <div class="container">
+                <title>Shifts needed</title>
+                <div class="container">
                     <h1>Shifts needed</h1>
                     <br/>
-		    <div class="accordion" id="accordionExample">
+                    <div class="alert alert-secondary" role="alert">
+                        <h5 class="alert-heading">Zeichenerklärung</h5>
+                        <i class="fa fa-user text-primary" aria-hidden="true"/>
+                        = Diese Tour wurde mir bereits eingeteilt.
+                        <br/>
+                        <i class="fa fa-users text-warning" aria-hidden="true"/>
+                        = Für diese Tour haben sich auch andere Personen zur Verfügung gestellt.
+                    </div>
+                    <br/>
+                    <div class="accordion" id="accordionExample">
 
-			<div class="accordion-item" t-foreach="needed_shifts" t-as="entry">
-				<t t-set="dayplanning" t-value="entry['day_planning']"/>
+                        <div class="accordion-item" t-foreach="needed_shifts" t-as="entry">
+                            <t t-set="dayplanning" t-value="entry['day_planning']"/>
                             <h2 class="accordion-header" style="background-color:#dddddd;">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
-					t-attf-data-bs-target="#collapse{{dayplanning.id}}" aria-expanded="true" t-attf-aria-controls="collapse{{dayplanning.id}}">
-				<span t-field="dayplanning.name"/> <span> - </span>
-				<span t-field="dayplanning.date" t-field-options='{"format": "dd.MM.yyyy"}'/>
+                                        t-attf-data-bs-target="#collapse{{dayplanning.id}}" aria-expanded="true"
+                                        t-attf-aria-controls="collapse{{dayplanning.id}}">
+                                    <span t-field="dayplanning.name"/>
+                                    <span>-</span>
+                                    <span t-field="dayplanning.date" t-field-options='{"format": "dd.MM.yyyy"}'/>
                                 </button>
                             </h2>
-			    <div t-attf-id="collapse{{dayplanning.id}}" class="accordion-collapse collapse"
+                            <div t-attf-id="collapse{{dayplanning.id}}" class="accordion-collapse collapse"
                                  data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
+                                    <div>
+                                        <strong>Type:</strong>
+                                        <span t-field="dayplanning.type"/>
+                                    </div>
+                                    <div>
+                                        <strong>Planned circuits:</strong>
+                                        <ul>
+                                            <t t-set="circuits"
+                                               t-value="dayplanning.circuit_ids"/>
+                                            <li t-foreach="circuits"
+                                                t-as="circuit">
+                                                <strong><span t-field="circuit.name"/>:
+                                                </strong>
+                                                <t t-set="circuit_vehicles"
+                                                   t-value="circuit.circuit_vehicle"/>
+                                                <span t-foreach="circuit_vehicles"
+                                                      t-as="vehicle">
+                                                    <t t-set="vehicle_type" t-value="vehicle.vehicle.type"/>
+                                                    <t t-if="vehicle_type == 'engine'">
+                                                        <span t-field="vehicle.vehicle" class="badge text-bg-primary"/>
+                                                    </t>
+                                                    <t t-elif="vehicle_type == 'seat'">
+                                                        <span t-field="vehicle.vehicle" class="badge text-bg-success"/>
+                                                    </t>
+                                                    <t t-elif="vehicle_type == 'gastro'">
+                                                        <span t-field="vehicle.vehicle" class="badge text-bg-danger"/>
+                                                    </t>
+                                                    <t t-elif="vehicle_type == 'luggage'">
+                                                        <span t-field="vehicle.vehicle"
+                                                              class="badge text-bg-secondary"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <span t-field="vehicle.vehicle" class="badge text-bg-dark"/>
+                                                    </t>
+                                                </span>
+                                                <t t-set="circuit_trains"
+                                                   t-value="circuit.train_ids"/>
+                                                <span t-foreach="circuit_trains"
+                                                      t-as="train">
+                                                    <span t-field="train.start_station.short_name"/>
+                                                    -
+                                                    <span t-field="train.end_station.short_name"/>
+                                                    /
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
                                     <table class="table table-striped table-responsive table-sm">
                                         <thead>
                                             <tr>
+                                                <th></th>
                                                 <th>Nr.</th>
                                                 <th>Label</th>
                                                 <th>Start-End</th>
@@ -31,50 +90,214 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-         				    <tr t-foreach="entry['shifts']" t-as="list_shift">
-						<t t-set="shift" t-value="list_shift['shift']"/>
-						<t t-set="offer" t-value="list_shift['day_planning_shift_offer']"/>
-						<t t-set="offer_id" t-value="offer.id if offer != None else '\'new\''"/>
-						<t t-set="offer" t-value="offer.offer if offer != None else None"/>
-					    <td><span t-field="shift.shift.name"/></td>
-                                                <td><span t-field="shift.shift.label"/></td>
-						<td><span t-field="shift.shift.shift_start" t-options="{'widget': 'float_time'}"/> - <span t-field="shift.shift.shift_end" t-options="{'widget': 'float_time'}"/></td>
+                                            <tr t-foreach="entry['shifts']" t-as="list_shift">
+                                                <t t-set="shift" t-value="list_shift['shift']"/>
+                                                <t t-set="offer" t-value="list_shift['day_planning_shift_offer']"/>
+                                                <t t-set="offer_id" t-value="offer.id if offer != None else '\'new\''"/>
+                                                <t t-set="offer" t-value="offer.offer if offer != None else None"/>
+                                                <td>
+                                                    <t t-if="shift.person.id == request.env.user.partner_id.id">
+                                                        <i class="fa fa-user text-primary" aria-hidden="true"/>
+                                                    </t>
+                                                    <t t-if="shift.day_planning_shift_offer_ids.filtered(lambda r: r.offer in ('yes', 'possible') and r.person.id != request.env.user.partner_id.id)">
+                                                        <i class="fa fa-users text-warning" aria-hidden="true"/>
+                                                    </t>
+
+                                                </td>
+                                                <td>
+                                                    <span style="cursor:pointer;" class="link-primary"
+                                                          data-toggle="modal"
+                                                          t-attf-data-target="#shiftModal-{{shift.id}}"
+                                                          t-field="shift.shift.name"/>
+
+                                                    <div class="modal fade" t-attf-id="shiftModal-{{shift.id}}"
+                                                         tabindex="-1"
+                                                         t-attf-aria-labelledby="shiftModalLabel-{{shift.id}}"
+                                                         aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title"
+                                                                        t-attf-id="shiftModalLabel-{{shift.id}}">
+                                                                        <span t-field="shift.shift.name"/>
+                                                                        -
+                                                                        <span t-field="shift.shift.label"/>
+                                                                    </h4>
+                                                                    <button type="button" class="close btn btn-primary"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">x</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <table class="table table-sm">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <th>Qualification:</th>
+                                                                                <td>
+                                                                                    <t t-set="shift_qualifications"
+                                                                                       t-value="shift.shift.category"/>
+                                                                                    <span t-foreach="shift_qualifications"
+                                                                                          t-as="shift_qualification">
+                                                                                        <span t-field="shift_qualification.name"/>
+                                                                                        ,
+                                                                                    </span>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th>Times:</th>
+                                                                                <td>
+                                                                                    <t t-if="shift.shift.approximate_times">
+                                                                                        ca.
+                                                                                        <span t-field="shift.shift.approximate_start_time"
+                                                                                              t-options="{'widget': 'float_time'}"/>
+                                                                                        -
+                                                                                        <span t-field="shift.shift.approximate_end_time"
+                                                                                              t-options="{'widget': 'float_time'}"/>
+                                                                                    </t>
+                                                                                    <t t-else="">
+                                                                                        <span t-field="shift.shift.shift_start"
+                                                                                              t-options="{'widget': 'float_time'}"/>
+                                                                                        -
+                                                                                        <span t-field="shift.shift.shift_end"
+                                                                                              t-options="{'widget': 'float_time'}"/>
+                                                                                    </t>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th>Shift duration:</th>
+                                                                                <td>
+                                                                                    <span t-field="shift.shift.shift_duration"/>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th>Work duration:</th>
+                                                                                <td>
+                                                                                    <span t-field="shift.shift.work_duration"/>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th>Description:</th>
+                                                                                <td>
+                                                                                    <span t-field="shift.shift.description"/>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th>Comment:</th>
+                                                                                <td>
+                                                                                    <span t-field="shift.comment"/>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                    <h5 class="font-weight-bold">Shift positions:
+                                                                    </h5>
+                                                                    <t t-set="shift_positions"
+                                                                       t-value="shift.shift.shift_position_ids"/>
+                                                                    <table class="table table-sm">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>Time</th>
+                                                                                <th>Label / Type</th>
+                                                                                <th>Stations (Start/End)</th>
+                                                                                <th>Comment</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr t-foreach="shift_positions"
+                                                                                t-as="shift_position">
+                                                                                <td>
+                                                                                    <span t-field="shift_position.start_time"
+                                                                                          t-options="{'widget': 'float_time'}"/>
+                                                                                    -
+                                                                                    <span t-field="shift_position.end_time"
+                                                                                          t-options="{'widget': 'float_time'}"/>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span t-field="shift_position.name"/>
+                                                                                    <span t-field="shift_position.type"/>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span t-field="shift_position.start_station"/>
+                                                                                    -
+                                                                                    <span t-field="shift_position.end_station"/>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span t-field="shift_position.comment"/>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">Close
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </td>
+                                                <td>
+                                                    <span t-field="shift.shift.label"/>
+                                                </td>
+                                                <td>
+                                                    <t t-if="shift.shift.approximate_times">
+                                                        ca.
+                                                        <span t-field="shift.shift.approximate_start_time"
+                                                              t-options="{'widget': 'float_time'}"/>
+                                                        -
+                                                        <span t-field="shift.shift.approximate_end_time"
+                                                              t-options="{'widget': 'float_time'}"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <span t-field="shift.shift.shift_start"
+                                                              t-options="{'widget': 'float_time'}"/>
+                                                        -
+                                                        <span t-field="shift.shift.shift_end"
+                                                              t-options="{'widget': 'float_time'}"/>
+                                                    </t>
+                                                </td>
                                                 <td>
                                                     <div class="btn-group" role="group"
                                                          aria-label="Basic radio toggle button group">
-						    <input type="radio" class="btn-check"
-							    t-attf-name="btnradio-{{shift.id}}"
-							    value="no"
-							    t-attf-id="btnradio-{{shift.id}}-no"
-							    autocomplete="off"
-							    t-att="offer == 'no'  and {'checked': ''} or {}"
-							    t-attf-onclick="odoo.shift_offer_sendValueToBackend({{offer_id}}, {{shift.id}}, 'no', '');"
-							    />
-                                                        <label class="btn btn-outline-danger" t-attf-for="btnradio-{{shift.id}}-no">No
+                                                        <input type="radio" class="btn-check"
+                                                               t-attf-name="btnradio-{{shift.id}}"
+                                                               value="no"
+                                                               t-attf-id="btnradio-{{shift.id}}-no"
+                                                               autocomplete="off"
+                                                               t-att="offer == 'no'  and {'checked': ''} or {}"
+                                                               t-attf-onclick="odoo.shift_offer_sendValueToBackend({{offer_id}}, {{shift.id}}, 'no', '');"
+                                                        />
+                                                        <label class="btn btn-outline-danger"
+                                                               t-attf-for="btnradio-{{shift.id}}-no">No
                                                         </label>
 
-							<input type="radio"
-								class="btn-check"
-								t-attf-name="btnradio-{{shift.id}}"
-								value="possible"
-                                                                t-attf-id="btnradio-{{shift.id}}-possible"
-								autocomplete="off"
-							        t-att="offer == 'possible'  and {'checked': ''} or {}"
-								t-attf-onclick="odoo.shift_offer_sendValueToBackend({{offer_id}}, {{shift.id}}, 'possible', '');"
-								/>
-                                                        <label class="btn btn-outline-warning" t-attf-for="btnradio-{{shift.id}}-possible">Possible
+                                                        <input type="radio"
+                                                               class="btn-check"
+                                                               t-attf-name="btnradio-{{shift.id}}"
+                                                               value="possible"
+                                                               t-attf-id="btnradio-{{shift.id}}-possible"
+                                                               autocomplete="off"
+                                                               t-att="offer == 'possible'  and {'checked': ''} or {}"
+                                                               t-attf-onclick="odoo.shift_offer_sendValueToBackend({{offer_id}}, {{shift.id}}, 'possible', '');"
+                                                        />
+                                                        <label class="btn btn-outline-warning"
+                                                               t-attf-for="btnradio-{{shift.id}}-possible">Possible
                                                         </label>
 
-							<input type="radio"
-								class="btn-check"
-								t-attf-name="btnradio-{{shift.id}}"
-								value="yes"
-                                                                t-attf-id="btnradio-{{shift.id}}-yes"
-								autocomplete="off"
-							        t-att="offer == 'yes'  and {'checked': ''} or {}"
-								t-attf-onclick="odoo.shift_offer_sendValueToBackend({{offer_id}}, {{shift.id}}, 'yes', '');"
-								/>
-                                                        <label class="btn btn-outline-success" t-attf-for="btnradio-{{shift.id}}-yes">Yes
+                                                        <input type="radio"
+                                                               class="btn-check"
+                                                               t-attf-name="btnradio-{{shift.id}}"
+                                                               value="yes"
+                                                               t-attf-id="btnradio-{{shift.id}}-yes"
+                                                               autocomplete="off"
+                                                               t-att="offer == 'yes'  and {'checked': ''} or {}"
+                                                               t-attf-onclick="odoo.shift_offer_sendValueToBackend({{offer_id}}, {{shift.id}}, 'yes', '');"
+                                                        />
+                                                        <label class="btn btn-outline-success"
+                                                               t-attf-for="btnradio-{{shift.id}}-yes">Yes
                                                         </label>
                                                     </div>
                                                 </td>
@@ -83,10 +306,19 @@
                                     </table>
                                 </div>
                             </div>
-		    	</div>
+                        </div>
                     </div>
                 </div>
             </t>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                    crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+                    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                    crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+                    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                    crossorigin="anonymous"></script>
         </template>
     </data>
 </odoo>
