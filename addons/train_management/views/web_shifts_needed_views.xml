@@ -13,7 +13,7 @@
                         <span>= Diese Tour wurde mir bereits eingeteilt.</span>
                         <br/>
                         <i class="fa fa-users text-warning" aria-hidden="true"/>
-                        = Für diese Tour haben sich auch andere Personen zur Verfügung gestellt.
+                        <span>= Für diese Tour haben sich auch andere Personen zur Verfügung gestellt.</span>
                     </div>
                     <br/>
                     <div class="accordion" id="accordionExample">
