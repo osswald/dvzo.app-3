@@ -118,10 +118,10 @@ class Drehscheibe:
         for train in train_records:
             vehicle_info = vehicles[train.vehicle.ds_id]
             vehicle_info["railline"].append({
-                "stationStart": train.stationStart,
-                "stationEnd": train.stationEnd
+                "stationStart": train.start_station.short_name,
+                "stationEnd": train.end_station.short_name,
             })
-            vehicle_info["km"] += train.km
+            vehicle_info["km"] += train.distance
         vehicle_matrix = [
             {"vehicle": vehicle_id, **info} for vehicle_id, info in vehicles.items()
         ]
