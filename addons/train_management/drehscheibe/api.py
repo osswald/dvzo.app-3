@@ -111,7 +111,7 @@ class Drehscheibe:
             "content-type": "application/json",
         }
 
-        vehicles = defaultdict(lambda: {"km": 0, "railline": []})
+        vehicles = defaultdict(lambda: {"km": "0", "railline": []})
         train_records = day_planning.env['train_management.train'].search([
             ('day_planning_id', '=', day_planning.id),
         ])
@@ -123,7 +123,7 @@ class Drehscheibe:
                     "stationStart": train.start_station.short_name,
                     "stationEnd": train.end_station.short_name,
                 })
-                vehicle_info["km"] += train.distance
+                vehicle_info["km"] = str(int(vehicle_info["km"]) + train.distance)
         vehicle_matrix = [
             {"vehicle": vehicle_id, **info} for vehicle_id, info in vehicles.items()
         ]
