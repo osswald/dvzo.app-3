@@ -1,8 +1,10 @@
+from base64 import b64decode
+from collections import defaultdict
+from datetime import datetime
 from typing import List
+import logging
 import os
 import requests
-import logging
-from base64 import b64decode
 
 
 log = logging.getLogger(__name__)
@@ -61,6 +63,7 @@ class Drehscheibe:
         else:
             files = upload
        
+        self.DREHSCHEIBE_URL = "https://drehscheibe.e9li.com"
         response = self.session.post(
             url, json=body, files=files, timeout=self.__timeout, headers=headers)
         response.raise_for_status()
@@ -101,39 +104,39 @@ class Drehscheibe:
         }
         return self.__post_data(model, body, headers, upload, defect.vehicle.ds_id, form_data=True)
 
-    def post_day_planning(self):
+    def post_day_planning(self, day_planning):
         model = "completed-trip"
         headers = {
             "accept": "application/json",
             "content-type": "application/json",
         }
+
+        vehicles = defaultdict(lambda: {"km": 0, "railline": []})
+        train_records = day_planning.env['train_management.train'].search([
+            ('day_planning_id', '=', day_planning.id),
+        ])
+        for train in train_records:
+            vehicle_info = vehicles[train.vehicle.ds_id]
+            vehicle_info["railline"].append({
+                "stationStart": train.stationStart,
+                "stationEnd": train.stationEnd
+            })
+            vehicle_info["km"] += train.km
+        vehicle_matrix = [
+            {"vehicle": vehicle_id, **info} for vehicle_id, info in vehicles.items()
+        ]
+
         body = {
-            "name": "Dampf Zug",
-            "date": "12.09.2023",
+            "name": day_planning.name,
+            "date": day_planning.date.strftime("%d.%m.%Y"),
             "timeStart": "09:00",
             "timeEnd": "18:00",
-            "responsiblePerson": "Hans Muster",
-            "location": "Sihlwald",
-            "completedDate": "12.10.2023",
-            "completedNote": "Notiz...",
-            "matrix": [
-                {
-                    "vehicle": "b96bf00d-94c4-40c3-b364-affcb6d53549",
-                    "km": "33",
-                    "railline": [
-                        {
-                            "stationStart": "BMA",
-                            "stationEnd": "HI"
-                        },
-                        {
-                            "stationStart": "BMA",
-                            "stationEnd": "BAEW"
-                        }
-                    ]
-                }
-            ]
+            "responsiblePerson": "",
+            "location": "Bauma",
+            "completedDate": datetime.now().strftime("%d.%m.%Y"),
+            "completedNote": "",
+            "matrix": vehicle_matrix,
         }
-
         return self.__post_data(model, body, headers)
 
 
@@ -141,4 +144,4 @@ if __name__ == "__main__":
     import http.client as http_client
     http_client.HTTPConnection.debuglevel = 1
     drehscheibe = Drehscheibe()
-    drehscheibe.post_day_planning()
+    # drehscheibe.post_day_planning()

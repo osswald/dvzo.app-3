@@ -1,5 +1,6 @@
 from odoo import models, fields, api
 from odoo.exceptions import UserError
+from ..drehscheibe.api import Drehscheibe
 
 
 class DayPlanning(models.Model):
@@ -155,6 +156,9 @@ class DayPlanning(models.Model):
     def action_executed(self):
         if "draft" in self.mapped("state"):
             raise UserError("Draft day plannings can't be executed")
+        # TODO: add confirmation dialog
+        drehscheibe = Drehscheibe()
+        drehscheibe.post_day_planning(self)
         return self.write({"state": "executed"})
 
     def action_view_offers(self):
