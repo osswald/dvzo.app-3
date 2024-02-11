@@ -34,26 +34,24 @@
         <record id="mail_template_reminder" model="mail.template">
             <field name="name">Expiry Reminder</field>
             <field name="model_id" ref="inventory.model_inventory_inventory"/>
-            <field name="subject">Expiry Reminder for Inventory: ${object.name}</field>
-            <field name="email_from">${object.company_id.email}</field>
-            <field name="email_to">${object.responsible.email}</field>
+	    <field name="subject">Expiry Reminder for Inventory: {{object.name}}</field>
+	    <field name="email_from">app@dvzo.ch</field>
+	    <field name="email_to">{{object.responsible.email}}</field>
             <field name="body_html" type="html">
                 <div style="margin: 16px; padding: 16px; background-color: #F3F5F6;">
-                    <p style="font-size:20px;">Hello ${object.responsible.name},</p>
+                    <p style="font-size:20px;">Hello <t t-out="object.responsible.name"/>,</p>
                     <p>Here is the list of inventory items whose expiry dates are within the next 14 days:</p>
                     <table style="width:100%; border-collapse: collapse;">
                         <tr>
                             <th style="border: 1px solid black; padding: 8px;">Inventory Name</th>
                             <th style="border: 1px solid black; padding: 8px;">Expiry Date</th>
                         </tr>
-                        % for inventory in ctx['inventories']:
-                        <tr>
-                            <td style="border: 1px solid black; padding: 8px;">${inventory.name}</td>
-                            <td style="border: 1px solid black; padding: 8px;">${inventory.date_expires}</td>
+			<tr t-foreach="ctx['inventories']" t-as="inventory">
+                            <td style="border: 1px solid black; padding: 8px;"><t t-out="inventory.name" /></td>
+			    <td style="border: 1px solid black; padding: 8px;"><t t-out="inventory.date_expires"/></td>
                         </tr>
-                        % endfor
                     </table>
-                    <p>Regards,<br/>${object.company_id.name}
+		    <p>Regards,<br/>DVZO.app
                     </p>
                 </div>
             </field>

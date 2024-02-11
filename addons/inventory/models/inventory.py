@@ -138,5 +138,6 @@ class Inventory(models.Model):
             'inventory.mail_template_reminder').id  # assuming 'inventory.mail_template_reminder' is your email template's external ID
         for responsible, invs in grouped_inventories.items():
             if responsible and responsible.email:  # ensuring that a responsible person is available and he/she has email
-                self.env['mail.template'].with_context(inventories=invs).browse(template_id).send_mail(invs[0].id,
-                                                                                                       force_send=True)
+                context = {"inventories": invs}
+                _logger.info(context)
+                self.env['mail.template'].browse(template_id).with_context(context).send_mail(invs[0].id,force_send=True)
