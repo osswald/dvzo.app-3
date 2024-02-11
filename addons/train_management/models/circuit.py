@@ -29,3 +29,18 @@ class Circuit(models.Model):
         for circuit in self:
             circuit.distance = sum(train.distance for train in circuit.train_ids)
 
+    @api.model
+    def write(self, values):
+        super(Circuit, self).write(values)
+        circuit_vehicle = self.circuit_vehicle
+        trains = self.train_ids
+        for train in trains:
+            self.env['train_management.train_vehicle'].search(
+                [('train', '=', train.id)]
+            ).unlink()
+            for vehicle in circuit_vehicle:
+                self.env['train_management.train_vehicle'].create({
+                    'vehicle': vehicle.vehicle.id,
+                    'train': train.id,
+                    'sequence': vehicle.sequence
+                })
