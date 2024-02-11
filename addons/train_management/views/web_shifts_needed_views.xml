@@ -93,7 +93,7 @@
                                             <tr t-foreach="entry['shifts']" t-as="list_shift">
                                                 <t t-set="shift" t-value="list_shift['shift']"/>
                                                 <t t-set="offer" t-value="list_shift['day_planning_shift_offer']"/>
-                                                <t t-set="offer_id" t-value="offer.id if offer != None else '\'new\''"/>
+                                                <t t-set="offer_id" t-value="offer.id if offer != None else -1"/>
                                                 <t t-set="offer" t-value="offer.offer if offer != None else None"/>
                                                 <td>
                                                     <t t-if="shift.person.id == request.env.user.partner_id.id">
