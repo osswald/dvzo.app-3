@@ -53,12 +53,11 @@ class ShiftsNeededController(Controller):
                 {"needed_shifts": entries})
 
     @route("/my/shifs-needed/set_shift_offer", type="json", methods=["POST"], auth="user")
-    def set_shift_offer(self, offer_id, shift_id, choice, comment):
+    def set_shift_offer(self, shift_id, choice, comment):
         shift_offer = request.env["train_management.day_planning_shift_offer"].sudo().search([
-            ("id", "=", offer_id),
+            ("day_planning_shift", "=", shift_id),
             ("person", "=", request.env.user.partner_id.id),
         ])
-
         if shift_offer.id is False:
             log.info("Creating new shift offer")
             shift_offer = request.env["train_management.day_planning_shift_offer"].sudo().create({

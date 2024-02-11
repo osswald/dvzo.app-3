@@ -93,7 +93,6 @@
                                             <tr t-foreach="entry['shifts']" t-as="list_shift">
                                                 <t t-set="shift" t-value="list_shift['shift']"/>
                                                 <t t-set="offer" t-value="list_shift['day_planning_shift_offer']"/>
-                                                <t t-set="offer_id" t-value="offer.id if offer != None else -1"/>
                                                 <t t-set="offer" t-value="offer.offer if offer != None else None"/>
                                                 <td>
                                                     <t t-if="shift.person.id == request.env.user.partner_id.id">
@@ -268,7 +267,7 @@
                                                                t-attf-id="btnradio-{{shift.id}}-no"
                                                                autocomplete="off"
                                                                t-att="offer == 'no'  and {'checked': ''} or {}"
-                                                               t-attf-onclick="odoo.shift_offer_sendValueToBackend({{offer_id}}, {{shift.id}}, 'no', '');"
+                                                               t-attf-onclick="odoo.shift_offer_sendValueToBackend({{shift.id}}, 'no', '');"
                                                         />
                                                         <label class="btn btn-outline-danger"
                                                                t-attf-for="btnradio-{{shift.id}}-no">No
@@ -281,7 +280,7 @@
                                                                t-attf-id="btnradio-{{shift.id}}-possible"
                                                                autocomplete="off"
                                                                t-att="offer == 'possible'  and {'checked': ''} or {}"
-                                                               t-attf-onclick="odoo.shift_offer_sendValueToBackend({{offer_id}}, {{shift.id}}, 'possible', '');"
+                                                               t-attf-onclick="odoo.shift_offer_sendValueToBackend({{shift.id}}, 'possible', '');"
                                                         />
                                                         <label class="btn btn-outline-warning"
                                                                t-attf-for="btnradio-{{shift.id}}-possible">Possible
@@ -294,7 +293,7 @@
                                                                t-attf-id="btnradio-{{shift.id}}-yes"
                                                                autocomplete="off"
                                                                t-att="offer == 'yes'  and {'checked': ''} or {}"
-                                                               t-attf-onclick="odoo.shift_offer_sendValueToBackend({{offer_id}}, {{shift.id}}, 'yes', '');"
+                                                               t-attf-onclick="odoo.shift_offer_sendValueToBackend({{shift.id}}, 'yes', '');"
                                                         />
                                                         <label class="btn btn-outline-success"
                                                                t-attf-for="btnradio-{{shift.id}}-yes">Yes
