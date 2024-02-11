@@ -116,12 +116,14 @@ class Drehscheibe:
             ('day_planning_id', '=', day_planning.id),
         ])
         for train in train_records:
-            vehicle_info = vehicles[train.vehicle.ds_id]
-            vehicle_info["railline"].append({
-                "stationStart": train.start_station.short_name,
-                "stationEnd": train.end_station.short_name,
-            })
-            vehicle_info["km"] += train.distance
+            train_vehicles = train.train_vehicle
+            for train_vehicle in train_vehicles:
+                vehicle_info = vehicles[train_vehicle.vehicle.ds_id]
+                vehicle_info["railline"].append({
+                    "stationStart": train.start_station.short_name,
+                    "stationEnd": train.end_station.short_name,
+                })
+                vehicle_info["km"] += train.distance
         vehicle_matrix = [
             {"vehicle": vehicle_id, **info} for vehicle_id, info in vehicles.items()
         ]
@@ -137,6 +139,8 @@ class Drehscheibe:
             "completedNote": "",
             "matrix": vehicle_matrix,
         }
+        print(body)
+        log.info(body)
         return self.__post_data(model, body, headers)
 
 
