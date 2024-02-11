@@ -63,7 +63,7 @@ class Drehscheibe:
         else:
             files = upload
        
-        self.DREHSCHEIBE_URL = "https://drehscheibe.e9li.com"
+
         response = self.session.post(
             url, json=body, files=files, timeout=self.__timeout, headers=headers)
         response.raise_for_status()
@@ -123,7 +123,7 @@ class Drehscheibe:
                     "stationStart": train.start_station.short_name,
                     "stationEnd": train.end_station.short_name,
                 })
-                vehicle_info["km"] = str(int(vehicle_info["km"]) + train.distance)
+                vehicle_info["km"] +=  train.distance
         vehicle_matrix = [
             {"vehicle": vehicle_id, **info} for vehicle_id, info in vehicles.items()
         ]
@@ -136,7 +136,7 @@ class Drehscheibe:
             "responsiblePerson": "",
             "location": "Bauma",
             "completedDate": datetime.now().strftime("%d.%m.%Y"),
-            "completedNote": "",
+            "completedNote": "Data courtesy by DVZO.app",
             "matrix": vehicle_matrix,
         }
         print(body)
