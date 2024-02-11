@@ -62,7 +62,7 @@ class Drehscheibe:
             files = upload
        
         response = self.session.post(
-            url, data=body, files=files, timeout=self.__timeout, headers=headers)
+            url, json=body, files=files, timeout=self.__timeout, headers=headers)
         response.raise_for_status()
         response_data = response.json()
 
@@ -141,5 +141,4 @@ if __name__ == "__main__":
     import http.client as http_client
     http_client.HTTPConnection.debuglevel = 1
     drehscheibe = Drehscheibe()
-    drehscheibe.DREHSCHEIBE_URL = "https://drehscheibe.e9li.com"
-    print(drehscheibe.post_day_planning())
+    drehscheibe.post_day_planning()
