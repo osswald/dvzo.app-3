@@ -149,8 +149,8 @@ class DayPlanning(models.Model):
         return ",".join([recipient.email for recipient in recipients if recipient.email])
 
     def action_confirmed(self):
-        # if "executed" in self.mapped("state"):
-        #     raise UserError("Executed day plannings can't be confirmed.")
+        if "executed" in self.mapped("state"):
+            raise UserError("Executed day plannings can't be confirmed.")
         return self.write({"state": "confirmed"})
 
     def action_executed(self):
