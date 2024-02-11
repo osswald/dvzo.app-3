@@ -139,8 +139,6 @@ class Drehscheibe:
             "completedNote": "Data courtesy by DVZO.app",
             "matrix": vehicle_matrix,
         }
-        print(body)
-        log.info(body)
         return self.__post_data(model, body, headers)
 
 
