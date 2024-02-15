@@ -21,11 +21,17 @@
                             <field name="date_bought" placeholder="e.g. 11.11.2011"/>
                         </group>
                         <group>
-                            <field name="status"/>
-                            <field name="date_calibrated" placeholder="e.g. yesterday"/>
-                            <field name="date_expires" placeholder="e.g. tomorrow"/>
+                            <field name="not_monitored"/>
+                            <field name="status"
+                                   attrs="{'invisible': [('not_monitored', '=', True)]}"/>
+                            <field name="date_calibrated" placeholder="e.g. yesterday"
+                                   attrs="{'invisible': [('not_monitored', '=', True)]}"/>
+                            <field name="date_expires" placeholder="e.g. tomorrow"
+                                   attrs="{'invisible': [('not_monitored', '=', True)]}"/>
                             <field name="responsible" placeholder="e.g. ME"/>
-                            <button string="Check" type="object" class="oe_highlight" name="action_open_inventory_check"/>
+                            <button string="Check" type="object" class="oe_highlight"
+                                    name="action_open_inventory_check"
+                                    attrs="{'invisible': [('not_monitored', '=', True)]}"/>
                         </group>
                     </group>
                     <notebook>

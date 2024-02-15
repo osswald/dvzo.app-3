@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-09 13:11+0000\n"
-"PO-Revision-Date: 2024-01-09 13:11+0000\n"
+"POT-Creation-Date: 2024-02-15 15:09+0000\n"
+"PO-Revision-Date: 2024-02-15 15:09+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -171,12 +171,6 @@ msgid "Expiry Reminder for Inventory: ${object.name}"
 msgstr ""
 
 #. module: inventory
-#: model:ir.actions.act_window,name:inventory.action_generate_expiry_window
-#: model:ir.actions.server,name:inventory.action_generate_expiry
-msgid "Generate Expiry Reminders"
-msgstr ""
-
-#. module: inventory
 #: model_terms:ir.ui.view,arch_db:inventory.inventory_view_search
 msgid "Group By"
 msgstr ""
@@ -325,6 +319,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:inventory.field_inventory_manufacturer__name
 #: model_terms:ir.ui.view,arch_db:inventory.inventory_view_search
 msgid "Manufacturer"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__not_monitored
+msgid "Not monitored"
 msgstr ""
 
 #. module: inventory

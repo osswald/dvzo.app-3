@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-09 13:14+0000\n"
-"PO-Revision-Date: 2024-01-09 14:29+0100\n"
+"POT-Creation-Date: 2024-02-15 15:09+0000\n"
+"PO-Revision-Date: 2024-02-15 16:11+0100\n"
 "Last-Translator: Christoph Osswald\n"
 "Language-Team: \n"
 "Language: de_CH\n"
@@ -21,17 +21,24 @@ msgstr ""
 #: model:mail.template,body_html:inventory.mail_template_reminder
 msgid ""
 "<div style=\"margin: 16px; padding: 16px; background-color: #F3F5F6;\">\n"
-"                    <p style=\"font-size:20px;\">Hello ${object.responsible.name},</p>\n"
-"                    <p>Here is the list of inventory items whose expiry dates are within the next 14 days:</p>\n"
-"                    <table style=\"width:100%; border-collapse: collapse;\">\n"
+"                    <p style=\"font-size:20px;\">Hello ${object.responsible."
+"name},</p>\n"
+"                    <p>Here is the list of inventory items whose expiry "
+"dates are within the next 14 days:</p>\n"
+"                    <table style=\"width:100%; border-collapse: collapse;"
+"\">\n"
 "                        <tr>\n"
-"                            <th style=\"border: 1px solid black; padding: 8px;\">Inventory Name</th>\n"
-"                            <th style=\"border: 1px solid black; padding: 8px;\">Expiry Date</th>\n"
+"                            <th style=\"border: 1px solid black; padding: "
+"8px;\">Inventory Name</th>\n"
+"                            <th style=\"border: 1px solid black; padding: "
+"8px;\">Expiry Date</th>\n"
 "                        </tr>\n"
 "                        % for inventory in ctx['inventories']:\n"
 "                        <tr>\n"
-"                            <td style=\"border: 1px solid black; padding: 8px;\">${inventory.name}</td>\n"
-"                            <td style=\"border: 1px solid black; padding: 8px;\">${inventory.date_expires}</td>\n"
+"                            <td style=\"border: 1px solid black; padding: "
+"8px;\">${inventory.name}</td>\n"
+"                            <td style=\"border: 1px solid black; padding: "
+"8px;\">${inventory.date_expires}</td>\n"
 "                        </tr>\n"
 "                        % endfor\n"
 "                    </table>\n"
@@ -41,17 +48,23 @@ msgid ""
 "            "
 msgstr ""
 "<div style=„margin: 16px; padding: 16px; background-color: #F3F5F6;“>\n"
-"                    <p style=„font-size:20px;“>Hello ${object.responsible.name},</p>\n"
-"                    <p>Here is the list of inventory items whose expiry dates are within the next 14 days:</p>\n"
+"                    <p style=„font-size:20px;“>Hello ${object.responsible."
+"name},</p>\n"
+"                    <p>Here is the list of inventory items whose expiry "
+"dates are within the next 14 days:</p>\n"
 "                    <table style=„width:100%; border-collapse: collapse;“>\n"
 "                        <tr>\n"
-"                            <th style=„border: 1px solid black; padding: 8px;“>Inventory Name</th>\n"
-"                            <th style=„border: 1px solid black; padding: 8px;“>Expiry Date</th>\n"
+"                            <th style=„border: 1px solid black; padding: "
+"8px;“>Inventory Name</th>\n"
+"                            <th style=„border: 1px solid black; padding: "
+"8px;“>Expiry Date</th>\n"
 "                        </tr>\n"
 "                        % for inventory in ctx[‚inventories‘]:\n"
 "                        <tr>\n"
-"                            <td style=„border: 1px solid black; padding: 8px;“>${inventory.name}</td>\n"
-"                            <td style=„border: 1px solid black; padding: 8px;“>${inventory.date_expires}</td>\n"
+"                            <td style=„border: 1px solid black; padding: "
+"8px;“>${inventory.name}</td>\n"
+"                            <td style=„border: 1px solid black; padding: "
+"8px;“>${inventory.date_expires}</td>\n"
 "                        </tr>\n"
 "                        % endfor\n"
 "                    </table>\n"
@@ -189,13 +202,7 @@ msgstr "Erinnerung"
 #. module: inventory
 #: model:mail.template,subject:inventory.mail_template_reminder
 msgid "Expiry Reminder for Inventory: ${object.name}"
-msgstr ""
-
-#. module: inventory
-#: model:ir.actions.act_window,name:inventory.action_generate_expiry_window
-#: model:ir.actions.server,name:inventory.action_generate_expiry
-msgid "Generate Expiry Reminders"
-msgstr ""
+msgstr "Erinnerung für ablaufende / abgelaufene Prüfungen: ${object.name}"
 
 #. module: inventory
 #: model_terms:ir.ui.view,arch_db:inventory.inventory_view_search
@@ -349,6 +356,11 @@ msgid "Manufacturer"
 msgstr "Hersteller"
 
 #. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__not_monitored
+msgid "Not monitored"
+msgstr "Nicht überwacht"
+
+#. module: inventory
 #: model:ir.model.fields,field_description:inventory.field_inventory_manufacturer__partner
 msgid "Partner"
 msgstr "Partner"
@@ -375,7 +387,7 @@ msgstr "Verantwortlich"
 #: model:ir.actions.server,name:inventory.ir_cron_send_inventory_check_reminders_ir_actions_server
 #: model:ir.cron,cron_name:inventory.ir_cron_send_inventory_check_reminders
 msgid "Send Inventory check reminders"
-msgstr ""
+msgstr "Erinnerungen für Inventar-Prüfungen verschicken."
 
 #. module: inventory
 #: model:ir.model.fields,field_description:inventory.field_inventory_inventory__serial_number
@@ -478,8 +490,10 @@ msgstr "z.B. SQ33333-482P"
 
 #. module: inventory
 #: model_terms:ir.ui.view,arch_db:inventory.inventory_view_form
-msgid "e.g. Spannungsprüfer FL 15kV, ARCUSDETECT M Type 610241, Gerät- Nr. 00693"
-msgstr "z.B. Spannungsprüfer FL 15kV, ARCUSDETECT M Typ 610241, Geräte- Nr. 00693"
+msgid ""
+"e.g. Spannungsprüfer FL 15kV, ARCUSDETECT M Type 610241, Gerät- Nr. 00693"
+msgstr ""
+"z.B. Spannungsprüfer FL 15kV, ARCUSDETECT M Typ 610241, Geräte- Nr. 00693"
 
 #. module: inventory
 #: model_terms:ir.ui.view,arch_db:inventory.inventory_view_form

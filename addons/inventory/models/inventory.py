@@ -26,6 +26,7 @@ class Inventory(models.Model):
     responsible = fields.Many2one("res.partner")
     checks = fields.One2many("inventory.check", "inventory_id")
     active = fields.Boolean("Active", default=True)
+    not_monitored = fields.Boolean("Not monitored", default=False)
 
     @api.model
     def _get_default_status(self):
