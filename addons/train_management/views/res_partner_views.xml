@@ -7,8 +7,8 @@
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
-                 <xpath expr="//sheet/group/group" position="inside">
-                        <field name="phone_publish"/>
+                <xpath expr="//sheet/group/group" position="inside">
+                    <field name="phone_publish"/>
                 </xpath>
                 <notebook position="inside">
                     <page name="shifts" string="Shifts">
@@ -24,6 +24,19 @@
                     </page>
                 </notebook>
             </field>
+        </record>
+
+        <record id="view_partner_search_form" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit.base_search</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='inactive']" position="after">
+                    <separator/>
+                    <filter name="category_a" string="VTE A" domain="[('category_id.id', '=', 4)]"/>
+                </xpath>
+            </field>
+
         </record>
 
 
