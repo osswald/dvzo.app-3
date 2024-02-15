@@ -44,16 +44,16 @@
                     <filter name="category_a" string="ZSTEBV Zugchef" domain="[('category_id.id', '=', 13)]"/>
                     <filter name="category_a" string="ZSTEBV Kondukteur" domain="[('category_id.id', '=', 14)]"/>
                     <filter name="category_a" string="DVZO Kundenbegleiter" domain="[('category_id.id', '=', 16)]"/>
-
-                    <filter name="category_a" string="ZSTEBV Koordinator" domain="[('category_id.id', '=', 4)]"/>
-                    <filter name="category_a" string="DVZO Stationswärter Bäretswil" domain="[('category_id.id', '=', 4)]"/>
-                    <filter name="category_a" string="DVZO Barrierenwärter Bäretswil" domain="[('category_id.id', '=', 4)]"/>
-                    <filter name="category_a" string="DVZO Stationswärter Bauma" domain="[('category_id.id', '=', 4)]"/>
-                    <filter name="category_a" string="DVZO Barrierenwärter Neuthal" domain="[('category_id.id', '=', 4)]"/>
-                    <filter name="category_a" string="DVZO Verkauf Hinwil" domain="[('category_id.id', '=', 4)]"/>
-                    <filter name="category_a" string="DVZO Lokbetreuer" domain="[('category_id.id', '=', 4)]"/>
-                    <filter name="category_a" string="DVZO Gastronomie" domain="[('category_id.id', '=', 4)]"/>
-                    <filter name="category_a" string="DVZO Rottenwagen" domain="[('category_id.id', '=', 4)]"/>
+                    <filter name="category_a" string="ZSTEBV Koordinator" domain="[('category_id.id', '=', 15)]"/>
+                    <filter name="category_a" string="DVZO Stationswärter Bäretswil" domain="[('category_id.id', '=', 17)]"/>
+                    <filter name="category_a" string="DVZO Barrierenwärter Bäretswil" domain="[('category_id.id', '=', 27)]"/>
+                    <filter name="category_a" string="DVZO Stationswärter Bauma" domain="[('category_id.id', '=', 18)]"/>
+                    <filter name="category_a" string="DVZO Barrierenwärter Neuthal" domain="[('category_id.id', '=', 20)]"/>
+                    <filter name="category_a" string="DVZO Verkauf Hinwil" domain="[('category_id.id', '=', 19)]"/>
+                    <filter name="category_a" string="DVZO Lokbetreuer" domain="[('category_id.id', '=', 25)]"/>
+                    <filter name="category_a" string="DVZO Gastronomie" domain="[('category_id.id', '=', 21)]"/>
+                    <filter name="category_a" string="DVZO Rottenwagen" domain="[('category_id.id', '=', 26)]"/>
+                    <separator/>
                 </xpath>
             </field>
 
