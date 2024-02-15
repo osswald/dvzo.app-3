@@ -34,6 +34,26 @@
                 <xpath expr="//filter[@name='inactive']" position="after">
                     <separator/>
                     <filter name="category_a" string="VTE A" domain="[('category_id.id', '=', 4)]"/>
+                    <filter name="category_a" string="VTE A40" domain="[('category_id.id', '=', 5)]"/>
+                    <filter name="category_a" string="VTE Ai" domain="[('category_id.id', '=', 10)]"/>
+                    <filter name="category_a" string="VTE Ai40" domain="[('category_id.id', '=', 11)]"/>
+                    <filter name="category_a" string="VTE B" domain="[('category_id.id', '=', 9)]"/>
+                    <filter name="category_a" string="VTE B100" domain="[('category_id.id', '=', 8)]"/>
+                    <filter name="category_a" string="VTE B80" domain="[('category_id.id', '=', 7)]"/>
+                    <filter name="category_a" string="VTE VTE10" domain="[('category_id.id', '=', 12)]"/>
+                    <filter name="category_a" string="ZSTEBV Zugchef" domain="[('category_id.id', '=', 13)]"/>
+                    <filter name="category_a" string="ZSTEBV Kondukteur" domain="[('category_id.id', '=', 14)]"/>
+                    <filter name="category_a" string="DVZO Kundenbegleiter" domain="[('category_id.id', '=', 16)]"/>
+
+                    <filter name="category_a" string="ZSTEBV Koordinator" domain="[('category_id.id', '=', 4)]"/>
+                    <filter name="category_a" string="DVZO Stationswärter Bäretswil" domain="[('category_id.id', '=', 4)]"/>
+                    <filter name="category_a" string="DVZO Barrierenwärter Bäretswil" domain="[('category_id.id', '=', 4)]"/>
+                    <filter name="category_a" string="DVZO Stationswärter Bauma" domain="[('category_id.id', '=', 4)]"/>
+                    <filter name="category_a" string="DVZO Barrierenwärter Neuthal" domain="[('category_id.id', '=', 4)]"/>
+                    <filter name="category_a" string="DVZO Verkauf Hinwil" domain="[('category_id.id', '=', 4)]"/>
+                    <filter name="category_a" string="DVZO Lokbetreuer" domain="[('category_id.id', '=', 4)]"/>
+                    <filter name="category_a" string="DVZO Gastronomie" domain="[('category_id.id', '=', 4)]"/>
+                    <filter name="category_a" string="DVZO Rottenwagen" domain="[('category_id.id', '=', 4)]"/>
                 </xpath>
             </field>
 
