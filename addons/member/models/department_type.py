@@ -6,3 +6,4 @@ class DepartmentType(models.Model):
     _description = "Department type"
 
     name = fields.Char("Department type", required=True)
+    admin = fields.Boolean("Admin", default=False)
