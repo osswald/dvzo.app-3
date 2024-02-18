@@ -9,6 +9,7 @@ class TrainTemplate(models.Model):
     label = fields.Char("Template label", required=True)
     name = fields.Char("Label", required=True)
     description = fields.Text("description")
+    distance = fields.Integer("Distance")
     start_station = fields.Many2one("train_management.station", compute="_compute_start_station")
     end_station = fields.Many2one("train_management.station", compute="_compute_end_station")
     timetable = fields.One2many("train_management.timetable", "train_template")
@@ -38,6 +39,7 @@ class CreateTrainWizard(models.TransientModel):
         for template in self.train_templates:
             train_data = {
                 'name': template.name,
+                'distance': template.distance,
                 'circuit': active_circuit.id,
                 'description': template.description,
                 'start_station': template.start_station,

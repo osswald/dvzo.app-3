@@ -13,6 +13,7 @@
                             <group>
                                 <field name="label"/>
                                 <field name="name"/>
+                                <field name="distance"/>
                                 <field name="description"/>
                                 <field name="start_station"/>
                                 <field name="end_station"/>

@@ -13,6 +13,7 @@
                             <group>
                                 <field name="circuit"/>
                                 <field name="name"/>
+                                <field name="railway_company"/>
                                 <field name="description"/>
                                 <field name="frequency"/>
                                 <field name="distance"/>
@@ -71,6 +72,7 @@
             <field name="arch" type="xml">
                 <tree string="Train">
                     <field name="name"/>
+                    <field name="railway_company"/>
                     <field name="start_station"/>
                     <field name="end_station"/>
                     <field name="train_composition"/>
@@ -83,6 +85,13 @@
         <record id="train_action" model="ir.actions.act_window">
             <field name="name">Train</field>
             <field name="res_model">train_management.train</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="day_planning_train_action_domain" model="ir.actions.act_window">
+            <field name="name">Train</field>
+            <field name="res_model">train_management.train</field>
+            <field name="domain">[('day_planning_id', '=', active_id)]</field>
             <field name="view_mode">tree,form</field>
         </record>
 

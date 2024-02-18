@@ -33,6 +33,7 @@
 
         'views/circuit_views.xml',
         'views/day_planning_shift_views.xml',
+        'views/train_views.xml',
         'views/day_planning_views.xml',
         'views/day_planning_text_views.xml',
         'views/day_planning_shift_offer_views.xml',
@@ -40,7 +41,6 @@
         'views/station_views.xml',
         'views/vehicle_defect_views.xml',
         'views/vehicle_views.xml',
-        'views/train_views.xml',
         'views/train_template_views.xml',
         'views/stop_code_views.xml',
         'views/reservation_views.xml',
@@ -54,6 +54,7 @@
         'views/web_current_shifts_views.xml',
         'views/web_shifts_views.xml',
         'views/web_shifts_needed_views.xml',
+        'views/web_single_day_planning_detail_views.xml',
 
         'views/shift_menu_views.xml',
         'views/train_management_menu_views.xml',

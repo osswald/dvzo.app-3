@@ -18,6 +18,7 @@ class Train(models.Model):
     circuit = fields.Many2one("train_management.circuit", required=True, readonly=True)
     reservation_ids = fields.One2many("train_management.reservation", "train")
     day_planning_id = fields.Many2one("train_management.day_planning", compute="_compute_day_planning", store=True)
+    railway_company = fields.Many2one("train_management.railway_company")
 
     @api.depends('circuit')
     def _compute_day_planning(self):
@@ -55,3 +56,15 @@ class Train(models.Model):
                 })
 
         return train
+
+    @api.model
+    def default_get(self, field_names):
+        """Override to set the default railway_company."""
+        defaults = super().default_get(field_names)
+
+        # when creating the Train from Circuit form view
+        if 'circuit' in defaults and 'railway_company' in field_names:
+            circuit = self.env['train_management.circuit'].browse(defaults['circuit'])
+            if circuit.day_planning.railway_company:
+                defaults['railway_company'] = circuit.day_planning.railway_company.id
+        return defaults

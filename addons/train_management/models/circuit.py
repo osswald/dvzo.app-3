@@ -44,3 +44,5 @@ class Circuit(models.Model):
                     'train': train.id,
                     'sequence': vehicle.sequence
                 })
+            if self.day_planning.railway_company:
+                train.railway_company = self.day_planning.railway_company.id

@@ -2,6 +2,7 @@ from odoo.http import request
 from odoo.http import Controller
 from odoo.http import route
 from datetime import date
+from werkzeug.exceptions import NotFound
 
 
 class CurrentShiftController(Controller):
@@ -21,4 +22,20 @@ class CurrentShiftController(Controller):
         current_shifts = sorted(current_shifts, key=lambda shift: shift['day_planning'].date)
         return request.render("train_management.web_current_shifts_list_view", {
             'current_shifts': current_shifts,
+        })
+
+
+class SingleDayPlanningController(Controller):
+
+    @route("/my/shift/<int:day_planning_id>", website=True, auth="user")
+    def single_view(self, day_planning_id):
+        day_planning = request.env['train_management.day_planning'].sudo().search([
+            ("id", "=", day_planning_id),
+        ], limit=1)
+
+        if not day_planning:
+            raise NotFound()
+
+        return request.render("train_management.web_single_day_planning_detail_view", {
+            'day_planning': day_planning,
         })

@@ -23,7 +23,9 @@
                                           t-field-options='{"format": "dd.MM.yyyy"}'/>
                                 </td>
                                 <td>
-                                    <span t-field="shift['day_planning'].name"/>
+                                    <a t-attf-href="../{{shift['day_planning'].id}}">
+                                        <span t-field="shift['day_planning'].name"/>
+                                    </a>
                                 </td>
                                 <td>
                                     <span t-field="shift['shift'].name"/>
