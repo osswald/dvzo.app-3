@@ -27,6 +27,12 @@ class Inventory(models.Model):
     checks = fields.One2many("inventory.check", "inventory_id")
     active = fields.Boolean("Active", default=True)
     not_monitored = fields.Boolean("Not monitored", default=False)
+    is_record_saved = fields.Boolean(compute='_compute_is_record_saved')
+
+    @api.depends('create_date')
+    def _compute_is_record_saved(self):
+        for record in self:
+            record.is_record_saved = bool(record.create_date)
 
     @api.model
     def _get_default_status(self):

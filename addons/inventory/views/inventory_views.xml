@@ -9,12 +9,13 @@
                 <sheet>
                     <group>
                         <group>
+                            <field name="is_record_saved" invisible="1"/>
                             <field name="name"
                                    placeholder="e.g. Spannungsprüfer FL 15kV, ARCUSDETECT M Type 610241, Gerät- Nr. 00693"/>
                             <field name="computed_nr"/>
-                            <field name="place" placeholder="e.g. Ettenhausen-Emmetschlooooo"/>
-                            <field name="type" placeholder="e.g. Cleaning detergent"/>
-                            <field name="inventory_nr"/>
+                            <field name="place" placeholder="e.g. Ettenhausen-Emmetschlooooo" attrs="{'readonly': [('is_record_saved','=',True)]}"/>
+                            <field name="type" placeholder="e.g. Cleaning detergent" attrs="{'readonly': [('is_record_saved','=',True)]}"/>
+                            <field name="inventory_nr" attrs="{'readonly': [('is_record_saved','=',True)]}"/>
                             <field name="manufacturer" placeholder="e.g. Microsoft Corp."/>
                             <field name="location" placeholder="e.g. At Luki's home"/>
                             <field name="serial_number" placeholder="e.g. SQ33333-482P"/>
