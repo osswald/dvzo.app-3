@@ -38,6 +38,7 @@
                                 <field name="date" placeholder="e.g.09.03.2033"/>
                                 <field name="type"/>
                                 <field name="responsible_phone"/>
+                                <field name="responsible_phone_tl"/>
                             </group>
                             <group string="Planning">
                                 <field name="railway_company" placeholder="e.g. SBB Historic"/>
@@ -118,6 +119,11 @@
                             </page>
                         </notebook>
                     </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
                 </form>
             </field>
         </record>

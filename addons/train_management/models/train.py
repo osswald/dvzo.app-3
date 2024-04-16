@@ -13,6 +13,8 @@ class Train(models.Model):
     start_station = fields.Many2one("train_management.station", compute="_compute_start_station")
     end_station = fields.Many2one("train_management.station", compute="_compute_end_station")
     train_vehicle = fields.One2many("train_management.train_vehicle", "train")
+    reservation_quota = fields.Integer("Reservation Quota")
+    reservation_amount = fields.Integer("Reservation Amount", compute="_compute_reservation_amount", store=True)
     timetable = fields.One2many("train_management.timetable", "train")
     train_composition = fields.Char(compute="_compute_train_composition")
     circuit = fields.Many2one("train_management.circuit", required=True, readonly=True)
@@ -42,6 +44,11 @@ class Train(models.Model):
         for train in self:
             vehicle_names = train.train_vehicle.sorted('sequence').mapped('vehicle.historicalDesignation')
             train.train_composition = ', '.join(vehicle_names)
+
+    @api.depends('reservation_ids')
+    def _compute_reservation_amount(self):
+        for reservation in self:
+            reservation.reservation_amount = sum(reservation.amount for reservation in reservation.reservation_ids)
 
     @api.model
     def create(self, values):

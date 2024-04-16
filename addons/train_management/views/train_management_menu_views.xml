@@ -2,7 +2,7 @@
 <odoo>
     <data>
 
-        <!-- Training MENU VIEWS -->
+        <!-- Train management MENU VIEWS -->
         <menuitem id="train_management_menu_root" name="Train management">
             <menuitem id="day_planning_menu_action" action="train_management.day_planning_action" sequence="1"/>
             <menuitem id="vehicle_menu_action" action="train_management.vehicle_action" sequence="5"/>

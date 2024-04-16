@@ -15,6 +15,7 @@ class ShiftTemplate(models.Model):
     approximate_start_time = fields.Float()
     approximate_end_time = fields.Float()
     in_training = fields.Boolean("In training")
+    shift_template_group = fields.Many2one("train_management.shift_template_group", "Group")
     active = fields.Boolean("Active", default=True, copy=False)
     eating_in_bauma = fields.Boolean("Eating in Bauma", default=False, copy=True)
     shift_start = fields.Float(compute="_compute_start_time", store=True)

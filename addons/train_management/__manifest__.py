@@ -48,6 +48,7 @@
         'views/shift_position_views.xml',
         'views/shift_position_type_views.xml',
         'views/shift_template_views.xml',
+        'views/shift_template_group_views.xml',
         'views/res_partner_views.xml',
 
         'views/web_day_planning_views.xml',

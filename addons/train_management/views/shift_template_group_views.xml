@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- SHIFT TEMPLATE GROUP VIEWS -->
+        <record id="shift_template_group_view_form" model="ir.ui.view">
+            <field name="name">shift.template.group.form</field>
+            <field name="model">train_management.shift_template_group</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="shift_template_group_view_tree" model="ir.ui.view">
+            <field name="name">shift.template.group.tree</field>
+            <field name="model">train_management.shift_template_group</field>
+            <field name="arch" type="xml">
+                <tree string="Shift template group" editable="bottom">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="shift_template_group_action" model="ir.actions.act_window">
+            <field name="name">Shift template group</field>
+            <field name="res_model">train_management.shift_template_group</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>

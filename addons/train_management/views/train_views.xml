@@ -17,6 +17,9 @@
                                 <field name="description"/>
                                 <field name="frequency"/>
                                 <field name="distance"/>
+                                <field name="reservation_quota"/>
+                                <field name="reservation_amount" widget="progressbar"
+                                       options="{'current_value': 'reservation_amount', 'max_value': 'reservation_quota', 'editable': false}"/>
                                 <field name="start_station"/>
                                 <field name="end_station"/>
                             </group>
@@ -75,6 +78,9 @@
                     <field name="railway_company"/>
                     <field name="start_station"/>
                     <field name="end_station"/>
+                    <field name="reservation_quota" invisible="True"/>
+                    <field name="reservation_amount" widget="progressbar"
+                                       options="{'current_value': 'reservation_amount', 'max_value': 'reservation_quota', 'editable': false}"/>
                     <field name="train_composition"/>
                     <field name="distance"/>
                     <field name="frequency"/>

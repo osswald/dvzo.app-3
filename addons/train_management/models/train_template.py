@@ -12,6 +12,7 @@ class TrainTemplate(models.Model):
     distance = fields.Integer("Distance")
     start_station = fields.Many2one("train_management.station", compute="_compute_start_station")
     end_station = fields.Many2one("train_management.station", compute="_compute_end_station")
+    reservation_quota = fields.Integer("Reservation Quota")
     timetable = fields.One2many("train_management.timetable", "train_template")
 
     @api.depends('timetable')
@@ -44,6 +45,7 @@ class CreateTrainWizard(models.TransientModel):
                 'description': template.description,
                 'start_station': template.start_station,
                 'end_station': template.end_station,
+                'reservation_quota': template.reservation_quota,
             }
             new_train = self.env['train_management.train'].create(train_data)
 

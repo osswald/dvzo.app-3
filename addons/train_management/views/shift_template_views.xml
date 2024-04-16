@@ -19,6 +19,7 @@
                                 <field name="active" invisible="True"/>
                                 <field name="category" widget="many2many_tags" options="{'color_field': 'color'}"/>
                                 <field name="in_training"/>
+                                <field name="shift_template_group"/>
                                 <field name="description"/>
                                 <field name="valid_from"/>
                                 <field name="valid_until"/>
@@ -57,6 +58,7 @@
                     <field name="name"/>
                     <field name="label"/>
                     <field name="in_training" widget="switch"/>
+                    <field name="shift_template_group"/>
                     <field name="category" widget="many2many_tags" options="{'color_field': 'color'}"/>
                 </tree>
             </field>
@@ -69,6 +71,7 @@
                 <search>
                     <field name="name"/>
                     <field name="label"/>
+                    <field name="shift_template_group"/>
                     <field name="category"/>
                     <filter
                             string="Valid shift templates"
@@ -80,6 +83,11 @@
                             string="Category"
                             name="category"
                             context="{'group_by': 'category'}"
+                    />
+                    <filter
+                            string="Group"
+                            name="group"
+                            context="{'group_by': 'shift_template_group'}"
                     />
                 </search>
             </field>

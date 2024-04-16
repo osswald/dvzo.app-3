@@ -7,11 +7,13 @@ class DayPlanning(models.Model):
     _name = "train_management.day_planning"
     _description = "Day planning"
     _order = "date"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char("Label", required=True)
     date = fields.Date("Date", required=True)
     railway_company = fields.Many2one("train_management.railway_company")
     responsible_phone = fields.Many2one("res.partner", string="Responsible phone")
+    responsible_phone_tl = fields.Many2one("res.partner", string="Responsible phone TL")
     type = fields.Selection(
         selection=[
             ("public", "Public"),
