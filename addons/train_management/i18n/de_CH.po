@@ -1748,7 +1748,7 @@ msgstr "Zuständig Betrieb (Notfallnummer)"
 #, fuzzy
 #| msgid "Responsible phone"
 msgid "Responsible phone TL"
-msgstr "Zuständig Betrieb (Notfallnummer)"
+msgstr "Zuständig Betrieb (Transportleitung)"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__message_has_sms_error

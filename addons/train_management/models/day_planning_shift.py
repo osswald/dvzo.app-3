@@ -8,6 +8,7 @@ class DayPlanningShift(models.Model):
 
     day_planning = fields.Many2one("train_management.day_planning", string="Day planning", required=True)
     day_planning_date = fields.Date("Date", related="day_planning.date")
+    shift_template_group = fields.Many2one(related="shift.shift_template_group")
     shift = fields.Many2one(
         "train_management.shift_template",
         required=True,

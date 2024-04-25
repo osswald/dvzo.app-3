@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_show_briefing_recipients_wizard_form" model="ir.ui.view">
+        <field name="name">show.briefing.recipients.wizard.form</field>
+        <field name="model">train_management.show_briefing_recipients_wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <h3>List of all briefing recipients</h3>
+                <field name="briefing_recipients"/>
+                <footer>
+                     <button string="Close" class="btn btn-primary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_show_briefing_recipients" model="ir.actions.act_window">
+            <field name="name">Show Briefing recipients</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">train_management.show_briefing_recipients_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+</odoo>

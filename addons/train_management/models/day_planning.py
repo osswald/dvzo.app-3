@@ -147,6 +147,21 @@ class DayPlanning(models.Model):
                 recipients.append(person.email)
         return ",".join(recipients)
 
+    # def action_show_briefing_recipients(self):
+    #     recipients = "Test"
+    #     return {
+    #         'name': 'Briefing Recipients',
+    #         'res_model': 'train_management.show_briefing_recipients_wizard',
+    #         'view_type': 'form',
+    #         'view_id': 'train_management.view_show_briefing_recipients_wizard_form',
+    #         'view_mode': 'form',
+    #         'target': 'new',
+    #         'type': 'ir.actions.act_window',
+    #         'context': {
+    #             'briefing_recipients': recipients,
+    #         },
+    #     }
+
     def post_mortem_recipients(self):
         recipients = self.env['res.partner'].search([("mailing_ids.name", "in", "Nachlese")])
         return ",".join([recipient.email for recipient in recipients if recipient.email])
@@ -159,7 +174,6 @@ class DayPlanning(models.Model):
     def action_executed(self):
         if "draft" in self.mapped("state"):
             raise UserError("Draft day plannings can't be executed")
-        # TODO: add confirmation dialog
         drehscheibe = Drehscheibe()
         drehscheibe.post_day_planning(self)
         return self.write({"state": "executed"})
@@ -175,3 +189,30 @@ class DayPlanning(models.Model):
     def _compute_sum_of_trains(self):
         for record in self:
             record.day_planning_train_ids_count = len(record.train_ids)
+
+
+class ShowBriefingRecipientsWizard(models.TransientModel):
+    _name = 'train_management.show_briefing_recipients_wizard'
+    _description = 'Wizard to Display The Briefing Recipients'
+
+    briefing_recipients = fields.Html(string="Briefing Recipients", readonly=True)
+
+    @api.model
+    def default_get(self, fields):
+        res = super(ShowBriefingRecipientsWizard, self).default_get(fields)
+        active_day_planning = self.env['train_management.day_planning'].browse(self._context.get('active_id'))
+        cc_recipients = self.env['train_management.copy_recipient'].search([])
+        recipients = [recipient.email for recipient in cc_recipients]
+        people_with_shifts = active_day_planning.day_planning_shift_ids.person
+        for person in people_with_shifts:
+            if person.email:
+                recipients.append(person.email)
+        recipients_str = "<br/>".join(recipients)
+        res.update({
+            'briefing_recipients': recipients_str,
+        })
+        return res
+
+
+
+

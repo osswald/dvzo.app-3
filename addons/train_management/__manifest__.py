@@ -30,6 +30,7 @@
         'wizards/create_train_wizard.xml',
         'wizards/add_shifts_wizard.xml',
         'wizards/add_shift_positions_wizard.xml',
+        'wizards/show_briefing_recipients_wizard.xml',
 
         'views/circuit_views.xml',
         'views/day_planning_shift_views.xml',

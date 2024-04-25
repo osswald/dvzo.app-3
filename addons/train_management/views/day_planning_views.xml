@@ -10,6 +10,7 @@
                 <form>
                     <header>
                         <button name="%(open_add_shifts_wizard)d" type="action" string="Add shifts"/>
+                        <button name="%(action_show_briefing_recipients)d" type="action" string="Show Briefing Recipients" />
                         <button name="action_confirmed" type="object" string="Confirm" states="draft"
                                 class="oe_highlight"/>
                         <button name="action_executed" type="object" string="Executed"
@@ -101,6 +102,7 @@
                                     <tree editable="bottom">
                                         <field name="sequence" widget="handle"/>
                                         <field name="shift"/>
+                                        <field name="shift_template_group"/>
                                         <field name="day_planning_date" invisible="True"/>
                                         <field name="shift_categories" invisible="True"/>
                                         <field name="shift_label"/>
