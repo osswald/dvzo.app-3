@@ -22,14 +22,16 @@
                                     <tr>
                                         <th style="text-align: left;">Notfallnummer</th>
                                         <td>
-                                            052 589 68 22<br/>
+                                            052 589 68 22
+                                            <br/>
                                             (<span t-field="day_planning.responsible_phone"/>)
                                         </td>
                                     </tr>
                                     <tr>
                                         <th style="text-align: left;">Transportleitung</th>
                                         <td>
-                                            052 589 68 55<br/>
+                                            052 589 68 55
+                                            <br/>
                                             (<span t-field="day_planning.responsible_phone_tl"/>)
                                         </td>
                                     </tr>
@@ -47,19 +49,22 @@
                         </div>
 
                         <!-- Circuits -->
+                        <t t-set="circuits" t-value="day_planning.mapped('circuit_ids')"/>
+                        <t t-set="circuit_count" t-value="len(circuits)"/>
+                        <t t-set="circuit_width" t-value="100.0 / circuit_count if circuit_count else 100"/>
                         <h2 t-if="day_planning.circuit_ids">Circuit formation</h2>
-                        <table class="table table-sm" t-if="day_planning.circuit_ids">
+                        <table t-if="day_planning.circuit_ids" style="table-layout: fixed; width: 100%;">
                             <thead>
-                                <t t-set="circuits" t-value="day_planning.mapped('circuit_ids')"/>
                                 <tr>
-                                    <th t-foreach="circuits" t-as="circuit">
+                                    <th t-foreach="circuits" t-as="circuit"
+                                        t-attf-style="width: {{circuit_width}}%; text-align: left;">
                                         <span t-field="circuit.name"/>
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td t-foreach="circuits" t-as="circuit2">
+                                    <td t-foreach="circuits" t-as="circuit2" t-attf-style="width: {{circuit_width}}%;">
                                         <t t-set="circuit_vehicles" t-value="circuit2.mapped('circuit_vehicle')"/>
                                         <div t-foreach="circuit_vehicles" t-as="circuit_vehicle">
                                             <span t-field="circuit_vehicle.vehicle"/>
@@ -85,27 +90,33 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <t t-set="shifts" t-value="day_planning.mapped('day_planning_shift_ids')"/>
-                                <tr t-foreach="shifts" t-as="shift">
+                                <t t-set="grouped_shifts" t-value="day_planning.get_sorted_shifts()"/>
+                                <t t-foreach="grouped_shifts.items()" t-as="group">
+                                <tr>
+                                   <td colspan="5" t-esc="group[0] if isinstance(group[0], str) else group[0].name" style="font-weight:bold;"/> <!-- Group Name -->
+                                </tr>
+                                <t t-foreach="group[1]" t-as="shift"> <!-- loop through shifts in group -->
+                                <tr>
                                     <td>
                                         <span t-field="shift.shift"/>
-                                        /
-                                        <span t-field="shift.shift_label"/>
                                     </td>
                                     <td>
                                         <t t-if="shift.shift.approximate_times">
-                                            <span t-field="shift.shift.approximate_start_time" t-options='{"widget": "float_time"}'/>
+                                            <span t-field="shift.shift.approximate_start_time"
+                                                  t-options='{"widget": "float_time"}'/>
                                         </t>
                                         <t t-else="">
-                                        <span t-field="shift.shift.shift_start" t-options='{"widget": "float_time"}'/>
+                                            <span t-field="shift.shift.shift_start"
+                                                  t-options='{"widget": "float_time"}'/>
                                         </t>
                                     </td>
                                     <td>
                                         <t t-if="shift.shift.approximate_times">
-                                            <span t-field="shift.shift.approximate_end_time" t-options='{"widget": "float_time"}'/>
+                                            <span t-field="shift.shift.approximate_end_time"
+                                                  t-options='{"widget": "float_time"}'/>
                                         </t>
                                         <t t-else="">
-                                        <span t-field="shift.shift.shift_end" t-options='{"widget": "float_time"}'/>
+                                            <span t-field="shift.shift.shift_end" t-options='{"widget": "float_time"}'/>
                                         </t>
                                     </td>
                                     <td>
@@ -117,6 +128,8 @@
                                         </t>
                                     </td>
                                 </tr>
+                                </t>
+                                </t>
                             </tbody>
                         </table>
 

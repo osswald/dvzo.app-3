@@ -121,6 +121,23 @@ class DayPlanning(models.Model):
     day_planning_shift_ids_count = fields.Integer(compute="_compute_sum_of_shifts")
     day_planning_train_ids_count = fields.Integer(compute="_compute_sum_of_trains")
 
+    def get_sorted_shifts(self):
+        shifts = self.mapped('day_planning_shift_ids')
+        sorted_shifts_with_group = sorted([s for s in shifts if s.shift.shift_template_group],
+                                          key=lambda r: (r.shift.shift_template_group.sequence,
+                                                         r.shift.shift_template_group.name))
+        sorted_shifts_without_group = [s for s in shifts if not s.shift.shift_template_group]
+        sorted_shifts = sorted_shifts_with_group + sorted_shifts_without_group
+
+        grouped_shifts = {}
+        for shift in sorted_shifts:
+            group_name = shift.shift.shift_template_group if shift.shift.shift_template_group else 'Others'
+            if group_name not in grouped_shifts:
+                grouped_shifts[group_name] = []
+            grouped_shifts[group_name].append(shift)
+
+        return grouped_shifts
+
     @api.depends('circuit_ids.frequency')
     def _compute_total_frequency(self):
         for day_planning in self:
@@ -196,7 +213,8 @@ class ShowBriefingRecipientsWizard(models.TransientModel):
         for person in people_with_shifts:
             if person.email:
                 recipients.append(person.email)
-        post_mortem_recipients_str = "<br/>".join([recipient.email for recipient in post_mortem_recipients if recipient.email])
+        post_mortem_recipients_str = "<br/>".join(
+            [recipient.email for recipient in post_mortem_recipients if recipient.email])
         recipients_str = "<br/>".join(recipients)
         cc_recipients_str = "<br/>".join(cc_recipients_mail)
         res.update({
@@ -205,7 +223,3 @@ class ShowBriefingRecipientsWizard(models.TransientModel):
             'post_mortem_recipients': post_mortem_recipients_str,
         })
         return res
-
-
-
-
