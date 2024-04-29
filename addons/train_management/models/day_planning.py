@@ -147,21 +147,6 @@ class DayPlanning(models.Model):
                 recipients.append(person.email)
         return ",".join(recipients)
 
-    # def action_show_briefing_recipients(self):
-    #     recipients = "Test"
-    #     return {
-    #         'name': 'Briefing Recipients',
-    #         'res_model': 'train_management.show_briefing_recipients_wizard',
-    #         'view_type': 'form',
-    #         'view_id': 'train_management.view_show_briefing_recipients_wizard_form',
-    #         'view_mode': 'form',
-    #         'target': 'new',
-    #         'type': 'ir.actions.act_window',
-    #         'context': {
-    #             'briefing_recipients': recipients,
-    #         },
-    #     }
-
     def post_mortem_recipients(self):
         recipients = self.env['res.partner'].search([("mailing_ids.name", "in", "Nachlese")])
         return ",".join([recipient.email for recipient in recipients if recipient.email])
@@ -197,23 +182,27 @@ class ShowBriefingRecipientsWizard(models.TransientModel):
 
     briefing_recipients = fields.Html(string="Briefing Recipients", readonly=True)
     cc_recipients = fields.Html(string="CC Recipients", readonly=True)
+    post_mortem_recipients = fields.Html(string="Post Mortem Recipients", readonly=True)
 
     @api.model
     def default_get(self, fields):
         res = super(ShowBriefingRecipientsWizard, self).default_get(fields)
         active_day_planning = self.env['train_management.day_planning'].browse(self._context.get('active_id'))
         cc_recipients = self.env['train_management.copy_recipient'].search([])
+        post_mortem_recipients = self.env['res.partner'].search([("mailing_ids.name", "in", ["Nachlese"])])
         cc_recipients_mail = [recipient.email for recipient in cc_recipients]
         people_with_shifts = active_day_planning.day_planning_shift_ids.person
         recipients = []
         for person in people_with_shifts:
             if person.email:
                 recipients.append(person.email)
+        post_mortem_recipients_str = "<br/>".join([recipient.email for recipient in post_mortem_recipients if recipient.email])
         recipients_str = "<br/>".join(recipients)
         cc_recipients_str = "<br/>".join(cc_recipients_mail)
         res.update({
             'briefing_recipients': recipients_str,
             'cc_recipients': cc_recipients_str,
+            'post_mortem_recipients': post_mortem_recipients_str,
         })
         return res
 
