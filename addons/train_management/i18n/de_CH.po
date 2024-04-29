@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-16 14:41+0000\n"
-"PO-Revision-Date: 2024-04-16 16:48+0200\n"
+"POT-Creation-Date: 2024-04-29 12:21+0000\n"
+"PO-Revision-Date: 2024-04-29 14:34+0200\n"
 "Last-Translator: Christoph Osswald\n"
 "Language-Team: \n"
 "Language: de_CH\n"
@@ -330,9 +330,19 @@ msgid "Briefing"
 msgstr "Briefing"
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_show_briefing_recipients_wizard__briefing_recipients
+msgid "Briefing Recipients"
+msgstr ""
+
+#. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__type__bus
 msgid "Bus"
 msgstr "Bus"
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_show_briefing_recipients_wizard__cc_recipients
+msgid "CC Recipients"
+msgstr "CC-Empfänger"
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.add_shift_positions_wizard_view_form
@@ -401,6 +411,7 @@ msgid "Clearanceprofile"
 msgstr "Lichtraumprofil"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.view_show_briefing_recipients_wizard_form
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 msgid "Close"
 msgstr "Schliessen"
@@ -529,6 +540,7 @@ msgstr "Züge erstellen"
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_position_type__create_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__create_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template_group__create_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_show_briefing_recipients_wizard__create_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_station__create_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_stop_code__create_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_timetable__create_uid
@@ -559,6 +571,7 @@ msgstr "Erstellt von"
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_position_type__create_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__create_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template_group__create_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_show_briefing_recipients_wizard__create_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_station__create_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_stop_code__create_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_timetable__create_date
@@ -788,6 +801,7 @@ msgstr "Didok"
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_position_type__display_name
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__display_name
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template_group__display_name
+#: model:ir.model.fields,field_description:train_management.field_train_management_show_briefing_recipients_wizard__display_name
 #: model:ir.model.fields,field_description:train_management.field_train_management_station__display_name
 #: model:ir.model.fields,field_description:train_management.field_train_management_stop_code__display_name
 #: model:ir.model.fields,field_description:train_management.field_train_management_timetable__display_name
@@ -969,6 +983,7 @@ msgid "Gross weight"
 msgstr "Bruttogewicht"
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift__shift_template_group
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__shift_template_group
 #: model_terms:ir.ui.view,arch_db:train_management.shift_template_search
 msgid "Group"
@@ -1053,6 +1068,7 @@ msgstr "Historische Kennzeichnung"
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_position_type__id
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__id
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template_group__id
+#: model:ir.model.fields,field_description:train_management.field_train_management_show_briefing_recipients_wizard__id
 #: model:ir.model.fields,field_description:train_management.field_train_management_station__id
 #: model:ir.model.fields,field_description:train_management.field_train_management_stop_code__id
 #: model:ir.model.fields,field_description:train_management.field_train_management_timetable__id
@@ -1220,6 +1236,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_position_type____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template_group____last_update
+#: model:ir.model.fields,field_description:train_management.field_train_management_show_briefing_recipients_wizard____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_station____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_stop_code____last_update
 #: model:ir.model.fields,field_description:train_management.field_train_management_timetable____last_update
@@ -1250,6 +1267,7 @@ msgstr "Zuletzt geändert am"
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_position_type__write_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__write_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template_group__write_uid
+#: model:ir.model.fields,field_description:train_management.field_train_management_show_briefing_recipients_wizard__write_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_station__write_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_stop_code__write_uid
 #: model:ir.model.fields,field_description:train_management.field_train_management_timetable__write_uid
@@ -1280,6 +1298,7 @@ msgstr "Zuletzt aktualisiert von"
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_position_type__write_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__write_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template_group__write_date
+#: model:ir.model.fields,field_description:train_management.field_train_management_show_briefing_recipients_wizard__write_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_station__write_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_stop_code__write_date
 #: model:ir.model.fields,field_description:train_management.field_train_management_timetable__write_date
@@ -1303,6 +1322,16 @@ msgstr "Länge"
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__lengthOverBuffer
 msgid "Lengthoverbuffer"
 msgstr "Länge über Puffer"
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.view_show_briefing_recipients_wizard_form
+msgid "List of all cc recipients"
+msgstr "Liste aller CC-Empfänger"
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.view_show_briefing_recipients_wizard_form
+msgid "List of all people with shifts"
+msgstr "Liste aller Personen mit Touren"
 
 #. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_vehicle__type__luggage
@@ -1733,8 +1762,6 @@ msgstr "Reserviert"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__activity_user_id
-#, fuzzy
-#| msgid "Responsible phone"
 msgid "Responsible User"
 msgstr "Zuständig Betrieb (Notfallnummer)"
 
@@ -1745,8 +1772,6 @@ msgstr "Zuständig Betrieb (Notfallnummer)"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__responsible_phone_tl
-#, fuzzy
-#| msgid "Responsible phone"
 msgid "Responsible phone TL"
 msgstr "Zuständig Betrieb (Transportleitung)"
 
@@ -1885,10 +1910,8 @@ msgstr "Touren-Vorlage"
 #: model:ir.model,name:train_management.model_train_management_shift_template_group
 #: model:ir.ui.menu,name:train_management.shift_template_group_menu_action
 #: model_terms:ir.ui.view,arch_db:train_management.shift_template_group_view_tree
-#, fuzzy
-#| msgid "Shift template"
 msgid "Shift template group"
-msgstr "Touren-Vorlage"
+msgstr "Touren-Vorlage Gruppe"
 
 #. module: train_management
 #: model:ir.actions.report,name:train_management.action_report_day_planning_shifts
@@ -1908,6 +1931,16 @@ msgstr "Touren gesucht"
 #: model:ir.model.fields,field_description:train_management.field_train_management_station__short_name
 msgid "Short Name"
 msgstr "Kürzel"
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_form
+msgid "Show Briefing Recipients"
+msgstr "Briefing-Empfänger anzeigen"
+
+#. module: train_management
+#: model:ir.actions.act_window,name:train_management.action_show_briefing_recipients
+msgid "Show Briefing recipients"
+msgstr "Briefing-Empfänger anzeigen"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__slot_ordered_sbb
@@ -2424,6 +2457,11 @@ msgstr ""
 "                        Bitte wählen Sie die Touren-Vorlage aus, von der Sie die "
 "Positionen kopieren möchten.\n"
 "                       <br/><br/>"
+
+#. module: train_management
+#: model:ir.model,name:train_management.model_train_management_show_briefing_recipients_wizard
+msgid "Wizard to Display The Briefing Recipients"
+msgstr ""
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__work_duration

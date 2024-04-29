@@ -1,0 +1,204 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* minimal_hours
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-29 12:26+0000\n"
+"PO-Revision-Date: 2024-04-29 12:26+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: minimal_hours
+#: model:ir.actions.report,print_report_name:minimal_hours.action_report_minimal_hours
+msgid "'Minimal hours'"
+msgstr ""
+
+#. module: minimal_hours
+#: model_terms:ir.ui.view,arch_db:minimal_hours.minimal_hours
+msgid "<span style=\"font-weight:bold;\">Minimal hours</span>"
+msgstr ""
+
+#. module: minimal_hours
+#: model:ir.model,name:minimal_hours.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: minimal_hours
+#: model_terms:ir.ui.view,arch_db:minimal_hours.minimal_hours
+msgid "Goal reached"
+msgstr ""
+
+#. module: minimal_hours
+#: model:ir.model.fields,field_description:minimal_hours.field_res_partner__goal_reached_current_year
+#: model:ir.model.fields,field_description:minimal_hours.field_res_partner__goal_reached_last_year
+#: model:ir.model.fields,field_description:minimal_hours.field_res_users__goal_reached_current_year
+#: model:ir.model.fields,field_description:minimal_hours.field_res_users__goal_reached_last_year
+msgid "Goal reached VTE"
+msgstr ""
+
+#. module: minimal_hours
+#: model_terms:ir.ui.view,arch_db:minimal_hours.minimal_hours
+msgid "Hours"
+msgstr ""
+
+#. module: minimal_hours
+#: model:ir.model.fields,field_description:minimal_hours.field_res_partner__hours_planned_current_year
+#: model:ir.model.fields,field_description:minimal_hours.field_res_users__hours_planned_current_year
+msgid "Hours Planned Current Year"
+msgstr ""
+
+#. module: minimal_hours
+#: model:ir.model.fields,field_description:minimal_hours.field_res_partner__hours_planned_last_year
+#: model:ir.model.fields,field_description:minimal_hours.field_res_users__hours_planned_last_year
+msgid "Hours Planned Last Year"
+msgstr ""
+
+#. module: minimal_hours
+#: model:ir.model.fields,field_description:minimal_hours.field_res_partner__hours_worked_current_year
+#: model:ir.model.fields,field_description:minimal_hours.field_res_users__hours_worked_current_year
+msgid "Hours Worked Current Year"
+msgstr ""
+
+#. module: minimal_hours
+#: model:ir.model.fields,field_description:minimal_hours.field_res_partner__hours_worked_last_year
+#: model:ir.model.fields,field_description:minimal_hours.field_res_users__hours_worked_last_year
+msgid "Hours Worked Last Year"
+msgstr ""
+
+#. module: minimal_hours
+#: model_terms:ir.ui.view,arch_db:minimal_hours.minimal_hours
+msgid "Hours planned"
+msgstr ""
+
+#. module: minimal_hours
+#: model_terms:ir.ui.view,arch_db:minimal_hours.minimal_hours
+msgid "Hours worked"
+msgstr ""
+
+#. module: minimal_hours
+#: model_terms:ir.ui.view,arch_db:minimal_hours.view_partner_form
+msgid "Last year"
+msgstr ""
+
+#. module: minimal_hours
+#: model:ir.model.fields,field_description:minimal_hours.field_res_partner__min_hours_category
+#: model:ir.model.fields,field_description:minimal_hours.field_res_users__min_hours_category
+msgid "Min Hours Category"
+msgstr ""
+
+#. module: minimal_hours
+#: model:ir.model.fields,field_description:minimal_hours.field_res_partner__min_shifts_category
+#: model:ir.model.fields,field_description:minimal_hours.field_res_users__min_shifts_category
+msgid "Min Shifts Category"
+msgstr ""
+
+#. module: minimal_hours
+#: model_terms:ir.ui.view,arch_db:minimal_hours.minimal_hours
+msgid "Min. hours"
+msgstr ""
+
+#. module: minimal_hours
+#: model_terms:ir.ui.view,arch_db:minimal_hours.minimal_hours
+msgid "Min. shifts"
+msgstr ""
+
+#. module: minimal_hours
+#: model:ir.actions.report,name:minimal_hours.action_report_minimal_hours
+#: model_terms:ir.ui.view,arch_db:minimal_hours.view_partner_form
+msgid "Minimal hours"
+msgstr ""
+
+#. module: minimal_hours
+#: model_terms:ir.ui.view,arch_db:minimal_hours.web_minimal_hours_list_view
+msgid "My hours"
+msgstr ""
+
+#. module: minimal_hours
+#: model_terms:ir.ui.view,arch_db:minimal_hours.minimal_hours
+msgid "Name"
+msgstr ""
+
+#. module: minimal_hours
+#: model:ir.model.fields.selection,name:minimal_hours.selection__res_partner__goal_reached_current_year__not_reachable
+#: model:ir.model.fields.selection,name:minimal_hours.selection__res_partner__goal_reached_last_year__not_reachable
+msgid "Not reachable"
+msgstr ""
+
+#. module: minimal_hours
+#: model:ir.model.fields.selection,name:minimal_hours.selection__res_partner__goal_reached_current_year__reachable
+#: model:ir.model.fields.selection,name:minimal_hours.selection__res_partner__goal_reached_last_year__reachable
+msgid "Reachable"
+msgstr ""
+
+#. module: minimal_hours
+#: model:ir.model.fields.selection,name:minimal_hours.selection__res_partner__goal_reached_current_year__reached
+#: model:ir.model.fields.selection,name:minimal_hours.selection__res_partner__goal_reached_last_year__reached
+msgid "Reached"
+msgstr ""
+
+#. module: minimal_hours
+#: model_terms:ir.ui.view,arch_db:minimal_hours.minimal_hours
+msgid "Shifts"
+msgstr ""
+
+#. module: minimal_hours
+#: model:ir.model.fields,field_description:minimal_hours.field_res_partner__shifts_planned_current_year
+#: model:ir.model.fields,field_description:minimal_hours.field_res_users__shifts_planned_current_year
+msgid "Shifts Planned Current Year"
+msgstr ""
+
+#. module: minimal_hours
+#: model:ir.model.fields,field_description:minimal_hours.field_res_partner__shifts_planned_last_year
+#: model:ir.model.fields,field_description:minimal_hours.field_res_users__shifts_planned_last_year
+msgid "Shifts Planned Last Year"
+msgstr ""
+
+#. module: minimal_hours
+#: model:ir.model.fields,field_description:minimal_hours.field_res_partner__shifts_worked_current_year
+#: model:ir.model.fields,field_description:minimal_hours.field_res_users__shifts_worked_current_year
+msgid "Shifts Worked Current Year"
+msgstr ""
+
+#. module: minimal_hours
+#: model:ir.model.fields,field_description:minimal_hours.field_res_partner__shifts_worked_last_year
+#: model:ir.model.fields,field_description:minimal_hours.field_res_users__shifts_worked_last_year
+msgid "Shifts Worked Last Year"
+msgstr ""
+
+#. module: minimal_hours
+#: model_terms:ir.ui.view,arch_db:minimal_hours.minimal_hours
+msgid "Shifts planned"
+msgstr ""
+
+#. module: minimal_hours
+#: model_terms:ir.ui.view,arch_db:minimal_hours.minimal_hours
+msgid "Shifts worked"
+msgstr ""
+
+#. module: minimal_hours
+#: model_terms:ir.ui.view,arch_db:minimal_hours.web_minimal_hours_list_view
+msgid "This page is currently under construction. Please check back later."
+msgstr ""
+
+#. module: minimal_hours
+#: model_terms:ir.ui.view,arch_db:minimal_hours.view_partner_form
+msgid "This year"
+msgstr ""
+
+#. module: minimal_hours
+#: model:ir.model.fields.selection,name:minimal_hours.selection__res_partner__goal_reached_current_year__unknown
+#: model:ir.model.fields.selection,name:minimal_hours.selection__res_partner__goal_reached_last_year__unknown
+msgid "Unknown"
+msgstr ""
+
+#. module: minimal_hours
+#: model_terms:ir.ui.view,arch_db:minimal_hours.view_res_partner_filter_inherit
+msgid "With Category"
+msgstr ""

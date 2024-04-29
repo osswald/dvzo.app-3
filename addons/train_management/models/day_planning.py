@@ -196,20 +196,24 @@ class ShowBriefingRecipientsWizard(models.TransientModel):
     _description = 'Wizard to Display The Briefing Recipients'
 
     briefing_recipients = fields.Html(string="Briefing Recipients", readonly=True)
+    cc_recipients = fields.Html(string="CC Recipients", readonly=True)
 
     @api.model
     def default_get(self, fields):
         res = super(ShowBriefingRecipientsWizard, self).default_get(fields)
         active_day_planning = self.env['train_management.day_planning'].browse(self._context.get('active_id'))
         cc_recipients = self.env['train_management.copy_recipient'].search([])
-        recipients = [recipient.email for recipient in cc_recipients]
+        cc_recipients_mail = [recipient.email for recipient in cc_recipients]
         people_with_shifts = active_day_planning.day_planning_shift_ids.person
+        recipients = []
         for person in people_with_shifts:
             if person.email:
                 recipients.append(person.email)
         recipients_str = "<br/>".join(recipients)
+        cc_recipients_str = "<br/>".join(cc_recipients_mail)
         res.update({
             'briefing_recipients': recipients_str,
+            'cc_recipients': cc_recipients_str,
         })
         return res
 
