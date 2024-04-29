@@ -10,6 +10,7 @@
                 <hr/>
                 <h3>List of all cc recipients</h3>
                 <field name="cc_recipients"/>
+                <hr/>
                 <h3>List of all post-mortem recipients</h3>
                 <field name="post_mortem_recipients"/>
                 <footer>

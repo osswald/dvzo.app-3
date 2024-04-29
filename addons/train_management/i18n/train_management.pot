@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-29 12:21+0000\n"
-"PO-Revision-Date: 2024-04-29 12:21+0000\n"
+"POT-Creation-Date: 2024-04-29 13:56+0000\n"
+"PO-Revision-Date: 2024-04-29 13:56+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1106,6 +1106,11 @@ msgid "In training"
 msgstr ""
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.briefing
+msgid "Infos"
+msgstr ""
+
+#. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_stop_code__type__infra
 msgid "Infrastructure stop"
 msgstr ""
@@ -1304,6 +1309,11 @@ msgstr ""
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.view_show_briefing_recipients_wizard_form
 msgid "List of all people with shifts"
+msgstr ""
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.view_show_briefing_recipients_wizard_form
+msgid "List of all post-mortem recipients"
 msgstr ""
 
 #. module: train_management
@@ -1629,6 +1639,11 @@ msgstr ""
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning_shift_offer__offer__possible
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 msgid "Possible"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_show_briefing_recipients_wizard__post_mortem_recipients
+msgid "Post Mortem Recipients"
 msgstr ""
 
 #. module: train_management
