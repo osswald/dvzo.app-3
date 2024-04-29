@@ -13,6 +13,7 @@
                 <menuitem id="railway_company_menu_action" action="train_management.railway_company_action"/>
                 <menuitem id="stop_code_menu_action" action="train_management.stop_code_action"/>
                 <menuitem id="copy_recipient_menu_action" action="train_management.copy_recipient_action"/>
+                <menuitem id="shift_template_group_menu_action" action="train_management.shift_template_group_action"/>
             </menuitem>
         </menuitem>
 
