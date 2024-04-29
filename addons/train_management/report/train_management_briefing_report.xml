@@ -15,8 +15,31 @@
                             <span t-field="day_planning.date"/>
                         </h1>
 
+                        <!-- Emergency contacts -->
+                        <div>
+                            <table class="table table-sm">
+                                <tbody>
+                                    <tr>
+                                        <th style="text-align: left;">Notfallnummer</th>
+                                        <td>
+                                            052 589 68 22<br/>
+                                            (<span t-field="day_planning.responsible_phone"/>)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="text-align: left;">Transportleitung</th>
+                                        <td>
+                                            052 589 68 55<br/>
+                                            (<span t-field="day_planning.responsible_phone_tl"/>)
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
                         <!-- Day planning texts -->
                         <div t-if="day_planning.day_planning_text_ids">
+                            <h2>Infos</h2>
                             <t t-set="texts" t-value="day_planning.mapped('day_planning_text_ids')"/>
                             <div t-foreach="texts" t-as="text">
                                 <span t-field="text.text"/>
