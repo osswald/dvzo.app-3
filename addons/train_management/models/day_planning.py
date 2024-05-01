@@ -125,8 +125,10 @@ class DayPlanning(models.Model):
         shifts = self.mapped('day_planning_shift_ids')
         sorted_shifts_with_group = sorted([s for s in shifts if s.shift.shift_template_group],
                                           key=lambda r: (r.shift.shift_template_group.sequence,
-                                                         r.shift.shift_template_group.name))
-        sorted_shifts_without_group = [s for s in shifts if not s.shift.shift_template_group]
+                                                         r.shift.shift_template_group.name,
+                                                         r.shift.name))
+        sorted_shifts_without_group = sorted([s for s in shifts if not s.shift.shift_template_group],
+                                             key=lambda r: r.shift.name)
         sorted_shifts = sorted_shifts_with_group + sorted_shifts_without_group
 
         grouped_shifts = {}

@@ -23,7 +23,6 @@
                                         <th style="text-align: left;">Notfallnummer</th>
                                         <td>
                                             052 589 68 22
-                                            <br/>
                                             (<span t-field="day_planning.responsible_phone"/>)
                                         </td>
                                     </tr>
@@ -31,7 +30,6 @@
                                         <th style="text-align: left;">Transportleitung</th>
                                         <td>
                                             052 589 68 55
-                                            <br/>
                                             (<span t-field="day_planning.responsible_phone_tl"/>)
                                         </td>
                                     </tr>
@@ -152,9 +150,6 @@
                                 <tr t-foreach="reservations" t-as="reservation">
                                     <td>
                                         <span t-field="reservation.train"/>
-                                        <span t-field="reservation.train.start_station.short_name"/>
-                                        -
-                                        <span t-field="reservation.train.end_station.short_name"/>
                                     </td>
                                     <td>
                                         <span t-field="reservation.start_station_short"/>
