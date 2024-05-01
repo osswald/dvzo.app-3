@@ -17,6 +17,7 @@
                             <field name="type" placeholder="e.g. Cleaning detergent" attrs="{'readonly': [('is_record_saved','=',True)]}"/>
                             <field name="inventory_nr" attrs="{'readonly': [('is_record_saved','=',True)]}"/>
                             <field name="manufacturer" placeholder="e.g. Microsoft Corp."/>
+                            <field name="vendor" placeholder="e.g. Interdiscount"/>
                             <field name="location" placeholder="e.g. At Luki's home"/>
                             <field name="serial_number" placeholder="e.g. SQ33333-482P"/>
                             <field name="date_bought" placeholder="e.g. 11.11.2011"/>

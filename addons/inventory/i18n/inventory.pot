@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-15 15:09+0000\n"
-"PO-Revision-Date: 2024-02-15 15:09+0000\n"
+"POT-Creation-Date: 2024-05-01 08:15+0000\n"
+"PO-Revision-Date: 2024-05-01 08:15+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,21 +19,19 @@ msgstr ""
 #: model:mail.template,body_html:inventory.mail_template_reminder
 msgid ""
 "<div style=\"margin: 16px; padding: 16px; background-color: #F3F5F6;\">\n"
-"                    <p style=\"font-size:20px;\">Hello ${object.responsible.name},</p>\n"
+"                    <p style=\"font-size:20px;\">Hello <t t-out=\"object.responsible.name\"></t>,</p>\n"
 "                    <p>Here is the list of inventory items whose expiry dates are within the next 14 days:</p>\n"
 "                    <table style=\"width:100%; border-collapse: collapse;\">\n"
 "                        <tr>\n"
 "                            <th style=\"border: 1px solid black; padding: 8px;\">Inventory Name</th>\n"
 "                            <th style=\"border: 1px solid black; padding: 8px;\">Expiry Date</th>\n"
 "                        </tr>\n"
-"                        % for inventory in ctx['inventories']:\n"
-"                        <tr>\n"
-"                            <td style=\"border: 1px solid black; padding: 8px;\">${inventory.name}</td>\n"
-"                            <td style=\"border: 1px solid black; padding: 8px;\">${inventory.date_expires}</td>\n"
+"\t\t\t<tr t-foreach=\"ctx['inventories']\" t-as=\"inventory\">\n"
+"                            <td style=\"border: 1px solid black; padding: 8px;\"><t t-out=\"inventory.name\"></t></td>\n"
+"\t\t\t    <td style=\"border: 1px solid black; padding: 8px;\"><t t-out=\"inventory.date_expires\"></t></td>\n"
 "                        </tr>\n"
-"                        % endfor\n"
 "                    </table>\n"
-"                    <p>Regards,<br>${object.company_id.name}\n"
+"\t\t    <p>Regards,<br>DVZO.app\n"
 "                    </p>\n"
 "                </div>\n"
 "            "
@@ -167,7 +165,7 @@ msgstr ""
 
 #. module: inventory
 #: model:mail.template,subject:inventory.mail_template_reminder
-msgid "Expiry Reminder for Inventory: ${object.name}"
+msgid "Expiry Reminder for Inventory: {{object.name}}"
 msgstr ""
 
 #. module: inventory
@@ -234,11 +232,15 @@ msgstr ""
 
 #. module: inventory
 #: model:ir.actions.act_window,name:inventory.inventory_manufacturer_action
-#: model:ir.model,name:inventory.model_inventory_manufacturer
 #: model:ir.ui.menu,name:inventory.inventory_manufacturer_menu_action
 #: model_terms:ir.ui.view,arch_db:inventory.inventory_manufacturer_view_form
 #: model_terms:ir.ui.view,arch_db:inventory.inventory_manufacturer_view_tree
 msgid "Inventory manufacturer"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model,name:inventory.model_inventory_manufacturer
+msgid "Inventory manufacturer / Vendor"
 msgstr ""
 
 #. module: inventory
@@ -264,6 +266,11 @@ msgstr ""
 #: model:ir.ui.menu,name:inventory.inventory_type_menu_action
 #: model_terms:ir.ui.view,arch_db:inventory.inventory_type_view_form
 msgid "Inventory type"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__is_record_saved
+msgid "Is Record Saved"
 msgstr ""
 
 #. module: inventory
@@ -316,9 +323,13 @@ msgstr ""
 
 #. module: inventory
 #: model:ir.model.fields,field_description:inventory.field_inventory_inventory__manufacturer
-#: model:ir.model.fields,field_description:inventory.field_inventory_manufacturer__name
 #: model_terms:ir.ui.view,arch_db:inventory.inventory_view_search
 msgid "Manufacturer"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_manufacturer__name
+msgid "Manufacturer/Vendor"
 msgstr ""
 
 #. module: inventory
@@ -401,6 +412,11 @@ msgid ""
 msgstr ""
 
 #. module: inventory
+#: model:ir.model.fields,help:inventory.field_inventory_inventory__not_monitored
+msgid "This item is not monitored for risk assessment."
+msgstr ""
+
+#. module: inventory
 #: model:ir.model.fields,field_description:inventory.field_inventory_inventory__type
 #: model_terms:ir.ui.view,arch_db:inventory.inventory_view_search
 msgid "Type"
@@ -415,6 +431,11 @@ msgstr ""
 #. module: inventory
 #: model:res.groups,name:inventory.group_inventory_user
 msgid "User"
+msgstr ""
+
+#. module: inventory
+#: model:ir.model.fields,field_description:inventory.field_inventory_inventory__vendor
+msgid "Vendor"
 msgstr ""
 
 #. module: inventory
@@ -435,6 +456,11 @@ msgstr ""
 #. module: inventory
 #: model_terms:ir.ui.view,arch_db:inventory.inventory_view_form
 msgid "e.g. Ettenhausen-Emmetschlooooo"
+msgstr ""
+
+#. module: inventory
+#: model_terms:ir.ui.view,arch_db:inventory.inventory_view_form
+msgid "e.g. Interdiscount"
 msgstr ""
 
 #. module: inventory

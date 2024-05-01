@@ -18,6 +18,7 @@ class Inventory(models.Model):
     place = fields.Many2one("inventory.place", required=True)
     type = fields.Many2one("inventory.type", required=True)
     manufacturer = fields.Many2one("inventory.manufacturer")
+    vendor = fields.Many2one("inventory.manufacturer")
     location = fields.Many2one("inventory.location")
     status = fields.Many2one("inventory.status", required=True, default=lambda self: self._get_default_status())
     date_bought = fields.Date("Date bought")
@@ -26,7 +27,9 @@ class Inventory(models.Model):
     responsible = fields.Many2one("res.partner")
     checks = fields.One2many("inventory.check", "inventory_id")
     active = fields.Boolean("Active", default=True)
-    not_monitored = fields.Boolean("Not monitored", default=False)
+    not_monitored = fields.Boolean(
+        "Not monitored", default=False, help="This item is not monitored for risk assessment."
+    )
     is_record_saved = fields.Boolean(compute='_compute_is_record_saved')
 
     @api.depends('create_date')
