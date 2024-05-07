@@ -8,7 +8,7 @@
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//sheet/group/group" position="after">
-                    <group>
+                    <group name="emergency_contact">
                         <field name="has_emergency_contact"/>
                     </group>
                 </xpath>

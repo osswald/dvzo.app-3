@@ -14,8 +14,8 @@
                     </div>
 
                     <group>
-                        <field name="date"/>
-                        <field name="asset_id"/>
+                        <field name="date" readonly="true"/>
+                        <field name="inventory_ids"/>
                         <field name="business_risk_id"/>
                         <field name="res_partner_id"/>
                         <field name="reference"/>

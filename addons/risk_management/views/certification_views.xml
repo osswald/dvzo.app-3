@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="certification_view_form" model="ir.ui.view">
+        <field name="name">certification.form</field>
+        <field name="model">risk_management.certification</field>
+        <field name="arch" type="xml">
+            <form string="Certification">
+                <group>
+                    <field name="vendor" readonly="True"/>
+                    <field name="date"/>
+                    <field name="end_date"/>
+                    <field name="checked_by"/>
+                    <field name="file"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="certification_view_tree" model="ir.ui.view">
+        <field name="name">certification.tree</field>
+        <field name="model">risk_management.certification</field>
+        <field name="arch" type="xml">
+            <tree string="Certification">
+                <field name="date"/>
+                <field name="end_date"/>
+                <field name="checked_by"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="certification_action" model="ir.actions.act_window">
+        <field name="name">Certification</field>
+        <field name="res_model">risk_management.certification</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

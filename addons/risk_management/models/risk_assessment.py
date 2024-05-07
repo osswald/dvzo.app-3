@@ -6,7 +6,7 @@ class RiskAssessment(models.Model):
     _description = "Risk assessment"
 
     name = fields.Char("Label", required=True)
-    date = fields.Date("Date", required=True)
+    date = fields.Date("Created on", required=True, default=fields.Date.today)
     reference = fields.Char("Reference / Event")
     task = fields.Char("Task")
     hazard = fields.Html("Hazard")
@@ -14,6 +14,7 @@ class RiskAssessment(models.Model):
     intervention = fields.Char("Intervention")
     due_date = fields.Date("Due date")
     end_date = fields.Date("End date")
+    active = fields.Boolean("Active", default=True)
 
     extent_of_damage_hazard_identification = fields.Many2one("risk_management.extent_of_damage")
     probability_hazard_identification = fields.Many2one("risk_management.probability")
@@ -27,6 +28,7 @@ class RiskAssessment(models.Model):
     damage_ids = fields.Many2many("risk_management.damage")
 
     asset_id = fields.Many2one("risk_management.asset")
+    inventory_ids = fields.Many2many("inventory.inventory")
     business_risk_id = fields.Many2one("risk_management.business_risk")
     res_partner_id = fields.Many2one("res.partner")
     # TODO: add domain to restrict to businesses

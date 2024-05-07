@@ -7,6 +7,8 @@
     'category': 'DVZO/Risk management',
     'depends': [
         'base',
+        'inventory',
+        'emergency_contact'
     ],
     'installable': True,
     'application': False,
@@ -19,6 +21,7 @@
         'views/asset_views.xml',
         'views/business_risk_type_views.xml',
         'views/business_risk_views.xml',
+        'views/certification_views.xml',
         'views/damage_views.xml',
         'views/department_views.xml',
         'views/extent_of_damage_views.xml',
@@ -27,6 +30,7 @@
         'views/residual_risk_views.xml',
         'views/risk_assessment_views.xml',
         'views/risk_zone_views.xml',
+        'views/inventory_views.xml',
 
         'views/risk_management_menu_views.xml',
     ],
