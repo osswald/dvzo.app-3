@@ -23,6 +23,7 @@
         'data/update_vehicle_defect_batch.xml',
 
         'report/train_management_briefing_report.xml',
+        'report/train_management_bulletin_report.xml',
         'report/train_management_day_planning_shift_report.xml',
         'report/train_management_shift_report.xml',
         'report/train_management_report_views.xml',

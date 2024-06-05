@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Main report templates -->
+    <template id="bulletin">
+        <t t-call="web.html_container">
+            <t t-call="dvzo.dvzo_layout">
+                <div class="page">
+                    <h1>
+                        <span style="font-weight:bold;">Bulletin</span>
+                    </h1>
+                    <table class="table table-borderless table-sm">
+                        <tbody>
+                            <t t-foreach="sorted(docs, key=lambda x: x.date)" t-as="day_planning">
+                                <tr>
+                                    <td t-attf-class="{{ 'table-warning' if day_planning.state == 'draft' else 'table-success' if day_planning.state == 'confirmed' else 'table-danger' if day_planning.state == 'canceled' else '' }}">
+                                        <span t-field="day_planning.date"/>
+                                    </td>
+                                    <td t-attf-class="{{ 'table-warning' if day_planning.state == 'draft' else 'table-success' if day_planning.state == 'confirmed' else 'table-danger' if day_planning.state == 'canceled' else '' }}">
+                                        <span t-field="day_planning.name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Fahrten:</td>
+                                    <td>
+                                        <table width="100%">
+                                            <t t-set="circuits" t-value="day_planning.mapped('circuit_ids')"/>
+                                            <tr t-foreach="circuits" t-as="circuit">
+                                                <t t-set="trains" t-value="circuit.mapped('train_ids')"/>
+                                                <td>
+                                                    <span t-field="circuit.name"/><br/>
+                                                    <div t-foreach="trains" t-as="train">
+                                                        <span t-field="train.name"/>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span t-field="circuit.train_composition"/><br/>
+                                                    <div t-foreach="trains" t-as="train">
+                                                        <span t-field="train.start_station"/> - <span t-field="train.end_station"/>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>PAX:</td>
+                                    <td><span t-field="day_planning.customers"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Bemerkungen:</td>
+                                    <td><span t-field="day_planning.comment"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

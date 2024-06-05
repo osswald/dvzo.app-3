@@ -19,6 +19,7 @@ class DayPlanning(models.Model):
             ("public", "Public"),
             ("extra", "Extra"),
             ("bus", "Bus"),
+            ("guided_tour", "Guided tour"),
             ("other", "Other"),
         ],
         string="Type",

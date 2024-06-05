@@ -28,5 +28,14 @@
             <field name="print_report_name">'Shift'</field>
             <field name="binding_model_id" ref="model_train_management_shift_template"/>
         </record>
+        <record id="action_report_day_planning_bulletin" model="ir.actions.report">
+            <field name="name">Bulletin</field>
+            <field name="model">train_management.day_planning</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">train_management.bulletin</field>
+            <field name="report_file">train_management.bulletin</field>
+            <field name="print_report_name">'Bulletin'</field>
+            <field name="binding_model_id" ref="model_train_management_day_planning"/>
+        </record>
     </data>
 </odoo>
