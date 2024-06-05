@@ -29,9 +29,12 @@
         'views/res_partner_views.xml',
         'views/residual_risk_views.xml',
         'views/risk_assessment_views.xml',
+        'views/risk_assessment_check_views.xml',
         'views/risk_zone_views.xml',
         'views/inventory_views.xml',
 
         'views/risk_management_menu_views.xml',
+
+        'wizards/add_risk_assessment_check_wizard.xml',
     ],
 }

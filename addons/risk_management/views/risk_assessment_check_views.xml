@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="risk_assessment_check_view_form" model="ir.ui.view">
+        <field name="name">risk_assessment.check.form</field>
+        <field name="model">risk_management.check</field>
+        <field name="arch" type="xml">
+            <form string="Risk assessment check">
+                <group>
+                    <field name="date"/>
+                    <field name="expiry_date"/>
+                    <field name="checked_by"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="risk_assessment_check_view_tree" model="ir.ui.view">
+        <field name="name">risk_assessment.check.tree</field>
+        <field name="model">risk_management.check</field>
+        <field name="arch" type="xml">
+            <tree string="Risk assessment check">
+                <field name="date"/>
+                <field name="expiry_date"/>
+                <field name="checked_by"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="risk_assessment_check_action" model="ir.actions.act_window">
+        <field name="name">Risk assessment check</field>
+        <field name="res_model">risk_management.check</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

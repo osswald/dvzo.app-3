@@ -12,4 +12,5 @@ from . import residual_risk
 from . import risk_zone
 from . import res_partner
 from . import risk_assessment
+from . import risk_assessment_check
 from . import vendor_type

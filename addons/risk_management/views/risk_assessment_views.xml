@@ -36,13 +36,30 @@
                             <field name="due_date"/>
                         </group>
                     </group>
-                    <group string="Residual risk">
-                        <field name="extent_of_damage_risk_reduction"/>
-                        <field name="probability_hazard_risk_reduction"/>
-                        <field name="risk_zone_hazard_risk_reduction"/>
-                        <field name="residual_risk"/>
-                        <field name="end_date"/>
+                    <group>
+                        <group string="Residual risk">
+                            <field name="extent_of_damage_risk_reduction"/>
+                            <field name="probability_hazard_risk_reduction"/>
+                            <field name="risk_zone_hazard_risk_reduction"/>
+                            <field name="residual_risk"/>
+                            <field name="end_date"/>
+                        </group>
+                        <group string="Checks">
+                            <button string="Check" type="object" class="oe_highlight"
+                                    name="action_open_risk_assessment_check"/>
+                        </group>
                     </group>
+                    <notebook>
+                        <page string="Checks">
+                            <field name="checks">
+                                <tree create="false" edit="false" delete="false">
+                                    <field name="date"/>
+                                    <field name="expiry_date"/>
+                                    <field name="checked_by"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -62,6 +79,12 @@
         <field name="name">Risk assessment</field>
         <field name="res_model">risk_management.risk_assessment</field>
         <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="risk_assessment_after_wizard_action" model="ir.actions.act_window">
+        <field name="name">Risk assessment</field>
+        <field name="res_model">risk_management.risk_assessment</field>
+        <field name="view_mode">form</field>
     </record>
 
 </odoo>

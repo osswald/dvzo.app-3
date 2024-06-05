@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class RiskAssessment(models.Model):
@@ -31,6 +31,26 @@ class RiskAssessment(models.Model):
     inventory_ids = fields.Many2many("inventory.inventory")
     business_risk_id = fields.Many2one("risk_management.business_risk")
     res_partner_id = fields.Many2one("res.partner")
+    checks = fields.One2many("risk_management.check", "risk_assessment_id")
+
     # TODO: add domain to restrict to businesses
     # TODO: compute risk_zone
+
+    @api.model
+    def action_open_risk_assessment_check(self, ids, context={}):
+        for id in ids:
+            wizard = self.env['risk_management.check.wizard'].create({
+                'risk_assessment_id': id,
+            })
+
+            return {
+                'name': 'Create Risk Assessment Check',
+                'type': 'ir.actions.act_window',
+                'res_model': 'risk_management.check.wizard',
+                'res_id': wizard.id,
+                'view_type': 'form',
+                'view_mode': 'form',
+                'target': 'new',
+                'views': [(self.env.ref('risk_management.view_risk_assessment_check_wizard').id, 'form')],
+            }
 
