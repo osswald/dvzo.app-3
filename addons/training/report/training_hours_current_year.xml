@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Main report templates -->
+    <template id="hours_current_year">
+        <t t-call="web.html_container">
+            <t t-call="dvzo.dvzo_layout">
+                <div class="page">
+                    <h1>
+                        <span style="font-weight:bold;">Hours current year</span>
+                    </h1>
+
+
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Last Name</th>
+                                <th>First name</th>
+                                <th>Date of birth</th>
+                                <th>Categories</th>
+                                <th>Min. hours</th>
+                                <th>Min. shifts</th>
+                                <th>Hours worked</th>
+                                <th>Hours planned</th>
+                                <th>Shifts worked</th>
+                                <th>Shifts planned</th>
+                                <th>Goal reachable</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="sorted(docs, key=lambda x: (x.lastname or '', x.firstname or ''))" t-as="person">
+                                <tr>
+                                    <td>
+                                        <t t-if="person.lastname">
+                                            <span t-esc="person.lastname" style="white-space:nowrap;"/>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-if="person.firstname">
+                                            <span t-esc="person.firstname" style="white-space:nowrap;"/>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <span t-field="person.date_of_birth"/>
+                                    </td>
+                                    <td>
+                                        <t t-set="categories" t-value="person.mapped('category_id')"/>
+                                        <t t-foreach="categories" t-as="category">
+                                            <span t-field="category.name"/>,
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <span t-field="person.min_hours_category"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="person.min_shifts_category"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="person.hours_worked_current_year"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="person.hours_planned_current_year"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="person.shifts_worked_current_year"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="person.shifts_planned_current_year"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="person.goal_reached_current_year"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

@@ -61,5 +61,15 @@
             <field name="print_report_name">'Competence_matrix'</field>
             <field name="binding_model_id" ref="model_res_partner"/>
         </record>
+        <record id="action_report_training_hours_current_year" model="ir.actions.report">
+            <field name="name">Hours current year</field>
+            <field name="model">res.partner</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">training.hours_current_year</field>
+            <field name="report_file">training.hours_current_year</field>
+            <field name="paperformat_id" ref="paperformat_a4_landscape"/>
+            <field name="print_report_name">'Hours current year'</field>
+            <field name="binding_model_id" ref="model_res_partner"/>
+        </record>
     </data>
 </odoo>

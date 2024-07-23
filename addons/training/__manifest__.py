@@ -22,6 +22,7 @@
         'report/training_participant_list_report.xml',
         'report/training_invitation_report.xml',
         'report/training_competence_matrix.xml',
+        'report/training_hours_current_year.xml',
         'report/training_report_views.xml',
 
         'views/training_views.xml',
