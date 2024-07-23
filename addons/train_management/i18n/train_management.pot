@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-29 13:56+0000\n"
-"PO-Revision-Date: 2024-04-29 13:56+0000\n"
+"POT-Creation-Date: 2024-07-23 13:49+0000\n"
+"PO-Revision-Date: 2024-07-23 13:49+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -37,6 +37,11 @@ msgid "'Briefing'"
 msgstr ""
 
 #. module: train_management
+#: model:ir.actions.report,print_report_name:train_management.action_report_day_planning_bulletin
+msgid "'Bulletin'"
+msgstr ""
+
+#. module: train_management
 #: model:ir.actions.report,print_report_name:train_management.action_report_shift
 msgid "'Shift'"
 msgstr ""
@@ -44,6 +49,20 @@ msgstr ""
 #. module: train_management
 #: model:ir.actions.report,print_report_name:train_management.action_report_day_planning_shifts
 msgid "'Shifts'"
+msgstr ""
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.briefing
+msgid ""
+"052 589 68 22\n"
+"                                            ("
+msgstr ""
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.briefing
+msgid ""
+"052 589 68 55\n"
+"                                            ("
 msgstr ""
 
 #. module: train_management
@@ -81,6 +100,11 @@ msgstr ""
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_kanban_view
 msgid "<span class=\"bg-success\">Executed</span>"
+msgstr ""
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.bulletin
+msgid "<span style=\"font-weight:bold;\">Bulletin</span>"
 msgstr ""
 
 #. module: train_management
@@ -267,6 +291,11 @@ msgid "Basic radio toggle button group"
 msgstr ""
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.bulletin
+msgid "Bemerkungen:"
+msgstr ""
+
+#. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__billed
 msgid "Billed"
 msgstr ""
@@ -309,6 +338,11 @@ msgstr ""
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_show_briefing_recipients_wizard__briefing_recipients
 msgid "Briefing Recipients"
+msgstr ""
+
+#. module: train_management
+#: model:ir.actions.report,name:train_management.action_report_day_planning_bulletin
+msgid "Bulletin"
 msgstr ""
 
 #. module: train_management
@@ -655,6 +689,11 @@ msgid "Day Planning Shift Offer"
 msgstr ""
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__day_planning_shifts_not_allocated_count
+msgid "Day Planning Shifts Not Allocated Count"
+msgstr ""
+
+#. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.copy_recipient_view_tree
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_text_view_tree
 msgid "Day Planning Text"
@@ -900,6 +939,11 @@ msgid "Extra"
 msgstr ""
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.bulletin
+msgid "Fahrten:"
+msgstr ""
+
+#. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__message_follower_ids
 msgid "Followers"
 msgstr ""
@@ -971,6 +1015,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift_search
 #: model_terms:ir.ui.view,arch_db:train_management.reservation_search
 msgid "Group By"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__type__guided_tour
+msgid "Guided tour"
 msgstr ""
 
 #. module: train_management
@@ -1446,6 +1495,7 @@ msgstr ""
 #. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__billed__not_applicable
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__personnel_disposition__not_applicable
+#: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__shifts_created__not_applicable
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__slot_ordered_sbb__not_applicable
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__slot_ordered_st__not_applicable
 msgid "Not applicable"
@@ -1454,6 +1504,11 @@ msgstr ""
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__note
 msgid "Note"
+msgstr ""
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.briefing
+msgid "Notfallnummer"
 msgstr ""
 
 #. module: train_management
@@ -1504,6 +1559,7 @@ msgstr ""
 #. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__carriage_planning_status__ok
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__engine_planning_status__ok
+#: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__shifts_created__disposed
 msgid "OK"
 msgstr ""
 
@@ -1522,6 +1578,7 @@ msgstr ""
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__carriage_planning_status__open
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__engine_planning_status__open
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__personnel_disposition__open
+#: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__shifts_created__open
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__slot_ordered_sbb__open
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__slot_ordered_st__open
 msgid "Open"
@@ -1556,6 +1613,11 @@ msgstr ""
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.briefing
 msgid "PAX"
+msgstr ""
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.bulletin
+msgid "PAX:"
 msgstr ""
 
 #. module: train_management
@@ -1911,6 +1973,17 @@ msgid "Shifts"
 msgstr ""
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_kanban_view
+msgid "Shifts allocated"
+msgstr ""
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__shifts_created
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_kanban_view
+msgid "Shifts created"
+msgstr ""
+
+#. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 msgid "Shifts needed"
 msgstr ""
@@ -2226,6 +2299,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_form
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
 msgid "Trains"
+msgstr ""
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.briefing
+msgid "Transportleitung"
 msgstr ""
 
 #. module: train_management

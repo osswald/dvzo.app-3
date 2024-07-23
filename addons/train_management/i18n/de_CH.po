@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-29 13:56+0000\n"
-"PO-Revision-Date: 2024-04-29 15:56+0200\n"
+"POT-Creation-Date: 2024-07-23 13:49+0000\n"
+"PO-Revision-Date: 2024-07-23 15:55+0200\n"
 "Last-Translator: Christoph Osswald\n"
 "Language-Team: \n"
 "Language: de_CH\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #. module: train_management
 #: model:res.groups,comment:train_management.group_train_management_day_planning
@@ -32,8 +32,8 @@ msgstr ""
 #: model:res.groups,comment:train_management.group_train_management_shift
 msgid ""
 "\n"
-"            The user will be able to create, edit and delete shift templates and "
-"shift positions.\n"
+"            The user will be able to create, edit and delete shift templates and shift "
+"positions.\n"
 "        "
 msgstr ""
 "\n"
@@ -47,6 +47,11 @@ msgid "'Briefing'"
 msgstr "'Briefing'"
 
 #. module: train_management
+#: model:ir.actions.report,print_report_name:train_management.action_report_day_planning_bulletin
+msgid "'Bulletin'"
+msgstr "'Bulletin'"
+
+#. module: train_management
 #: model:ir.actions.report,print_report_name:train_management.action_report_shift
 msgid "'Shift'"
 msgstr "'Tour'"
@@ -55,6 +60,24 @@ msgstr "'Tour'"
 #: model:ir.actions.report,print_report_name:train_management.action_report_day_planning_shifts
 msgid "'Shifts'"
 msgstr "'Tour'"
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.briefing
+msgid ""
+"052 589 68 22\n"
+"                                            ("
+msgstr ""
+"052 589 68 22\n"
+"                                            ("
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.briefing
+msgid ""
+"052 589 68 55\n"
+"                                            ("
+msgstr ""
+"052 589 68 55\n"
+"                                            ("
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_kanban_view
@@ -101,6 +124,11 @@ msgstr "<span class=\"bg-info\">Abgesagt</span>"
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_kanban_view
 msgid "<span class=\"bg-success\">Executed</span>"
 msgstr "<span class=\"bg-success\">Ausgeführt</span>"
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.bulletin
+msgid "<span style=\"font-weight:bold;\">Bulletin</span>"
+msgstr "<span style=\"font-weight:bold;\">Bulletin</span>"
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
@@ -290,6 +318,11 @@ msgid "Basic radio toggle button group"
 msgstr ""
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.bulletin
+msgid "Bemerkungen:"
+msgstr "Bemerkungen:"
+
+#. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__billed
 msgid "Billed"
 msgstr "Abgerechnet"
@@ -333,6 +366,11 @@ msgstr "Briefing"
 #: model:ir.model.fields,field_description:train_management.field_train_management_show_briefing_recipients_wizard__briefing_recipients
 msgid "Briefing Recipients"
 msgstr ""
+
+#. module: train_management
+#: model:ir.actions.report,name:train_management.action_report_day_planning_bulletin
+msgid "Bulletin"
+msgstr "Bulletin"
 
 #. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__type__bus
@@ -678,6 +716,11 @@ msgid "Day Planning Shift Offer"
 msgstr "Tagesplanung-Tour"
 
 #. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__day_planning_shifts_not_allocated_count
+msgid "Day Planning Shifts Not Allocated Count"
+msgstr "Tagesplanung nicht zugewiesene Schichten zählen"
+
+#. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.copy_recipient_view_tree
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_text_view_tree
 msgid "Day Planning Text"
@@ -923,6 +966,11 @@ msgid "Extra"
 msgstr "Extrafahrt"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.bulletin
+msgid "Fahrten:"
+msgstr "Fahrten:"
+
+#. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__message_follower_ids
 msgid "Followers"
 msgstr "Follower"
@@ -995,6 +1043,11 @@ msgstr "Gruppierung"
 #: model_terms:ir.ui.view,arch_db:train_management.reservation_search
 msgid "Group By"
 msgstr "Gruppieren"
+
+#. module: train_management
+#: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__type__guided_tour
+msgid "Guided tour"
+msgstr "Führung"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__handbrakeWeight
@@ -1085,7 +1138,7 @@ msgstr "ID"
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__activity_exception_icon
 msgid "Icon"
-msgstr ""
+msgstr "Icon"
 
 #. module: train_management
 #: model:ir.model.fields,help:train_management.field_train_management_day_planning__activity_exception_icon
@@ -1104,8 +1157,7 @@ msgstr ""
 #: model:ir.model.fields,help:train_management.field_train_management_day_planning__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
-"Wenn diese Option aktiviert ist, weisen einige Nachrichten einen Zustellungsfehler "
-"auf."
+"Wenn diese Option aktiviert ist, weisen einige Nachrichten einen Zustellungsfehler auf."
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_defect__image1
@@ -1135,7 +1187,7 @@ msgstr "In Ausbildung"
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.briefing
 msgid "Infos"
-msgstr ""
+msgstr "Infos"
 
 #. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_stop_code__type__infra
@@ -1222,7 +1274,7 @@ msgstr "Bezeichnung"
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
 msgid "Label / Type"
-msgstr ""
+msgstr "Bezeichnung / Typ"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_add_shift_positions_wizard____last_update
@@ -1397,7 +1449,7 @@ msgstr ""
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "Nachrichten"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__meterWeight
@@ -1473,6 +1525,7 @@ msgstr "Nichtkommerzieller Halt"
 #. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__billed__not_applicable
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__personnel_disposition__not_applicable
+#: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__shifts_created__not_applicable
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__slot_ordered_sbb__not_applicable
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__slot_ordered_st__not_applicable
 msgid "Not applicable"
@@ -1482,6 +1535,11 @@ msgstr "Nicht zutreffend"
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__note
 msgid "Note"
 msgstr "Notiz"
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.briefing
+msgid "Notfallnummer"
+msgstr "Notfallnummer"
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
@@ -1531,6 +1589,7 @@ msgstr ""
 #. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__carriage_planning_status__ok
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__engine_planning_status__ok
+#: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__shifts_created__disposed
 msgid "OK"
 msgstr "OK"
 
@@ -1549,6 +1608,7 @@ msgstr "Angebote"
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__carriage_planning_status__open
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__engine_planning_status__open
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__personnel_disposition__open
+#: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__shifts_created__open
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__slot_ordered_sbb__open
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_day_planning__slot_ordered_st__open
 msgid "Open"
@@ -1584,6 +1644,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:train_management.briefing
 msgid "PAX"
 msgstr "PAX"
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.bulletin
+msgid "PAX:"
+msgstr "PAX:"
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_list_view
@@ -1670,10 +1735,8 @@ msgstr "Möglich"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_show_briefing_recipients_wizard__post_mortem_recipients
-#, fuzzy
-#| msgid "Show Briefing Recipients"
 msgid "Post Mortem Recipients"
-msgstr "Briefing-Empfänger anzeigen"
+msgstr "Briefing-Empfänger"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__post_mortem
@@ -1940,6 +2003,17 @@ msgid "Shifts"
 msgstr "Touren"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_kanban_view
+msgid "Shifts allocated"
+msgstr "Touren zugewiesen"
+
+#. module: train_management
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__shifts_created
+#: model_terms:ir.ui.view,arch_db:train_management.day_planning_kanban_view
+msgid "Shifts created"
+msgstr "Touren erstellt"
+
+#. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 msgid "Shifts needed"
 msgstr "Touren gesucht"
@@ -2089,7 +2163,7 @@ msgstr "Haltecode"
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__suspension
 msgid "Suspension"
-msgstr ""
+msgstr "Federung"
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_calendar
@@ -2140,11 +2214,10 @@ msgstr ""
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_form
-msgid ""
-"This can not be undone. Trains will be sent to Drehscheibe. Do you wish to proceed?"
+msgid "This can not be undone. Trains will be sent to Drehscheibe. Do you wish to proceed?"
 msgstr ""
-"Diese Aktion kann nicht rückgängig gemacht werden. Die Fahrten werden an die "
-"Drehscheibe geschickt. Möchten Sie weiterfahren?"
+"Diese Aktion kann nicht rückgängig gemacht werden. Die Fahrten werden an die Drehscheibe "
+"geschickt. Möchten Sie weiterfahren?"
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
@@ -2259,6 +2332,11 @@ msgstr "Zugnummer"
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
 msgid "Trains"
 msgstr "Züge"
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.briefing
+msgid "Transportleitung"
+msgstr "Transportleitung"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_circuit_vehicle__vehicle_type
@@ -2463,10 +2541,9 @@ msgstr "Wo am Fahrzeug"
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.add_shift_positions_wizard_view_form
 msgid ""
-"With this action shift positions can be copied from one shift template to another.<br/"
-">\n"
-"                        Please choose the shift template, you would like the "
-"positions to be copied from.\n"
+"With this action shift positions can be copied from one shift template to another.<br/>\n"
+"                        Please choose the shift template, you would like the positions "
+"to be copied from.\n"
 "                        <br/><br/>"
 msgstr ""
 "Mit dieser Aktion können Touren-Positionen von einer Touren-Vorlage in eine andere "
@@ -2478,7 +2555,7 @@ msgstr ""
 #. module: train_management
 #: model:ir.model,name:train_management.model_train_management_show_briefing_recipients_wizard
 msgid "Wizard to Display The Briefing Recipients"
-msgstr ""
+msgstr "Assistent zur Anzeige der Briefing-Empfänger"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__work_duration
@@ -2691,13 +2768,11 @@ msgstr "Fenster/Türen"
 
 #~ msgid "This page is currently under construction. Please check back later."
 #~ msgstr ""
-#~ "Diese Seite befindet sich derzeit im Aufbau. Bitte schauen Sie später wieder "
-#~ "vorbei."
+#~ "Diese Seite befindet sich derzeit im Aufbau. Bitte schauen Sie später wieder vorbei."
 
 #~ msgid ""
 #~ "This page is currently under construction. Please check back later.\n"
 #~ "                    <br/>"
 #~ msgstr ""
-#~ "Diese Seite befindet sich derzeit im Aufbau. Bitte schauen Sie später wieder "
-#~ "vorbei.\n"
+#~ "Diese Seite befindet sich derzeit im Aufbau. Bitte schauen Sie später wieder vorbei.\n"
 #~ "                   <br/>"

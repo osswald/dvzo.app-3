@@ -45,6 +45,7 @@
                                 <field name="railway_company" placeholder="e.g. SBB Historic"/>
                                 <field name="slot_ordered_st"/>
                                 <field name="slot_ordered_sbb"/>
+                                <field name="shifts_created"/>
                                 <field name="personnel_disposition"/>
                                 <field name="engine_planning_status"/>
                                 <field name="carriage_planning_status"/>
@@ -142,6 +143,7 @@
                     <field name="state"/>
                     <field name="slot_ordered_st"/>
                     <field name="slot_ordered_sbb"/>
+                    <field name="shifts_created"/>
                     <field name="personnel_disposition"/>
                     <field name="engine_planning_status"/>
                     <field name="carriage_planning_status"/>
@@ -196,6 +198,18 @@
                                                     <th>Slot ordered SBB</th>
                                                     <td>
                                                         <field name="slot_ordered_sbb"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Shifts allocated</th>
+                                                    <td>
+                                                        <field name="day_planning_shift_ids_count"/>/<field name="day_planning_shifts_not_allocated_count"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Shifts created</th>
+                                                    <td>
+                                                        <field name="shifts_created"/>
                                                     </td>
                                                 </tr>
                                                 <tr>
