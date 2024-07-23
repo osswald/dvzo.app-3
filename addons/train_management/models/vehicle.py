@@ -31,7 +31,7 @@ class Vehicle(models.Model):
     _description = "Vehicle"
     _rec_name = "historicalDesignation"
 
-    name = fields.Char("Label", required=True)
+    name = fields.Char("Label", required=True, compute="_compute_name")
     vehicle_defect_ids = fields.One2many("train_management.vehicle_defect", "vehicle", string="Vehicle defects")
     ds_id = fields.Char("ds id", help="UUID linking vehicles to the Drehscheibe")
     type = fields.Selection(
@@ -107,6 +107,10 @@ class Vehicle(models.Model):
     weight = fields.Float()
     height = fields.Float()
     length = fields.Float()
+
+    def _compute_name(self):
+        self.name = self.historicalDesignation
+
 
 
 class VehicleBatchUpdate(models.Model):
