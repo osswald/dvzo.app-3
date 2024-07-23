@@ -203,7 +203,7 @@
                                                 <tr>
                                                     <th>Shifts allocated</th>
                                                     <td>
-                                                        <field name="day_planning_shift_ids_count"/>/<field name="day_planning_shifts_not_allocated_count"/>
+                                                        <field name="day_planning_shifts_allocated_count"/>/<field name="day_planning_shift_ids_count"/>
                                                     </td>
                                                 </tr>
                                                 <tr>

@@ -23,7 +23,6 @@
         'uniform',
         'web_window_title',
         'auth_oidc',
-        'account_statement_import_camt54',
     ],
     'data': [
         'report/layouts.xml',
