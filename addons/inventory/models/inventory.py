@@ -112,7 +112,8 @@ class Inventory(models.Model):
     def update_inventory_status(self):
         for record in self.search([]):
             expiry_date = record.date_expires
-            if expiry_date:
+            status_auto_update = record.status.auto_update
+            if expiry_date and status_auto_update:
                 today = fields.Date.today()
                 if expiry_date > today:
                     record.status = self.env['inventory.status'].search([('name', '=', 'OK')], limit=1)
@@ -120,8 +121,6 @@ class Inventory(models.Model):
                     record.status = self.env['inventory.status'].search([('name', '=', 'Abgelaufen')], limit=1)
                 else:
                     record.status = self.env['inventory.status'].search([('name', '=', 'OK')], limit=1)
-            else:
-                record.status = self.env['inventory.status'].search([('name', '=', 'Nicht verfügbar')], limit=1)
 
     @api.model
     def generate_expiry_reminders(self):

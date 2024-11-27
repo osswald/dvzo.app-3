@@ -8,6 +8,7 @@
             <form string="Inventory status">
                 <group>
                     <field name="name"/>
+                    <field name="auto_update"/>
                     <field name="active"/>
                 </group>
             </form>
@@ -20,6 +21,7 @@
         <field name="arch" type="xml">
             <tree string="Inventory Status" editable="bottom">
                 <field name="name"/>
+                <field name="auto_update"/>
                 <field name="active"/>
             </tree>
         </field>

@@ -7,4 +7,5 @@ class InventoryStatus(models.Model):
 
     name = fields.Char("Status", required=True)
     label = fields.Char("not used")
+    auto_update = fields.Boolean("Auto update")
     active = fields.Boolean("Active", default=True)
