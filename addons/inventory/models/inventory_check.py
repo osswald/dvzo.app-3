@@ -11,6 +11,7 @@ class InventoryCheck(models.Model):
     expiry_date = fields.Date(
         "Expiry Date", required=True, default=lambda self: fields.Date.today() + relativedelta(years=1)
     )
+    note=fields.Char("Remark")
     checked_by = fields.Many2one("res.partner", default=lambda self: self.env.user.partner_id.id)
     inventory_id = fields.Many2one("inventory.inventory")
 
@@ -23,6 +24,7 @@ class InventoryCheckWizard(models.TransientModel):
     expiry_date = fields.Date(
         'Expiry Date', required=True, default=lambda self: fields.Date.today() + relativedelta(years=1)
     )
+    note = fields.Char("Remark")
     checked_by = fields.Many2one("res.partner", default=lambda self: self.env.user.partner_id.id)
 
     def action_create_inventory_check(self):
@@ -32,6 +34,7 @@ class InventoryCheckWizard(models.TransientModel):
             'inventory_id': self.inventory_id.id,
             'date': self.date,
             'expiry_date': self.expiry_date,
+            'note': self.note,
             'checked_by': self.checked_by.id,
         })
 

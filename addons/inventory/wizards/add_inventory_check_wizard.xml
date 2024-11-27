@@ -10,6 +10,7 @@
                     <group>
                         <field name="date"/>
                         <field name="expiry_date"/>
+                        <field name="note"/>
                         <field name="checked_by"/>
                     </group>
                     <footer>

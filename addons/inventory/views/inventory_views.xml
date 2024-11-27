@@ -42,6 +42,7 @@
                                 <tree create="false" edit="false" delete="false">
                                     <field name="date"/>
                                     <field name="expiry_date"/>
+                                    <field name="note"/>
                                     <field name="checked_by"/>
                                 </tree>
                             </field>

@@ -9,6 +9,7 @@
                 <group>
                     <field name="date"/>
                     <field name="expiry_date"/>
+                    <field name="note"/>
                     <field name="checked_by"/>
                 </group>
             </form>
@@ -22,6 +23,7 @@
             <tree string="Inventory check">
                 <field name="date"/>
                 <field name="expiry_date"/>
+                <field name="note"/>
                 <field name="checked_by"/>
             </tree>
         </field>
