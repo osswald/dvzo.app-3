@@ -81,23 +81,12 @@ class DayPlanningShift(models.Model):
             ('category_id', 'in', category_ids.ids)
         ])
 
-        _logger.warning('Generating expiry reminders')
-        _logger.info(day_planning_shifts)
-        _logger.info("////////////////////")
-        _logger.info(shift_templates)
-        _logger.info("////////////////////")
-        _logger.info(category_ids)
-        _logger.info("////////////////////")
-        _logger.info(res_partners)
-
         # Send email
         template_id = self.env.ref(
                  'train_management.mail_template_new_shifts_available')
 
         # Send one email per res_partner
         for partner in res_partners:
-            _logger.warning(partner.name)
-            _logger.warning(partner.category_id)
             eligible_shift_templates = shift_templates.filtered(
                 lambda r: any(category.id in partner.category_id.ids for category in r.category))
 
@@ -109,10 +98,8 @@ class DayPlanningShift(models.Model):
             template = template_id.with_context(shift_records=eligible_shift_records,
                                                 email_to=partner.email,
                                                 firstname=partner.firstname)
-            _logger.info(partner.email)
-            _logger.info(eligible_shift_records)
 
-            # Send mail - replace 'module.email_template_id' with your template's XML ID
+            # Send mail
             template.send_mail(eligible_shift_records[0].id, force_send=True)
 
 
