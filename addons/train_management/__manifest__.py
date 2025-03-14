@@ -21,6 +21,7 @@
         'data/train_management.railway_company.csv',
         'data/update_vehicles_batch.xml',
         'data/update_vehicle_defect_batch.xml',
+        'data/shift_scheduled_actions.xml',
 
         'report/train_management_briefing_report.xml',
         'report/train_management_bulletin_report.xml',

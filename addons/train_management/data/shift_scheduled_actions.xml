@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ir_cron_send_mail_new_shifts_available" model="ir.cron">
+            <field name="name">Send Mail new shifts available</field>
+            <field name="model_id" ref="model_train_management_day_planning_shift"/>
+            <field name="state">code</field>
+            <field name="code">model.send_shift_emails()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="active" eval="True"/>
+            <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 00:27:00')"/>
+        </record>
+
+        <!--Email template -->
+        <record id="mail_template_new_shifts_available" model="mail.template">
+            <field name="name">New shifts available</field>
+            <field name="model_id" ref="model_train_management_day_planning_shift"/>
+	    <field name="subject">New shifts available</field>
+	    <field name="email_from">app@dvzo.ch</field>
+	    <field name="email_to">{{ ctx.get('email_to', '') }}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 16px; padding: 16px; background-color: #F3F5F6;">
+                    <p style="font-size:20px;">Hello <t t-out="ctx['firstname']"/>,</p>
+                    <p>New shifts have been published:</p>
+                    <table style="width:100%; border-collapse: collapse;">
+                        <tr>
+                            <th style="border: 1px solid black; padding: 8px;">Event</th>
+                            <th style="border: 1px solid black; padding: 8px;">Date</th>
+                            <th style="border: 1px solid black; padding: 8px;">Shift</th>
+                            <th style="border: 1px solid black; padding: 8px;">Times</th>
+                        </tr>
+			            <tr t-foreach="ctx['shift_records']" t-as="shift_record">
+                            <td style="border: 1px solid black; padding: 8px;"><t t-out="shift_record.day_planning.name" /></td>
+                            <td style="border: 1px solid black; padding: 8px;"><t t-out="shift_record.day_planning_date" /></td>
+                            <td style="border: 1px solid black; padding: 8px;"><t t-out="shift_record.shift.name" /> <t t-out="shift_record.shift.label"/> </td>
+			                <td style="border: 1px solid black; padding: 8px;"><t t-out="shift_record.shift.approximate_start_time" /> - <t t-out="shift_record.shift.approximate_end_time" /></td>
+                        </tr>
+                    </table>
+                    <p>Please consult the <a href="https://dvzo.app/my/shifts-needed/">DVZO.app</a> and fill in your availability.</p>
+		            <p>Regards,<br/>DVZO.app
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

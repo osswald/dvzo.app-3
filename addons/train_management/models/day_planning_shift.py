@@ -1,4 +1,10 @@
+from datetime import timedelta
+
 from odoo import models, fields, api
+
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 class DayPlanningShift(models.Model):
@@ -50,6 +56,64 @@ class DayPlanningShift(models.Model):
             'res_id': self.id,
             'target': 'current',
         }
+
+    def send_shift_emails(self):
+        # Get current date
+        now = fields.Datetime.now()
+
+        # Calculate date 24 hours ago
+        date_24_hours_ago = now - timedelta(days=1)
+
+        # Get day_planning_shift records created in last 24 hours
+        day_planning_shifts = self.env['train_management.day_planning_shift'].search([
+            ('create_date', '>=', date_24_hours_ago),
+        ])
+
+        if not day_planning_shifts:
+            _logger.warning('No new shifts available. No mails will be sent.')
+            return
+
+        shift_templates = day_planning_shifts.mapped('shift')
+        category_ids = shift_templates.mapped('category')
+
+        # Get res_partners related to these categories
+        res_partners = self.env['res.partner'].search([
+            ('category_id', 'in', category_ids.ids)
+        ])
+
+        _logger.warning('Generating expiry reminders')
+        _logger.info(day_planning_shifts)
+        _logger.info("////////////////////")
+        _logger.info(shift_templates)
+        _logger.info("////////////////////")
+        _logger.info(category_ids)
+        _logger.info("////////////////////")
+        _logger.info(res_partners)
+
+        # Send email
+        template_id = self.env.ref(
+                 'train_management.mail_template_new_shifts_available')
+
+        # Send one email per res_partner
+        for partner in res_partners:
+            _logger.warning(partner.name)
+            _logger.warning(partner.category_id)
+            eligible_shift_templates = shift_templates.filtered(
+                lambda r: any(category.id in partner.category_id.ids for category in r.category))
+
+            # Filter day_planning_shifts based on eligible_shift_templates
+            eligible_shift_records = day_planning_shifts.filtered(
+                lambda r: r.shift in eligible_shift_templates)
+
+            # Prepare email data
+            template = template_id.with_context(shift_records=eligible_shift_records,
+                                                email_to=partner.email,
+                                                firstname=partner.firstname)
+            _logger.info(partner.email)
+            _logger.info(eligible_shift_records)
+
+            # Send mail - replace 'module.email_template_id' with your template's XML ID
+            template.send_mail(eligible_shift_records[0].id, force_send=True)
 
 
 class AddShiftsWizard(models.TransientModel):

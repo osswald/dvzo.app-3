@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-23 13:49+0000\n"
-"PO-Revision-Date: 2024-07-23 15:55+0200\n"
+"POT-Creation-Date: 2025-03-14 23:29+0000\n"
+"PO-Revision-Date: 2025-03-15 00:36+0100\n"
 "Last-Translator: Christoph Osswald\n"
 "Language-Team: \n"
 "Language: de_CH\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 
 #. module: train_management
 #: model:res.groups,comment:train_management.group_train_management_day_planning
@@ -32,8 +32,8 @@ msgstr ""
 #: model:res.groups,comment:train_management.group_train_management_shift
 msgid ""
 "\n"
-"            The user will be able to create, edit and delete shift templates and shift "
-"positions.\n"
+"            The user will be able to create, edit and delete shift templates and "
+"shift positions.\n"
 "        "
 msgstr ""
 "\n"
@@ -78,6 +78,79 @@ msgid ""
 msgstr ""
 "052 589 68 55\n"
 "                                            ("
+
+#. module: train_management
+#: model:mail.template,body_html:train_management.mail_template_new_shifts_available
+msgid ""
+"<div style=\"margin: 16px; padding: 16px; background-color: #F3F5F6;\">\n"
+"                    <p style=\"font-size:20px;\">Hello <t t-"
+"out=\"ctx['firstname']\"></t>,</p>\n"
+"                    <p>New shifts have been published:</p>\n"
+"                    <table style=\"width:100%; border-collapse: collapse;\">\n"
+"                        <tr>\n"
+"                            <th style=\"border: 1px solid black; padding: 8px;"
+"\">Event</th>\n"
+"                            <th style=\"border: 1px solid black; padding: 8px;"
+"\">Date</th>\n"
+"                            <th style=\"border: 1px solid black; padding: 8px;"
+"\">Shift</th>\n"
+"                            <th style=\"border: 1px solid black; padding: 8px;"
+"\">Times</th>\n"
+"                        </tr>\n"
+"\t\t\t            <tr t-foreach=\"ctx['shift_records']\" t-as=\"shift_record\">\n"
+"                            <td style=\"border: 1px solid black; padding: 8px;\"><t t-"
+"out=\"shift_record.day_planning.name\"></t></td>\n"
+"                            <td style=\"border: 1px solid black; padding: 8px;\"><t t-"
+"out=\"shift_record.day_planning_date\"></t></td>\n"
+"                            <td style=\"border: 1px solid black; padding: 8px;\"><t t-"
+"out=\"shift_record.shift.name\"></t> <t t-out=\"shift_record.shift.label\"></t> </"
+"td>\n"
+"\t\t\t                <td style=\"border: 1px solid black; padding: 8px;\"><t t-"
+"out=\"shift_record.shift.approximate_start_time\"></t> - <t t-out=\"shift_record."
+"shift.approximate_end_time\"></t></td>\n"
+"                        </tr>\n"
+"                    </table>\n"
+"                    <p>Please consult the DVZO.app and fill in your availability.</"
+"p>\n"
+"\t\t            <p>Regards,<br>DVZO.app\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+"<div style=\"margin: 16px; padding: 16px; background-color: #F3F5F6;\">\n"
+"                    <p style=\"font-size:20px;\">Hallo <t t-"
+"out=\"ctx['firstname']\"></t>,</p>\n"
+"                    <p>Neue Touren wurden veröffentlicht:</p>\n"
+"                    <table style=\"width:100%; border-collapse: collapse;\">\n"
+"                        <tr>\n"
+"                            <th style=\"border: 1px solid black; padding: 8px;"
+"\">Veranstaltung</th>\n"
+"                            <th style=\"border: 1px solid black; padding: 8px;"
+"\">Datum</th>\n"
+"                            <th style=\"border: 1px solid black; padding: 8px;"
+"\">Tour</th>\n"
+"                            <th style=\"border: 1px solid black; padding: 8px;"
+"\">Ungefähre Zeiten</th>\n"
+"                        </tr>\n"
+"\t\t\t            <tr t-foreach=\"ctx['shift_records']\" t-as=\"shift_record\">\n"
+"                            <td style=\"border: 1px solid black; padding: 8px;\"><t t-"
+"out=\"shift_record.day_planning.name\"></t></td>\n"
+"                            <td style=\"border: 1px solid black; padding: 8px;\"><t t-"
+"out=\"shift_record.day_planning_date\"></t></td>\n"
+"                            <td style=\"border: 1px solid black; padding: 8px;\"><t t-"
+"out=\"shift_record.shift.name\"></t> <t t-out=\"shift_record.shift.label\"></t> </"
+"td>\n"
+"\t\t\t                <td style=\"border: 1px solid black; padding: 8px;\"><t t-"
+"out=\"shift_record.shift.approximate_start_time\"></t> - <t t-out=\"shift_record."
+"shift.approximate_end_time\"></t></td>\n"
+"                        </tr>\n"
+"                    </table>\n"
+"                    <p>Bitte schaue sie dir in der DVZO.app an und erfasse deine "
+"Verfügbarkeiten.</p>\n"
+"\t\t            <p>Liebe Grüsse,<br>Einteilung Betrieb\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_kanban_view
@@ -716,9 +789,9 @@ msgid "Day Planning Shift Offer"
 msgstr "Tagesplanung-Tour"
 
 #. module: train_management
-#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__day_planning_shifts_not_allocated_count
-msgid "Day Planning Shifts Not Allocated Count"
-msgstr "Tagesplanung nicht zugewiesene Schichten zählen"
+#: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__day_planning_shifts_allocated_count
+msgid "Day Planning Shifts Allocated Count"
+msgstr "Tagesplanung Anzahl zugewiesene Touren"
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.copy_recipient_view_tree
@@ -1157,7 +1230,8 @@ msgstr ""
 #: model:ir.model.fields,help:train_management.field_train_management_day_planning__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
-"Wenn diese Option aktiviert ist, weisen einige Nachrichten einen Zustellungsfehler auf."
+"Wenn diese Option aktiviert ist, weisen einige Nachrichten einen Zustellungsfehler "
+"auf."
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle_defect__image1
@@ -1493,6 +1567,12 @@ msgstr "Nettogewicht"
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_vehicle_defect__state__new
 msgid "New"
 msgstr "Neu"
+
+#. module: train_management
+#: model:mail.template,name:train_management.mail_template_new_shifts_available
+#: model:mail.template,subject:train_management.mail_template_new_shifts_available
+msgid "New shifts available"
+msgstr "Neue Touren verfügbar"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__activity_date_deadline
@@ -1868,6 +1948,12 @@ msgid "Seat"
 msgstr "Sitzplatz"
 
 #. module: train_management
+#: model:ir.actions.server,name:train_management.ir_cron_send_mail_new_shifts_available_ir_actions_server
+#: model:ir.cron,cron_name:train_management.ir_cron_send_mail_new_shifts_available
+msgid "Send Mail new shifts available"
+msgstr "Mail senden neue Touren verfügbar"
+
+#. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_vehicle_defect__status__sent_to_ds
 msgid "Sent to DS"
 msgstr "Gesendet an Drehscheibe"
@@ -2214,10 +2300,11 @@ msgstr ""
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_form
-msgid "This can not be undone. Trains will be sent to Drehscheibe. Do you wish to proceed?"
+msgid ""
+"This can not be undone. Trains will be sent to Drehscheibe. Do you wish to proceed?"
 msgstr ""
-"Diese Aktion kann nicht rückgängig gemacht werden. Die Fahrten werden an die Drehscheibe "
-"geschickt. Möchten Sie weiterfahren?"
+"Diese Aktion kann nicht rückgängig gemacht werden. Die Fahrten werden an die "
+"Drehscheibe geschickt. Möchten Sie weiterfahren?"
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
@@ -2541,9 +2628,10 @@ msgstr "Wo am Fahrzeug"
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.add_shift_positions_wizard_view_form
 msgid ""
-"With this action shift positions can be copied from one shift template to another.<br/>\n"
-"                        Please choose the shift template, you would like the positions "
-"to be copied from.\n"
+"With this action shift positions can be copied from one shift template to another.<br/"
+">\n"
+"                        Please choose the shift template, you would like the "
+"positions to be copied from.\n"
 "                        <br/><br/>"
 msgstr ""
 "Mit dieser Aktion können Touren-Positionen von einer Touren-Vorlage in eine andere "
@@ -2768,11 +2856,13 @@ msgstr "Fenster/Türen"
 
 #~ msgid "This page is currently under construction. Please check back later."
 #~ msgstr ""
-#~ "Diese Seite befindet sich derzeit im Aufbau. Bitte schauen Sie später wieder vorbei."
+#~ "Diese Seite befindet sich derzeit im Aufbau. Bitte schauen Sie später wieder "
+#~ "vorbei."
 
 #~ msgid ""
 #~ "This page is currently under construction. Please check back later.\n"
 #~ "                    <br/>"
 #~ msgstr ""
-#~ "Diese Seite befindet sich derzeit im Aufbau. Bitte schauen Sie später wieder vorbei.\n"
+#~ "Diese Seite befindet sich derzeit im Aufbau. Bitte schauen Sie später wieder "
+#~ "vorbei.\n"
 #~ "                   <br/>"
