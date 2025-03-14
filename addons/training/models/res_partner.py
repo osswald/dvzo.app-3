@@ -74,6 +74,14 @@ class Partner(models.Model):
         string='In training'
     )
 
+    trainer_ids = fields.Many2many(
+        'res.partner.category',
+        'partner_trainer_rel',
+        'partner_id',
+        'category_id',
+        string='Trainer'
+    )
+
     @api.depends('exam_ids.valid_until')
     def _compute_exam_valid_until(self):
         for partner in self:

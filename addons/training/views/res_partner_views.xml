@@ -9,6 +9,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='category_id']" position="after">
                     <field name="in_training_ids" widget="many2many_tags"/>
+                    <field name="trainer_ids" widget="many2many_tags"/>
                 </xpath>
                 <notebook position="inside">
                     <page name="training" string="Training">
