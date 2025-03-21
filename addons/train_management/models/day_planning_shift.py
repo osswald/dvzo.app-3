@@ -67,7 +67,9 @@ class DayPlanningShift(models.Model):
         # Get day_planning_shift records created in last 24 hours
         day_planning_shifts = self.env['train_management.day_planning_shift'].search([
             ('create_date', '>=', date_24_hours_ago),
-        ])
+            ('person', '=', False),
+            ('day_planning.personnel_disposition', '!=', 'disposed'),
+        ], order='day_planning_date')
 
         if not day_planning_shifts:
             _logger.warning('No new shifts available. No mails will be sent.')
