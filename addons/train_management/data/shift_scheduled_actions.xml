@@ -19,13 +19,14 @@
         <record id="mail_template_new_shifts_available" model="mail.template">
             <field name="name">New shifts available</field>
             <field name="model_id" ref="model_train_management_day_planning_shift"/>
-	    <field name="subject">New shifts available</field>
-	    <field name="email_from">app@dvzo.ch</field>
+            <field name="subject">New shifts available</field>
+            <field name="email_from">app@dvzo.ch</field>
             <field name="reply_to">einteilung.betrieb@dvzo.ch</field>
-	    <field name="email_to">{{ ctx.get('email_to', '') }}</field>
+            <field name="email_to">{{ ctx.get('email_to', '') }}</field>
             <field name="body_html" type="html">
                 <div style="margin: 16px; padding: 16px; background-color: #F3F5F6;">
-                    <p style="font-size:20px;">Hallo <t t-out="ctx['firstname']"/>,</p>
+                    <p style="font-size:20px;">Hallo<t t-out="ctx['firstname']"/>,
+                    </p>
                     <p>Es wurden neue Touren publiziert:</p>
                     <table style="width:100%; border-collapse: collapse;">
                         <tr>
@@ -34,15 +35,38 @@
                             <th style="border: 1px solid black; padding: 8px;">Tour</th>
                             <th style="border: 1px solid black; padding: 8px;">Zeiten</th>
                         </tr>
-			            <tr t-foreach="ctx['shift_records']" t-as="shift_record">
-                            <td style="border: 1px solid black; padding: 8px;"><t t-out="shift_record.day_planning.name" /></td>
-                            <td style="border: 1px solid black; padding: 8px;"><t t-out="shift_record.day_planning_date" t-options='{"widget": "date", "format": "dd.MM.yyyy"}'/></td>
-                            <td style="border: 1px solid black; padding: 8px;"><t t-out="shift_record.shift.name" /> <t t-out="shift_record.shift.label"/> </td>
-			                <td style="border: 1px solid black; padding: 8px;"><t t-out="shift_record.shift.approximate_start_time" t-options="{'widget': 'float_time'}"/> - <t t-out="shift_record.shift.approximate_end_time" t-options="{'widget': 'float_time'}"/></td>
+                        <tr t-foreach="ctx['shift_records']" t-as="shift_record">
+                            <td style="border: 1px solid black; padding: 8px;">
+                                <t t-out="shift_record.day_planning.name"/>
+                            </td>
+                            <td style="border: 1px solid black; padding: 8px;">
+                                <t t-out="shift_record.day_planning_date"
+                                   t-options='{"widget": "date", "format": "dd.MM.yyyy"}'/>
+                            </td>
+                            <td style="border: 1px solid black; padding: 8px;">
+                                <t t-out="shift_record.shift.name"/>
+                                <t t-out="shift_record.shift.label"/>
+                            </td>
+                            <td style="border: 1px solid black; padding: 8px;">
+                                <t t-if="shift_record.shift.approximate_times">
+                                    <t t-out="shift_record.shift.approximate_start_time"
+                                       t-options="{'widget': 'float_time'}"/>
+                                    -
+                                    <t t-out="shift_record.shift.approximate_end_time"
+                                       t-options="{'widget': 'float_time'}"/>
+                                </t>
+                                <t t-else="">
+                                    <t t-out="shift_record.shift.shift_start" t-options="{'widget': 'float_time'}"/>
+                                    -
+                                    <t t-out="shift_record.shift.shift_end" t-options="{'widget': 'float_time'}"/>
+                                </t>
+                            </td>
                         </tr>
                     </table>
-                    <p>Bitte trage in der <a href="https://dvzo.app/my/shifts-needed/">DVZO.app</a> deine Verfügbarkeiten ein.</p>
-		            <p>Grüsse,<br/>DVZO.app
+                    <p>Bitte trage in der <a href="https://dvzo.app/my/shifts-needed/">DVZO.app</a> deine
+                        Verfügbarkeiten ein.
+                    </p>
+                    <p>Grüsse,<br/>DVZO.app
                     </p>
                 </div>
             </field>
