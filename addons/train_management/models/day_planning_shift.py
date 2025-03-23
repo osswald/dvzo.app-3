@@ -80,7 +80,9 @@ class DayPlanningShift(models.Model):
 
         # Get res_partners related to these categories
         res_partners = self.env['res.partner'].search([
-            ('category_id', 'in', category_ids.ids)
+            '|',
+            ('category_id', 'in', category_ids.ids),
+            ('in_training_ids', 'in', category_ids.ids)
         ])
 
         # Send email
@@ -90,7 +92,8 @@ class DayPlanningShift(models.Model):
         # Send one email per res_partner
         for partner in res_partners:
             eligible_shift_templates = shift_templates.filtered(
-                lambda r: any(category.id in partner.category_id.ids for category in r.category))
+                lambda r: any(category.id in partner.category_id.ids
+                              or category.id in partner.in_training_ids.ids for category in r.category))
 
             # Filter day_planning_shifts based on eligible_shift_templates
             eligible_shift_records = day_planning_shifts.filtered(
