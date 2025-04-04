@@ -16,7 +16,7 @@
                                         t-attf-data-bs-target="#collapse{{dayplanning.id}}" aria-expanded="true"
                                         t-attf-aria-controls="collapse{{dayplanning.id}}">
                                     <span t-field="dayplanning.date" t-field-options='{"format": "dd.MM.yyyy"}'/>
-                                    <span>-</span>
+                                    <span>&#160; - &#160;</span>
                                     <span t-field="dayplanning.name"/>
                                 </button>
                             </h2>
@@ -34,8 +34,81 @@
                                                t-value="dayplanning.circuit_ids"/>
                                             <li t-foreach="circuits"
                                                 t-as="circuit">
-                                                <strong><span t-field="circuit.name"/>:
+                                                <strong>
+                                                    <span style="cursor:pointer;" class="link-primary"
+                                                          data-toggle="modal"
+                                                          t-attf-data-target="#circuitModal-{{circuit.id}}"
+                                                          t-field="circuit.name"/>:
                                                 </strong>
+
+                                                <div class="modal fade" t-attf-id="circuitModal-{{circuit.id}}"
+                                                     tabindex="-1"
+                                                     t-attf-aria-labelledby="circuitModalLabel-{{circuit.id}}"
+                                                     aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title"
+                                                                    t-attf-id="circuitModalLabel-{{circuit.id}}">
+                                                                    <span t-field="circuit.name"/>
+                                                                </h4>
+                                                                <button type="button" class="close btn btn-primary"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">x</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <t t-set="trains"
+                                                                   t-value="circuit.train_ids"/>
+                                                                <t t-foreach="trains" t-as="train">
+                                                                    <h5 class="font-weight-bold">
+                                                                        <span t-field="train.name"/>
+                                                                    </h5>
+                                                                    <table class="table table-sm">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>Station</th>
+                                                                                <th>Arrival</th>
+                                                                                <th>Departure</th>
+                                                                                <th>Stop-Code</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <t t-set="timetables"
+                                                                               t-value="train.timetable"/>
+                                                                            <tr t-foreach="timetables"
+                                                                                t-as="timetable">
+                                                                                <td>
+                                                                                    <span t-field="timetable.station"/>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <t t-if="timetable.arrival_time != 0">
+                                                                                        <span t-field="timetable.arrival_time"
+                                                                                              t-options="{'widget': 'float_time'}"/>
+                                                                                    </t>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <t t-if="timetable.departure_time != 0">
+                                                                                        <span t-field="timetable.departure_time"
+                                                                                              t-options="{'widget': 'float_time'}"/>
+                                                                                    </t>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span t-field="timetable.stop_code"/>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </t>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <t t-set="circuit_vehicles"
                                                    t-value="circuit.circuit_vehicle"/>
                                                 <span t-foreach="circuit_vehicles"
