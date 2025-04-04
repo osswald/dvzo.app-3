@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-14 23:29+0000\n"
-"PO-Revision-Date: 2025-03-15 00:36+0100\n"
+"POT-Creation-Date: 2025-04-04 09:19+0000\n"
+"PO-Revision-Date: 2025-04-04 11:22+0200\n"
 "Last-Translator: Christoph Osswald\n"
 "Language-Team: \n"
 "Language: de_CH\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 #. module: train_management
 #: model:res.groups,comment:train_management.group_train_management_day_planning
@@ -81,45 +81,104 @@ msgstr ""
 
 #. module: train_management
 #: model:mail.template,body_html:train_management.mail_template_new_shifts_available
+#, fuzzy
+#| msgid ""
+#| "<div style=\"margin: 16px; padding: 16px; background-color: #F3F5F6;\">\n"
+#| "                    <p style=\"font-size:20px;\">Hello <t t-out=\"ctx['firstname']"
+#| "\"></t>,</p>\n"
+#| "                    <p>New shifts have been published:</p>\n"
+#| "                    <table style=\"width:100%; border-collapse: collapse;\">\n"
+#| "                        <tr>\n"
+#| "                            <th style=\"border: 1px solid black; padding: 8px;"
+#| "\">Event</th>\n"
+#| "                            <th style=\"border: 1px solid black; padding: 8px;"
+#| "\">Date</th>\n"
+#| "                            <th style=\"border: 1px solid black; padding: 8px;"
+#| "\">Shift</th>\n"
+#| "                            <th style=\"border: 1px solid black; padding: 8px;"
+#| "\">Times</th>\n"
+#| "                        </tr>\n"
+#| "\t\t\t            <tr t-foreach=\"ctx['shift_records']\" t-as=\"shift_record\">\n"
+#| "                            <td style=\"border: 1px solid black; padding: 8px;"
+#| "\"><t t-out=\"shift_record.day_planning.name\"></t></td>\n"
+#| "                            <td style=\"border: 1px solid black; padding: 8px;"
+#| "\"><t t-out=\"shift_record.day_planning_date\"></t></td>\n"
+#| "                            <td style=\"border: 1px solid black; padding: 8px;"
+#| "\"><t t-out=\"shift_record.shift.name\"></t> <t t-"
+#| "out=\"shift_record.shift.label\"></t> </td>\n"
+#| "\t\t\t                <td style=\"border: 1px solid black; padding: 8px;\"><t t-"
+#| "out=\"shift_record.shift.approximate_start_time\"></t> - <t t-"
+#| "out=\"shift_record.shift.approximate_end_time\"></t></td>\n"
+#| "                        </tr>\n"
+#| "                    </table>\n"
+#| "                    <p>Please consult the DVZO.app and fill in your availability.</"
+#| "p>\n"
+#| "\t\t            <p>Regards,<br>DVZO.app\n"
+#| "                    </p>\n"
+#| "                </div>\n"
+#| "            "
 msgid ""
 "<div style=\"margin: 16px; padding: 16px; background-color: #F3F5F6;\">\n"
-"                    <p style=\"font-size:20px;\">Hello <t t-"
-"out=\"ctx['firstname']\"></t>,</p>\n"
-"                    <p>New shifts have been published:</p>\n"
+"                    <p style=\"font-size:20px;\">Hallo<t t-out=\"ctx['firstname']\"></"
+"t>,\n"
+"                    </p>\n"
+"                    <p>Es wurden neue Touren publiziert:</p>\n"
 "                    <table style=\"width:100%; border-collapse: collapse;\">\n"
 "                        <tr>\n"
 "                            <th style=\"border: 1px solid black; padding: 8px;"
-"\">Event</th>\n"
+"\">Veranstaltung</th>\n"
 "                            <th style=\"border: 1px solid black; padding: 8px;"
-"\">Date</th>\n"
+"\">Datum</th>\n"
 "                            <th style=\"border: 1px solid black; padding: 8px;"
-"\">Shift</th>\n"
+"\">Tour</th>\n"
 "                            <th style=\"border: 1px solid black; padding: 8px;"
-"\">Times</th>\n"
+"\">Zeiten</th>\n"
 "                        </tr>\n"
-"\t\t\t            <tr t-foreach=\"ctx['shift_records']\" t-as=\"shift_record\">\n"
-"                            <td style=\"border: 1px solid black; padding: 8px;\"><t t-"
-"out=\"shift_record.day_planning.name\"></t></td>\n"
-"                            <td style=\"border: 1px solid black; padding: 8px;\"><t t-"
-"out=\"shift_record.day_planning_date\"></t></td>\n"
-"                            <td style=\"border: 1px solid black; padding: 8px;\"><t t-"
-"out=\"shift_record.shift.name\"></t> <t t-out=\"shift_record.shift.label\"></t> </"
-"td>\n"
-"\t\t\t                <td style=\"border: 1px solid black; padding: 8px;\"><t t-"
-"out=\"shift_record.shift.approximate_start_time\"></t> - <t t-out=\"shift_record."
-"shift.approximate_end_time\"></t></td>\n"
+"                        <tr t-foreach=\"ctx['shift_records']\" t-"
+"as=\"shift_record\">\n"
+"                            <td style=\"border: 1px solid black; padding: 8px;\">\n"
+"                                <t t-out=\"shift_record.day_planning.name\"></t>\n"
+"                            </td>\n"
+"                            <td style=\"border: 1px solid black; padding: 8px;\">\n"
+"                                <t t-out=\"shift_record.day_planning_date\" t-"
+"options='{\"widget\": \"date\", \"format\": \"dd.MM.yyyy\"}'></t>\n"
+"                            </td>\n"
+"                            <td style=\"border: 1px solid black; padding: 8px;\">\n"
+"                                <t t-out=\"shift_record.shift.name\"></t>\n"
+"                                <t t-out=\"shift_record.shift.label\"></t>\n"
+"                            </td>\n"
+"                            <td style=\"border: 1px solid black; padding: 8px;\">\n"
+"                                <t t-if=\"shift_record.shift.approximate_times\">\n"
+"                                    <t t-"
+"out=\"shift_record.shift.approximate_start_time\" t-options=\"{'widget': 'float_time'}"
+"\"></t>\n"
+"                                    -\n"
+"                                    <t t-"
+"out=\"shift_record.shift.approximate_end_time\" t-options=\"{'widget': 'float_time'}"
+"\"></t>\n"
+"                                </t>\n"
+"                                <t t-else=\"\">\n"
+"                                    <t t-out=\"shift_record.shift.shift_start\" t-"
+"options=\"{'widget': 'float_time'}\"></t>\n"
+"                                    -\n"
+"                                    <t t-out=\"shift_record.shift.shift_end\" t-"
+"options=\"{'widget': 'float_time'}\"></t>\n"
+"                                </t>\n"
+"                            </td>\n"
 "                        </tr>\n"
 "                    </table>\n"
-"                    <p>Please consult the DVZO.app and fill in your availability.</"
-"p>\n"
-"\t\t            <p>Regards,<br>DVZO.app\n"
+"                    <p>Bitte trage in der <a href=\"https://dvzo.app/my/shifts-needed/"
+"\">DVZO.app</a> deine\n"
+"                        Verfügbarkeiten ein.\n"
+"                    </p>\n"
+"                    <p>Grüsse,<br>DVZO.app\n"
 "                    </p>\n"
 "                </div>\n"
 "            "
 msgstr ""
 "<div style=\"margin: 16px; padding: 16px; background-color: #F3F5F6;\">\n"
-"                    <p style=\"font-size:20px;\">Hallo <t t-"
-"out=\"ctx['firstname']\"></t>,</p>\n"
+"                    <p style=\"font-size:20px;\">Hallo <t t-out=\"ctx['firstname']"
+"\"></t>,</p>\n"
 "                    <p>Neue Touren wurden veröffentlicht:</p>\n"
 "                    <table style=\"width:100%; border-collapse: collapse;\">\n"
 "                        <tr>\n"
@@ -141,8 +200,8 @@ msgstr ""
 "out=\"shift_record.shift.name\"></t> <t t-out=\"shift_record.shift.label\"></t> </"
 "td>\n"
 "\t\t\t                <td style=\"border: 1px solid black; padding: 8px;\"><t t-"
-"out=\"shift_record.shift.approximate_start_time\"></t> - <t t-out=\"shift_record."
-"shift.approximate_end_time\"></t></td>\n"
+"out=\"shift_record.shift.approximate_start_time\"></t> - <t t-"
+"out=\"shift_record.shift.approximate_end_time\"></t></td>\n"
 "                        </tr>\n"
 "                    </table>\n"
 "                    <p>Bitte schaue sie dir in der DVZO.app an und erfasse deine "
@@ -179,6 +238,7 @@ msgstr ""
 "Verfügung gestellt.</span>"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 msgid "<span aria-hidden=\"true\">x</span>"
 msgstr "<span aria-hidden=\"true\">x</span>"
@@ -214,6 +274,15 @@ msgid "<span>Briefing</span>"
 msgstr "<span>Briefing</span>"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
+msgid ""
+"<span>Es werden nur Fahrten angezeigt, die durch die Einteilung freigegeben wurden.</"
+"span>"
+msgstr ""
+"<span>Es werden nur Fahrten angezeigt, die durch die Einteilung freigegeben wurden.</"
+"span>"
+
+#. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
 msgid "<span>Shift</span>"
@@ -235,11 +304,17 @@ msgid "<span>hours</span>"
 msgstr "<span>Stunden</span>"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
+msgid "<span>  -  </span>"
+msgstr "<span>  -  </span>"
+
+#. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 msgid "<strong>For this shift only approximate times are available.</strong>"
 msgstr "<strong>Für diese Tour sind nur ungefähre Zeiten verfügbar.</strong>"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 msgid "<strong>Planned circuits:</strong>"
 msgstr "<strong>Geplante Umläufe:</strong>"
@@ -254,6 +329,7 @@ msgstr ""
 "                                                                <br/>"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 msgid "<strong>Type:</strong>"
 msgstr "<strong>Typ:</strong>"
@@ -335,6 +411,12 @@ msgid "Amount"
 msgstr "Anzahl"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
+#| msgid "Bemerkungen:"
+msgid "Anmerkung"
+msgstr "Anmerkung"
+
+#. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_shift_template__approximate_end_time
 msgid "Approximate End Time"
 msgstr "Ungefähre Endzeit"
@@ -350,6 +432,7 @@ msgid "Approximate Times"
 msgstr "Ungefähre Zeiten"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
 msgid "Arrival"
 msgstr "Ankunft"
@@ -523,6 +606,7 @@ msgstr "Lichtraumprofil"
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.view_show_briefing_recipients_wizard_form
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 msgid "Close"
 msgstr "Schliessen"
@@ -558,6 +642,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:train_management.briefing
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
 msgid "Comment"
@@ -565,6 +650,7 @@ msgstr "Kommentar"
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
 msgid "Comment:"
@@ -872,6 +958,7 @@ msgid "Defecttitle"
 msgstr "Titel"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
 msgid "Departure"
 msgstr "Abfahrt"
@@ -890,6 +977,7 @@ msgstr "Beschreibung"
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
 msgid "Description:"
@@ -1339,12 +1427,14 @@ msgstr "Sicherheitsrelevant"
 #: model:ir.model.fields,field_description:train_management.field_train_management_train__name_readonly
 #: model:ir.model.fields,field_description:train_management.field_train_management_train_template__name
 #: model:ir.model.fields,field_description:train_management.field_train_management_vehicle__name
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
 msgid "Label"
 msgstr "Bezeichnung"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
 msgid "Label / Type"
@@ -1632,6 +1722,7 @@ msgid "Nr of axes"
 msgstr "Anzahl Achsen"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 msgid "Nr."
 msgstr "Nr."
@@ -1749,6 +1840,7 @@ msgstr "Distanz"
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift__person
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning_shift_offer__person
 #: model_terms:ir.ui.view,arch_db:train_management.briefing
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
 msgid "Person"
 msgstr "Person"
@@ -1834,6 +1926,7 @@ msgid "Public"
 msgstr "Öffentliche Fahrt"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
 msgid "Qualification:"
@@ -1938,7 +2031,7 @@ msgstr "Zuständig Betrieb (Transportleitung)"
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_day_planning__message_has_sms_error
 msgid "SMS Delivery error"
-msgstr ""
+msgstr "SMS-Zustellungsfehler"
 
 #. module: train_management
 #: model:ir.model.fields.selection,name:train_management.selection__train_management_reservation__type__seat
@@ -2021,6 +2114,7 @@ msgid "Shift Templates"
 msgstr "Touren-Vorlagen"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
 msgid "Shift duration:"
@@ -2058,6 +2152,7 @@ msgid "Shift positions"
 msgstr "Tour Positionen"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
 msgid "Shift positions:"
@@ -2090,6 +2185,7 @@ msgstr "Touren"
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_kanban_view
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 msgid "Shifts allocated"
 msgstr "Touren zugewiesen"
 
@@ -2172,6 +2268,7 @@ msgstr "Startzeit:"
 
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.briefing
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
 msgid "Start-End"
@@ -2192,6 +2289,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:train_management.field_train_management_timetable__station
 #: model_terms:ir.ui.view,arch_db:train_management.station_search
 #: model_terms:ir.ui.view,arch_db:train_management.station_view_tree
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
 msgid "Station"
 msgstr "Betriebspunkt"
@@ -2203,6 +2301,7 @@ msgid "Stations"
 msgstr "Betriebspunkte"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
 msgid "Stations (Start/End)"
@@ -2242,6 +2341,7 @@ msgid "Stop code"
 msgstr "Haltecode"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
 msgid "Stop-Code"
 msgstr "Haltecode"
@@ -2255,6 +2355,11 @@ msgstr "Federung"
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_view_calendar
 msgid "Tasks"
 msgstr "Aufgaben"
+
+#. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
+msgid "Telefon"
+msgstr "Telefon"
 
 #. module: train_management
 #: model:ir.model.fields,field_description:train_management.field_train_management_train_template__label
@@ -2309,6 +2414,7 @@ msgstr ""
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
 msgid "Time"
@@ -2326,6 +2432,7 @@ msgid "Time accountable:"
 msgstr "Anrechenbare Zeit:"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
 msgid "Times:"
@@ -2653,6 +2760,7 @@ msgstr "Dauer Arbeitszeit"
 #. module: train_management
 #: model_terms:ir.ui.view,arch_db:train_management.day_planning_shift
 #: model_terms:ir.ui.view,arch_db:train_management.shift
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_single_day_planning_detail_view
 msgid "Work duration:"
@@ -2707,6 +2815,7 @@ msgid "brakeSystems"
 msgstr "Bremsanlagen"
 
 #. module: train_management
+#: model_terms:ir.ui.view,arch_db:train_management.web_shifts_allocation_list_view
 #: model_terms:ir.ui.view,arch_db:train_management.web_shifts_needed_list_view
 msgid "ca."
 msgstr "ca."
