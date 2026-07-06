@@ -133,3 +133,17 @@ class TrainManagementTestCommon(TransactionCase):
         }
         data.update(values)
         return self.env["train_management.day_planning_shift"].create(data)
+
+    def _create_train_with_timetable(self, circuit, stations=None):
+        train = self._create_train(circuit)
+        station_list = stations or [self.station_a, self.station_b]
+        for sequence, station in enumerate(station_list, start=1):
+            self.env["train_management.timetable"].create(
+                {
+                    "train": train.id,
+                    "station": station.id,
+                    "stop_code": self.stop_code.id,
+                    "sequence": sequence,
+                }
+            )
+        return train
