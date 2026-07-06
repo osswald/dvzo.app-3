@@ -26,7 +26,7 @@
                                         t-attf-aria-controls="collapse{{dayplanning.id}}">
                                     <span t-field="dayplanning.name"/>
                                     <span>-</span>
-                                    <span t-field="dayplanning.date" t-field-options='{"format": "dd.MM.yyyy"}'/>
+                                    <span t-field="dayplanning.date" t-options='{"format": "dd.MM.yyyy"}'/>
                                 </button>
                             </h2>
                             <div t-attf-id="collapse{{dayplanning.id}}" class="accordion-collapse collapse"

@@ -17,7 +17,7 @@
                         <tbody>
                             <tr t-foreach="day_plannings" t-as="p">
                                 <td>
-                                    <span t-field="p.date" t-field-options='{"format": "dd.MM.yyyy"}'/>
+                                    <span t-field="p.date" t-options='{"format": "dd.MM.yyyy"}'/>
                                 </td>
                                 <td>
                                     <span t-field="p.name"/>

@@ -55,9 +55,10 @@ class Inventory(models.Model):
             inventory_nr_padded = str(record.inventory_nr).zfill(4)
             record.computed_nr = f"{type_code}-{place_code}{inventory_nr_padded}"
 
-    _sql_constraints = [
-        ('unique_computed_nr', 'UNIQUE(computed_nr)', 'The computed number must be unique.'),
-    ]
+    _unique_computed_nr = models.Constraint(
+        "unique(computed_nr)",
+        "The computed number must be unique.",
+    )
 
     @api.constrains('computed_nr')
     def _check_unique_computed_nr(self):
@@ -79,7 +80,6 @@ class Inventory(models.Model):
                 'type': 'ir.actions.act_window',
                 'res_model': 'inventory.check.wizard',
                 'res_id': wizard.id,
-                'view_type': 'form',
                 'view_mode': 'form',
                 'target': 'new',
                 'views': [(self.env.ref('inventory.view_inventory_check_wizard').id, 'form')],

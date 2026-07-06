@@ -4,7 +4,7 @@
     "name": "Helpdesk Management",
     "summary": """
         Helpdesk""",
-    "version": "16.0.1.5.1",
+    "version": "19.0.1.1.1",
     "license": "AGPL-3",
     "category": "After-Sales",
     "author": "AdaptiveCity, "
@@ -32,9 +32,22 @@
         "views/helpdesk_ticket_tag_views.xml",
         "views/helpdesk_ticket_views.xml",
         "views/helpdesk_dashboard_views.xml",
+        "wizards/helpdesk_ticket_duplicate_wizard_views.xml",
     ],
     "demo": ["demo/helpdesk_demo.xml"],
-    "development_status": "Beta",
+    "assets": {
+        "web.assets_frontend": [
+            "helpdesk_mgmt/static/src/js/new_ticket.esm.js",
+        ],
+        "web.assets_backend": [
+            "helpdesk_mgmt/static/src/views/**/*.esm.js",
+            "helpdesk_mgmt/static/src/views/**/*.xml",
+        ],
+        "web.assets_unit_tests": [
+            "helpdesk_mgmt/static/tests/**/*.test.js",
+        ],
+    },
+    "development_status": "Production/Stable",
     "application": True,
     "installable": True,
 }

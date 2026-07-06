@@ -29,17 +29,17 @@
             <field name="name">training.module.tree</field>
             <field name="model">training.module</field>
             <field name="arch" type="xml">
-                <tree string="Training" >
+                <list string="Training" >
                     <field name="name"/>
                     <field name="label"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="training_module_action" model="ir.actions.act_window">
             <field name="name">Module</field>
             <field name="res_model">training.module</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Create a module

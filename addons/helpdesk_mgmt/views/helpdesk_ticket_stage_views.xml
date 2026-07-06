@@ -13,6 +13,7 @@
                 <separator />
                 <field name="name" filter_domain="[('name', 'ilike', self)]" />
                 <field name="company_id" groups="base.group_multi_company" />
+                <field name="team_ids" />
                 <group>
                     <filter
                         string="Company"
@@ -29,17 +30,15 @@
         <field name="model">helpdesk.ticket.stage</field>
         <field name="arch" type="xml">
             <form string="Stages">
-                <header>
-                </header>
+                <header />
                 <sheet>
                     <widget
                         name="web_ribbon"
                         title="Archived"
                         bg_color="bg-danger"
-                        attrs="{'invisible': [('active', '=', True)]}"
+                        invisible="active"
                     />
-                    <div class="oe_button_box" name="button_box">
-                    </div>
+                    <div class="oe_button_box" name="button_box" />
                     <div class="oe_title">
                         <label for="name" class="oe_edit_only" />
                         <h1>
@@ -48,20 +47,19 @@
                     </div>
                     <group name="main">
                         <group name="main_left">
-                            <field name="sequence" />
                             <field name="mail_template_id" />
+                            <field name="team_ids" widget="many2many_tags" />
                             <field
                                 name="company_id"
                                 groups="base.group_multi_company"
                             />
+                            <field name="company_id" invisible="1" />
                         </group>
                         <group name="main_right">
                             <field name="active" invisible="1" />
                             <field name="closed" />
-                            <field
-                                name="close_from_portal"
-                                attrs="{'invisible': [('closed', '=', False)]}"
-                            />
+                            <field name="close_from_portal" invisible="not closed" />
+                            <field name="fold" />
                             <field name="unattended" />
                         </group>
                     </group>
@@ -71,19 +69,20 @@
         </field>
     </record>
     <record id="view_helpdesk_ticket_stage_tree" model="ir.ui.view">
-        <field name="name">helpdesk.ticket.stage.tree</field>
+        <field name="name">helpdesk.ticket.stage.list</field>
         <field name="model">helpdesk.ticket.stage</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="sequence" widget="handle" />
                 <field name="name" />
                 <field name="mail_template_id" />
+                <field name="team_ids" widget="many2many_tags" />
                 <field
                     name="company_id"
                     optional="hide"
                     groups="base.group_multi_company"
                 />
-            </tree>
+            </list>
         </field>
     </record>
 </odoo>

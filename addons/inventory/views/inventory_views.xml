@@ -13,9 +13,9 @@
                             <field name="name"
                                    placeholder="e.g. Spannungsprüfer FL 15kV, ARCUSDETECT M Type 610241, Gerät- Nr. 00693"/>
                             <field name="computed_nr"/>
-                            <field name="place" placeholder="e.g. Ettenhausen-Emmetschlooooo" attrs="{'readonly': [('is_record_saved','=',True)]}"/>
-                            <field name="type" placeholder="e.g. Cleaning detergent" attrs="{'readonly': [('is_record_saved','=',True)]}"/>
-                            <field name="inventory_nr" attrs="{'readonly': [('is_record_saved','=',True)]}"/>
+                            <field name="place" placeholder="e.g. Ettenhausen-Emmetschlooooo" readonly="is_record_saved"/>
+                            <field name="type" placeholder="e.g. Cleaning detergent" readonly="is_record_saved"/>
+                            <field name="inventory_nr" readonly="is_record_saved"/>
                             <field name="manufacturer" placeholder="e.g. Microsoft Corp."/>
                             <field name="vendor" placeholder="e.g. Interdiscount"/>
                             <field name="location" placeholder="e.g. At Luki's home"/>
@@ -25,26 +25,26 @@
                         <group>
                             <field name="not_monitored"/>
                             <field name="status"
-                                   attrs="{'invisible': [('not_monitored', '=', True)]}"/>
+                                   invisible="not_monitored"/>
                             <field name="date_calibrated" placeholder="e.g. yesterday"
-                                   attrs="{'invisible': [('not_monitored', '=', True)]}"/>
+                                   invisible="not_monitored"/>
                             <field name="date_expires" placeholder="e.g. tomorrow"
-                                   attrs="{'invisible': [('not_monitored', '=', True)]}"/>
+                                   invisible="not_monitored"/>
                             <field name="responsible" placeholder="e.g. ME"/>
                             <button string="Check" type="object" class="oe_highlight"
                                     name="action_open_inventory_check"
-                                    attrs="{'invisible': [('not_monitored', '=', True)]}"/>
+                                    invisible="not_monitored"/>
                         </group>
                     </group>
                     <notebook>
                         <page string="Checks">
                             <field name="checks">
-                                <tree create="false" edit="false" delete="false">
+                                <list create="false" edit="false" delete="false">
                                     <field name="date"/>
                                     <field name="expiry_date"/>
                                     <field name="note"/>
                                     <field name="checked_by"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                     </notebook>
@@ -57,7 +57,7 @@
         <field name="name">inventory.tree</field>
         <field name="model">inventory.inventory</field>
         <field name="arch" type="xml">
-            <tree string="Inventory">
+            <list string="Inventory">
                 <field name="computed_nr"/>
                 <field name="name"/>
                 <field name="serial_number" optional="hide"/>
@@ -71,7 +71,7 @@
                 <field name="date_expires" optional="hide"/>
                 <field name="responsible" optional="hide"/>
                 <button string="Check" type="object" class="oe_highlight" name="action_open_inventory_check"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -109,7 +109,7 @@
     <record id="inventory_action" model="ir.actions.act_window">
         <field name="name">Inventory</field>
         <field name="res_model">inventory.inventory</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <record id="inventory_after_wizard_action" model="ir.actions.act_window">

@@ -37,6 +37,7 @@ class ResUsers(models.Model):
                 redirect_uri=request.httprequest.url_root + "auth_oauth/signin",
             ),
             auth=auth,
+            timeout=10,
         )
         response.raise_for_status()
         response_json = response.json()
@@ -55,7 +56,7 @@ class ResUsers(models.Model):
                 oauth_provider, params
             )
         else:
-            return super(ResUsers, self).auth_oauth(provider, params)
+            return super().auth_oauth(provider, params)
         if not access_token:
             _logger.error("No access_token in response.")
             raise AccessDenied()
@@ -64,7 +65,12 @@ class ResUsers(models.Model):
             raise AccessDenied()
         validation = oauth_provider._parse_id_token(id_token, access_token)
         # required check
-        if not validation.get("user_id"):
+        if "sub" in validation and "user_id" not in validation:
+            # set user_id for auth_oauth, user_id is not an OpenID Connect standard
+            # claim:
+            # https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims
+            validation["user_id"] = validation["sub"]
+        elif not validation.get("user_id"):
             _logger.error("user_id claim not found in id_token (after mapping).")
             raise AccessDenied()
         # retrieve and sign in user

@@ -35,7 +35,9 @@ class RiskAssessmentCheckWizard(models.TransientModel):
             'checked_by': self.checked_by.id,
         })
 
-        action = self.sudo().env.ref('risk_management.risk_assessment_after_wizard_action').read()[0]
+        action = self.env["ir.actions.act_window"]._for_xml_id(
+            "risk_management.risk_assessment_after_wizard_action"
+        )
         action.update({
             'view_mode': 'form',
             'res_id': new_check.risk_assessment_id.id,

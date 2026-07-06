@@ -20,18 +20,18 @@
         <field name="name">key.system.tree</field>
         <field name="model">key_management.system</field>
         <field name="arch" type="xml">
-            <tree string="Key System" editable="bottom">
+            <list string="Key System" editable="bottom">
                 <field name="short_name"/>
                 <field name="name"/>
                 <field name="manufacturer"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="key_system_action" model="ir.actions.act_window">
         <field name="name">Key System</field>
         <field name="res_model">key_management.system</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
 </odoo>

@@ -9,13 +9,13 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='has_emergency_contact']" position="after">
                     <field name="is_vendor"/>
-                    <field name="vendor_type" attrs="{'invisible': [('is_vendor', '=', False)]}"
+                    <field name="vendor_type" invisible="not is_vendor"
                            widget="many2many_tags"/>
-                    <field name="risk_assessment" attrs="{'invisible': [('is_vendor', '=', False)]}"/>
-                    <field name="certification" attrs="{'invisible': [('risk_assessment', '=', False)]}"/>
+                    <field name="risk_assessment" invisible="not is_vendor"/>
+                    <field name="certification" invisible="not risk_assessment"/>
                     <field name="certification_valid_until"
-                           attrs="{'invisible': [('risk_assessment', '=', False)]}"/>
-                    <field name="responsible" attrs="{'invisible': [('risk_assessment', '=', False)]}"/>
+                           invisible="not risk_assessment"/>
+                    <field name="responsible" invisible="not risk_assessment"/>
                 </xpath>
                 <notebook position="inside">
                     <page

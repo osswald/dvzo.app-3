@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -46,9 +46,9 @@ msgid "JWKS URL"
 msgstr ""
 
 #. module: auth_oidc
-#: model:ir.model.fields,field_description:auth_oidc.field_auth_oauth_provider____last_update
-#: model:ir.model.fields,field_description:auth_oidc.field_res_users____last_update
-msgid "Last Modified on"
+#: model:auth.oauth.provider,body:auth_oidc.provider_azuread_multi
+#: model:auth.oauth.provider,body:auth_oidc.provider_azuread_single
+msgid "Log in with Microsoft"
 msgstr ""
 
 #. module: auth_oidc
@@ -111,21 +111,16 @@ msgid ""
 msgstr ""
 
 #. module: auth_oidc
+#: model:ir.model,name:auth_oidc.model_res_users
+msgid "User"
+msgstr ""
+
+#. module: auth_oidc
 #: model:ir.model.fields,field_description:auth_oidc.field_auth_oauth_provider__validation_endpoint
 msgid "UserInfo URL"
 msgstr ""
 
 #. module: auth_oidc
-#: model:ir.model,name:auth_oidc.model_res_users
-msgid "Users"
-msgstr ""
-
-#. module: auth_oidc
 #: model_terms:ir.ui.view,arch_db:auth_oidc.view_oidc_provider_form
 msgid "e.g from:to upn:email sub:user_id"
-msgstr ""
-
-#. module: auth_oidc
-#: model:auth.oauth.provider,body:auth_oidc.local_keycloak
-msgid "keycloak:8080 on localhost"
 msgstr ""

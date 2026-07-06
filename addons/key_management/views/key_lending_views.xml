@@ -5,7 +5,7 @@
     <record id="key_lending_action" model="ir.actions.act_window">
         <field name="name">Key Lending</field>
         <field name="res_model">key_management.lending</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <!-- KEY LENDING TREE VIEW -->
@@ -13,13 +13,13 @@
         <field name="name">key.lending.tree</field>
         <field name="model">key_management.lending</field>
         <field name="arch" type="xml">
-            <tree string="key_lending">
+            <list string="key_lending">
                 <field name="lender" />
                 <field name="owner_unknown" />
                 <field name="key" />
                 <field name="lending_date" />
                 <field name="return_date" />
-            </tree>
+            </list>
         </field>
     </record>
 

@@ -32,20 +32,20 @@
             <field name="name">key.group.tree</field>
             <field name="model">key_management.group</field>
             <field name="arch" type="xml">
-                <tree string="Property Types">
+                <list string="Property Types">
                     <field name="short_name"/>
                     <field name="name"/>
                     <field name="comment"/>
                     <field name="key_permission"/>
                     <field name="key_system"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="key_group_action" model="ir.actions.act_window">
             <field name="name">Key Group</field>
             <field name="res_model">key_management.group</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Create a key group

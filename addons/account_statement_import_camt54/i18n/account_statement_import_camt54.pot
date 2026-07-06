@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -25,10 +25,9 @@ msgstr ""
 
 #. module: account_statement_import_camt54
 #. odoo-python
-#: code:addons/account_statement_import_camt54/models/parser.py:0
-#, python-format
+#: code:addons/account_statement_import_camt54/wizard/parser.py:0
 msgid ""
-"Config parameter `isr_partner_ref` is wrong.\n"
+"Config parameter `qrr_partner_ref` is wrong.\n"
 "It must be in format `i[,n]` \n"
 "`i` and `n` must be integers.\n"
 "e.g. \"13,6\""
@@ -36,10 +35,9 @@ msgstr ""
 
 #. module: account_statement_import_camt54
 #. odoo-python
-#: code:addons/account_statement_import_camt54/models/parser.py:0
-#, python-format
+#: code:addons/account_statement_import_camt54/wizard/parser.py:0
 msgid ""
-"Config parameter `isr_partner_ref` is wrong.\n"
+"Config parameter `qrr_partner_ref` is wrong.\n"
 "It must be in format `i[,n]` \n"
 "where `i` is the position of the first digit and\n"
 "`n` the number of digit in the reference, by default 6.\n"
@@ -47,8 +45,22 @@ msgid ""
 msgstr ""
 
 #. module: account_statement_import_camt54
+#: model:ir.model.fields,field_description:account_statement_import_camt54.field_account_journal__display_name
+#: model:ir.model.fields,field_description:account_statement_import_camt54.field_account_statement_import__display_name
+#: model:ir.model.fields,field_description:account_statement_import_camt54.field_account_statement_import_camt_parser__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: account_statement_import_camt54
 #: model:ir.model.fields,help:account_statement_import_camt54.field_account_journal__transfer_line
 msgid "Generate balance line on total of bank statement import"
+msgstr ""
+
+#. module: account_statement_import_camt54
+#: model:ir.model.fields,field_description:account_statement_import_camt54.field_account_journal__id
+#: model:ir.model.fields,field_description:account_statement_import_camt54.field_account_statement_import__id
+#: model:ir.model.fields,field_description:account_statement_import_camt54.field_account_statement_import_camt_parser__id
+msgid "ID"
 msgstr ""
 
 #. module: account_statement_import_camt54

@@ -23,17 +23,17 @@
             <field name="name">shift.template.group.tree</field>
             <field name="model">train_management.shift_template_group</field>
             <field name="arch" type="xml">
-                <tree string="Shift template group" editable="bottom">
+                <list string="Shift template group" editable="bottom">
                     <field name="sequence" widget="handle"/>
                     <field name="name"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="shift_template_group_action" model="ir.actions.act_window">
             <field name="name">Shift template group</field>
             <field name="res_model">train_management.shift_template_group</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
 

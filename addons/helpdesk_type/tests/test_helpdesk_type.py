@@ -1,3 +1,5 @@
+from odoo.tests import Form
+
 from odoo.addons.helpdesk_mgmt.tests import test_helpdesk_ticket
 
 
@@ -20,9 +22,8 @@ class TestHelpdeskType(test_helpdesk_ticket.TestHelpdeskTicket):
 
     def test_helpdesk_onchange_type_id(self):
         self.ht_ticket1.write({"team_id": self.ht_team1.id, "user_id": self.user.id})
-
-        self.ht_ticket1.type_id = self.ht_type1
-        self.ht_ticket1._onchange_type_id()
+        with Form(self.ht_ticket1) as ticket_form:
+            ticket_form.type_id = self.ht_type1
         self.assertEqual(
             self.ht_ticket1.team_id,
             self.ht_team1,
@@ -35,9 +36,8 @@ class TestHelpdeskType(test_helpdesk_ticket.TestHelpdeskTicket):
             "Helpdesk Ticket: when type is changed, ticket user should be unchanged"
             " if user belongs to a that belongs to the new type",
         )
-
-        self.ht_ticket1.type_id = self.ht_type2
-        self.ht_ticket1._onchange_type_id()
+        with Form(self.ht_ticket1) as ticket_form:
+            ticket_form.type_id = self.ht_type2
         self.assertFalse(
             self.ht_ticket1.team_id,
             "Helpdesk Ticket: When type is changed, ticket team should be reset if"

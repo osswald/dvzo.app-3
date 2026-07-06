@@ -38,7 +38,9 @@ class InventoryCheckWizard(models.TransientModel):
             'checked_by': self.checked_by.id,
         })
 
-        action = self.sudo().env.ref('inventory.inventory_after_wizard_action').read()[0]
+        action = self.env["ir.actions.act_window"]._for_xml_id(
+            "inventory.inventory_after_wizard_action"
+        )
         action.update({
             'view_mode': 'form',
             'res_id': new_check.inventory_id.id,

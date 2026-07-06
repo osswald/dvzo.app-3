@@ -12,11 +12,14 @@
                 <group>
                     <field
                         name="lastname"
-                        attrs="{'required': [('firstname', '=', False)]}"
+                        invisible="not form_has_lastname_first"
+                        required="form_has_lastname_first and lastname_required"
                     />
+                    <field name="firstname" required="firstname_required" />
                     <field
-                        name="firstname"
-                        attrs="{'required': [('lastname', '=', False)]}"
+                        name="lastname"
+                        invisible="form_has_lastname_first"
+                        required="not form_has_lastname_first and lastname_required"
                     />
                 </group>
             </xpath>

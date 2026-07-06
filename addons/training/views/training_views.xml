@@ -11,14 +11,14 @@
                     <header>
                         <field name="state" widget="statusbar" clickable="true"
                                statusbar_visible="planned,running,archived,canceled"/>
-                        <button name="action_planned" type="object" string="Set to Planned" states="running"
+                        <button name="action_planned" type="object" string="Set to Planned" invisible="state != 'running'"
                                 class="oe_highlight"/>
                         <button name="action_running" type="object" string="Set to Running"
-                                states="planned" class="oe_highlight"/>
-                        <button name="action_archived" type="object" string="Set to Archived" states="planned,running"
+                                invisible="state != 'planned'" class="oe_highlight"/>
+                        <button name="action_archived" type="object" string="Set to Archived" invisible="state not in ('planned', 'running')"
                                 class="oe_highlight"/>
                         <button name="action_canceled" type="object" string="Set to Canceled"
-                                states="planned" class="oe_highlight"/>
+                                invisible="state != 'planned'" class="oe_highlight"/>
                     </header>
                     <sheet>
                         <group>
@@ -46,11 +46,7 @@
                             </page>
                         </notebook>
                     </sheet>
-                    <div class="oe_chatter">
-                        <!--                        <field name="message_follower_ids" widget="mail_followers"/>-->
-                        <field name="activity_ids" widget="mail_activity"/>
-                        <!--                        <field name="message_ids" widget="mail_thread"/>-->
-                    </div>
+                    <chatter/>
                 </form>
             </field>
         </record>
@@ -67,7 +63,7 @@
                     <field name="start"/>
                     <field name="end"/>
                     <templates>
-                        <t t-name="kanban-box">
+                        <t t-name="card">
                             <div class="oe_kanban_global_click">
                                 <!--<div class="ribbon ribbon-top-right" attrs="{'invisible': [('active', '=', True)]}">
                                     <span class="bg-danger">Archived</span>
@@ -119,7 +115,7 @@
             <field name="name">training.tree</field>
             <field name="model">training.training</field>
             <field name="arch" type="xml">
-                <tree string="Training">
+                <list string="Training">
                     <field name="name"/>
                     <field name="label"/>
                     <field name="start"/>
@@ -127,14 +123,14 @@
                     <field name="module"/>
                     <field name="type"/>
                     <field name="responsible"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="training_action" model="ir.actions.act_window">
             <field name="name">Training</field>
             <field name="res_model">training.training</field>
-            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_mode">kanban,list,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Create a training

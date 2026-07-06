@@ -17,16 +17,16 @@
         <field name="name">extent.of.damage.tree</field>
         <field name="model">risk_management.extent_of_damage</field>
         <field name="arch" type="xml">
-            <tree string="Extent of damage" editable="bottom">
+            <list string="Extent of damage" editable="bottom">
                 <field name="name"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="extent_of_damage_action" model="ir.actions.act_window">
         <field name="name">Extent of damage</field>
         <field name="res_model">risk_management.extent_of_damage</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
 </odoo>

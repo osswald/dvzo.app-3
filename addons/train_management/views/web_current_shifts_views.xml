@@ -20,7 +20,7 @@
                             <tr t-foreach="current_shifts" t-as="shift">
                                 <td>
                                     <span t-field="shift['day_planning'].date"
-                                          t-field-options='{"format": "dd.MM.yyyy"}'/>
+                                          t-options='{"format": "dd.MM.yyyy"}'/>
                                 </td>
                                 <td>
                                     <a t-attf-href="../{{shift['day_planning'].id}}">

@@ -19,18 +19,18 @@
         <field name="name">inventory.type.tree</field>
         <field name="model">inventory.type</field>
         <field name="arch" type="xml">
-            <tree string="Inventory Type" editable="bottom">
+            <list string="Inventory Type" editable="bottom">
                 <field name="short_name"/>
                 <field name="name"/>
                 <field name="active"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="inventory_type_action" model="ir.actions.act_window">
         <field name="name">Inventory type</field>
         <field name="res_model">inventory.type</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
 </odoo>

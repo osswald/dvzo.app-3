@@ -148,4 +148,3 @@ class VehicleBatchUpdate(models.Model):
             else:
                 del new_item["type"]  # don't update type if item already exists
                 db_item.write(new_item)
-        self.env.cr.commit()

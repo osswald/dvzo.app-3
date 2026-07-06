@@ -15,11 +15,11 @@
                 <notebook position="inside">
                     <page name="training" string="Emergency contact">
                         <field name="emergency_contact_ids">
-                            <tree editable="bottom">
+                            <list editable="bottom">
                                 <field name="name"/>
                                 <field name="relation"/>
                                 <field name="phone" widget="phone"/>
-                            </tree>
+                            </list>
                         </field>
                     </page>
                 </notebook>

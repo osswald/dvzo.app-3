@@ -24,17 +24,17 @@
             <field name="name">railway.company.tree</field>
             <field name="model">train_management.railway_company</field>
             <field name="arch" type="xml">
-                <tree string="Railway company" editable="bottom">
+                <list string="Railway company" editable="bottom">
                     <field name="name"/>
                     <field name="debi_code"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="railway_company_action" model="ir.actions.act_window">
             <field name="name">Railway company</field>
             <field name="res_model">train_management.railway_company</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
 

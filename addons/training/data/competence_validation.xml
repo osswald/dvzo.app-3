@@ -6,8 +6,6 @@
             <field name="model_id" ref="model_training_competence_validation"/>
             <field name="interval_number">1</field>
             <field name="interval_type">days</field>
-            <field name="numbercall">-1</field>
-            <field name="doall" eval="False"/>
             <field name="state">code</field>
             <field name="code">model.validate_competences()</field>
             <field name="user_id" ref="base.user_root"/>

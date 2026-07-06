@@ -11,11 +11,11 @@
                     <header>
                         <button name="%(open_add_shifts_wizard)d" type="action" string="Add shifts"/>
                         <button name="%(action_show_briefing_recipients)d" type="action" string="Show Briefing Recipients" />
-                        <button name="action_confirmed" type="object" string="Confirm" states="draft"
+                        <button name="action_confirmed" type="object" string="Confirm" invisible="state != 'draft'"
                                 class="oe_highlight"/>
                         <button name="action_executed" type="object" string="Executed"
                                 confirm="This can not be undone. Trains will be sent to Drehscheibe. Do you wish to proceed?"
-                                states="confirmed" class="oe_highlight"/>
+                                invisible="state != 'confirmed'" class="oe_highlight"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,executed,canceled"/>
                     </header>
                     <sheet>
@@ -67,25 +67,25 @@
                         <notebook>
                             <page string="Texts">
                                 <field name="day_planning_text_ids">
-                                    <tree>
+                                    <list>
                                         <field name="sequence" widget="handle"/>
                                         <field name="name"/>
-                                    </tree>
+                                    </list>
                                 </field>
                             </page>
                             <page string="Circuits">
                                 <field name="circuit_ids">
-                                    <tree>
+                                    <list>
                                         <field name="name"/>
                                         <field name="train_composition"/>
                                         <field name="distance"/>
                                         <field name="frequency"/>
-                                    </tree>
+                                    </list>
                                 </field>
                             </page>
                             <page string="Reservations">
                                 <field name="reservation_ids">
-                                    <tree create="False">
+                                    <list create="False">
                                         <field name="train"/>
                                         <field name="start_station_short"/>
                                         <field name="end_station_short"/>
@@ -95,12 +95,12 @@
                                         <field name="phone_number"/>
                                         <field name="email"/>
                                         <field name="comment" widget="text" options="{'maxlength': 50}"/>
-                                    </tree>
+                                    </list>
                                 </field>
                             </page>
                             <page string="Shifts">
                                 <field name="day_planning_shift_ids">
-                                    <tree editable="bottom">
+                                    <list editable="bottom">
                                         <field name="sequence" widget="handle"/>
                                         <field name="shift"/>
                                         <field name="shift_template_group"/>
@@ -109,24 +109,20 @@
                                         <field name="shift_label"/>
                                         <field name="person"/>
                                         <field name="comment"/>
-                                    </tree>
+                                    </list>
                                 </field>
                             </page>
                             <page string="Frequencies">
                                 <field name="train_ids">
-                                    <tree editable="bottom" create="False" delete="False">
+                                    <list editable="bottom" create="False" delete="False">
                                         <field name="name_readonly"/>
                                         <field name="frequency"/>
-                                    </tree>
+                                    </list>
                                 </field>
                             </page>
                         </notebook>
                     </sheet>
-                    <div class="oe_chatter">
-                        <field name="message_follower_ids" widget="mail_followers"/>
-                        <field name="activity_ids" widget="mail_activity"/>
-                        <field name="message_ids" widget="mail_thread"/>
-                    </div>
+                    <chatter/>
                 </form>
             </field>
         </record>
@@ -148,22 +144,22 @@
                     <field name="engine_planning_status"/>
                     <field name="carriage_planning_status"/>
                     <templates>
-                        <t t-name="kanban-box">
+                        <t t-name="card">
                             <div t-attf-style="background-color:#{record.type.raw_value == 'public' and '#d2eef1'
                                or record.type.raw_value == 'extra' and '#DE8E85'
                                 or record.type.raw_value == 'other' and '#ffffff'
                                 or record.type.raw_value == 'bus' and '#fce7b2'};">
                                 <div class="oe_kanban_global_click">
                                     <div class="ribbon ribbon-top-right"
-                                         attrs="{'invisible': [('state', '!=', 'draft')]}">
+                                         invisible="state != 'draft'">
                                         <span class="bg-danger">Draft</span>
                                     </div>
                                     <div class="ribbon ribbon-top-right"
-                                         attrs="{'invisible': [('state', '!=', 'executed')]}">
+                                         invisible="state != 'executed'">
                                         <span class="bg-success">Executed</span>
                                     </div>
                                     <div class="ribbon ribbon-top-right"
-                                         attrs="{'invisible': [('state', '!=', 'canceled')]}">
+                                         invisible="state != 'canceled'">
                                         <span class="bg-info">Canceled</span>
                                     </div>
                                     <div class="oe_kanban_details d-flex flex-column justify-content-between">
@@ -272,12 +268,12 @@
             <field name="name">day_planning.tree</field>
             <field name="model">train_management.day_planning</field>
             <field name="arch" type="xml">
-                <tree string="Day planning">
+                <list string="Day planning">
                     <field name="name"/>
                     <field name="date"/>
                     <field name="type"/>
                     <field name="state"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -285,7 +281,7 @@
             <field name="name">Day planning</field>
             <field name="res_model">train_management.day_planning</field>
             <field name="context">{"search_default_future_day_plannings":1}</field>
-            <field name="view_mode">kanban,tree,form,calendar</field>
+            <field name="view_mode">kanban,list,form,calendar</field>
         </record>
 
         <record id="day_planning_search" model="ir.ui.view">
