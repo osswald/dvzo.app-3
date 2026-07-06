@@ -23,7 +23,7 @@
                         <notebook>
                             <page string="Vehicles">
                                 <field name="circuit_vehicle">
-                                    <tree editable="bottom">
+                                    <list editable="bottom">
                                         <field name="sequence" widget="handle"/>
                                         <field name="vehicle_type" invisible="True"/>
                                         <field name="vehicle"
@@ -33,7 +33,7 @@
                                                decoration-info="vehicle_type == 'luggage'"
                                         />
                                         <field name="comment"/>
-                                    </tree>
+                                    </list>
                                 </field>
                             </page>
                             <page string="Trains">
@@ -49,18 +49,18 @@
             <field name="name">circuit.tree</field>
             <field name="model">train_management.circuit</field>
             <field name="arch" type="xml">
-                <tree string="Circuit">
+                <list string="Circuit">
                     <field name="name"/>
                     <field name="distance"/>
                     <field name="frequency"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="circuit_action" model="ir.actions.act_window">
             <field name="name">Circuit</field>
             <field name="res_model">train_management.circuit</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
 

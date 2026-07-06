@@ -3,6 +3,7 @@
 
 {
     'name': 'DVZO.app',
+    'version': '19.0.1.0.0',
     'author': "Christoph Osswald",
     'maintainer': 'Dampfbahn-Verein Zürcher Oberland',
     'category': 'DVZO',

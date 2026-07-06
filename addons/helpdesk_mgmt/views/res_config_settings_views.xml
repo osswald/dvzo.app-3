@@ -4,56 +4,119 @@
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="base.res_config_settings_view_form" />
         <field name="arch" type="xml">
-            <xpath expr="//div[hasclass('settings')]" position="inside">
-                <div
-                    class="app_settings_block"
+            <xpath expr="//form" position="inside">
+                <app
                     data-string="Helpdesk"
                     string="Helpdesk"
-                    data-key="helpdesk_mgmt"
+                    name="helpdesk_mgmt"
                     groups="helpdesk_mgmt.group_helpdesk_manager"
                 >
-                    <h2>New ticket form (portal)</h2>
-                    <div class="row mt16 o_settings_container">
-                        <div class="col-12 col-lg-6 o_setting_box">
-                            <div class="o_setting_left_pane">
-                                <field name="helpdesk_mgmt_portal_select_team" />
+                    <block
+                        title="New ticket form (portal)"
+                        name="helpdesk_mgmt_portal_new_ticket_fields"
+                    >
+                        <setting
+                            id="helpdesk_mgmt_portal_new_ticket_fields"
+                            company_dependent="1"
+                            string="Additional fields"
+                            help="Whether to display additional fields in the portal form"
+                        >
+                            <div
+                                class="content-group"
+                                name="helpdesk_mgmt_portal_new_ticket_fields"
+                            >
+                                <div class="mt8">
+                                    <field
+                                        name="helpdesk_mgmt_portal_select_category"
+                                    />
+                                    <label
+                                        for="helpdesk_mgmt_portal_select_category"
+                                        string="Category"
+                                    />
+                                </div>
+                                <div class="mt8">
+                                    <field name="helpdesk_mgmt_portal_select_team" />
+                                    <label
+                                        for="helpdesk_mgmt_portal_select_team"
+                                        string="Team"
+                                    />
+                                </div>
                             </div>
-                            <div class="o_setting_right_pane">
-                                <label for="helpdesk_mgmt_portal_select_team" />
-                                <div class="text-muted">Show teams form</div>
+                        </setting>
+                        <setting
+                            id="helpdesk_mgmt_portal_new_ticket_required_fields"
+                            company_dependent="1"
+                            string="Required fields"
+                            help="Choose which fields are required in the portal form"
+                        >
+                            <div
+                                class="content-group"
+                                name="helpdesk_mgmt_portal_new_ticket_required_fields"
+                            >
+                                <div
+                                    class="mt8"
+                                    invisible="not helpdesk_mgmt_portal_select_category"
+                                >
+                                    <field
+                                        name="helpdesk_mgmt_portal_category_id_required"
+                                    />
+                                    <label
+                                        for="helpdesk_mgmt_portal_category_id_required"
+                                        string="Category"
+                                    />
+                                </div>
+                                <div
+                                    class="mt8"
+                                    invisible="not helpdesk_mgmt_portal_select_team"
+                                >
+                                    <field
+                                        name="helpdesk_mgmt_portal_team_id_required"
+                                    />
+                                    <label
+                                        for="helpdesk_mgmt_portal_team_id_required"
+                                        string="Team"
+                                    />
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-lg-6 o_setting_box">
-                            <div class="o_setting_left_pane">
-                                <field
-                                    name="helpdesk_mgmt_portal_team_id_required"
-                                    attrs="{'readonly' : [('helpdesk_mgmt_portal_select_team', '=', False)]}"
-                                />
+                        </setting>
+                    </block>
+                    <block title="Duplicate tracking">
+                        <setting>
+                            <field
+                                name="helpdesk_mgmt_duplicate_tracking"
+                                string="Enable duplicate tracking"
+                            />
+                        </setting>
+                        <setting
+                            help="When marked as duplicate, tickets will be moved to this stage"
+                            invisible="not helpdesk_mgmt_duplicate_tracking"
+                        >
+                            <field
+                                name="helpdesk_mgmt_duplicate_ticket_stage_id"
+                                string="Duplicate stage"
+                            />
+                        </setting>
+                    </block>
+                    <block title="Helpdesk">
+                        <setting
+                            string="Tickets"
+                            id="helpdesk_mgmt_ticket_misc"
+                            help="Controls if the tickets created are automatically assigned to the user."
+                        >
+                            <div class="mt16">
+                                <div class="content-group">
+                                    <div>
+                                        <field
+                                            name="helpdesk_mgmt_ticket_auto_assign"
+                                            string="Auto assign User"
+                                        />
+                                        <label for="helpdesk_mgmt_ticket_auto_assign" />
+                                    </div>
+                                </div>
                             </div>
-                            <div class="o_setting_right_pane">
-                                <label
-                                    for="helpdesk_mgmt_portal_team_id_required"
-                                    string="Required Team"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt16 o_settings_container">
-                        <div class="col-12 col-lg-6 o_setting_box">
-                            <div class="o_setting_left_pane">
-                                <field
-                                    name="helpdesk_mgmt_portal_category_id_required"
-                                />
-                            </div>
-                            <div class="o_setting_right_pane">
-                                <label
-                                    for="helpdesk_mgmt_portal_category_id_required"
-                                    string="Required Category"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        </setting>
+                    </block>
+                </app>
             </xpath>
         </field>
     </record>
@@ -62,7 +125,7 @@
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">res.config.settings</field>
         <field name="view_mode">form</field>
-        <field name="target">inline</field>
+        <field name="target">current</field>
         <field name="context">{'module' : 'helpdesk_mgmt', 'bin_size': False}</field>
     </record>
 </odoo>

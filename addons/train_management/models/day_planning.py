@@ -196,8 +196,9 @@ class DayPlanning(models.Model):
         return self.write({"state": "executed"})
 
     def action_view_offers(self):
-        res = self.env.ref("train_management.day_planning_shift_action_domain").read()[0]
-        return res
+        return self.env["ir.actions.act_window"]._for_xml_id(
+            "train_management.day_planning_shift_action_domain"
+        )
 
     def _compute_sum_of_shifts(self):
         for record in self:

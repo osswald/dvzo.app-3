@@ -52,7 +52,6 @@ class DayPlanningShift(models.Model):
             'res_model': 'train_management.day_planning_shift',
             'type': 'ir.actions.act_window',
             'view_mode': 'form',
-            'view_type': 'form',
             'res_id': self.id,
             'target': 'current',
         }

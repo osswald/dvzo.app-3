@@ -14,11 +14,11 @@
                 <notebook position="inside">
                     <page name="training" string="Training">
                         <field name="training_ids">
-                            <tree>
+                            <list>
                                 <field name="training"/>
                                 <field name="attended"/>
                                 <field name="passed"/>
-                            </tree>
+                            </list>
                         </field>
                     </page>
                     <page name="qualification" string="HR">
@@ -33,7 +33,7 @@
                                 <field name="railway_company"/>
                                 <field name="has_locomotive"/>
                                 <field name="locomotive"
-                                       attrs="{'invisible': [('has_locomotive', '=', False)]}"
+                                       invisible="not has_locomotive"
                                        widget="many2many_tags"
                                 />
                             </group>
@@ -41,23 +41,23 @@
                         <notebook>
                             <page name="medical" string="Medical assessments">
                                 <field name="medical_assessment_ids">
-                                    <tree>
+                                    <list>
                                         <field name="medical_fitness_level"/>
                                         <field name="limitation"/>
                                         <field name="assessment_date"/>
                                         <field name="valid_until"/>
-                                    </tree>
+                                    </list>
                                 </field>
                             </page>
                             <page name="exam" string="Exam">
                                 <field name="exam_ids">
-                                    <tree>
+                                    <list>
                                         <field name="type"/>
                                         <field name="category"/>
                                         <field name="date"/>
                                         <field name="valid_until"/>
                                         <field name="competence"/>
-                                    </tree>
+                                    </list>
                                 </field>
                             </page>
                         </notebook>

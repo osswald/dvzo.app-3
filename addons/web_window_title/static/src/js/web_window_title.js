@@ -1,12 +1,13 @@
-/** @odoo-module alias=web.window.title **/
+/** @odoo-module **/
 
 import { WebClient } from "@web/webclient/webclient";
-import {patch} from "@web/core/utils/patch";
+import { patch } from "@web/core/utils/patch";
+import { useService } from "@web/core/utils/hooks";
 
-patch(WebClient.prototype, "Web Window Title", {
+patch(WebClient.prototype, {
     setup() {
-        const title = document.title;
-        this._super();
-        this.title.setParts({ zopenerp: title });
-    }
+        super.setup(...arguments);
+        const titleService = useService("title");
+        titleService.setParts({ zopenerp: document.title });
+    },
 });

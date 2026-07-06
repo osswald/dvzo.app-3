@@ -13,13 +13,13 @@
                 <notebook position="inside">
                     <page name="shifts" string="Shifts">
                         <field name="shift_ids">
-                            <tree create="False" delete="False" default_order="day_planning_date desc">
+                            <list create="False" delete="False" default_order="day_planning_date desc">
                                 <field name="day_planning"/>
                                 <field name="day_planning_date"/>
                                 <field name="shift"/>
                                 <field name="shift_label"/>
                                 <field name="comment"/>
-                            </tree>
+                            </list>
                         </field>
                     </page>
                 </notebook>

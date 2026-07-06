@@ -17,16 +17,16 @@
         <field name="name">asset.type.tree</field>
         <field name="model">risk_management.asset_type</field>
         <field name="arch" type="xml">
-            <tree string="Asset type" editable="bottom">
+            <list string="Asset type" editable="bottom">
                 <field name="name"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="asset_type_action" model="ir.actions.act_window">
         <field name="name">Asset type</field>
         <field name="res_model">risk_management.asset_type</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
 </odoo>

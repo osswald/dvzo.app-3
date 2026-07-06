@@ -19,6 +19,14 @@ class ResConfigSettings(models.TransientModel):
         required=True,
         inverse="_inverse_partner_names_order",
     )
+
+    partner_names_required_fields = fields.Selection(
+        selection="_partner_names_required_fields_selection",
+        help="Define which fields are required or not",
+        config_parameter="partner_firstname.required_fields",
+        required=True,
+    )
+
     partner_names_order_changed = fields.Boolean(
         config_parameter="partner_names_order_changed"
     )
@@ -30,8 +38,16 @@ class ResConfigSettings(models.TransientModel):
             ("first_last", "Firstname Lastname"),
         ]
 
+    def _partner_names_required_fields_selection(self):
+        return [
+            ("firstname_lastname", "First Name and Last Name"),
+            ("firstname", "First Name"),
+            ("lastname", "Last Name"),
+            ("no", "Nothing"),
+        ]
+
     def _partner_names_order_default(self):
-        return self.env["res.partner"]._names_order_default()
+        return "first_last"
 
     def _inverse_partner_names_order(self):
         current = (
@@ -61,7 +77,10 @@ class ResConfigSettings(models.TransientModel):
         )
         partners = self._partners_for_recalculating()
         _logger.info("Recalculating names for %d partners.", len(partners))
-        partners._compute_name()
+        # Use add_to_compute instead of _compute_name to avoid triggering
+        # _inverse_name_after_cleaning_whitespace, which can
+        # modify a partner's firstname, lastname and lastname2
+        self.env.add_to_compute(self.env["res.partner"]._fields["name"], partners)
         self.partner_names_order_changed = False
         self.execute()
         _logger.info("%d partners updated.", len(partners))

@@ -22,20 +22,20 @@
                 <notebook position="inside">
                     <page name="departments" string="Departments">
                         <field name="department_ids">
-                            <tree>
+                            <list>
                                 <field name="department"/>
                                 <field name="department_type"/>
-                            </tree>
+                            </list>
                         </field>
                     </page>
                     <page name="memberships" string="Memberships">
                         <field name="membership_ids">
-                            <tree string="Membership">
+                            <list string="Membership">
                                 <field name="membership_type"/>
                                 <field name="membership_status"/>
                                 <field name="joining_date"/>
                                 <field name="leaving_date"/>
-                            </tree>
+                            </list>
                         </field>
                     </page>
                 </notebook>

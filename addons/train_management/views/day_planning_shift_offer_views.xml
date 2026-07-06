@@ -28,21 +28,21 @@
             <field name="name">day.planning.shift.offer.tree</field>
             <field name="model">train_management.day_planning_shift_offer</field>
             <field name="arch" type="xml">
-                <tree string="Day planning shift offer" editable="bottom">
+                <list string="Day planning shift offer" editable="bottom">
                     <field name="day_planning"/>
                     <field name="day_planning_shift"/>
                     <field name="day_planning_date"/>
                     <field name="person"/>
                     <field name="comment"/>
                     <field name="offer"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="day_planning_shift_offer_action" model="ir.actions.act_window">
             <field name="name">Day planning shift offer</field>
             <field name="res_model">train_management.day_planning_shift_offer</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
         <record id="day_planning_shift_offer_search" model="ir.ui.view">

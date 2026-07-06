@@ -22,13 +22,13 @@
                         <notebook>
                             <page string="Timetable">
                                 <field name="timetable">
-                                    <tree editable="bottom">
+                                    <list editable="bottom">
                                         <field name="sequence" widget="handle"/>
                                         <field name="station"/>
                                         <field name="arrival_time" widget="float_time"/>
                                         <field name="departure_time" widget="float_time"/>
                                         <field name="stop_code"/>
-                                    </tree>
+                                    </list>
                                 </field>
                             </page>
                         </notebook>
@@ -41,19 +41,19 @@
             <field name="name">train.template.tree</field>
             <field name="model">train_management.train_template</field>
             <field name="arch" type="xml">
-                <tree string="Train template">
+                <list string="Train template">
                     <field name="label"/>
                     <field name="name"/>
                     <field name="start_station"/>
                     <field name="end_station"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="train_template_action" model="ir.actions.act_window">
             <field name="name">Train template</field>
             <field name="res_model">train_management.train_template</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
 

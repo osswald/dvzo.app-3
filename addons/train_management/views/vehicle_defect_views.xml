@@ -34,19 +34,19 @@
             <field name="name">vehicle_defect.tree</field>
             <field name="model">train_management.vehicle_defect</field>
             <field name="arch" type="xml">
-                <tree string="Vehicle defect">
+                <list string="Vehicle defect">
                     <field name="date"/>
                     <field name="defectTitle"/>
                     <field name="whereAtVehicle"/>
                     <field name="isSecurityRelated"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="vehicle_defect_action" model="ir.actions.act_window">
             <field name="name">Vehicle defects</field>
             <field name="res_model">train_management.vehicle_defect</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
 

@@ -42,7 +42,7 @@
             <field name="name">reservation.tree</field>
             <field name="model">train_management.reservation</field>
             <field name="arch" type="xml">
-                <tree string="Reservation" create="False">
+                <list string="Reservation" create="False">
                     <field name="day_planning"/>
                     <field name="day_planning_date"/>
                     <field name="train"/>
@@ -56,7 +56,7 @@
                     <field name="phone_number"/>
                     <field name="email"/>
                     <field name="comment" widget="text" options="{'maxlength': 50}"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -64,7 +64,7 @@
             <field name="name">Reservation</field>
             <field name="res_model">train_management.reservation</field>
             <field name="context">{'search_default_day_planning':1, 'search_default_train':2}</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
         <record id="reservation_search" model="ir.ui.view">

@@ -19,18 +19,18 @@
         <field name="name">inventory.status.tree</field>
         <field name="model">inventory.status</field>
         <field name="arch" type="xml">
-            <tree string="Inventory Status" editable="bottom">
+            <list string="Inventory Status" editable="bottom">
                 <field name="name"/>
                 <field name="auto_update"/>
                 <field name="active"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="inventory_status_action" model="ir.actions.act_window">
         <field name="name">Inventory status</field>
         <field name="res_model">inventory.status</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
 </odoo>

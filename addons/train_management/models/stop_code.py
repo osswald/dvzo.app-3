@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import models, fields
 
 
 class StopCode(models.Model):
@@ -18,7 +18,5 @@ class StopCode(models.Model):
         required=True,
     )
 
-    @api.model
-    def name_search(self, name, args=None, operator='ilike', limit=100):
-        partners = self.search(['|', ('name', operator, name), ('code', operator, name)])
-        return partners.name_get()
+    _rec_names_search = ["name", "code"]
+

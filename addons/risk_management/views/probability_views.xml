@@ -17,16 +17,16 @@
         <field name="name">probability.tree</field>
         <field name="model">risk_management.probability</field>
         <field name="arch" type="xml">
-            <tree string="Probability" editable="bottom">
+            <list string="Probability" editable="bottom">
                 <field name="name"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="probability_action" model="ir.actions.act_window">
         <field name="name">Probability</field>
         <field name="res_model">risk_management.probability</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
 </odoo>

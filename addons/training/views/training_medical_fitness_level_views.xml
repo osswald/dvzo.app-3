@@ -24,17 +24,17 @@
             <field name="name">training.medical.fitness.level.tree</field>
             <field name="model">training.medical_fitness_level</field>
             <field name="arch" type="xml">
-                <tree string="Medical fitness level" editable="bottom">
+                <list string="Medical fitness level" editable="bottom">
                     <field name="name"/>
                     <field name="bav_equivalent"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="training_medical_fitness_level_action" model="ir.actions.act_window">
             <field name="name">Medical fitness level</field>
             <field name="res_model">training.medical_fitness_level</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Create a medical fitness level

@@ -19,18 +19,18 @@
         <field name="name">inventory.manufacturer.tree</field>
         <field name="model">inventory.manufacturer</field>
         <field name="arch" type="xml">
-            <tree string="Inventory manufacturer" editable="bottom">
+            <list string="Inventory manufacturer" editable="bottom">
                 <field name="name"/>
                 <field name="partner"/>
                 <field name="active"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="inventory_manufacturer_action" model="ir.actions.act_window">
         <field name="name">Inventory manufacturer</field>
         <field name="res_model">inventory.manufacturer</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
 </odoo>

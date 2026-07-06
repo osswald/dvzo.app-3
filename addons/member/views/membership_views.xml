@@ -27,13 +27,13 @@
             <field name="name">membership.tree</field>
             <field name="model">member.membership</field>
             <field name="arch" type="xml">
-                <tree string="Membership">
+                <list string="Membership">
                     <field name="res_partner"/>
                     <field name="membership_type"/>
                     <field name="membership_status"/>
                     <field name="joining_date"/>
                     <field name="leaving_date"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -41,7 +41,7 @@
             <field name="name">Membership</field>
             <field name="res_model">member.membership</field>
             <field name="context">{"search_default_active_memberships":1}</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
         <record id="membership_search" model="ir.ui.view">

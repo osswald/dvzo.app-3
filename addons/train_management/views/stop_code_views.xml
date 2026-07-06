@@ -25,18 +25,18 @@
             <field name="name">stop_code.tree</field>
             <field name="model">train_management.stop_code</field>
             <field name="arch" type="xml">
-                <tree string="Stop code" editable="bottom">
+                <list string="Stop code" editable="bottom">
                     <field name="name"/>
                     <field name="code"/>
                     <field name="type"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="stop_code_action" model="ir.actions.act_window">
             <field name="name">Stop code</field>
             <field name="res_model">train_management.stop_code</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
 

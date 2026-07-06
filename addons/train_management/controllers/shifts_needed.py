@@ -68,6 +68,5 @@ class ShiftsNeededController(Controller):
                 "comment": comment,
                 "offer": choice
             })
-            request.env.cr.commit()
 
         shift_offer.offer = choice

@@ -48,7 +48,6 @@ class RiskAssessment(models.Model):
                 'type': 'ir.actions.act_window',
                 'res_model': 'risk_management.check.wizard',
                 'res_id': wizard.id,
-                'view_type': 'form',
                 'view_mode': 'form',
                 'target': 'new',
                 'views': [(self.env.ref('risk_management.view_risk_assessment_check_wizard').id, 'form')],

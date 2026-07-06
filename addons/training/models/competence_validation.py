@@ -31,6 +31,3 @@ class CompetenceValidation(models.Model):
             valid_locomotive_ids = valid_exams.mapped('vte_locomotive').ids
             partner.write({'locomotive': [(6, 0, valid_locomotive_ids)]})
 
-        # Commit the changes to the database
-        self.env.cr.commit()
-

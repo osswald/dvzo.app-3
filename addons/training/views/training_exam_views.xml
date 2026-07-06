@@ -37,20 +37,20 @@
             <field name="name">training.exam.tree</field>
             <field name="model">training.exam</field>
             <field name="arch" type="xml">
-                <tree string="Exam">
+                <list string="Exam">
                     <field name="type"/>
                     <field name="category"/>
                     <field name="date"/>
                     <field name="valid_until"/>
                     <field name="competence" widget="many2many_tags"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="training_exam_action" model="ir.actions.act_window">
             <field name="name">Exam</field>
             <field name="res_model">training.exam</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
 

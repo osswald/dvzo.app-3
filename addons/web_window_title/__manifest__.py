@@ -7,7 +7,7 @@
     'website': "https://renjie.me",
     'support': 'i@renjie.me',
     'category': 'Extra Tools',
-    'version': '1.1',
+    'version': '19.0.1.1.0',
     'depends': ['base_setup'],
     'demo': [
         'data/demo.xml',

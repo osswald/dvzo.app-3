@@ -25,9 +25,9 @@
                                 <field name="valid_until"/>
                                 <field name="approximate_times"/>
                                 <field name="approximate_start_time" widget="float_time"
-                                       attrs="{'invisible': [('approximate_times', '=', False)]}"/>
+                                       invisible="not approximate_times"/>
                                 <field name="approximate_end_time" widget="float_time"
-                                       attrs="{'invisible': [('approximate_times', '=', False)]}"/>
+                                       invisible="not approximate_times"/>
                                 <field name="eating_in_bauma"/>
                             </group>
                             <group string="Statistics">
@@ -54,13 +54,13 @@
             <field name="name">shift_template.tree</field>
             <field name="model">train_management.shift_template</field>
             <field name="arch" type="xml">
-                <tree string="Shift template">
+                <list string="Shift template">
                     <field name="name"/>
                     <field name="label"/>
                     <field name="in_training" widget="switch"/>
                     <field name="shift_template_group"/>
                     <field name="category" widget="many2many_tags" options="{'color_field': 'color'}"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -98,7 +98,7 @@
             <field name="name">Shift template</field>
             <field name="res_model">train_management.shift_template</field>
             <field name="context">{"search_default_valid_shift_templates":1}</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
 

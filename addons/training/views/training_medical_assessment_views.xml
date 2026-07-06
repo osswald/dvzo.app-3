@@ -31,19 +31,19 @@
             <field name="name">training.medical_assessment.tree</field>
             <field name="model">training.medical_assessment</field>
             <field name="arch" type="xml">
-                <tree string="Medical assessment">
+                <list string="Medical assessment">
                     <field name="medical_fitness_level"/>
                     <field name="limitation"/>
                     <field name="assessment_date"/>
                     <field name="valid_until"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="training_medical_assessment_action" model="ir.actions.act_window">
             <field name="name">Medical assessment</field>
             <field name="res_model">training.medical_assessment</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
 

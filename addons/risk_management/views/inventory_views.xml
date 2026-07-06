@@ -13,9 +13,9 @@
                         groups="risk_management.group_risk_management_user, risk_management.group_risk_management_manager"
                 >
                     <field name="risk_assessment_ids">
-                        <tree create="False">
+                        <list create="False">
                             <field name="name"/>
-                        </tree>
+                        </list>
                     </field>
                 </page>
             </notebook>

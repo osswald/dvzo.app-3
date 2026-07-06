@@ -3,6 +3,7 @@
 
 {
     'name': 'Risk management',
+    'version': '19.0.1.0.0',
     'author': 'Christoph Osswald',
     'category': 'DVZO/Risk management',
     'depends': [

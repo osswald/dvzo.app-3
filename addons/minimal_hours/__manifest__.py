@@ -3,10 +3,13 @@
 
 {
     'name': 'Minimal hours',
+    'version': '19.0.1.0.0',
     'author': 'Christoph Osswald',
     'category': 'DVZO/Minimal hours',
+    'version': '19.0.1.0.0',
     'depends': [
         'base',
+        'website',
         'training',
         'train_management',
     ],

@@ -27,7 +27,7 @@
                         <notebook>
                             <page string="Vehicles">
                                 <field name="train_vehicle">
-                                    <tree editable="bottom">
+                                    <list editable="bottom">
                                         <field name="sequence" widget="handle"/>
                                         <field name="vehicle_type" invisible="True"/>
                                         <field name="vehicle"
@@ -37,30 +37,30 @@
                                                decoration-info="vehicle_type == 'luggage'"
                                         />
                                         <field name="comment"/>
-                                    </tree>
+                                    </list>
                                 </field>
                             </page>
                             <page string="Timetable">
                                 <field name="timetable">
-                                    <tree editable="bottom">
+                                    <list editable="bottom">
                                         <field name="sequence" widget="handle"/>
                                         <field name="station"/>
                                         <field name="arrival_time" widget="float_time"/>
                                         <field name="departure_time" widget="float_time"/>
                                         <field name="stop_code"/>
-                                    </tree>
+                                    </list>
                                 </field>
                             </page>
                             <page string="Reservations">
                                 <field name="reservation_ids">
-                                    <tree>
+                                    <list>
                                         <field name="name"/>
                                         <field name="amount"/>
                                         <field name="type"/>
                                         <field name="phone_number"/>
                                         <field name="email"/>
                                         <field name="comment" widget="text" options="{'maxlength': 50}"/>
-                                    </tree>
+                                    </list>
                                 </field>
                             </page>
                         </notebook>
@@ -73,7 +73,7 @@
             <field name="name">train.tree</field>
             <field name="model">train_management.train</field>
             <field name="arch" type="xml">
-                <tree string="Train">
+                <list string="Train">
                     <field name="name"/>
                     <field name="railway_company"/>
                     <field name="start_station"/>
@@ -84,21 +84,21 @@
                     <field name="train_composition"/>
                     <field name="distance"/>
                     <field name="frequency"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="train_action" model="ir.actions.act_window">
             <field name="name">Train</field>
             <field name="res_model">train_management.train</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
         <record id="day_planning_train_action_domain" model="ir.actions.act_window">
             <field name="name">Train</field>
             <field name="res_model">train_management.train</field>
             <field name="domain">[('day_planning_id', '=', active_id)]</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
 

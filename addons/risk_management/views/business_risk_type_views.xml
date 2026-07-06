@@ -17,16 +17,16 @@
         <field name="name">business.risk.type.tree</field>
         <field name="model">risk_management.business_risk_type</field>
         <field name="arch" type="xml">
-            <tree string="Business risk type" editable="bottom">
+            <list string="Business risk type" editable="bottom">
                 <field name="name"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="business_risk_type_action" model="ir.actions.act_window">
         <field name="name">Business risk type</field>
         <field name="res_model">risk_management.business_risk_type</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
 </odoo>

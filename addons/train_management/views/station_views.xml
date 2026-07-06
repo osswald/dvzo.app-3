@@ -26,19 +26,19 @@
             <field name="name">station.tree</field>
             <field name="model">train_management.station</field>
             <field name="arch" type="xml">
-                <tree string="Station">
+                <list string="Station">
                     <field name="name"/>
                     <field name="didok"/>
                     <field name="bpuic"/>
                     <field name="short_name"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="station_action" model="ir.actions.act_window">
             <field name="name">Stations</field>
             <field name="res_model">train_management.station</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
         <record id="station_search" model="ir.ui.view">

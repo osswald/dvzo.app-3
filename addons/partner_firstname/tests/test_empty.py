@@ -5,10 +5,10 @@
 
 To have more accurate results, remove the ``mail`` module before testing.
 """
-from odoo.tests.common import TransactionCase
+
+from odoo.tests import TransactionCase
 
 from .. import exceptions as ex
-from .base import MailInstalled
 
 
 class CompanyCase(TransactionCase):
@@ -24,7 +24,7 @@ class CompanyCase(TransactionCase):
             with self.assertRaises(ex.EmptyNamesError):
                 model.create(data)
         finally:
-            super(CompanyCase, self).tearDown()
+            super().tearDown()
 
     def test_name_empty_string(self):
         """Test what happens when the name is an empty string."""
@@ -39,22 +39,6 @@ class PersonCase(CompanyCase):
     """Test ``res.partner`` when it is a person."""
 
     context = {"default_is_company": False, "default_type": "contact"}
-
-
-class UserCase(CompanyCase, MailInstalled):
-    """Test ``res.users``."""
-
-    model = "res.users"
-    context = {"default_login": "user@example.com"}
-
-    def tearDown(self):
-        # Cannot create users if ``mail`` is installed
-        if self.mail_installed():
-            # Skip tests
-            super(CompanyCase, self).tearDown()
-        else:
-            # Run tests
-            super(UserCase, self).tearDown()
 
 
 class AddressCase(TransactionCase):

@@ -24,17 +24,17 @@
             <field name="name">copy.recipient.tree</field>
             <field name="model">train_management.copy_recipient</field>
             <field name="arch" type="xml">
-                <tree string="Day Planning Text" editable="bottom">
+                <list string="Day Planning Text" editable="bottom">
                     <field name="name"/>
                     <field name="email"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="copy_recipient_action" model="ir.actions.act_window">
             <field name="name">Copy recipient</field>
             <field name="res_model">train_management.copy_recipient</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
 
